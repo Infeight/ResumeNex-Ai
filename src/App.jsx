@@ -7,6 +7,7 @@ import SignIn from "./Pages/SignIn";
 import UserDashboard from "./Pages/UserDashboard";
 import TemplatesPage from "./Pages/TemplatesPage";
 import CoverLetterTemplates from "./components/CoverLetterFolder/CoverLetterTemplates";
+import StepsCoverLetter from "./components/CoverLetterFolder/StepsCoverLetter";
 
 const App = () => {
   return (
@@ -20,6 +21,10 @@ const App = () => {
         <Route
           path="/cover_letter_templates"
           element={<CoverLetterTemplates />}
+        />
+        <Route
+          path="/cover_letter_templates/steps/:templateId"
+          element={<StepsCoverLetter />}
         />
         <Route path="*" element={<h1>404 - Not Found</h1>} />{" "}
       </Routes>
