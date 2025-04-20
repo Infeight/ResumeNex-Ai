@@ -99,43 +99,60 @@ const FinalPageCL = () => {
 
   return (
     <>
-      <section className="max-w-[1440px] border mx-auto min-w-auto bg-amber-400 flex ">
+      <section className="w-full max-w-[1440px] mx-auto bg-amber-400 flex flex-col md:flex-row">
         {/* Left Section - Cover Letter Display */}
-        <div className="min-w-[689px] p-[30px] bg-[#E8ECF5] border border-[#D3D9DE]">
-          <img src="/img/demoCL.png" alt="CL" className="w-full" />
+        <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#E8ECF5] border border-[#D3D9DE]">
+          <img
+            src="/img/demoCL.png"
+            alt="Cover Letter"
+            className="w-full h-auto object-contain"
+          />
         </div>
-        {/* Right Section - Actions btns*/}
-        <div className="max-w-[751px] w-full flex flex-col justify-between bg-white p-[30px]">
-          {/* select templates */}
-          <div className="flex flex-col gap-5 border border-[#D3D9DE] bg-[#FDFDFE] p-[20px] rounded-[30px] overflow-x-visible">
+
+        {/* Right Section - Actions Buttons */}
+        <div className="w-full md:w-1/2 flex flex-col gap-10 bg-white p-4 sm:p-6">
+          {/* Select Templates */}
+          <div className="flex flex-col gap-5 border border-[#D3D9DE] bg-[#FDFDFE] p-4 sm:p-5 rounded-[30px]">
             {/* Header */}
-            <div className="flex items-center gap-10">
-              <h1 className="font-lexend font-semibold text-[30px] text-[#212529]">
+            <div className="flex items-center justify-between gap-4">
+              <h1 className="font-lexend font-semibold text-xl sm:text-2xl md:text-3xl text-[#212529]">
                 Change Templates
               </h1>
-              <div className="flex gap-[16px]">
-                <div className="cursor-pointer" onClick={handlePrev}>
-                  <img src="/Icons/LeftArrow.svg" alt="LeftArrow" />
-                </div>
-                <div className="cursor-pointer" onClick={handleNext}>
-                  <img src="/Icons/RightArrow.svg" alt="RightArrow" />
-                </div>
+              <div className="flex gap-4">
+                <button className="cursor-pointer" onClick={handlePrev}>
+                  <img
+                    src="/Icons/LeftArrow.svg"
+                    alt="Left Arrow"
+                    className="w-6 h-6"
+                  />
+                </button>
+                <button className="cursor-pointer" onClick={handleNext}>
+                  <img
+                    src="/Icons/RightArrow.svg"
+                    alt="Right Arrow"
+                    className="w-6 h-6"
+                  />
+                </button>
               </div>
             </div>
 
             {/* Carousel */}
-            <div className="overflow-x-visible w-full">
+            <div className="w-full">
               <Swiper
                 ref={swiperRef}
-                slidesPerView={3} // Show 3 slides
-                spaceBetween={20}
+                slidesPerView={1}
+                spaceBetween={10}
+                breakpoints={{
+                  840: { slidesPerView: 2, spaceBetween: 15 },
+                  1024: { slidesPerView: 3, spaceBetween: 20 },
+                }}
                 modules={[Navigation]}
                 className="w-full"
               >
                 {coverLetter.map((resume, index) => (
                   <SwiperSlide key={index}>
                     <div
-                      className="group h-[288px] overflow-hidden relative hover:scale-95 transition duration-300 ease-in-out cursor-pointer border border-[#dcdcdc] rounded-[10px]"
+                      className="group h-64 sm:h-72 overflow-hidden relative hover:scale-95 transition duration-300 ease-in-out cursor-pointer border border-[#dcdcdc] rounded-[10px]"
                       onClick={() => openPopup(resume.img, resume.url)}
                     >
                       <img
@@ -144,19 +161,19 @@ const FinalPageCL = () => {
                         alt={`Resume ${index + 1}`}
                       />
                       <div className="absolute inset-0 transition duration-300 ease-in-out group-hover:bg-[rgba(0,0,0,0.27)] rounded-[5px]"></div>
-                      <div
+                      <button
                         onClick={(e) => {
                           e.stopPropagation();
                           handleUrlForBtn(resume.url);
                         }}
-                        className="absolute bottom-3 left-5 bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10"
+                        className="absolute bottom-3 left-3 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10"
                       >
                         Select This Template
-                      </div>
+                      </button>
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
                         <img
                           src="/Icons/zoom.svg"
-                          className="w-10"
+                          className="w-8 sm:w-10"
                           alt="Zoom Icon"
                         />
                       </div>
@@ -166,29 +183,41 @@ const FinalPageCL = () => {
               </Swiper>
             </div>
           </div>
-          <div className="border border-[#D3D9DE] bg-[#FDFDFE]">asdasdas</div>
+          <div className="">
+            <div className="w-full px-[25px] py-[20px] bg-[#E3F6FF] border border-[#74D4FF] flex justify-between rounded-[20px]">
+              <div className="flex gap-[12px]">
+                <div className="p-[9.6px] rounded-[12px] bg-white">PDF</div>
+                <div className="p-[9.6px] rounded-[12px] bg-white">DOCX</div>
+              </div>
+              <div className="px-[24px] py-[9.6px] rounded-[12px] border border-blue-700">
+                Download
+              </div>
+            </div>
+            <div></div>
+          </div>
         </div>
       </section>
 
+      {/* Popup Modal */}
       {popupImage && (
         <div
-          className="fixed inset-0 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300"
+          className="fixed inset-0 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300"
           onClick={closePopup}
         >
           <div
-            className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[95vh] transform transition-all duration-300 scale-100 hover:scale-[1.02]"
+            className="relative w-full max-w-4xl bg-white rounded-2xl shadow-2xl overflow-hidden max-h-[90vh] transform transition-all duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
-              className="absolute top-4 right-4 bg-red-500 text-white w-10 h-10 flex items-center justify-center rounded-full hover:bg-red-600 transition-transform duration-300 hover:rotate-90 shadow-lg cursor-pointer"
+              className="absolute top-4 right-4 bg-red-500 text-white w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full hover:bg-red-600 transition-transform duration-300 hover:rotate-90 shadow-lg cursor-pointer"
               onClick={closePopup}
             >
               ✕
             </button>
 
             {/* Image Container */}
-            <div className="max-h-[80vh] overflow-y-auto custom-scrollbar p-4">
+            <div className="max-h-[75vh] overflow-y-auto custom-scrollbar p-4">
               <img
                 src={popupImage}
                 alt="Expanded Resume"
@@ -197,16 +226,16 @@ const FinalPageCL = () => {
             </div>
 
             {/* Select Button */}
-            <div className="p-6 text-center bg-gray-50">
-              <div
-                className="bg-blue-500 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md hover:bg-blue-600 transition-all duration-300 hover:shadow-lg"
+            <div className="p-4 sm:p-6 text-center bg-gray-50">
+              <button
+                className="bg-blue-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-xl text-base sm:text-lg font-semibold shadow-md hover:bg-blue-600 transition-all duration-300 hover:shadow-lg"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleUrlForBtn(popupBtn);
                 }}
               >
                 Select This Template
-              </div>
+              </button>
             </div>
           </div>
         </div>
