@@ -1,0 +1,178 @@
+import React, { useState } from "react";
+import Plus from "../../../public/Icons/Plus";
+
+const Step2OfCL = () => {
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [date, setDate] = useState("");
+  return (
+    <>
+      <section className="flex flex-col gap-[36px]">
+        {/* education details */}
+        <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full ">
+          <div className="relative  w-fit">
+            <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+              Education Details
+            </h2>
+            <div className="bg-[#E3F6FF] h-2/4 w-3/4 absolute -bottom-0 -left-2 "></div>
+          </div>
+          {/* Two-column grid, responsive to one column on small screens */}
+          <div className="border-l-2 border-[#74D4FF] p-[30px] mx-[20px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
+              {/* Full Name Field */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  College Name
+                </label>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                  placeholder="John Doe"
+                />
+              </div>
+              {/* Phone Number Field */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  Degree
+                </label>
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                  placeholder="(+91) 12345 67890"
+                />
+              </div>
+              {/* Email Address Field */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  Stream
+                </label>
+                <input
+                  type="text"
+                  value={emailAddress}
+                  onChange={(e) => setEmailAddress(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                  placeholder="Email address"
+                />
+              </div>
+              {/* Date Field */}
+              <div className="flex gap-[13px] ">
+                <div>
+                  <label className="text-[#170F49] font-inter font-medium text-[18px]">
+                    Start Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                    End Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button className="border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F0F9FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd] ">
+            Add More Education <Plus color={"#00A6F4"} />
+          </button>
+        </div>
+
+        {/* work exp */}
+
+        <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full ">
+          <div className="relative  w-fit">
+            <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+              Work Experience{" "}
+              <span className="text-[18px] text-[#A59DAA]"> (Optional)</span>
+            </h2>
+            <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2 "></div>
+          </div>
+          <div className="border-l-2 border-[#9AE600] p-[30px] mx-[20px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
+              {/* Previous Company Name */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  Previous Company Name{" "}
+                </label>
+                <input
+                  type="text"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                  placeholder="John Doe"
+                />
+              </div>
+              {/* job */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  Job Role
+                </label>
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                  placeholder="(+91) 12345 67890"
+                />
+              </div>
+
+              {/* Date Field */}
+              <div className="flex gap-[13px] ">
+                <div>
+                  <label className="text-[#170F49] font-inter font-medium text-[18px]">
+                    Start Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                    End Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button className="border flex items-center gap-1 font-inter text-[#699C01] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#EBFACC] rounded-full hover:scale-95 transition-all cursor-pointer bg-[#EBFACC] hover:bg-[#e5fabc] ">
+            Add Notice Period
+            <Plus color={"#699C01"} />
+          </button>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Step2OfCL;
