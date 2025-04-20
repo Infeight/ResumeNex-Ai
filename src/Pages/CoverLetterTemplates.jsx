@@ -436,7 +436,7 @@ const CoverLetterTemplates = () => {
                   {(continueToSteps || fileName) && (
                     <div
                       onClick={() => navigate(`${templateUrl}`)}
-                      className="font-manrope font-bold text-[20px] text-white bg-[#4C95FB] px-[50px] py-[10px] rounded-full"
+                      className="cursor-pointer font-manrope font-bold text-[20px] text-white bg-[#4C95FB] px-[50px] py-[10px] rounded-full"
                     >
                       Continue
                     </div>

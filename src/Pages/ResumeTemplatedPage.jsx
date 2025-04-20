@@ -5,7 +5,7 @@ import InternResume from "../components/templatesPageComponents/InternResume";
 import Reviews from "../components/commonComponents/Reviews";
 import FAQ from "../components/commonComponents/FAQ";
 
-const TemplatesPage = () => {
+const ResumeTemplatedPage = () => {
   const [selectedExperience, setSelectedExperience] = useState("");
   const [submittedExperience, setSubmittedExperience] = useState("");
 
@@ -97,4 +97,4 @@ const TemplatesPage = () => {
   );
 };
 
-export default TemplatesPage;
+export default ResumeTemplatedPage;

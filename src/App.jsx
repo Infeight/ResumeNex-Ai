@@ -3,21 +3,24 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
 import Footer from "./components/commonComponents/Footer";
 import Navbar from "./components/commonComponents/Navbar";
-import SignIn from "./Pages/SignIn";
 import UserDashboard from "./Pages/UserDashboard";
-import TemplatesPage from "./Pages/TemplatesPage";
-import CoverLetterTemplates from "./components/CoverLetterFolder/CoverLetterTemplates";
+import ResumeTemplatedPage from "./Pages/ResumeTemplatedPage";
 import StepsCoverLetter from "./components/CoverLetterFolder/StepsCoverLetter";
+import CoverLetterTemplates from "./Pages/CoverLetterTemplates";
+import FinalPageCL from "./components/CoverLetterFolder/FinalPageCL";
 
 const App = () => {
   return (
     <Router>
       <Navbar />
       <Routes>
+        {/* =========== home =========== */}
         <Route path="/" element={<Home />} />
-        <Route path="/resumes_templates" element={<TemplatesPage />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/dashboard" element={<UserDashboard />} />
+
+        {/* =========== tool 1 - Ai Resume =========== */}
+        <Route path="/resumes_templates" element={<ResumeTemplatedPage />} />
+
+        {/* =========== tool 2 - Cover Letter =========== */}
         <Route
           path="/cover_letter_templates"
           element={<CoverLetterTemplates />}
@@ -26,7 +29,15 @@ const App = () => {
           path="/cover_letter_templates/steps/:templateId"
           element={<StepsCoverLetter />}
         />
-        <Route path="*" element={<h1>404 - Not Found</h1>} />{" "}
+
+        <Route
+          path="/cover_letter_templates/steps/:templateId/final-download-page"
+          element={<FinalPageCL />}
+        />
+
+        {/* =========== Dashboard =========== */}
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="*" element={<h1>404 - Not Found</h1>} />
       </Routes>
       <Footer />
     </Router>
