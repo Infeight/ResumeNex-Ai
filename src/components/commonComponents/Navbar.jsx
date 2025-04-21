@@ -91,7 +91,7 @@ const Navbar = () => {
                     />
                   </div>
                 </Link>
-                <Link to={"/resume-optimization"} onClick={toggleTool}>
+                <Link to={"/resume_optimization"} onClick={toggleTool}>
                   <div className="relative w-[200px] h-[144px] bg-[#F8F8F8] rounded-[24px] flex cursor-pointer hover:shadow-[0px_0px_0px_2px_#4C95FB] hover:bg-[linear-gradient(to_top_right,#b0d7ff_1%,#F8f8f8_25%)] transition-all overflow-hidden group">
                     <div className="relative z-10 p-[15px] flex items-end">
                       <p className="font-manrope font-bold text-[20px]">

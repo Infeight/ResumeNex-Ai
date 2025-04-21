@@ -92,7 +92,7 @@ const InternResume = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-[30px] w-full bg-green-50 border border-green-200 rounded-[30px] px-[50px] py-[30px] ">
+    <div className="flex flex-col items-center gap-[30px] w-full bg-[#E3F6FF] border border-[#74D4FF] rounded-[30px] px-[50px] py-[30px] ">
       <p className="font-manrope font-extrabold text-[30px] text-center">
         Intern
       </p>
