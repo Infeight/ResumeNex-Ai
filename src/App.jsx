@@ -8,6 +8,7 @@ import ResumeTemplatedPage from "./Pages/ResumeTemplatedPage";
 import StepsCoverLetter from "./components/CoverLetterFolder/StepsCoverLetter";
 import CoverLetterTemplates from "./Pages/CoverLetterTemplates";
 import FinalPageCL from "./components/CoverLetterFolder/FinalPageCL";
+import ResumeOptimization from "./Pages/ResumeOptimization";
 
 const App = () => {
   return (
@@ -34,6 +35,9 @@ const App = () => {
           path="/cover_letter_templates/steps/:templateId/final-download-page"
           element={<FinalPageCL />}
         />
+
+        {/* =========== tool 3 - Resume Optimization =========== */}
+        <Route path="/resume-optimization" element={<ResumeOptimization />} />
 
         {/* =========== Dashboard =========== */}
         <Route path="/dashboard" element={<UserDashboard />} />
