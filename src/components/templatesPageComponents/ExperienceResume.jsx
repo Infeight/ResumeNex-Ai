@@ -148,7 +148,7 @@ const ExperienceResume = () => {
     setPopupBtn(null);
   };
   return (
-    <div className="flex flex-col items-center gap-[30px] w-full bg-[#F2F7FF] border border-[#E2E8F0] rounded-[30px] px-[50px] py-[30px] ">
+    <div className="flex flex-col items-center gap-[30px] w-full bg-[#F8F0FF] border border-[#DAB2FF] rounded-[30px] px-[50px] py-[30px] ">
       <p className="font-manrope font-extrabold text-[30px] text-center">
         Experience & Freshers
       </p>
