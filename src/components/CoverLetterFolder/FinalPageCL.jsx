@@ -99,7 +99,7 @@ const FinalPageCL = () => {
 
   return (
     <>
-      <section className="w-full max-w-[1440px] mx-auto bg-amber-400 flex flex-col md:flex-row">
+      <section className="w-full max-w-[1700px] mx-auto bg-amber-400 flex flex-col md:flex-row">
         {/* Left Section - Cover Letter Display */}
         <div className="w-full md:w-1/2 p-4 sm:p-6 bg-[#E8ECF5] border border-[#D3D9DE]">
           <img
@@ -166,7 +166,8 @@ const FinalPageCL = () => {
                           e.stopPropagation();
                           handleUrlForBtn(resume.url);
                         }}
-                        className="absolute bottom-3 left-3 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10"
+                        className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-blue-500 text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10 text-nowrap"
+                        aria-label={`Select Cover Letter Template ${index + 1}`}
                       >
                         Select This Template
                       </button>
@@ -183,17 +184,65 @@ const FinalPageCL = () => {
               </Swiper>
             </div>
           </div>
-          <div className="">
-            <div className="w-full px-[25px] py-[20px] bg-[#E3F6FF] border border-[#74D4FF] flex justify-between rounded-[20px]">
-              <div className="flex gap-[12px]">
-                <div className="p-[9.6px] rounded-[12px] bg-white">PDF</div>
-                <div className="p-[9.6px] rounded-[12px] bg-white">DOCX</div>
+
+          {/* btns */}
+          <div className="flex flex-col gap-4 md:gap-5 ">
+            <div className="w-full px-4 py-4 md:px-6 md:py-5 bg-[#E3F6FF] border border-[#74D4FF] flex flex-col md:flex-row justify-between rounded-2xl gap-4">
+              <div className="flex flex-wrap gap-3">
+                <div className="font-lexend text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-3 py-2 rounded-xl bg-white flex items-center gap-2 cursor-pointer">
+                  <img
+                    src="/Icons/unSelect.svg"
+                    alt="unSelect"
+                    className="w-4 md:w-5"
+                  />
+                  <img src="/Icons/PDF.svg" alt="PDF" className="w-5 md:w-6" />
+                  PDF
+                </div>
+                <div className="font-lexend text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-3 py-2 rounded-xl bg-white flex items-center gap-2 cursor-pointer">
+                  <img
+                    src="/Icons/unSelect.svg"
+                    alt="unSelect"
+                    className="w-4 md:w-5"
+                  />
+                  <img
+                    src="/Icons/DOCX.svg"
+                    alt="Docx"
+                    className="w-5 md:w-6"
+                  />
+                  Docx
+                </div>
               </div>
-              <div className="px-[24px] py-[9.6px] rounded-[12px] border border-blue-700">
+              <div className="font-lexend text-base md:text-lg border border-[#D3D9DE] text-white px-4 py-2 rounded-xl flex items-center gap-2 cursor-pointer bg-gradient-to-t from-[#336EE7] to-[#4C95FB]">
+                <img
+                  src="/Icons/download.svg"
+                  alt="download"
+                  className="w-5 md:w-6"
+                />
                 Download
               </div>
             </div>
-            <div></div>
+            <div className="flex flex-col sm:flex-row justify-between w-full gap-4">
+              <div className="w-full  font-lexend font-semibold text-base md:text-lg border-2 px-6 py-2 rounded-xl flex items-center justify-center gap-3 cursor-pointer text-[#FE9A00] border-[#FE9A00] bg-[#FFFAF2]">
+                <img
+                  src="/Icons/print.svg"
+                  alt="printer"
+                  className="w-5 md:w-6"
+                />
+                Print
+              </div>
+              <div className="w-full font-lexend font-semibold text-base md:text-lg border-2 px-6 py-2 rounded-xl flex items-center justify-center gap-3 cursor-pointer text-[#9810FA] border-[#9810FA] bg-[#FAF3FF]">
+                <img src="/Icons/mail.svg" alt="mail" className="w-5 md:w-6" />
+                Email
+              </div>
+              <div className="w-full font-lexend font-semibold text-base md:text-lg border-2 px-6 py-2 rounded-xl flex items-center justify-center gap-3 cursor-pointer text-[#00A63E] border-[#00A63E] bg-[#F2FBF5]">
+                <img
+                  src="/Icons/whatsapp.svg"
+                  alt="whatsapp"
+                  className="w-5 md:w-6"
+                />
+                Whatsapp
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -91,19 +91,21 @@ const Navbar = () => {
                     />
                   </div>
                 </Link>
-                <div className="relative w-[200px] h-[144px] bg-[#F8F8F8] rounded-[24px] flex cursor-pointer hover:shadow-[0px_0px_0px_2px_#4C95FB] hover:bg-[linear-gradient(to_top_right,#b0d7ff_1%,#F8f8f8_25%)] transition-all overflow-hidden group">
-                  <div className="relative z-10 p-[15px] flex items-end">
-                    <p className="font-manrope font-bold text-[20px]">
-                      <span className="blueGradient"> AI</span> Resume <br />
-                      Optimization
-                    </p>
+                <Link to={"/resume-optimization"} onClick={toggleTool}>
+                  <div className="relative w-[200px] h-[144px] bg-[#F8F8F8] rounded-[24px] flex cursor-pointer hover:shadow-[0px_0px_0px_2px_#4C95FB] hover:bg-[linear-gradient(to_top_right,#b0d7ff_1%,#F8f8f8_25%)] transition-all overflow-hidden group">
+                    <div className="relative z-10 p-[15px] flex items-end">
+                      <p className="font-manrope font-bold text-[20px]">
+                        <span className="blueGradient"> AI</span> Resume <br />
+                        Optimization
+                      </p>
+                    </div>
+                    <img
+                      src="/ToolsImg/3.png"
+                      alt=""
+                      className="w-[110px] -rotate-[8deg] absolute right-[-50px] bottom-[-10px]transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0"
+                    />
                   </div>
-                  <img
-                    src="/ToolsImg/3.png"
-                    alt=""
-                    className="w-[110px] -rotate-[8deg] absolute right-[-50px] bottom-[-10px]transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0"
-                  />
-                </div>{" "}
+                </Link>
                 <div className="relative w-[200px] h-[144px] bg-[#F8F8F8] rounded-[24px] flex cursor-pointer hover:shadow-[0px_0px_0px_2px_#4C95FB] hover:bg-[linear-gradient(to_top_right,#b0d7ff_1%,#F8f8f8_25%)] transition-all overflow-hidden group">
                   <div className="relative z-10 p-[15px] flex items-end">
                     <p className="font-manrope font-bold text-[20px]">
