@@ -82,7 +82,7 @@ const ResumeOptimization = () => {
             </p>
             <label
               htmlFor="dropzone-file"
-              className={`flex flex-col items-center justify-center w-full h-52 border-4 border-dashed rounded-[16px] cursor-pointer transition-all  bg-white
+              className={`flex flex-col items-center justify-center w-full h-52 border-[3px] border-dashed rounded-[16px] cursor-pointer transition-all  bg-white
     
     hover:border-[#FFD230] 
     ${fileName ? "border-[#FFD230] " : "hover:scale-95 border-[#dcdcdc] "}

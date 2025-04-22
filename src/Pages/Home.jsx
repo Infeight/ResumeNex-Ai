@@ -1,27 +1,38 @@
-import React from "react";
-import HeroSection from "../components/homeComponents/HeroSection";
-import Steps from "../components/homeComponents/Steps";
-import Subscription from "../components/homeComponents/Subscription";
-import Features from "../components/homeComponents/Features";
-import Templates from "../components/homeComponents/Templates";
-import WhyResumeKaro from "../components/homeComponents/WhyResumeKaro";
-import Reviews from "../components/commonComponents/Reviews";
-import Join from "../components/homeComponents/Join";
-import FAQ from "../components/commonComponents/FAQ";
+import React, { Suspense, lazy } from "react";
+import Loading from "../components/commonComponents/Loading";
+
+// Lazy-loaded components
+const HeroSection = lazy(() =>
+  import("../components/homeComponents/HeroSection")
+);
+const Steps = lazy(() => import("../components/homeComponents/Steps"));
+const Subscription = lazy(() =>
+  import("../components/homeComponents/Subscription")
+);
+const Features = lazy(() => import("../components/homeComponents/Features"));
+const Templates = lazy(() => import("../components/homeComponents/Templates"));
+const WhyResumeKaro = lazy(() =>
+  import("../components/homeComponents/WhyResumeKaro")
+);
+const Reviews = lazy(() => import("../components/commonComponents/Reviews"));
+const Join = lazy(() => import("../components/homeComponents/Join"));
+const FAQ = lazy(() => import("../components/commonComponents/FAQ"));
 
 const Home = () => {
   return (
-    <>
-      <HeroSection />
-      <Steps />
-      <Subscription />
-      <Features />
-      <Templates />
-      <WhyResumeKaro />
-      <Reviews />
-      <Join />
-      <FAQ />
-    </>
+    <Suspense fallback={<Loading />}>
+      <>
+        <HeroSection />
+        <Steps />
+        <Subscription />
+        <Features />
+        <Templates />
+        <WhyResumeKaro />
+        <Reviews />
+        <Join />
+        <FAQ />
+      </>
+    </Suspense>
   );
 };
 

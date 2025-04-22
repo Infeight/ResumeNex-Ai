@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import LoginModal from "./LoginModel";
 import { Link } from "react-router-dom";
-import SignInPopup from "./SignInPopup";
 import Login from "./Login";
 
 const Navbar = () => {
