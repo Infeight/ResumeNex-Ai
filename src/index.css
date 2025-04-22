@@ -123,7 +123,7 @@ select:focus {
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -132,7 +132,7 @@ select:focus {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #dcdcdc;
   border-radius: 10px;
   transition: background 0.3s;
 }

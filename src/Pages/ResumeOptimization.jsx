@@ -150,7 +150,7 @@ const ResumeOptimization = () => {
               className={`bg-white border-[3px] rounded-full px-8 py-5  focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[18px] font-medium shadow-sm ${
                 jobRole ? "border-[#FFD230]" : "border-[#DCDCDC] "
               }`}
-              placeholder="John Doe"
+              placeholder="Enter Job Role here"
               value={jobRole} // Bind the state to the value of the input
               onChange={handleInputChange} // Update the state on input change
             />
