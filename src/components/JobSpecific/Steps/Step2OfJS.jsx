@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
-const Step2OfCL = () => {
+import AddIcon from "../../commonComponents/AddIcon";
+
+const Step2OfJS = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
@@ -165,7 +166,7 @@ const Step2OfCL = () => {
             </div>
           </div>
 
-          <button className="border flex items-center gap-1 font-inter text-[#699C01] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#EBFACC] rounded-full hover:scale-95 transition-all cursor-pointer bg-[#EBFACC] hover:bg-[#e5fabc] ">
+          <button className="border flex items-center gap-1 font-inter text-[#699C01] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#EBFACC] rounded-full hover:scale-95 transition-all cursor-pointer  hover:bg-[#e5fabc] ">
             Add Notice Period
             <AddIcon color={"#699C01"} />
           </button>
@@ -175,4 +176,4 @@ const Step2OfCL = () => {
   );
 };
 
-export default Step2OfCL;
+export default Step2OfJS;

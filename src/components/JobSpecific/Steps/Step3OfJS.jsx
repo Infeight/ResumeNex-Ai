@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
+import AddIcon from "../../commonComponents/AddIcon";
 
-const Step3OfCL = () => {
+const Step3OfJS = () => {
   const [fullName, setFullName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
@@ -13,43 +13,16 @@ const Step3OfCL = () => {
         <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full ">
           <div className="relative  w-fit">
             <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
-              Job Details Applying For
+              Projects
             </h2>
             <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2 "></div>
           </div>
           {/* Two-column grid, responsive to one column on small screens */}
           <div className="border-l-2 border-[#FDC700] p-[30px] mx-[20px]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
-              {/* Job Role Field */}
               <div className="flex flex-col">
                 <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Job Role
-                </label>
-                <input
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
-                />
-              </div>
-              {/* Company Name Field */}
-              <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
-                  placeholder="(+91) 12345 67890"
-                />
-              </div>
-              {/* Company Address Field */}
-              <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Company Address
+                  Project Name
                 </label>
                 <input
                   type="text"
@@ -59,22 +32,61 @@ const Step3OfCL = () => {
                   placeholder="Email address"
                 />
               </div>
-              {/*Why this Company?  Field */}
+              {/* Date Field */}
+              <div className="flex gap-[13px] ">
+                <div>
+                  <label className="text-[#170F49] font-inter font-medium text-[18px]">
+                    Start Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+                <div>
+                  {" "}
+                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                    End Year
+                  </label>
+                  <input
+                    type="text"
+                    value={date}
+                    onChange={(e) => setDate(e.target.value)}
+                    className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    placeholder="--/--/----"
+                  />
+                </div>
+              </div>
+              {/* Full Name Field */}
               <div className="flex flex-col">
                 <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Why this Company?{" "}
-                  <span className="text-[#A59DAA] text-[14px]">
-                    (Short paragraph input)
-                  </span>
+                  Tech Used{" "}
                 </label>
                 <input
                   type="text"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
-                  placeholder="--/--/----"
+                  placeholder="John Doe"
                 />
               </div>
+              {/* Phone Number Field */}
+              <div className="flex flex-col">
+                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  About Project
+                </label>
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                  placeholder="(+91) 12345 67890"
+                />
+              </div>
+              {/* Email Address Field */}
             </div>
           </div>
           <button className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer  hover:bg-[#fdfada] ">
@@ -126,40 +138,6 @@ const Step3OfCL = () => {
                   <AddIcon color={"#AD46FF"} />
                 </button>
               </div>
-
-              {/* Achivement */}
-              <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Notable Achievements
-                  <span className="ml-1 text-[#A59DAA] text-[14px]">
-                    (Optional)
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
-                />
-              </div>
-
-              {/* Certifications */}
-              <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Certifications
-                  <span className="ml-1 text-[#A59DAA] text-[14px]">
-                    (Optional)
-                  </span>
-                </label>
-                <input
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -168,4 +146,4 @@ const Step3OfCL = () => {
   );
 };
 
-export default Step3OfCL;
+export default Step3OfJS;

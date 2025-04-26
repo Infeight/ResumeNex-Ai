@@ -1,6 +1,9 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loading from "./components/commonComponents/Loading";
+import JobSpecificResume from "./Pages/JobSpecificResume";
+import JobSpecificTemplates from "./components/JobSpecific/JobSpecificTemplates";
+import StepsOfJS from "./components/JobSpecific/StepsOfJS";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/commonComponents/Navbar"));
@@ -51,6 +54,19 @@ const App = () => {
           <Route
             path="/resume_optimization/final-download-page"
             element={<FinalPageOR />}
+          />
+
+          {/* =========== tool 4 - Resume Optimization =========== */}
+          <Route path="/job_specific_resume" element={<JobSpecificResume />} />
+
+          <Route
+            path="/job_specific_resume/templates"
+            element={<JobSpecificTemplates />}
+          />
+
+          <Route
+            path="/job_specific_resume/templates/:templateIdOfJS/steps"
+            element={<StepsOfJS />}
           />
 
           {/* =========== Dashboard =========== */}

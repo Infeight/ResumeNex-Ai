@@ -147,7 +147,7 @@ const ResumeOptimization = () => {
             </label>
             <input
               type="text"
-              className={`bg-white border-[3px] rounded-full px-8 py-5  focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[18px] font-medium shadow-sm ${
+              className={`bg-white border-[3px] rounded-full px-8 py-5  focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[18px] font-medium ${
                 jobRole ? "border-[#FFD230]" : "border-[#DCDCDC] "
               }`}
               placeholder="Enter Job Role here"
