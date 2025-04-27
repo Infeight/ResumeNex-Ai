@@ -1,30 +1,76 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import Login from "./Login";
 
 const Navbar = () => {
+  const location = useLocation();
+  const isDashboard = location.pathname.includes("dashboard");
+
   const [isToolOpen, setIsToolOpen] = useState(false);
   const [isOrgOpen, setIsOrgOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const navRef = useRef(null);
 
+  // Toggle Tool section
   const toggleTool = () => {
-    setIsToolOpen(!isToolOpen);
-    if (!isToolOpen) {
-      setIsOrgOpen(false); // Close the Org section when Tool section is opened
-    }
+    setIsToolOpen((prev) => {
+      if (!prev) {
+        // If Tool is being opened, close Org and Profile
+        setIsOrgOpen(false);
+        setIsProfileOpen(false);
+      }
+      return !prev; // Toggle Tool open/close
+    });
   };
 
+  // Toggle Org section
   const toggleOrg = () => {
-    setIsOrgOpen(!isOrgOpen);
-    if (!isOrgOpen) {
-      setIsToolOpen(false); // Close the Tool section when Org section is opened
-    }
+    setIsOrgOpen((prev) => {
+      if (!prev) {
+        // If Org is being opened, close Tool and Profile
+        setIsToolOpen(false);
+        setIsProfileOpen(false);
+      }
+      return !prev; // Toggle Org open/close
+    });
   };
+
+  // Toggle Profile Popup
+  const toggleProfilePopup = () => {
+    setIsProfileOpen((prev) => {
+      if (!prev) {
+        // If Profile popup is being opened, close Tool and Org
+        setIsToolOpen(false);
+        setIsOrgOpen(false);
+      }
+      return !prev; // Toggle Profile popup open/close
+    });
+  };
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setIsProfileOpen(false);
+        setIsToolOpen(false);
+        setIsOrgOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full mx-auto px-[50px] py-[15px] border-b-[1.5px] border-[#E5E5E5] flex items-center justify-between text-[#151515] font-inter bg-white">
+      <nav
+        ref={navRef}
+        className="sticky top-0 z-50 w-full mx-auto px-[50px] py-[15px] border-b-[1.5px] border-[#E5E5E5] flex items-center justify-between text-[#151515] font-inter bg-white"
+      >
         <Link to={"/"}>
           <img
             src="/img/Logo.webp"
@@ -192,23 +238,117 @@ const Navbar = () => {
         </section>
 
         <section className="flex items-center gap-[24px] text-[16px] font-medium">
-          <Link to={"/templates"}>
-            <p className="flex items-center gap-[10px] px-[10px] py-[5px] text-white font-semibold rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer ">
-              Build Your Resume <img src="/img/BtnRightArr.svg" alt="" />
-            </p>
-          </Link>
-          <div className="border-[1.5px] py-4 border-[#E5E5E5]"></div>
-          <p
-            onClick={() => setIsModalOpen(true)}
-            className="cursor-pointer hover:text-blue-600 hover:underline"
-          >
-            Sign In
-          </p>
+          {isDashboard ? (
+            // Show a div with letter 'T' when the URL contains 'dashboard'
+            <div className="relative" ref={navRef}>
+              {/* Circle Button */}
+              <div
+                className="w-[38px] h-[38px] flex items-center justify-center bg-blue-500 text-white font-bold text-xl rounded-full cursor-pointer select-none"
+                onClick={toggleProfilePopup}
+              >
+                T
+              </div>
+
+              {/* Popup */}
+              {isProfileOpen && (
+                <div className="absolute top-12 right-0 w-60 bg-[#F0F9FF] rounded-2xl p-2 shadow-lg z-10 border border-[#00A6F4]">
+                  <div className="flex flex-col">
+                    {/* DashBoard */}
+                    <div className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100 transition">
+                      <img
+                        src="/Icons/Sidebar/Dashboard.svg"
+                        alt="DashBoard"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        DashBoard
+                      </span>
+                    </div>
+                    {/* Edit Profile */}
+                    <div className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100 transition">
+                      <img
+                        src="/Icons/profilePopUp/EditProfile.svg"
+                        alt="Edit Profile"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        Edit Profile
+                      </span>
+                    </div>
+
+                    {/* History */}
+                    <div className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100 transition">
+                      <img
+                        src="/Icons/profilePopUp/History.svg"
+                        alt="History"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        History
+                      </span>
+                    </div>
+
+                    {/* Upload Resume */}
+                    <div className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100 transition">
+                      <img
+                        src="/Icons/profilePopUp/Upload%20Resume.svg"
+                        alt="Upload Resume"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        Upload Resume
+                      </span>
+                    </div>
+                    {/* Refer */}
+                    <div className="flex items-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100 transition">
+                      <img
+                        src="/Icons/profilePopUp/Refer.svg"
+                        alt="Refer"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        Refer
+                      </span>
+                    </div>
+
+                    <hr className="m-2  border-[#00A6F4]" />
+
+                    {/* Logout */}
+                    <div className="flex items-center justify-center gap-3 p-3 rounded-lg cursor-pointer hover:bg-blue-100  transition">
+                      <img
+                        src="/Icons/Sidebar/Logout.svg"
+                        alt="Logout"
+                        className="w-5 h-5"
+                      />
+                      <span className="font-inter font-semibold text-[16px] text-[#1E1B39]">
+                        Logout
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          ) : (
+            // Show the original content when the URL doesn't contain 'dashboard'
+            <>
+              <Link to={"/resumes_templates"}>
+                <p className="flex items-center gap-[10px] px-[10px] py-[5px] text-white font-semibold rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer ">
+                  Build Your Resume <img src="/img/BtnRightArr.svg" alt="" />
+                </p>
+              </Link>
+              <div className="border-[1.5px] py-4 border-[#E5E5E5]"></div>
+              <p
+                onClick={() => setIsModalOpen(true)}
+                className="cursor-pointer hover:text-blue-600 hover:underline"
+              >
+                Sign In
+              </p>
+            </>
+          )}
         </section>
       </nav>
 
       {/* signin popup */}
-      {/* <LoginModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} /> */}
       <Login isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );

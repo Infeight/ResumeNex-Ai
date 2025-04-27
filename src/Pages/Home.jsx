@@ -20,19 +20,52 @@ const FAQ = lazy(() => import("../components/commonComponents/FAQ"));
 
 const Home = () => {
   return (
-    <Suspense fallback={<Loading />}>
-      <>
+    <>
+      {/* HeroSection loads independently */}
+      <Suspense fallback={<Loading />}>
         <HeroSection />
+      </Suspense>
+
+      {/* Steps section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Steps />
+      </Suspense>
+
+      {/* Subscription section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Subscription />
+      </Suspense>
+
+      {/* Features section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Features />
+      </Suspense>
+
+      {/* Templates section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Templates />
+      </Suspense>
+
+      {/* WhyResumeKaro section loads independently */}
+      <Suspense fallback={<Loading />}>
         <WhyResumeKaro />
+      </Suspense>
+
+      {/* Reviews section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Reviews />
+      </Suspense>
+
+      {/* Join section loads independently */}
+      <Suspense fallback={<Loading />}>
         <Join />
+      </Suspense>
+
+      {/* FAQ section loads independently */}
+      <Suspense fallback={<Loading />}>
         <FAQ />
-      </>
-    </Suspense>
+      </Suspense>
+    </>
   );
 };
 
