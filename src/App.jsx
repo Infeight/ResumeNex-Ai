@@ -4,6 +4,8 @@ import Loading from "./components/commonComponents/Loading";
 import JobSpecificResume from "./Pages/JobSpecificResume";
 import JobSpecificTemplates from "./components/JobSpecific/JobSpecificTemplates";
 import StepsOfJS from "./components/JobSpecific/StepsOfJS";
+import LinkedInOptemization from "./Pages/LinkedInOptemization";
+import Dashboard from "./Pages/Dashboard";
 
 // Lazy-loaded components
 const Navbar = lazy(() => import("./components/commonComponents/Navbar"));
@@ -69,8 +71,16 @@ const App = () => {
             element={<StepsOfJS />}
           />
 
+          {/* =========== tool 4 - Resume Optimization =========== */}
+          <Route
+            path="/linkedIn_optimization"
+            element={<LinkedInOptemization />}
+          />
+
           {/* =========== Dashboard =========== */}
-          <Route path="/dashboard" element={<UserDashboard />} />
+          <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+
           <Route path="*" element={<h1>404 - Not Found</h1>} />
         </Routes>
         <Footer />
