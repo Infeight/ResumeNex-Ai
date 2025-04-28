@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loading from "./components/commonComponents/Loading";
+import ResumeForm from "./components/AIResume/ResumeForm";
 
 // Lazy-loaded components for pages
 const Home = lazy(() => import("./Pages/Home"));
@@ -41,6 +42,7 @@ const App = () => {
 
           {/* =========== tool 1 - Ai Resume =========== */}
           <Route path="/resumes_templates" element={<ResumeTemplatedPage />} />
+          <Route path="/resumes_templates/steps" element={<ResumeForm />} />
 
           {/* =========== tool 2 - Cover Letter =========== */}
           <Route
@@ -48,11 +50,11 @@ const App = () => {
             element={<CoverLetterTemplates />}
           />
           <Route
-            path="/cover_letter_templates/steps/:templateId"
+            path="/cover_letter_templates/steps/:templateIdOfCL"
             element={<StepsCoverLetter />}
           />
           <Route
-            path="/cover_letter_templates/steps/:templateId/final-download-page"
+            path="/cover_letter_templates/steps/:templateIdOfCL/final-download-page"
             element={<FinalPageCL />}
           />
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Step1OfJS from "./Steps/Step1OfJS";
 import Step2OfJS from "./Steps/Step2OfJS";
 import Step3OfJS from "./Steps/Step3OfJS";
@@ -7,7 +7,6 @@ import Step4OfJS from "./Steps/Step4OfJS";
 import Step5OfJS from "./Steps/Step5OfJS";
 
 const StepsOfJS = () => {
-  const { templateId } = useParams();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 5;
 

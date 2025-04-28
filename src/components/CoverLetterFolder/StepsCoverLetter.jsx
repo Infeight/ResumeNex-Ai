@@ -6,7 +6,7 @@ import Step3OfCL from "./Step3OfCL";
 import Step4OfCL from "./Step4OfCL";
 
 const StepsCoverLetter = () => {
-  const { templateId } = useParams();
+  const { templateIdOfCL } = useParams();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
 
@@ -80,7 +80,7 @@ const StepsCoverLetter = () => {
 
         {currentStep === totalSteps ? (
           <Link
-            to={`/cover_letter_templates/steps/${templateId}/final-download-page`}
+            to={`/cover_letter_templates/steps/${templateIdOfCL}/final-download-page`}
           >
             <button className="px-[30px] py-[15px] -mt-5 rounded-full text-white transition-all cursor-pointer bg-[#4C95FB] hover:scale-95">
               Create AI Cover Letter

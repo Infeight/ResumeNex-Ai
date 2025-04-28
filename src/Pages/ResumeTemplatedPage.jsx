@@ -3,14 +3,12 @@ import Loading from "../components/commonComponents/Loading";
 
 // Lazy-loaded components
 const ExperienceResume = lazy(() =>
-  import("../components/templatesPageComponents/ExperienceResume")
+  import("../components/AIResume/ExperienceResume")
 );
 const FresherResume = lazy(() =>
-  import("../components/templatesPageComponents/FresherResume")
+  import("../components/AIResume/FresherResume")
 );
-const InternResume = lazy(() =>
-  import("../components/templatesPageComponents/InternResume")
-);
+const InternResume = lazy(() => import("../components/AIResume/InternResume"));
 const Reviews = lazy(() => import("../components/commonComponents/Reviews"));
 const FAQ = lazy(() => import("../components/commonComponents/FAQ"));
 
