@@ -173,7 +173,7 @@ const ExperienceResume = () => {
 
             {/* Select Button with Router Link */}
             <Link
-              to={resume.url}
+              to={"/resumes_templates/steps"}
               className="absolute bottom-3 left-5 bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10"
               onClick={(e) => e.stopPropagation()} // Prevents popup trigger
             >
@@ -217,7 +217,7 @@ const ExperienceResume = () => {
             {/* Select Button */}
             <div className="p-6 text-center bg-gray-50">
               <Link
-                to={popupBtn}
+                to={"/resumes_templates/steps"}
                 className="bg-blue-500 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md hover:bg-blue-600 transition-all duration-300 hover:shadow-lg"
                 onClick={(e) => e.stopPropagation()}
               >
