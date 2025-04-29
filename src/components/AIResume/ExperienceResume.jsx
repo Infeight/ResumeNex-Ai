@@ -168,7 +168,7 @@ const ExperienceResume = () => {
               alt={`Resume ${index + 1}`}
             />
 
-            {/* Black Fade */}
+            {/* Black Fades */}
             <div className="w-full h-full transition duration-300 ease-in-out group-hover:bg-[rgba(0,0,0,0.27)] absolute top-0 rounded-[5px] "></div>
 
             {/* Select Button with Router Link */}
