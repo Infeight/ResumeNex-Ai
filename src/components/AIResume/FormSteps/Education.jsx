@@ -51,7 +51,7 @@ const Education = () => {
         <div className="w-16 h-5 bg-[#DFF2FE] -mt-8"></div>
       </div>
 
-      <div className="flex flex-col w-full max-w-[600px] ml-3 border-l-[2px] border-[#74D4FF] pb-10 pl-6 font-inter">
+      <div className="flex flex-col w-full max-w-[600px] ml-3 border-l-[2px] border-[#74D4FF] pb-10 pl-6 font-inter sm:ml-0 sm:pl-4">
         {education.map((edu, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
             <div className="flex items-center justify-between px-5 py-2 border border-[#B8E6FE] bg-[#F0F9FF] rounded-lg text-[#212529] text-[16px] font-medium">
@@ -71,7 +71,7 @@ const Education = () => {
                 placeholder="College Name"
                 value={edu.collegeName}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-md px-4 w-full focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                className="w-full h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -79,7 +79,7 @@ const Education = () => {
                 placeholder="Degree"
                 value={edu.degree}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-md px-4 w-full focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                className="w-full h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -87,7 +87,7 @@ const Education = () => {
                 placeholder="Stream"
                 value={edu.stream}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-md px-4 w-full focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                className="w-full h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -95,7 +95,7 @@ const Education = () => {
                 placeholder="CGPA / Percentage"
                 value={edu.cgpa}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-md px-4 w-full focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                className="w-full h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -103,22 +103,22 @@ const Education = () => {
                 placeholder="College Location"
                 value={edu.location}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-md px-4 w-full focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                className="w-full h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
               />
-              <div className="flex gap-4 text-gray-400">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="date"
                   name="startDate"
                   value={edu.startDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                  className="w-full sm:w-1/2 h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
                 />
                 <input
                   type="date"
                   name="endDate"
                   value={edu.endDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#00A6F4]"
+                  className="w-full sm:w-1/2 h-[56px] border border-[#D3D9DE] bg-white rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#00A6F4] placeholder:text-[#A59DAA]"
                 />
               </div>
             </div>

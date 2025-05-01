@@ -51,10 +51,10 @@ const Projects = () => {
         </h2>
         <div className="w-14 h-5 bg-[#ECFCCA] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-[527px] ml-3 border-l-[2px] border-[#9AE600] pb-[40px] pl-[30px] gap-[20px] font-inter">
+      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#9AE600] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
-            <h2 className="flex items-center justify-between gap-[20px] w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#D8F999] bg-[#F7FEE7] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
+            <h2 className="flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#D8F999] bg-[#F7FEE7] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
               <span>{index + 1}. Project</span>
               <img
                 src={deleteicon}
@@ -71,7 +71,7 @@ const Projects = () => {
                 placeholder="Project Name"
                 value={project.name}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] px-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -79,7 +79,7 @@ const Projects = () => {
                 placeholder="Technologies Used"
                 value={project.technologies}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] px-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
               />
               <input
                 type="url"
@@ -87,29 +87,29 @@ const Projects = () => {
                 placeholder="Project Link (Optional)"
                 value={project.link}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] px-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
               />
               <textarea
                 name="description"
                 placeholder="Project Description"
                 value={project.description}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[100px] border rounded-[8px] px-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                className="w-full h-[100px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
               />
-              <div className="flex gap-4 font-inter text-gray-400">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="date"
                   name="startDate"
                   value={project.startDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
                 />
                 <input
                   type="date"
                   name="endDate"
                   value={project.endDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
                 />
               </div>
               <div className="flex flex-col relative w-full">
@@ -118,7 +118,7 @@ const Projects = () => {
                   placeholder="Summary (Bullet Points)"
                   value={project.summary}
                   onChange={(e) => handleChange(index, e)}
-                  className="border rounded-[8px] px-[15px] w-full h-32 focus:outline-none focus:ring-1 focus:ring-[#9AE600]"
+                  className="w-full h-32 bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
                 />
                 <button
                   className="flex items-center font-inter text-white px-[10px] py-[7px] gap-[9px] absolute bottom-2 right-2 rounded-[35px] shadow-[0px_4px_5px_0px_#4C95FB40] text-sm"

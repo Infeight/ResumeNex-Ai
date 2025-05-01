@@ -48,10 +48,10 @@ const Certificates = () => {
         </div>
         <div className="w-24 h-5 bg-[#F3E8FF] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter">
+      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
         {certificates.map((cert, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
-            <h2 className="flex items-center justify-between gap-[20px] w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#DAB2FF] bg-[#FAF5FF] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
+            <h2 className="flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#DAB2FF] bg-[#FAF5FF] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
               <span>{index + 1}. Certificate Name</span>
               <img
                 src={deleteicon}
@@ -68,7 +68,7 @@ const Certificates = () => {
                 placeholder="Certificate Name"
                 value={cert.name}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -76,16 +76,16 @@ const Certificates = () => {
                 placeholder="Issuing Organization"
                 value={cert.organization}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
-              <div className="flex gap-4 font-inter text-gray-400">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="date"
                   name="issueDate"
                   placeholder="Issue Date"
                   value={cert.issueDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
                 />
                 <input
                   type="date"
@@ -93,7 +93,7 @@ const Certificates = () => {
                   placeholder="Expiry Date (Optional)"
                   value={cert.expiryDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
                 />
               </div>
               <input
@@ -102,7 +102,7 @@ const Certificates = () => {
                 placeholder="Certificate Link (Optional)"
                 value={cert.link}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
             </div>
           </div>

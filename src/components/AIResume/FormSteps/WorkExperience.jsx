@@ -47,10 +47,10 @@ const WorkExperience = () => {
         </h2>
         <div className="w-28 h-5 bg-[#FEF9C2] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-[527px] ml-3 border-l-[2px] border-[#FDC700] pb-[40px] pl-[30px] gap-[20px] font-inter">
+      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#FDC700] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
         {workExperience.map((work, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
-            <h2 className="flex items-center justify-between gap-[20px] w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#FFDF20] bg-[#FEFCE8] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
+            <h2 className="flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#FFDF20] bg-[#FEFCE8] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
               <span>{index + 1}. Company name</span>
               <img
                 src={deleteicon}
@@ -67,7 +67,7 @@ const WorkExperience = () => {
                 placeholder="Company Name"
                 value={work.companyName}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#FFDF20]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#FFDF20] placeholder:text-[#A59DAA]"
               />
               <input
                 type="text"
@@ -75,16 +75,16 @@ const WorkExperience = () => {
                 placeholder="Job Title/Internship Role"
                 value={work.jobTitle}
                 onChange={(e) => handleChange(index, e)}
-                className="h-[56px] border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full focus:outline-none focus:ring-1 focus:ring-[#FFDF20]"
+                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#FFDF20] placeholder:text-[#A59DAA]"
               />
-              <div className="flex gap-4 font-inter text-gray-400">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <input
                   type="date"
                   name="startDate"
                   placeholder="Start Date"
                   value={work.startDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#FFDF20]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#FFDF20] placeholder:text-[#A59DAA]"
                 />
                 <input
                   type="date"
@@ -92,7 +92,7 @@ const WorkExperience = () => {
                   placeholder="End Date"
                   value={work.endDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-1/2 h-[56px] border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#FFDF20]"
+                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#FFDF20] placeholder:text-[#A59DAA]"
                 />
               </div>
               <div className="relative w-full">
@@ -101,7 +101,7 @@ const WorkExperience = () => {
                   placeholder="Responsibilities (Bullet Points)"
                   value={work.responsibilities}
                   onChange={(e) => handleChange(index, e)}
-                  className="border rounded-[8px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full h-32 focus:outline-none focus:ring-1 focus:ring-[#FFDF20]"
+                  className="w-full h-32 bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#FFDF20] placeholder:text-[#A59DAA]"
                 />
                 <button
                   className="flex items-center font-inter text-white px-[10px] py-[7px] gap-[9px] absolute bottom-4 right-2 rounded-[35px] shadow-[0px_4px_5px_0px_#4C95FB40] text-sm"

@@ -109,10 +109,10 @@ const AdditionalSections = ({ additional, setAdditional }) => {
         <div className="w-24 h-5 bg-[#FEF9C2] -mt-8"></div>
       </div>
 
-      <div className="flex flex-col w-[527px] ml-3 border-l-[2px] border-[#FDC700] pb-[40px] pl-[30px] gap-[40px] font-inter">
+      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#FDC700] pb-[40px] pl-[30px] gap-[40px] font-inter sm:ml-0 sm:pl-4">
         {/* LANGUAGES */}
         <div>
-          <h3 className="text-[16px] font-inter font-semibold border-[#FFDF20] bg-[#FEFCE8] text-[#212529] rounded-[10px] px-[20px] py-[5px] border-[1px]">
+          <h3 className="text-[16px] font-inter font-semibold border-[#FFDF20] bg-[#FEFCE8] text-[#212529] rounded-[10px] px-[20px] py-[5px] border">
             1. Languages
           </h3>
           <div className="mt-[10px] border px-4 py-4 border-[#FFDF20] bg-[#FEFCE8] text-[#212529] rounded-xl">
@@ -137,26 +137,25 @@ const AdditionalSections = ({ additional, setAdditional }) => {
                   </div>
                 ))}
             </div>
-            <div className="flex flex-col bg-[#FFFFFF] md:flex-row gap-2 items-center justify-center w-[457px] h-[56px] p-[16px] px-[15px] py-[16px] border border-[1px] rounded-[8px] focus-within:ring-2 focus:ring-1 focus:ring-[#FDC700]">
-              <div className="relative w-full ">
+            <div className="flex flex-col sm:flex-row gap-2 items-center justify-center w-full h-[56px] border border-[#D3D9DE] rounded-[8px] focus-within:ring-1 focus:ring-[#FDC700] bg-white">
+              <div className="relative w-full">
                 <input
                   list="languages"
                   value={languageInput}
                   onChange={(e) => setLanguageInput(e.target.value)}
                   placeholder="Type a language"
-                  className="rounded-lg px-4 py-2 w-full pr-[120px] border-none outline-none"
+                  className="w-full h-[56px] bg-white border-none px-[15px] py-[16px] rounded-[8px] outline-none placeholder:text-[#A59DAA]"
                 />
                 <datalist id="languages">
                   {languagesList.map((lang, idx) => (
                     <option key={idx} value={lang} />
                   ))}
                 </datalist>
-
-                <div className="absolute right-1 top-0.5 flex items-center bg-white p-1 rounded-lg">
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
                   <select
                     value={proficiencyInput}
                     onChange={(e) => setProficiencyInput(e.target.value)}
-                    className="h-[28px] px-[8px] py-[2px] rounded-[500px] bg-[#EEEEEE] text-black"
+                    className="h-[32px] pl-[10px] pr-[24px] py-[2px] rounded-[8px] bg-white border border-[#D3D9DE] text-[#212529] text-sm focus:outline-none focus:ring-1 focus:ring-[#FDC700] appearance-none bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iOCIgdmlld0JveD0iMCAwIDEyIDgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMS41TDYgNi41TDExIDEuNSIgc3Ryb2tlPSIjNjY2NjY2IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+')] bg-no-repeat bg-[center_right_0.5rem] hover:border-[#A59DAA] transition-colors cursor-pointer"
                   >
                     {proficiencyLevels.map((level, idx) => (
                       <option key={idx} value={level}>
@@ -164,10 +163,9 @@ const AdditionalSections = ({ additional, setAdditional }) => {
                       </option>
                     ))}
                   </select>
-
                   <button
                     onClick={addLanguage}
-                    className="bg-[#05DF7233] text-[#212529] w-[79px] h-[28px] px-[20px] py-[2px] rounded-[500px] bg-[#05df72]/40 ml-2"
+                    className="bg-[#05df72]/40 text-[#212529] h-[32px] px-5 py-1 rounded-[500px] text-sm font-semibold hover:bg-[#05df72]/60 transition-colors"
                   >
                     Enter
                   </button>
@@ -179,15 +177,15 @@ const AdditionalSections = ({ additional, setAdditional }) => {
 
         {/* HOBBIES */}
         <div>
-          <h3 className="text-[16px] font-inter font-semibold border-[#DAB2FF] bg-[#FAF5FF] text-[#212529] rounded-[10px] px-[20px] py-[5px] border-[1px]">
+          <h3 className="text-[16px] font-inter font-semibold border-[#DAB2FF] bg-[#FAF5FF] text-[#212529] rounded-[10px] px-[20px] py-[5px] border">
             2. Hobbies & Interests
           </h3>
           <div className="mt-[10px] border px-4 py-4 border-[#DAB2FF] bg-[#FAF5FF] text-[#212529] rounded-xl">
-            <div className="flex flex-wrap gap-2 mb-2 ">
+            <div className="flex flex-wrap gap-2 mb-2">
               {safeHobbies.map((hobby, index) => (
                 <div
                   key={index}
-                  className="flex items-center w-auto h-6 bg-[#FFFFFF] border border-[#212529] text-[#212529] px-3 py-1 rounded-full text-base font-medium leading-6"
+                  className="flex items-center w-auto h-6 bg-white border border-[#212529] text-[#212529] px-3 py-1 rounded-full text-base font-medium leading-6"
                 >
                   {hobby}
                   <img
@@ -199,18 +197,18 @@ const AdditionalSections = ({ additional, setAdditional }) => {
                 </div>
               ))}
             </div>
-            <div className="flex gap-2 relative items-center border rounded-[8px] pt-[8px] pr-[15px] pb-[8px] pl-[15px] w-full min-h-[56px] bg-white focus-within:ring-2 focus:ring-1 focus:ring-[#FDC700]">
+            <div className="flex gap-2 relative items-center border border-[#D3D9DE] rounded-[8px] w-full min-h-[56px] bg-white focus-within:ring-1 focus:ring-[#FDC700]">
               <input
                 type="text"
                 value={hobbyInput}
                 onChange={(e) => setHobbyInput(e.target.value)}
                 placeholder="Type a hobby or interest"
-                className="border rounded-lg px-4 py-2 w-full border-none outline-none"
+                className="w-full h-[56px] bg-white border-none px-[15px] py-[16px] rounded-[8px] outline-none placeholder:text-[#A59DAA]"
               />
-              <div className="absolute right-1 top-2.5 flex items-center bg-white p-1 rounded-lg">
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
                 <button
                   onClick={addHobby}
-                  className="bg-[#05DF7233] text-[#212529] w-[79px] h-[28px] px-[20px] py-[2px] rounded-[500px] bg-[#05df72]/40"
+                  className="bg-[#05df72]/40 text-[#212529] w-[79px] h-[32px] px-[20px] py-[2px] rounded-[500px] text-sm font-semibold hover:bg-[#05df72]/60 transition-colors"
                 >
                   Enter
                 </button>
@@ -221,7 +219,7 @@ const AdditionalSections = ({ additional, setAdditional }) => {
 
         {/* ACHIEVEMENTS & AWARDS */}
         <div>
-          <h3 className="text-[16px] font-inter text-[#212529] font-semibold border-[#B8E6FE] bg-[#F0F9FF] rounded-[10px] px-[20px] py-[5px] border-[1px] mb-[10px]">
+          <h3 className="text-[16px] font-inter text-[#212529] font-semibold border-[#B8E6FE] bg-[#F0F9FF] rounded-[10px] px-[20px] py-[5px] border mb-[10px]">
             3. Achievements & Awards
           </h3>
           {safeAchievements.map((ach, index) => (
@@ -233,7 +231,7 @@ const AdditionalSections = ({ additional, setAdditional }) => {
                   placeholder="Achievement Name"
                   value={ach.name}
                   onChange={(e) => handleAchievementChange(index, e)}
-                  className="h-[56px] pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full border rounded-md px-4 focus:outline-none focus:ring-1 focus:ring-[#5CBEFE]"
+                  className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#5CBEFE] placeholder:text-[#A59DAA]"
                 />
                 <input
                   type="text"
@@ -241,7 +239,7 @@ const AdditionalSections = ({ additional, setAdditional }) => {
                   placeholder="Issuing Organization"
                   value={ach.organization}
                   onChange={(e) => handleAchievementChange(index, e)}
-                  className="h-[56px]  pt-[16px] pr-[15px] pb-[16px] pl-[15px] w-full border rounded-md focus:outline-none focus:ring-1 focus:ring-[#5CBEFE]"
+                  className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#5CBEFE] placeholder:text-[#A59DAA]"
                 />
                 <img
                   src={deleteicon}
@@ -254,7 +252,7 @@ const AdditionalSections = ({ additional, setAdditional }) => {
           ))}
           <button
             onClick={addAchievement}
-            className="inline-flex items-center gap-[5px] px-[10px] py-[2px] bg-[#F0F9FF] border border-[#5CBEFE] rounded-[8px] text-[#212529] font-['Inter'] text-[15px] leading-[24px]"
+            className="inline-flex items-center gap-[5px] px-[12px] py-[6px] bg-[#F0F9FF] border border-[#5CBEFE] rounded-[8px] text-[#212529] font-inter text-[15px] font-semibold hover:bg-[#E0F2FE] transition-colors"
           >
             <span>Add Achievement</span>
             <img src={add_circle} alt="add icon" className="w-4 h-4" />

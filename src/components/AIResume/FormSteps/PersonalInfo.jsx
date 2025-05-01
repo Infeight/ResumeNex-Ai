@@ -26,7 +26,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
         </h2>
         <div className="w-40 h-5 bg-[#F3E8FF] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter">
+      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
         <div className="flex flex-wrap gap-[20px] font-inter mt-10">
           {["firstName", "middleName", "lastName"].map((name, idx) => (
             <input
@@ -37,7 +37,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
               value={formData[name]}
               onChange={handleChange}
               autoComplete="off"
-              className="flex-1 min-w-[150px] h-[56px] border rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+              className="flex-1 min-w-[150px] sm:min-w-[120px] h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
             />
           ))}
         </div>
@@ -48,7 +48,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
           value={formData.jobTitle}
           onChange={handleChange}
           autoComplete="off"
-          className="border rounded-[8px] px-[15px] py-[16px] w-full h-[56px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
         />
         <input
           type="text"
@@ -57,9 +57,9 @@ const PersonalInfo = ({ formData, setFormData }) => {
           value={formData.phoneNumber}
           onChange={handleChange}
           autoComplete="off"
-          className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
         />
-        <div className="gap-4 flex flex-wrap">
+        <div className="flex flex-wrap gap-4">
           {["city", "state", "pincode"].map((name, idx) => (
             <input
               key={idx}
@@ -69,7 +69,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
               value={formData[name]}
               onChange={handleChange}
               autoComplete="off"
-              className="flex-1 min-w-[150px] h-[56px] border rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+              className="flex-1 min-w-[150px] sm:min-w-[100px] h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
             />
           ))}
         </div>
@@ -80,11 +80,11 @@ const PersonalInfo = ({ formData, setFormData }) => {
           value={formData.email}
           onChange={handleChange}
           autoComplete="off"
-          className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
         />
         <div className="mt-6 p-4 border-2 border-dashed border-[#DAB2FF] rounded-xl bg-[#FAF5FF]">
           <div className="flex flex-col gap-2">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-semibold text-gray-800 bg-[#DAB2FF] px-3 py-1 rounded-3xl">
                 Optional
               </span>
@@ -115,7 +115,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
                 value={formData.linkedin}
                 onChange={handleChange}
                 autoComplete="off"
-                className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
             )}
             {showInputs.github && (
@@ -126,7 +126,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
                 value={formData.github}
                 onChange={handleChange}
                 autoComplete="off"
-                className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
             )}
             {showInputs.figma && (
@@ -137,7 +137,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
                 value={formData.figma}
                 onChange={handleChange}
                 autoComplete="off"
-                className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
             )}
             {showInputs.other && (
@@ -148,7 +148,7 @@ const PersonalInfo = ({ formData, setFormData }) => {
                 value={formData.otherLink}
                 onChange={handleChange}
                 autoComplete="off"
-                className="h-[56px] border rounded-[8px] px-[15px] py-[16px] w-full focus:outline-none focus:ring-1 focus:ring-[#DAB2FF]"
+                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
               />
             )}
           </div>

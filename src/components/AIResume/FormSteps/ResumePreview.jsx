@@ -48,14 +48,14 @@ const ResumePreview = () => {
   };
 
   return (
-    <div className="relative w-full h-[700px] border-l border-gray-300 bg-[#E8ECF5] p-[30px] gap-[30px] overflow-hidden flex">
+    <div className="relative w-full min-h-screen bg-gray-100 p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 p">
       {/* Popup Modal */}
       {isSelectorOpen && (
-        <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 h-[90%] overflow-auto relative p-4">
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 transition-opacity duration-300">
+          <div className="bg-white rounded-2xl shadow-xl w-full max-w-[90%] sm:max-w-[80%] lg:max-w-5xl max-h-[90vh] overflow-y-auto p-4 sm:p-6 relative">
             <button
               onClick={() => setIsSelectorOpen(false)}
-              className="absolute top-2 right-2 text-white bg-red-500 rounded-full px-3 py-1 text-sm"
+              className="absolute top-3 right-3 bg-red-600 text-white rounded-full px-3 py-1.5 text-sm font-semibold hover:bg-red-700 transition-colors"
             >
               Close
             </button>
@@ -69,118 +69,104 @@ const ResumePreview = () => {
         </div>
       )}
 
-      <div className="w-3/4 h-full overflow-x-hidden">
-        <div className="w-full h-full border-2 overflow-y-auto overflow-x-hidden flex justify-center items-start bg-white rounded-lg">
+      {/* Resume Preview */}
+      <div className="w-full lg:w-3/4 h-[calc(100vh-4rem)] sm:h-[calc(100vh-3rem)]">
+        <div className="w-full h-full bg-white rounded-2xl shadow-lg border border-gray-200 flex justify-center items-start overflow-y-auto">
           <img
             src={selectedResume}
             alt="Resume Preview"
-            className="object-contain"
-            style={{ maxWidth: "100%", height: "auto" }}
+            className="w-full h-[80vh] sm:h-[85vh] object-contain rounded-2xl"
           />
         </div>
       </div>
 
-      <div className="w-[242px] h-[702px] flex flex-col border-4 items-center gap-[20px] relative z-20">
-        <div className="w-[242px] h-[143.18px] gap-[20px] border border-[#DCDCDC] rounded-[30px] px-[10px] py-[25px] bg-white flex items-center justify-center text-center">
-          <p className="w-[46px] h-[10px] text-[25px] leading-[9.86px] font-bold text-center font-manrope tracking-[-0.5px] text-[#1E1E1E]">
-            ATS
+      {/* Sidebar */}
+      <div className="w-full lg:w-80 flex flex-col items-center gap-6 bg-white rounded-2xl shadow-lg p-6">
+        {/* ATS Score */}
+        <div className="w-full bg-gray-50 rounded-xl p-6 flex flex-col items-center gap-4 text-center border border-gray-200">
+          <p className="text-lg sm:text-xl font-bold font-sans text-gray-900">
+            ATS Score
           </p>
-          <div className="relative w-[93.18px] h-[93.18px] flex items-center justify-center rounded-[12.9px]">
-            <svg
-              className="transform -rotate-[90deg] overflow-visible"
-              width="93"
-              height="93"
-            >
+          <div className="relative w-20 h-20">
+            <svg className="transform -rotate-90" width="80" height="80">
               <circle
-                cx="46.5"
-                cy="46.5"
-                r="42"
+                cx="40"
+                cy="40"
+                r="34"
                 stroke="#E5E7EB"
                 strokeWidth="12"
                 fill="none"
               />
               <circle
-                cx="46.5"
-                cy="46.5"
-                r="42"
-                stroke="#58B90A"
+                cx="40"
+                cy="40"
+                r="34"
+                stroke="url(#grad)"
                 strokeWidth="12"
                 fill="none"
-                strokeDasharray={`${(87 / 100) * 264} 264`}
+                strokeDasharray={`${(87 / 100) * 213} 213`}
                 strokeLinecap="round"
               />
+              <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style={{ stopColor: "#34D399" }} />
+                  <stop offset="100%" style={{ stopColor: "#10B981" }} />
+                </linearGradient>
+              </defs>
             </svg>
-            <div className="absolute top-[31.31px] left-[7.09px] w-[80.28px] h-[34.41px] flex items-center justify-center">
-              <p className="font-bold text-[26.52px] leading-[7.88px] tracking-[-0.53px] text-[#58B90A] text-center font-figtree">
-                87%
-              </p>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <p className="text-2xl font-bold text-emerald-600">87%</p>
             </div>
           </div>
         </div>
 
-        <div className="w-[242px] h-[366.23px] flex flex-col items-center justify-center bg-[#FFD230] rounded-[20px]">
-          <div className="px-[35px] py-[5px] gap-[10px] flex items-center justify-center">
-            <p className="w-[135px] h-[15px] font-inter font-medium text-[12px] leading-[100%] tracking-[0px] text-[#000000]">
-              Recommend Templates
-            </p>
-          </div>
-          <div className="w-[242px] h-[341.23px] flex flex-col items-center rounded-[20px] border-[1px] p-[10px] gap-[10px] bg-[#FFFFFF] border-[#DCDCDC]">
+        {/* Recommended Templates */}
+        <div className="w-full bg-gray-50 rounded-xl p-5 flex flex-col items-center gap-4 border border-gray-200">
+          <p className="text-sm font-semibold text-gray-900">
+            Recommended Templates
+          </p>
+          <div className="w-full bg-white rounded-lg p-3 border border-gray-200">
             <img
               src={resume1}
-              className="w-[222px] h-[287.23px] rounded-[10px] border-[1.2px] border-[#DCDCDC]"
               alt="Resume Thumbnail"
+              className="w-full h-36 object-cover rounded-lg"
             />
             <button
               onClick={() => setIsSelectorOpen(true)}
-              className="w-[107px] h-[24px] rounded-[500px] border-[2px] px-[25px] py-[5px] bg-[#FFFFFF] border-[#336EE7]"
+              className="mt-3 w-full py-2 bg-indigo-600 text-white text-sm font-semibold rounded-full hover:bg-indigo-700 transition-colors"
             >
-              <p className="text-manrope text-[12px] font-medium leading-[100%] text-[#000000]">
-                Show All
-              </p>
+              Show All
             </button>
           </div>
         </div>
 
-        <div className="w-[242px] h-[144px] flex flex-col items-center gap-[15px]">
+        {/* Action Buttons */}
+        <div className="w-full flex flex-col items-center gap-4">
           <button
             onClick={handleDownload}
-            className="w-[222px] h-[48px] px-[7.68px] py-[19.2px] gap-[9.6px] flex items-center justify-center rounded-[9.8px] bg-gradient-to-r from-[#4c95FB] to-[#336EE7] hover:opacity-90"
+            className="w-full py-3 bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-semibold rounded-xl flex items-center justify-center gap-2 hover:bg-indigo-600 transition-colors"
           >
-            <img src={downloadicon} className="w-4 h-4" alt="Download Icon" />
-            <span className="text--lexend font-medium text-[17.28px] text-[#FFFFFF]">
-              Download
-            </span>
+            <img src={downloadicon} alt="Download Icon" className="w-5 h-5" />
+            Download
           </button>
-          <div className="w-[222px] h-[48px] gap-[15px] flex items-center justify-center">
+          <div className="w-full flex justify-center gap-3">
             <button
               onClick={handlePrint}
-              className="w-[68px] h-[48px] rounded-[9.6px] border-[0.96px] flex items-center justify-center p-[8px] border-[#FE9A00] bg-[#FE9A00]/[5%]"
+              className="w-14 h-14 rounded-full bg-orange-50 border border-orange-200 flex items-center justify-center hover:bg-orange-100 transition-colors"
             >
-              <img
-                src={printicon}
-                className="w-[32px] h-[32px]"
-                alt="Print Icon"
-              />
+              <img src={printicon} alt="Print Icon" className="w-6 h-6" />
             </button>
             <button
               onClick={handleMail}
-              className="w-[68px] h-[48px] rounded-[9.6px] border-[0.96px] p-[8px] flex items-center justify-center border-[#9810FA] bg-[#9810FA]/[5%]"
+              className="w-14 h-14 rounded-full bg-purple-50 border border-purple-200 flex items-center justify-center hover:bg-purple-100 transition-colors"
             >
-              <img
-                src={mailicon}
-                className="w-[24px] h-[19.1px]"
-                alt="Mail Icon"
-              />
+              <img src={mailicon} alt="Mail Icon" className="w-5 h-5" />
             </button>
             <button
               onClick={handleWhatsAppShare}
-              className="w-[68px] h-[48px] rounded-[9.6px] border-[0.96px] p-[8px] flex items-center justify-center border-[#00A63E] bg-[#00A63E]/[5%]"
+              className="w-14 h-14 rounded-full bg-green-50 border border-green-200 flex items-center justify-center hover:bg-green-100 transition-colors"
             >
-              <img
-                src={whatsappicon}
-                className="w-[28px] h-[28px]"
-                alt="WhatsApp Icon"
-              />
+              <img src={whatsappicon} alt="WhatsApp Icon" className="w-6 h-6" />
             </button>
           </div>
         </div>

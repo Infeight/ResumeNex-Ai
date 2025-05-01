@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ResumePreview from "./FormSteps/ResumePreview";
-
 import PersonalInfo from "./FormSteps/PersonalInfo";
 import Education from "./FormSteps/Education";
 import Projects from "./FormSteps/Projects";
@@ -100,10 +99,10 @@ function ResumeForm() {
   };
 
   return (
-    <div className="flex w-full h-screen overflow-hidden">
-      {/* Left Form Section - 40% */}
-      <div className="w-[617px] h-full bg-white p-[30px] shadow-md overflow-y-auto flex flex-col gap-[30px] no-scrollbar-arrows">
-        <form onSubmit={handleSubmit}>
+    <div className="flex flex-col md:flex-row w-full min-h-screen ">
+      {/* Left Form Section */}
+      <div className="w-full md:w-2/5 bg-white p-4 sm:p-6 md:p-[30px] shadow-md overflow-y-auto flex flex-col gap-6 no-scrollbar-arrows">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <PersonalInfo formData={formData} setFormData={setFormData} />
           <Education education={education} setEducation={setEducation} />
           <Projects projects={projects} setProjects={setProjects} />
@@ -123,15 +122,20 @@ function ResumeForm() {
           />
           <button
             type="submit"
-            className="bg-indigo-500 text-white px-6 py-3 rounded-xl hover:bg-indigo-600 w-full"
+            className="bg-indigo-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl hover:bg-indigo-600 w-full font-semibold transition-colors"
           >
             Submit
           </button>
         </form>
       </div>
 
-      {/* Right Resume Preview Section - 60% */}
-      <div className="flex-1 h-full overflow-y-auto">
+      {/* Right Resume Preview Section */}
+
+      {/* work in progress */}
+      <div
+        className="w-full md:w-3/5 bg-gray-50 sticky top-[66px] overflow-y-hidden "
+        style={{ height: "calc(100vh - 66px)" }}
+      >
         <ResumePreview />
       </div>
     </div>
