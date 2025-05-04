@@ -58,12 +58,13 @@ const LinkedInOptemization = () => {
   return (
     <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-[50px] py-[50px] text-[#212529] bg-[#F7F7FB]">
       <p className="font-lexend font-semibold text-[30px] flex gap-3">
-        Boost You
+        Build a Job-Ready
         <span className="blueGradient flex items-center gap-1">Linkedin</span>
+        Profile in Minutes with AI
       </p>
 
       <div className="relative">
-        <div className="relative z-1 flex flex-col gap-[35px] w-[981px] mx-auto p-[50px] bg-[#E3F6FF] rounded-[34px] border border-[#74D4FF] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+        <div className="relative z-1 flex flex-col gap-[35px] w-[981px] mx-auto p-[50px] pb-[70px] bg-[#E3F6FF] rounded-[34px] border border-[#74D4FF] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
           <div className="flex flex-col gap-10 place-items-center ">
             <h2 className=" font-manrope text-[25px] font-bold text-center">
               Select Options
@@ -202,7 +203,18 @@ const LinkedInOptemization = () => {
             )}
           </div>
         </div>
+
+        <img
+          src="/ToolsImg/5.png"
+          alt=""
+          className="w-[130px] rotate-[-30deg] absolute left-[-85px] top-[20px]"
+        />
       </div>
+
+      <p className="w-lg mx-auto text-center text-gray-500 font-inter text-[16px] mt-5 ">
+        Whether you're job hunting or building your personal brand, we've got
+        your LinkedIn covered. — in simple steps.
+      </p>
     </section>
   );
 };
