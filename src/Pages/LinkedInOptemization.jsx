@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LinkedInOptemization = () => {
   const [enterManually, setEnterManually] = useState(false);
@@ -57,7 +58,7 @@ const LinkedInOptemization = () => {
   };
   return (
     <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-[50px] py-[50px] text-[#212529] bg-[#F7F7FB]">
-      <p className="font-lexend font-semibold text-[30px] flex gap-3">
+      <p className="relative font-lexend font-semibold text-[30px] flex gap-3">
         Build a Job-Ready
         <span className="blueGradient flex items-center gap-1">Linkedin</span>
         Profile in Minutes with AI
@@ -196,11 +197,13 @@ const LinkedInOptemization = () => {
             )}
 
             {/* continue btn */}
-            {(continueToSteps || fileName) && (
-              <div className="cursor-pointer font-manrope font-bold text-[20px] text-white bg-[#4C95FB] px-[50px] py-[10px] rounded-full">
-                Continue
-              </div>
-            )}
+            <Link to={"/linkedIn_optimization/steps"}>
+              {(continueToSteps || fileName) && (
+                <div className="cursor-pointer font-manrope font-bold text-[20px] text-white bg-[#4C95FB] px-[50px] py-[10px] rounded-full">
+                  Continue
+                </div>
+              )}
+            </Link>
           </div>
         </div>
 
