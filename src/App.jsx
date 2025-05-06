@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Loading from "./components/commonComponents/Loading";
 import ResumeForm from "./components/AIResume/ResumeForm";
 import StepsLinkedIn from "./components/LinkedInOptimization/StepsLinkedIn";
+import FinalPageOfLO from "./components/LinkedInOptimization/FinalPageOfLO";
 
 // Lazy-loaded components for pages
 const Home = lazy(() => import("./Pages/Home"));
@@ -85,6 +86,10 @@ const App = () => {
           <Route
             path="/linkedIn_optimization/steps"
             element={<StepsLinkedIn />}
+          />
+          <Route
+            path="/linkedIn_optimization/steps/final_page"
+            element={<FinalPageOfLO />}
           />
 
           {/* =========== Dashboard =========== */}

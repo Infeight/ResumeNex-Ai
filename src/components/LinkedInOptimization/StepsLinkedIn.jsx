@@ -88,7 +88,7 @@ const StepsCoverLetter = () => {
           )}
 
           {currentStep === totalSteps ? (
-            <Link to={``}>
+            <Link to={`/linkedIn_optimization/steps/final_page`}>
               <button className="px-[30px] py-[15px] -mt-5 rounded-full text-white transition-all cursor-pointer bg-[#4C95FB] hover:scale-95">
                 Optimize Now
               </button>
