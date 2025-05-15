@@ -142,33 +142,66 @@ const Step2OfLO = () => {
                 </div>
 
                 {/* Start Year and End Year */}
-                <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                    Duration
-                  </label>
-                  <div className="flex gap-[13px]">
+                <div className="flex flex-col gap-3">
+                  <div className="flex gap-3">
+                    <div className="flex flex-col w-1/2">
+                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        Start Date
+                      </label>
+                      <input
+                        type="month"
+                        value={edu.startYear}
+                        onChange={(e) =>
+                          handleEducationChange(
+                            index,
+                            "startYear",
+                            e.target.value
+                          )
+                        }
+                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]"
+                        placeholder="Select a month"
+                      />
+                    </div>
+                    {!edu.currentlyPursuing && (
+                      <div className="flex flex-col w-1/2">
+                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                          End Date
+                        </label>
+                        <input
+                          type="month"
+                          value={edu.endYear}
+                          onChange={(e) =>
+                            handleEducationChange(
+                              index,
+                              "endYear",
+                              e.target.value
+                            )
+                          }
+                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]"
+                          placeholder="Select a month"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center">
                     <input
-                      type="text"
-                      value={edu.startYear}
-                      onChange={(e) =>
+                      type="checkbox"
+                      checked={edu.currentlyPursuing}
+                      onChange={(e) => {
                         handleEducationChange(
                           index,
-                          "startYear",
-                          e.target.value
-                        )
-                      }
-                      className="w-1/2 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
-                      placeholder="e.g., 2020"
+                          "currentlyPursuing",
+                          e.target.checked
+                        );
+                        if (e.target.checked) {
+                          handleEducationChange(index, "endYear", "");
+                        }
+                      }}
+                      className="w-5 h-5 text-[#74D4FF] border-[#DCDCDC] rounded focus:ring-[#74D4FF]"
                     />
-                    <input
-                      type="text"
-                      value={edu.endYear}
-                      onChange={(e) =>
-                        handleEducationChange(index, "endYear", e.target.value)
-                      }
-                      className="w-1/2 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
-                      placeholder="e.g., 2024 or Present"
-                    />
+                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                      Currently Pursuing
+                    </label>
                   </div>
                 </div>
               </div>
@@ -176,7 +209,7 @@ const Step2OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {educationList.length > 1 && (
                 <button
-                  className="mt-4 border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F0F9FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F0F9FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd] absolute right-0 -top-10"
                   onClick={() => removeEducation(index)}
                 >
                   Remove Education
@@ -186,7 +219,7 @@ const Step2OfLO = () => {
 
               {/* Horizontal Line (except for the last entry) */}
               {index < educationList.length - 1 && (
-                <hr className="my-10 border-t border-[#DCDCDC]" />
+                <hr className="my-16 border border-[#74D4FF]" />
               )}
             </div>
           ))}
@@ -229,23 +262,87 @@ const Step2OfLO = () => {
                 </div>
 
                 {/* Provider */}
-                <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                    Provider
-                  </label>
-                  <input
-                    type="text"
-                    value={cert.provider}
-                    onChange={(e) =>
-                      handleCertificationChange(
-                        index,
-                        "provider",
-                        e.target.value
-                      )
-                    }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
-                    placeholder="e.g., Udemy"
-                  />
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col">
+                    <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                      Organisation
+                    </label>
+                    <input
+                      type="text"
+                      value={cert.provider}
+                      onChange={(e) =>
+                        handleCertificationChange(
+                          index,
+                          "provider",
+                          e.target.value
+                        )
+                      }
+                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                      placeholder="e.g., Udemy"
+                    />
+                  </div>
+                </div>
+
+                {/* issue date and expire */}
+                <div className="flex gap-4  col-span-2 ">
+                  <div className="flex flex-col w-1/2">
+                    <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                      Issue Date
+                    </label>
+                    <input
+                      type="month"
+                      value={cert.issueDate}
+                      onChange={(e) =>
+                        handleCertificationChange(
+                          index,
+                          "issueDate",
+                          e.target.value
+                        )
+                      }
+                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
+                      placeholder="Select a month"
+                    />
+                  </div>
+                  {!cert.noExpiry && (
+                    <div className="flex flex-col w-1/2">
+                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        Expiry Date
+                      </label>
+                      <input
+                        type="month"
+                        value={cert.expireDate}
+                        onChange={(e) =>
+                          handleCertificationChange(
+                            index,
+                            "expireDate",
+                            e.target.value
+                          )
+                        }
+                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
+                        placeholder="Select a month"
+                      />
+                    </div>
+                  )}
+                  <div className="flex items-center text-nowrap mt-6">
+                    <input
+                      type="checkbox"
+                      checked={cert.noExpiry}
+                      onChange={(e) => {
+                        handleCertificationChange(
+                          index,
+                          "noExpiry",
+                          e.target.checked
+                        );
+                        if (e.target.checked) {
+                          handleCertificationChange(index, "expireDate", "");
+                        }
+                      }}
+                      className="w-5 h-5 text-[#9AE600] border-[#DCDCDC] rounded focus:ring-[#9AE600]"
+                    />
+                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                      No Expiry Date
+                    </label>
+                  </div>
                 </div>
 
                 {/* Certification Link */}
@@ -271,7 +368,7 @@ const Step2OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {certifications.length > 1 && (
                 <button
-                  className="mt-4 border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10"
+                  className=" border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10"
                   onClick={() => removeCertification(index)}
                 >
                   Remove Certification
@@ -281,7 +378,7 @@ const Step2OfLO = () => {
 
               {/* Horizontal Line (except for the last entry) */}
               {index < certifications.length - 1 && (
-                <hr className="my-10 border-t border-[#DCDCDC]" />
+                <hr className="my-16 border-t border-[#9AE600]" />
               )}
             </div>
           ))}

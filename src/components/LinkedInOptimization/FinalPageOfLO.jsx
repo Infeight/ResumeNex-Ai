@@ -78,11 +78,11 @@ const FinalPageOfLO = () => {
   };
 
   return (
-    <div className="font-['Inter'] min-h-screen bg-gray-50 flex flex-col md:flex-row gap-6 p-6">
+    <div className="font-['Inter'] min-h-screen bg-gray-50 flex flex-col md:flex-row gap-6 p-[10px]">
       {/* Custom Scrollbar Styles */}
 
       {/* Left Section: Copy Content (Suggestions) */}
-      <div className="w-full md:w-[500px] max-w-[500px] h-[calc(100vh-66px)] rounded-[20px] border border-[#DCDCDC] bg-white p-5 flex flex-col gap-5 font-normal overflow-y-auto custom-scrollbar">
+      <div className="w-full md:w-[600px] max-w-[600px] h-[calc(100vh-90px)] rounded-[20px] border border-[#DCDCDC] bg-white p-5 flex flex-col gap-5 font-normal overflow-y-auto custom-scrollbar">
         <p className="text-lg flex gap-1 items-center">
           Suggested By
           <span className="text-[#336EE7] font-bold flex gap-0.5 items-center">
@@ -271,16 +271,18 @@ const FinalPageOfLO = () => {
       </div>
 
       {/* Right Section: LinkedIn Profile Content */}
-      <div className="flex-1 h-[calc(100vh-66px)] bg-white shadow-lg rounded-xl overflow-y-auto custom-scrollbar">
+      <div className="flex-1 h-[calc(100vh-90px)] bg-white shadow-lg rounded-xl overflow-y-auto custom-scrollbar">
         {/* Header Section */}
         <div className="relative">
-          <div className="h-48 bg-[#70b5f9] rounded-t-xl flex items-center justify-center">
-            <h1 className="text-4xl font-bold text-white font-['Manrope'] tracking-tight">
-              {profileData.name}
-            </h1>
-          </div>
+          <div className="h-32 bg-[#dcdcdc] rounded-t-xl flex items-center justify-center"></div>
           <div className="absolute bottom-0 left-10 transform translate-y-1/2">
-            <div className="w-36 h-36 bg-gray-300 rounded-full border-4 border-white shadow-md"></div>
+            <div className="w-36 h-36 rounded-full border-5 border-[#70b5f9] overflow-hidden">
+              <img
+                src="/Linkedin/user.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 

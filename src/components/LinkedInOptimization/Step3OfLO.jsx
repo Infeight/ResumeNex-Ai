@@ -171,7 +171,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {workExperiences.length > 1 && (
                 <button
-                  className="mt-4 border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] absolute right-0 -top-10"
                   onClick={() => removeWorkExperience(index)}
                 >
                   Remove Experience
@@ -181,7 +181,7 @@ const Step3OfLO = () => {
 
               {/* Horizontal Line (except for the last entry) */}
               {index < workExperiences.length - 1 && (
-                <hr className="my-10 border-t border-[#DCDCDC]" />
+                <hr className="my-16 border border-[#FDC700]" />
               )}
             </div>
           ))}
@@ -277,7 +277,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {projects.length > 1 && (
                 <button
-                  className="mt-4 border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10"
                   onClick={() => removeProject(index)}
                 >
                   Remove Project
@@ -287,7 +287,7 @@ const Step3OfLO = () => {
 
               {/* Horizontal Line (except for the last entry) */}
               {index < projects.length - 1 && (
-                <hr className="my-10 border-t border-[#DCDCDC]" />
+                <hr className="my-16 border border-[#DAB2FF]" />
               )}
             </div>
           ))}

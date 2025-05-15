@@ -77,7 +77,6 @@ const App = () => {
             path="/job_specific_resume/templates/:templateIdOfJS/steps"
             element={<StepsOfJS />}
           />
-
           {/* =========== tool 5 - LinkedIn Optimization =========== */}
           <Route
             path="/linkedIn_optimization"
