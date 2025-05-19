@@ -57,11 +57,11 @@ const App = () => {
             element={<CoverLetterTemplates />}
           />
           <Route
-            path="/cover_letter_templates/steps/:templateIdOfCL"
+            path="/cover_letter_templates/steps"
             element={<StepsCoverLetter />}
           />
           <Route
-            path="/cover_letter_templates/steps/:templateIdOfCL/final-download-page"
+            path="/cover_letter_templates/steps/final-download-page"
             element={<FinalPageCL />}
           />
 

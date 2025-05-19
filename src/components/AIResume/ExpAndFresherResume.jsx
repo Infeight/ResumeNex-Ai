@@ -217,11 +217,11 @@ const ExpAndFresherResume = () => {
         Experience & Freshers
       </p>
 
-      <div className="w-full flex flex-wrap space-y-10 items-center justify-between ">
+      <div className="w-full flex flex-wrap space-y-10 items-center justify-center lg:justify-between ">
         {visibleexpResumes.map((resume, index) => (
           <div
             key={index}
-            className="group w-[221px] h-[288px] overflow-hidden relative hover:scale-110 transition duration-300 ease-in-out cursor-pointer border border-[#dcdcdc] rounded-[10px]"
+            className="group w-full lg:w-[221px] h-[288px] overflow-hidden relative hover:scale-110 transition duration-300 ease-in-out cursor-pointer border border-[#dcdcdc] rounded-[10px]"
             onClick={() => openPopup(resume.img, resume.url)}
           >
             <img
@@ -282,23 +282,22 @@ const ExpAndFresherResume = () => {
           </div>
         </div>
       )}
-
       {showSelectOptions && (
         <div
           className="fixed inset-0 bg-[rgba(0,0,0,0.6)] backdrop-blur-sm z-50 flex items-center justify-center p-4 sm:p-6 transition-opacity duration-300 select-none"
           onClick={closeSelectOptions}
         >
           <div
-            className="relative w-fit bg-[#f3f4f6] rounded-2xl shadow-2xl p-6 flex items-center justify-center"
+            className="relative w-fit max-w-[90vw] md:max-w-fit bg-[#f3f4f6] rounded-2xl shadow-2xl p-4 md:p-6 flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex flex-col gap-5 place-items-center">
-              <h2 className="font-manrope text-[20px] font-bold text-center">
+            <div className="flex flex-col gap-4 md:gap-5 place-items-center w-full">
+              <h2 className="font-manrope text-lg md:text-[20px] font-bold text-center">
                 Select Options
               </h2>
-              <div className="flex items-center justify-center gap-[50px] text-[#212529]">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-[50px] text-[#212529]">
                 <div
-                  className={`w-[300px] h-[186px] relative flex items-center bg-white p-4 cursor-pointer rounded-[16px] overflow-hidden ${
+                  className={`w-full max-w-[300px] h-[140px] md:w-[300px] md:h-[186px] relative flex items-center bg-white p-3 md:p-4 cursor-pointer rounded-[16px] overflow-hidden ${
                     enterManually
                       ? "border-4 border-[#336EE7]"
                       : "border border-[#dcdcdc]"
@@ -308,29 +307,29 @@ const ExpAndFresherResume = () => {
                     handleEnterManually();
                   }}
                 >
-                  <p className="font-bold text-[25px] font-manrope ml-7">
+                  <p className="font-bold text-xl md:text-[25px] font-manrope ml-5 md:ml-7">
                     Enter data <br /> manually
                   </p>
                   <img
                     src="/Icons/keyboard.svg"
                     alt="keyboard"
-                    className="absolute -bottom-3 -right-5"
+                    className="absolute bottom-0 md:-bottom-3 right-0 md:-right-5 w-16 md:w-20"
                   />
                   <img
                     src={`/Icons/${
                       enterManually ? "Select.svg" : "unSelect.svg"
                     }`}
                     alt="selection"
-                    className="absolute top-2 left-2 cursor-pointer"
+                    className="absolute top-1 md:top-2 left-1 md:left-2 cursor-pointer w-5 md:w-6"
                   />
                 </div>
-                <div className="h-48 font-extrabold font-manrope text-[20px] flex flex-col items-center gap-2">
+                <div className="h-12 md:h-48 font-extrabold font-manrope text-base md:text-[20px] flex flex-col items-center gap-2">
                   <div className="h-full border-l w-fit border-[#8A8D8F]"></div>
                   or
                   <div className="h-full border-l w-fit border-[#8A8D8F]"></div>
                 </div>
                 <div
-                  className={`w-[300px] h-[186px] relative flex items-center bg-white p-4 cursor-pointer rounded-[16px] overflow-hidden ${
+                  className={`w-full max-w-[300px] h-[140px] md:w-[300px] md:h-[186px] relative flex items-center bg-white p-3 md:p-4 cursor-pointer rounded-[16px] overflow-hidden ${
                     fetchFromResume
                       ? "border-4 border-[#AB2FFF]"
                       : "border border-[#dcdcdc]"
@@ -340,40 +339,40 @@ const ExpAndFresherResume = () => {
                     handleFetchData();
                   }}
                 >
-                  <p className="font-bold text-[25px] font-manrope ml-7">
+                  <p className="font-bold text-xl md:text-[25px] font-manrope ml-5 md:ml-7">
                     Fetch data from <br /> the resume
                   </p>
                   <img
                     src="/Icons/document.svg"
                     alt="document"
-                    className="absolute -bottom-4 -right-0"
+                    className="absolute bottom-0 md:-bottom-4 right-2 md:-right-0 w-10 md:w-20"
                   />
                   <img
                     src={`/Icons/${
                       fetchFromResume ? "Select2.svg" : "unSelect.svg"
                     }`}
                     alt="selection"
-                    className="absolute top-2 left-2 cursor-pointer"
+                    className="absolute top-1 md:top-2 left-1 md:left-2 cursor-pointer w-5 md:w-6"
                   />
                 </div>
               </div>
               {fetchFromResume && (
                 <label
                   htmlFor="dropzone-file"
-                  className={`flex flex-col items-center justify-center w-full h-52 border-4 border-[#AB2FFF] bg-white border-dashed rounded-[16px] cursor-pointer hover:bg-gray-100 ${
-                    fileName ? "pt-5" : "pt-5 pb-6"
+                  className={`flex flex-col items-center justify-center w-full h-40 md:h-52 border-4 border-[#AB2FFF] bg-white border-dashed rounded-[16px] cursor-pointer hover:bg-gray-100 ${
+                    fileName ? "pt-4" : "pt-4 md:pt-5 md:pb-6"
                   }`}
                   onDragOver={handleDragOver}
                   onDrop={handleDrop}
                 >
                   {fileName ? (
                     <div className="flex flex-col items-center justify-center w-full">
-                      <p className="text-[18px] font-inter font-semibold text-gray-700">
+                      <p className="text-base md:text-[18px] font-inter font-semibold text-gray-700">
                         {fileName}
                       </p>
                       <button
                         onClick={handleRemove}
-                        className="mt-4 px-8 py-2 font-semibold text-red-500 rounded-full border-2 border-red-500 hover:bg-red-100 border-dashed text-[18px]"
+                        className="mt-3 md:mt-4 px-6 md:px-8 py-1 md:py-2 font-semibold text-red-500 rounded-full border-2 border-red-500 hover:bg-red-100 border-dashed text-sm md:text-[18px]"
                       >
                         Remove
                       </button>
@@ -381,7 +380,7 @@ const ExpAndFresherResume = () => {
                   ) : (
                     <div className="flex flex-col items-center justify-center">
                       <svg
-                        className="w-15 h-15 mb-4 text-gray-500"
+                        className="w-10 md:w-15 h-10 md:h-15 mb-3 md:mb-4 text-gray-500"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -395,7 +394,7 @@ const ExpAndFresherResume = () => {
                           d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                         />
                       </svg>
-                      <p className="mb-2 text-sm text-gray-500">
+                      <p className="mb-1 md:mb-2 text-xs md:text-sm text-gray-500">
                         <span className="font-semibold">Click to upload</span>{" "}
                         or drag and drop
                       </p>
@@ -414,7 +413,7 @@ const ExpAndFresherResume = () => {
               {(continueToSteps || fileName) && (
                 <div
                   onClick={() => navigate(templateUrl)}
-                  className="cursor-pointer font-manrope font-bold text-[20px] text-white bg-[#4C95FB] px-[50px] py-[10px] rounded-full"
+                  className="cursor-pointer font-manrope font-bold text-base md:text-[20px] text-white bg-[#4C95FB] px-8 md:px-[50px] py-2 md:py-[10px] rounded-full"
                 >
                   Continue
                 </div>
