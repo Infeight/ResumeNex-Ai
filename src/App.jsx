@@ -4,6 +4,7 @@ import Loading from "./components/commonComponents/Loading";
 import ResumeForm from "./components/AIResume/ResumeForm";
 import StepsLinkedIn from "./components/LinkedInOptimization/StepsLinkedIn";
 import FinalPageOfLO from "./components/LinkedInOptimization/FinalPageOfLO";
+import SeeTemplates from "./Pages/SeeTemplates";
 
 // Lazy-loaded components for pages
 const Home = lazy(() => import("./Pages/Home"));
@@ -41,10 +42,14 @@ const App = () => {
         <Routes>
           {/* =========== home =========== */}
           <Route path="/" element={<Home />} />
+          <Route path="/resumes_templates/steps" element={<ResumeForm />} />
 
           {/* =========== tool 1 - Ai Resume =========== */}
           <Route path="/resumes_templates" element={<ResumeTemplatedPage />} />
-          <Route path="/resumes_templates/steps" element={<ResumeForm />} />
+          <Route
+            path="/resumes_templates/steps/:templateIdOfResume"
+            element={<ResumeForm />}
+          />
 
           {/* =========== tool 2 - Cover Letter =========== */}
           <Route
@@ -96,6 +101,8 @@ const App = () => {
 
           {/* 404 page */}
           <Route path="*" element={<h1>404 - Not Found</h1>} />
+          {/* see templates */}
+          <Route path="/seeTemplates" element={<SeeTemplates />} />
         </Routes>
 
         {/* Lazy-load Footer */}

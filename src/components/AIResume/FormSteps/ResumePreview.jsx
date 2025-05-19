@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ExperienceResume from "../ExperienceResume";
+import ExperienceResume from "../ExpAndFresherResume";
 
 const ResumePreview = () => {
   const resume1 = "/AIResumeAssets/resume1.png";

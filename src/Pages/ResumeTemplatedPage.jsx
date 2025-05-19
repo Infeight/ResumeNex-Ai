@@ -2,8 +2,8 @@ import React, { useState, Suspense, lazy } from "react";
 import Loading from "../components/commonComponents/Loading";
 
 // Lazy-loaded components
-const ExperienceResume = lazy(() =>
-  import("../components/AIResume/ExperienceResume")
+const ExpAndFresherResume = lazy(() =>
+  import("../components/AIResume/ExpAndFresherResume")
 );
 const FresherResume = lazy(() =>
   import("../components/AIResume/FresherResume")
@@ -87,11 +87,11 @@ const ResumeTemplatedPage = () => {
           <div className="w-full flex flex-col gap-[30px]">
             {submittedExperience === "" && (
               <>
-                <ExperienceResume />
+                <ExpAndFresherResume />
                 <InternResume />
               </>
             )}
-            {submittedExperience === "Experienced" && <ExperienceResume />}
+            {submittedExperience === "Experienced" && <ExpAndFresherResume />}
             {submittedExperience === "Intern" && <InternResume />}
           </div>
         </section>

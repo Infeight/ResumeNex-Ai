@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ResumePreview from "./FormSteps/ResumePreview";
 import PersonalInfo from "./FormSteps/PersonalInfo";
 import Education from "./FormSteps/Education";
 import Projects from "./FormSteps/Projects";
@@ -8,6 +7,8 @@ import Certificates from "./FormSteps/Certificates";
 import Skills from "./FormSteps/Skills";
 import ProfileSummary from "./FormSteps/ProfileSummary";
 import AdditionalSections from "./FormSteps/AdditionalSections";
+import RightSectionAtsTempDownload from "./RightSectionAtsTempDownload";
+import RESUME_ExpAndFresher_1 from "../A1_ResumeTemplates/ExpResumes/RESUME_ExpAndFresher_1";
 
 function ResumeForm() {
   const [formData, setFormData] = useState({
@@ -99,9 +100,9 @@ function ResumeForm() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen ">
+    <div className="flex flex-col lg:flex-row w-full min-h-screen bg-gray-50">
       {/* Left Form Section */}
-      <div className="w-full md:w-2/5 bg-white p-4 sm:p-6 md:p-[30px] shadow-md overflow-y-auto flex flex-col gap-6 no-scrollbar-arrows">
+      <div className="w-full lg:w-2/5 bg-white p-6 lg:p-8 shadow-lg overflow-y-auto max-h-screen flex flex-col gap-6 no-scrollbar">
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <PersonalInfo formData={formData} setFormData={setFormData} />
           <Education education={education} setEducation={setEducation} />
@@ -122,21 +123,34 @@ function ResumeForm() {
           />
           <button
             type="submit"
-            className="bg-indigo-500 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-xl hover:bg-indigo-600 w-full font-semibold transition-colors"
+            className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 w-full font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
-            Submit
+            Save Resume
           </button>
         </form>
       </div>
 
-      {/* Right Resume Preview Section */}
+      {/* Resume Preview */}
+      <div className="w-full lg:w-2/5 h-screen p-4 lg:p-6 flex justify-center items-center bg-gray-100">
+        <div className="w-full h-full max-w-[794px] max-h-[1123px] bg-white rounded-xl shadow-lg border border-gray-200 overflow-y-auto flex justify-center items-center scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <div className="w-[794px] h-[1123px] scale-[0.65] lg:scale-[0.85] transform origin-top">
+            <RESUME_ExpAndFresher_1
+              formData={formData}
+              education={education}
+              projects={projects}
+              workExperience={workExperience}
+              certificates={certificates}
+              skills={skills}
+              summary={summary}
+              additional={additional}
+            />
+          </div>
+        </div>
+      </div>
 
-      {/* work in progress */}
-      <div
-        className="w-full md:w-3/5 bg-gray-50 sticky top-[66px] overflow-y-hidden "
-        style={{ height: "calc(100vh - 66px)" }}
-      >
-        <ResumePreview />
+      {/* Right Action Buttons */}
+      <div className="w-full lg:w-1/5">
+        <RightSectionAtsTempDownload />
       </div>
     </div>
   );
