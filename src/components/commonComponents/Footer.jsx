@@ -6,7 +6,7 @@ const Footer = () => {
       <section className="mx-auto">
         <section className="flex justify-between max-w-[1240px] min-w-auto mx-auto">
           <div className=" flex gap-[32px] flex-col  w-[308px]">
-            <img src="/img/Logopng.png" alt="Logo" className="w-[308px]" />
+            <img src="/img/Logo.webp" alt="Logo" className="w-[308px]" />
             <p className="text-[14px] text-[#B9B3B3]">
               The purpose of a FAQ is generally to provide information on
               frequent questions or concerns.

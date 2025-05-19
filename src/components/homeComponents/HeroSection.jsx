@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Check = ({ title }) => {
   return (
-    <div className="flex items-center justify-center gap-[11.49px] px-[20px] py-[4.75px] border border-[#05DF72] rounded-4xl">
-      <img src="/img/Check.svg" alt="check" className="w-[15.98px]" />
-      <p className=" text-nowrap font-manrope font-extrabold text-[13.68px] leading-[130%] text-[#151515]">
+    <div className="flex items-center justify-center gap-2 px-3 py-1 border border-[#05DF72] rounded-full sm:rounded-4xl">
+      <img src="/img/Check.svg" alt="check" className="w-4 sm:w-[15.98px]" />
+      <p className="text-nowrap font-manrope font-extrabold text-xs sm:text-[13.68px] leading-[130%] text-[#151515]">
         {title}
       </p>
     </div>
@@ -14,48 +14,47 @@ const Check = ({ title }) => {
 
 const HeroSection = () => {
   return (
-    <header className="max-w-[1440px] min-w-auto flex gap-[50px] flex-col  mx-auto px-[50px] pt-[130px] pb-[60px]">
-      {/* top section*/}
-      <section className="mx-auto w-fit flex items-center justify-center flex-col gap-[20px]">
+    <header className="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 flex flex-col gap-8 sm:gap-10 md:gap-12">
+      {/* Top section */}
+      <section className="mx-auto flex flex-col items-center justify-center gap-4 sm:gap-5 w-full">
         <div>
-          <p className="flex items-center gap-[8px] px-[12px] py-[2.4px] border-1 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px]">
+          <p className="flex items-center gap-2 px-3 py-1 border border-[#3367E7] rounded-3xl font-manrope font-semibold text-xs sm:text-[13.68px] w-fit">
             <img
               src="/img/crown.svg"
               alt="crown"
-              className="w-[16px] h-[16px]"
+              className="w-4 h-4 sm:w-[16px] sm:h-[16px]"
             />
             India’s Most Affordable AI Resume Builder
           </p>
         </div>
-        <h1 className="text-[#151515] max-w-[1032px] min-w-auto font-manrope font-extrabold text-[52px] text-center">
+        <h1 className="text-[#151515] font-manrope font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-center max-w-4xl mx-auto">
           One Step Closer To Your{" "}
-          <span className="purpleGradient"> Dream Career</span> With
+          <span className="purpleGradient">Dream Career</span> With
           <span className="blueGradient"> AI-Powered </span>
           Resume.
         </h1>
-        <div className="flex items-center gap-[9.5px] relative  py-[9.5px]  max-w-[924px] min-w-full overflow-hidden   ">
-          <span className="z-1 h-[57px] w-[167px]  absolute bg-gradient-to-r from-[#ffffff] to-[#ffffff00]  "></span>
-          <div className=" z-0 loopScroll flex items-center gap-[9.5px]">
+        <div className="relative py-2 sm:py-3 w-full max-w-[90vw] sm:max-w-3xl md:max-w-4xl overflow-hidden">
+          <span className="absolute inset-y-0 left-0 w-16 sm:w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-10"></span>
+          <div className="loopScroll flex animate-scroll items-center gap-2 sm:gap-3 whitespace-nowrap">
+            <Check title={"Ai Cover Letter"} />
+            <Check title={"LinkedIn Optimization"} />
+            <Check title={"Ai Resume"} />
+            <Check title={"Ai Specified Job Resume"} />
+            <Check title={"Ai Resume Optimization"} />
+            {/* Duplicate for seamless scroll */}
             <Check title={"Ai Cover Letter"} />
             <Check title={"LinkedIn Optimization"} />
             <Check title={"Ai Resume"} />
             <Check title={"Ai Specified Job Resume"} />
             <Check title={"Ai Resume Optimization"} />
           </div>
-          <div className="z-0 loopScroll flex items-center gap-[9.5px]">
-            <Check title={"Ai Cover Letter"} />
-            <Check title={"LinkedIn Optimization"} />
-            <Check title={"Ai Resume"} />
-            <Check title={"Ai Specified Job Resume"} />
-            <Check title={"Ai Resume Optimization"} />
-          </div>
-          <span className="h-[57px] w-[167px]  right-0 absolute bg-gradient-to-r from-[#ffffff00] to-white "></span>
+          <span className="absolute inset-y-0 right-0 w-16 sm:w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-10"></span>
         </div>
       </section>
 
-      {/* button */}
-      <Link to={"/templates"}>
-        <button className="font-inter text-white px-[20px] py-[10px] rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer font-bold text-[22px] mx-auto block">
+      {/* Button */}
+      <Link to={"/templates"} className="mx-auto">
+        <button className="font-inter text-white px-4 sm:px-5 py-2 sm:py-3 rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer font-bold text-base sm:text-lg md:text-[22px] transition-transform hover:scale-105">
           Build Your AI Resume
         </button>
       </Link>

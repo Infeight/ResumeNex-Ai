@@ -8,7 +8,7 @@ const WhyResumeKaro = () => {
           Why
         </p>
         <p className="font-onest font-bold  text-[50px]">
-          <span className="purpleGradient">ResumeKaro</span>
+          <span className="purpleGradient">ResumeNex</span>
           <span className="blueGradient font-outfit font-black"> AI</span>
         </p>
       </div>
