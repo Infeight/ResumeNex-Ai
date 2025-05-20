@@ -13,7 +13,7 @@ const Join = () => {
           </button>
         </div>
 
-        <div className="resume-animation  w-fit border-t-4 md:border-t-0 border-[#dcdcdc]">
+        <div className="resume-animation  w-fit ">
           <div className="rb-1">
             <div className="resume-box1">
               <img src="/img/resume.png" alt="" className="w-[200px]" />

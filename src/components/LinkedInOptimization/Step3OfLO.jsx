@@ -60,20 +60,20 @@ const Step3OfLO = () => {
   };
 
   return (
-    <section className="flex flex-col gap-[36px]">
+    <section className="flex flex-col gap-[36px] ">
       {/* Work Experience Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px] bg-white  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Work Experience
           </h2>
           <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#FDC700] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#FDC700] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {workExperiences.map((experience, index) => (
             <div key={index} className="mb-[20px] relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
-                {/* Title */}
+                {/* Job Title */}
                 <div className="flex flex-col">
                   <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
                     Job Title
@@ -110,23 +110,67 @@ const Step3OfLO = () => {
                 </div>
 
                 {/* Duration */}
-                <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                    Duration
-                  </label>
-                  <input
-                    type="text"
-                    value={experience.duration}
-                    onChange={(e) =>
-                      handleWorkExperienceChange(
-                        index,
-                        "duration",
-                        e.target.value
-                      )
-                    }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
-                    placeholder="e.g., Jan 2023 - Present"
-                  />
+                <div className="flex flex-col gap-3">
+                  <div className="flex gap-3 flex-col md:flex-row">
+                    <div className="flex flex-col w-full md:w-1/2">
+                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        Start Date
+                      </label>
+                      <input
+                        type="month"
+                        value={experience.startDate}
+                        onChange={(e) =>
+                          handleWorkExperienceChange(
+                            index,
+                            "startDate",
+                            e.target.value
+                          )
+                        }
+                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                        placeholder="Select a month"
+                      />
+                    </div>
+                    {!experience.currentlyWorking && (
+                      <div className="flex flex-col w-full md:w-1/2">
+                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                          End Date
+                        </label>
+                        <input
+                          type="month"
+                          value={experience.endDate}
+                          onChange={(e) =>
+                            handleWorkExperienceChange(
+                              index,
+                              "endDate",
+                              e.target.value
+                            )
+                          }
+                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                          placeholder="Select a month"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      type="checkbox"
+                      checked={experience.currentlyWorking}
+                      onChange={(e) => {
+                        handleWorkExperienceChange(
+                          index,
+                          "currentlyWorking",
+                          e.target.checked
+                        );
+                        if (e.target.checked) {
+                          handleWorkExperienceChange(index, "endDate", "");
+                        }
+                      }}
+                      className="w-5 h-5 text-[#FDC700] border-[#DCDCDC] rounded focus:ring-[#FDC700]"
+                    />
+                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                      Currently Working
+                    </label>
+                  </div>
                 </div>
 
                 {/* Technologies/Tools */}
@@ -147,13 +191,14 @@ const Step3OfLO = () => {
 
                 {/* Description */}
                 <div className="flex flex-col col-span-1 md:col-span-2">
-                  <label className="text-[#170F49] font-inter font-medium mb-2 text-[18px]">
+                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
                     Description{" "}
                     <span className="text-[#A59DAA] text-[14px]">
                       (Short paragraph or bullets)
                     </span>
                   </label>
                   <textarea
+                    rows={6}
                     value={experience.description}
                     onChange={(e) =>
                       handleWorkExperienceChange(
@@ -171,7 +216,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {workExperiences.length > 1 && (
                 <button
-                  className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] mt-5"
                   onClick={() => removeWorkExperience(index)}
                 >
                   Remove Experience
@@ -196,14 +241,14 @@ const Step3OfLO = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px] bg-white  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Projects
           </h2>
           <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#DAB2FF] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {projects.map((project, index) => (
             <div key={index} className="mb-[20px] relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
@@ -260,10 +305,14 @@ const Step3OfLO = () => {
 
                 {/* Description */}
                 <div className="flex flex-col col-span-1 md:col-span-2">
-                  <label className="text-[#170F49] font-inter font-medium mb-2 text-[18px]">
-                    Project Description
+                  <label className="flex flex-col gap-1 md:flex-row md:items-center text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                    Project Description{" "}
+                    <span className="text-[#A59DAA] text-[14px]">
+                      (Short paragraph or bullets)
+                    </span>
                   </label>
                   <textarea
+                    rows={6}
                     value={project.description}
                     onChange={(e) =>
                       handleProjectChange(index, "description", e.target.value)
@@ -277,7 +326,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {projects.length > 1 && (
                 <button
-                  className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10 "
                   onClick={() => removeProject(index)}
                 >
                   Remove Project
