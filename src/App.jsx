@@ -29,8 +29,10 @@ const LinkedInOptemization = lazy(() => import("./Pages/LinkedInOptemization"));
 const Dashboard = lazy(() => import("./Pages/Dashboard"));
 
 // Shared layout components
-const Navbar = lazy(() => import("./components/commonComponents/Navbar"));
 const Footer = lazy(() => import("./components/commonComponents/Footer"));
+const Navbar = lazy(() =>
+  import("./components/commonComponents/Navbar/Navbar")
+);
 
 const App = () => {
   return (
