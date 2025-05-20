@@ -45,7 +45,7 @@ const Step4OfLO = () => {
   return (
     <section className="flex flex-col gap-[36px]">
       {/* Skills Section */}
-      <div className="flex flex-col gap-[20px]  lg:p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Skills
@@ -86,7 +86,7 @@ const Step4OfLO = () => {
       </div>
 
       {/* Achievements Section */}
-      <div className="flex flex-col gap-[20px]  lg:p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Achievements / Awards
@@ -178,7 +178,7 @@ const Step4OfLO = () => {
       </div>
 
       {/* LinkedIn Goals Section */}
-      <div className="flex flex-col gap-[20px]  lg:p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             LinkedIn Goals (Optional)

@@ -57,7 +57,7 @@ const Step1OfLO = () => {
   return (
     <section className="flex flex-col gap-[24px] sm:gap-[36px]">
       {/* Basic Profile Information Section */}
-      <div className="flex flex-col gap-[20px] bg-white lg:p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Basic Profile Information

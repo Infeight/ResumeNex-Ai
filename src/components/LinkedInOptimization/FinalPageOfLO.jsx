@@ -441,7 +441,7 @@ const FinalPageOfLO = () => {
             <div className="p-4 flex justify-between items-center ">
               <button
                 onClick={() => setShowPreviewModal(false)}
-                className="bg-white font-bold text-black px-3 py-1 border-2 border-black rounded-full text-sm"
+                className="bg-white font-bold text-black px-5 py-1 border-2 border-black rounded-full text-sm"
               >
                 back
               </button>
