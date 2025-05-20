@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useResume } from "./resumecontext";
 
-const PersonalInfo = ({ formData, setFormData }) => {
+const PersonalInfo = () => {
+  // { formData, setFormData }
+
   const add_circle = "/AIResumeAssets/add_circle.png";
+
+   const { formData, setFormData } = useResume();
 
   const [showInputs, setShowInputs] = useState({
     linkedin: false,

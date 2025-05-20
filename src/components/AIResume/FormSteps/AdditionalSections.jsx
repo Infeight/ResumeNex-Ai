@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useResume } from "./resumecontext";
 
-const AdditionalSections = ({ additional, setAdditional }) => {
+const AdditionalSections = () => {
+
+  const{additional,setAdditional} = useResume()
+
   const [languageInput, setLanguageInput] = useState("");
   const [proficiencyInput, setProficiencyInput] = useState("Basic");
   const [hobbyInput, setHobbyInput] = useState("");

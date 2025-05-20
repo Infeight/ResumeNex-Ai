@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const Education = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const deleteicon = "/AIResumeAssets/delete.png";
-  const [education, setEducation] = useState([
-    {
-      collegeName: "",
-      degree: "",
-      stream: "",
-      cgpa: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-    },
-  ]);
+  // const [education, setEducation] = useState([
+  //   {
+  //     collegeName: "",
+  //     degree: "",
+  //     stream: "",
+  //     cgpa: "",
+  //     location: "",
+  //     startDate: "",
+  //     endDate: "",
+  //   },
+  // ]);
+  const { education, setEducation } = useResume();
 
   const addEducation = () => {
     setEducation([

@@ -1,20 +1,23 @@
 import React, { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const WorkExperience = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const deleteicon = "/AIResumeAssets/delete.png";
   const generaticon = "/AIResumeAssets/generateicon.png";
 
-  const [workExperience, setWorkExperience] = useState([
-    {
-      companyName: "",
-      jobTitle: "",
-      startDate: "",
-      endDate: "",
-      responsibilities: "",
-    },
-  ]);
+  // const [workExperience, setWorkExperience] = useState([
+  //   {
+  //     companyName: "",
+  //     jobTitle: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     responsibilities: "",
+  //   },
+  // ]);
 
+  const{workExperience,setWorkExperience} = useResume();
+   
   const addWork = () => {
     setWorkExperience([
       ...workExperience,

@@ -143,7 +143,7 @@ const RightSectionAtsTempDownload = () => {
     setPopupBtn(null);
   };
   return (
-    <div className="w-full max-w-[242px] h-auto flex flex-col gap-4 relative">
+    <div className="w-full max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[1vw]">
       {/* ATS Progress Card */}
       <div className="w-full h-[143px] px-2 py-6 bg-white border border-[#DCDCDC] text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm">
         <p>ATS</p>

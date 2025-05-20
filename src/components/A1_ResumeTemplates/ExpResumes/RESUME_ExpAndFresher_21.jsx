@@ -1,6 +1,122 @@
 import React from "react";
+import { useResume } from "../../AIResume/FormSteps/resumecontext";
 
 const RESUME_ExpAndFresher_21 = () => {
+  const {
+    formData,
+    education,
+    projects,
+    workExperience,
+    certificates,
+    skills,
+    summary,
+    additional,
+  } = useResume();
+
+  // Helper: true if any object in arr has a non-empty value
+  const hasNonEmptyItem = (arr) =>
+    Array.isArray(arr) &&
+    arr.some((item) =>
+      Object.values(item).some(
+        (val) =>
+          (Array.isArray(val) && val.length > 0) ||
+          (typeof val === "string" && val.trim() !== "")
+      )
+    );
+
+  // Fallbacks
+  const educationToDisplay = hasNonEmptyItem(education)
+    ? education
+    : [
+        {
+          degree: "Master’s in Computer Science",
+          collegeName: "University of Washington, Seattle, WA",
+          stream: "Software Engineering",
+          cgpa: "3.8/4.0",
+          startDate: "Sep 2019",
+          endDate: "May 2021",
+        },
+        {
+          degree: "Bachelor’s in Computer Science",
+          collegeName: "Oregon State University, Corvallis, OR",
+          stream: "Web Development",
+          cgpa: "3.7/4.0",
+          startDate: "Sep 2015",
+          endDate: "May 2019",
+        },
+      ];
+
+  const projectsToDisplay = hasNonEmptyItem(projects)
+    ? projects
+    : [
+        {
+          name: "E-commerce Platform",
+          technologies: "React.js, Node.js, MongoDB",
+          startDate: "Jan 2023",
+          endDate: "Mar 2023",
+          description: [
+            "Developed a full-stack platform with secure user authentication.",
+            "Optimized database queries, reducing load time by 20%.",
+          ],
+          link: "https://github.com/taylorquinn/ecommerce",
+        },
+        {
+          name: "Task Management App",
+          technologies: "Python, Django, PostgreSQL",
+          startDate: "Sep 2022",
+          endDate: "Nov 2022",
+          description: [
+            "Built a task app with real-time collaboration features.",
+            "Deployed on Heroku, supporting 1000+ users.",
+          ],
+          link: "https://github.com/taylorquinn/task-app",
+        },
+      ];
+
+  const certificationsToDisplay = hasNonEmptyItem(certificates)
+    ? certificates
+    : [
+        {
+          name: "AWS Certified Solutions Architect – Amazon Web Services",
+          issueDate: "Jul 2023",
+          expiryDate: "No Expiry",
+          link: "https://aws.amazon.com/certification",
+        },
+        {
+          name: "Python for Data Science – Coursera",
+          issueDate: "Mar 2023",
+          expiryDate: "No Expiry",
+          link: "https://coursera.org/certificates/python-data",
+        },
+      ];
+
+  const workExperienceToDisplay = hasNonEmptyItem(workExperience)
+    ? workExperience
+    : [
+        {
+          jobTitle: "Full-Stack Developer",
+          companyName: "TechTrend Innovations, Seattle, WA",
+          startDate: "Jun 2023",
+          endDate: "Present",
+          responsibilities: [
+            "Develop full-stack applications using React.js and Node.js, enhancing performance by 15%.",
+            "Manage cloud deployments on AWS, reducing downtime by 10%.",
+            "Collaborate with cross-functional teams, delivering projects 20% ahead of schedule.",
+          ],
+        },
+        {
+          jobTitle: "Junior Developer",
+          companyName: "CodeWave Solutions, Portland, OR",
+          startDate: "Jan 2021",
+          endDate: "May 2023",
+          responsibilities: [
+            "Designed responsive front-end interfaces, reducing user complaints by 25%.",
+            "Implemented REST APIs, improving data retrieval speed by 30%.",
+            "Conducted code reviews, ensuring 95% adherence to best practices.",
+          ],
+        },
+      ];
+
   return (
     <div className="font-sans text-black bg-gray-100 min-h-screen flex justify-center items-start">
       <div
@@ -9,67 +125,113 @@ const RESUME_ExpAndFresher_21 = () => {
       >
         {/* Header */}
         <div className="flex justify-between items-center mb-[10px]">
-          <h1 className="text-[26px] font-bold uppercase m-0">Taylor Quinn</h1>
+          <h1 className="text-[26px] font-bold uppercase m-0">
+            {formData.firstName || formData.middleName || formData.lastName
+              ? `${formData.firstName} ${formData.middleName} ${formData.lastName}`.trim()
+              : "Taylor Quinn"}
+          </h1>
           <div className="text-[12px] text-right">
-            <p>Seattle, WA, USA | +123 0000 0000</p>
+            <p>
+              {(formData.city || formData.state || formData.pincode
+                ? `${formData.city}${formData.city ? ", " : ""}${formData.state}${
+                    formData.state ? ", " : ""
+                  }${formData.pincode}`
+                : "Seattle, WA, USA") +
+                " | " +
+                (formData.phoneNumber ? formData.phoneNumber : "+123 0000 0000")}
+            </p>
             <p>
               <a
-                href="mailto:taylor.quinn@email.com"
+                href={
+                  formData.email
+                    ? `mailto:${formData.email}`
+                    : "mailto:taylor.quinn@email.com"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                taylor.quinn@email.com
+                {formData.email ? formData.email : "taylor.quinn@email.com"}
               </a>
             </p>
             <p>
               <a
-                href="https://linkedin.com/in/taylorquinn"
+                href={
+                  formData.linkedin
+                    ? formData.linkedin
+                    : "https://linkedin.com/in/taylorquinn"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                linkedin.com/in/taylorquinn
+                {formData.linkedin
+                  ? formData.linkedin.replace(/^https?:\/\//, "")
+                  : "linkedin.com/in/taylorquinn"}
               </a>
             </p>
             <p>
               <a
-                href="https://github.com/taylorquinn"
+                href={
+                  formData.github
+                    ? formData.github
+                    : "https://github.com/taylorquinn"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                github.com/taylorquinn
+                {formData.github
+                  ? formData.github.replace(/^https?:\/\//, "")
+                  : "github.com/taylorquinn"}
               </a>
             </p>
             <p>
               <a
-                href="https://portfolio.taylorquinn.com"
+                href={
+                  formData.otherLink
+                    ? formData.otherLink
+                    : "https://portfolio.taylorquinn.com"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                portfolio.taylorquinn.com
+                {formData.otherLink
+                  ? formData.otherLink.replace(/^https?:\/\//, "")
+                  : "portfolio.taylorquinn.com"}
               </a>
             </p>
             <p>
               <a
-                href="https://figma.com/@taylorquinn"
+                href={
+                  formData.figma
+                    ? formData.figma
+                    : "https://figma.com/@taylorquinn"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                figma.com/@taylorquinn
+                {formData.figma
+                  ? formData.figma.replace(/^https?:\/\//, "")
+                  : "figma.com/@taylorquinn"}
               </a>
             </p>
             <p>
               <a
-                href="https://leetcode.com/taylorquinn"
+                href={
+                  formData.leetcode
+                    ? formData.leetcode
+                    : "https://leetcode.com/taylorquinn"
+                }
                 className="text-[#0000EE] underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                leetcode.com/taylorquinn
+                {formData.leetcode
+                  ? formData.leetcode.replace(/^https?:\/\//, "")
+                  : "leetcode.com/taylorquinn"}
               </a>
             </p>
           </div>
@@ -83,13 +245,9 @@ const RESUME_ExpAndFresher_21 = () => {
           </h2>
           <hr className="border-t border-black mb-[10px]" />
           <div className="text-[12px] text-justify leading-[1.2]">
-            Full-Stack Developer with a Master’s in Computer Science, skilled in
-            JavaScript, Python, and cloud technologies. Experienced in
-            developing scalable web applications at TechTrend Innovations,
-            increasing user engagement by 20% through optimized UI/UX.
-            Proficient in Agile methodologies, with strong collaboration and
-            problem-solving skills. Adept at leveraging AWS and Docker to deploy
-            robust solutions, meeting all job-specific technical requirements.
+            {summary
+              ? summary
+              : `Full-Stack Developer with a Master’s in Computer Science, skilled in JavaScript, Python, and cloud technologies. Experienced in developing scalable web applications at TechTrend Innovations, increasing user engagement by 20% through optimized UI/UX. Proficient in Agile methodologies, with strong collaboration and problem-solving skills. Adept at leveraging AWS and Docker to deploy robust solutions, meeting all job-specific technical requirements.`}
           </div>
         </div>
 
@@ -99,54 +257,27 @@ const RESUME_ExpAndFresher_21 = () => {
             Work Experience
           </h2>
           <hr className="border-t border-black mb-[10px]" />
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              Full-Stack Developer
-              <span className="font-normal text-[12px]">
-                Jun 2023 – Present
-              </span>
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="mb-[8px]" key={i}>
+              <div className="flex justify-between font-bold text-[12px]">
+                {exp.jobTitle}
+                <span className="font-normal text-[12px]">
+                  {exp.startDate} – {exp.endDate}
+                </span>
+              </div>
+              <p className="text-[12px] m-[2px_0]">{exp.companyName}</p>
+              <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
             </div>
-            <p className="text-[12px] m-[2px_0]">
-              TechTrend Innovations, Seattle, WA
-            </p>
-            <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-              <li>
-                Develop full-stack applications using React.js and Node.js,
-                enhancing performance by 15%.
-              </li>
-              <li>
-                Manage cloud deployments on AWS, reducing downtime by 10%.
-              </li>
-              <li>
-                Collaborate with cross-functional teams, delivering projects 20%
-                ahead of schedule.
-              </li>
-            </ul>
-          </div>
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              Junior Developer
-              <span className="font-normal text-[12px]">
-                Jan 2021 – May 2023
-              </span>
-            </div>
-            <p className="text-[12px] m-[2px_0]">
-              CodeWave Solutions, Portland, OR
-            </p>
-            <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-              <li>
-                Designed responsive front-end interfaces, reducing user
-                complaints by 25%.
-              </li>
-              <li>
-                Implemented REST APIs, improving data retrieval speed by 30%.
-              </li>
-              <li>
-                Conducted code reviews, ensuring 95% adherence to best
-                practices.
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
         {/* Education */}
@@ -155,96 +286,65 @@ const RESUME_ExpAndFresher_21 = () => {
             Education
           </h2>
           <hr className="border-t border-black mb-[10px]" />
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              Master’s in Computer Science
-              <span className="font-normal text-[12px]">
-                Sep 2019 – May 2021
-              </span>
+          {educationToDisplay.map((edu, i) => (
+            <div className="mb-[8px]" key={i}>
+              <div className="flex justify-between font-bold text-[12px]">
+                {edu.degree}
+                <span className="font-normal text-[12px]">
+                  {edu.startDate} – {edu.endDate}
+                </span>
+              </div>
+              <div className="flex justify-between text-[12px]">
+                <p className="m-[2px_0]">
+                  {edu.collegeName}
+                  <br />
+                  Stream: {edu.stream}
+                </p>
+                <p className="m-[2px_0] font-normal">CGPA: {edu.cgpa}</p>
+              </div>
             </div>
-            <div className="flex justify-between text-[12px]">
-              <p className="m-[2px_0]">
-                University of Washington, Seattle, WA
-                <br />
-                Stream: Software Engineering
-              </p>
-              <p className="m-[2px_0] font-normal">CGPA: 3.8/4.0</p>
-            </div>
-          </div>
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              Bachelor’s in Computer Science
-              <span className="font-normal text-[12px]">
-                Sep 2015 – May 2019
-              </span>
-            </div>
-            <div className="flex justify-between text-[12px]">
-              <p className="m-[2px_0]">
-                Oregon State University, Corvallis, OR
-                <br />
-                Stream: Web Development
-              </p>
-              <p className="m-[2px_0] font-normal">CGPA: 3.7/4.0</p>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Projects */}
         <div className="mb-[10px]">
           <h2 className="text-[20px] font-bold uppercase mb-[5px]">Projects</h2>
           <hr className="border-t border-black mb-[10px]" />
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              E-commerce Platform
-              <span className="font-normal text-[12px]">
-                Jan 2023 – Mar 2023
-              </span>
+          {projectsToDisplay.map((project, i) => (
+            <div className="mb-[8px]" key={i}>
+              <div className="flex justify-between font-bold text-[12px]">
+                {project.name}
+                <span className="font-normal text-[12px]">
+                  {project.startDate} – {project.endDate}
+                </span>
+              </div>
+              <p className="text-[12px] m-[2px_0]">
+                Technologies: {project.technologies}
+              </p>
+              <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
+                {(Array.isArray(project.description)
+                  ? project.description
+                  : project.description
+                  ? project.description.split("\n")
+                  : []
+                ).map((desc, idx) => (
+                  <li key={idx}>{desc}</li>
+                ))}
+                {project.link && (
+                  <li>
+                    <a
+                      href={project.link}
+                      className="text-[#0000EE] underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {project.link.replace(/^https?:\/\//, "")}
+                    </a>
+                  </li>
+                )}
+              </ul>
             </div>
-            <p className="text-[12px] m-[2px_0]">
-              Technologies: React.js, Node.js, MongoDB
-            </p>
-            <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-              <li>
-                Developed a full-stack platform with secure user authentication.
-              </li>
-              <li>Optimized database queries, reducing load time by 20%.</li>
-              <li>
-                <a
-                  href="https://github.com/taylorquinn/ecommerce"
-                  className="text-[#0000EE] underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  github.com/taylorquinn/ecommerce
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className="mb-[8px]">
-            <div className="flex justify-between font-bold text-[12px]">
-              Task Management App
-              <span className="font-normal text-[12px]">
-                Sep 2022 – Nov 2022
-              </span>
-            </div>
-            <p className="text-[12px] m-[2px_0]">
-              Technologies: Python, Django, PostgreSQL
-            </p>
-            <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-              <li>Built a task app with real-time collaboration features.</li>
-              <li>Deployed on Heroku, supporting 1000+ users.</li>
-              <li>
-                <a
-                  href="https://github.com/taylorquinn/task-app"
-                  className="text-[#0000EE] underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  github.com/taylorquinn/task-app
-                </a>
-              </li>
-            </ul>
-          </div>
+          ))}
         </div>
 
         {/* Certifications */}
@@ -254,34 +354,22 @@ const RESUME_ExpAndFresher_21 = () => {
           </h2>
           <hr className="border-t border-black mb-[10px]" />
           <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-            <li>
-              AWS Certified Solutions Architect – Amazon Web Services
-              <br />
-              Issued: Jul 2023, No Expiry
-              <br />
-              <a
-                href="https://aws.amazon.com/certification"
-                className="text-[#0000EE] underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                aws.amazon.com/certification
-              </a>
-            </li>
-            <li>
-              Python for Data Science – Coursera
-              <br />
-              Issued: Mar 2023, No Expiry
-              <br />
-              <a
-                href="https://coursera.org/certificates/python-data"
-                className="text-[#0000EE] underline"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                coursera.org/certificates/python-data
-              </a>
-            </li>
+            {certificationsToDisplay.map((cert, i) => (
+              <li key={i}>
+                {cert.name}
+                <br />
+                Issued: {cert.issueDate}, {cert.expiryDate}
+                <br />
+                <a
+                  href={cert.link}
+                  className="text-[#0000EE] underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {cert.link && cert.link.replace(/^https?:\/\//, "")}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -291,14 +379,25 @@ const RESUME_ExpAndFresher_21 = () => {
           <hr className="border-t border-black mb-[10px]" />
           <ul className="list-none pl-0 text-[12px] leading-[1.2]">
             <li>
-              Technical Skills: JavaScript, Python, React.js, Node.js, MongoDB,
-              PostgreSQL, AWS, Docker
+              Technical Skills:{" "}
+              {skills.technical && skills.technical.length > 0
+                ? skills.technical.join(", ")
+                : "JavaScript, Python, React.js, Node.js, MongoDB, PostgreSQL, AWS, Docker"}
             </li>
             <li>
-              Soft Skills: Collaboration, Problem-Solving, Time Management,
-              Communication
+              Soft Skills:{" "}
+              {skills.soft && skills.soft.length > 0
+                ? skills.soft.join(", ")
+                : "Collaboration, Problem-Solving, Time Management, Communication"}
             </li>
-            <li>Languages: English (Fluent), Spanish (Intermediate)</li>
+            <li>
+              Languages:{" "}
+              {additional.languages && additional.languages.length > 0
+                ? additional.languages
+                    .map((l) => `${l.name} (${l.proficiency})`)
+                    .join(", ")
+                : "English (Fluent), Spanish (Intermediate)"}
+            </li>
           </ul>
         </div>
 
@@ -311,20 +410,34 @@ const RESUME_ExpAndFresher_21 = () => {
           <div className="text-[12px] leading-[1.2]">
             <div className="font-bold">Hobbies & Interests</div>
             <ul className="list-disc pl-[20px] m-[3px_0]">
-              <li>Open-Source Contribution, Blogging, Cycling</li>
+              {additional.hobbies
+                ? additional.hobbies
+                    .map((hobby, i) => <li key={i}>{hobby.trim()}</li>)
+                : ["Open-Source Contribution", "Blogging", "Cycling"].map(
+                    (hobby, i) => <li key={i}>{hobby}</li>
+                  )}
             </ul>
             <div className="font-bold mt-[3px]">Achievements & Awards</div>
             <ul className="list-disc pl-[20px] m-[3px_0]">
-              <li>
-                Hackathon Winner – TechFest 2022
-                <br />
-                Built a real-time analytics dashboard
-              </li>
-              <li>
-                Outstanding Developer Award – CodeWave, 2022
-                <br />
-                Recognized for API optimization
-              </li>
+              {(additional.achievements && additional.achievements.length > 0
+                ? additional.achievements
+                : [
+                    {
+                      name: "Hackathon Winner – TechFest 2022",
+                      description: "Built a real-time analytics dashboard",
+                    },
+                    {
+                      name: "Outstanding Developer Award – CodeWave, 2022",
+                      description: "Recognized for API optimization",
+                    },
+                  ]
+              ).map((ach, i) => (
+                <li key={i}>
+                  {ach.name}
+                  <br />
+                  {ach.description}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

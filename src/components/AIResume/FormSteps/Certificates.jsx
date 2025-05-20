@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const Certificates = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const deleteicon = "/AIResumeAssets/delete.png";
 
-  const [certificates, setCertificates] = useState([
-    {
-      name: "",
-      organization: "",
-      issueDate: "",
-      expiryDate: "",
-      link: "",
-    },
-  ]);
+  // const [certificates, setCertificates] = useState([
+  //   {
+  //     name: "",
+  //     organization: "",
+  //     issueDate: "",
+  //     expiryDate: "",
+  //     link: "",
+  //   },
+  // ]);
+
+  const {certificates,setCertificates} = useResume();
 
   const addCertificate = () => {
     setCertificates([
