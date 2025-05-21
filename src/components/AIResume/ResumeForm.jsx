@@ -8,82 +8,39 @@ import Skills from "./FormSteps/Skills";
 import ProfileSummary from "./FormSteps/ProfileSummary";
 import AdditionalSections from "./FormSteps/AdditionalSections";
 import RightSectionAtsTempDownload from "./RightSectionAtsTempDownload";
-import RESUME_ExpAndFresher_1 from "../A1_ResumeTemplates/ExpResumes/RESUME_ExpAndFresher_1";
+// import RESUME_ExpAndFresher_4 from "../A1_ResumeTemplates/ExpResumes/RESUME_ExpAndFresher_4";
 
+import React, { lazy, Suspense } from "react";
+import { useParams } from "react-router-dom";
+
+import { useResume } from "./FormSteps/resumecontext";
 function ResumeForm() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    middleName: "",
-    lastName: "",
-    jobTitle: "",
-    phoneNumber: "",
-    city: "",
-    state: "",
-    pincode: "",
-    email: "",
-    linkedin: "",
-    github: "",
-    figma: "",
-    otherLink: "",
-  });
 
-  const [education, setEducation] = useState([
-    {
-      collegeName: "",
-      degree: "",
-      stream: "",
-      cgpa: "",
-      location: "",
-      startDate: "",
-      endDate: "",
-    },
-  ]);
+  const { templateIdOfResume } = useParams();
+  let searchFolder = '';
+  const TemplateComponent = React.useMemo(() => {
+    if (!templateIdOfResume) return null;
+    if(templateIdOfResume.includes('ExpAndFresher')){
+      searchFolder = 'ExpResumes'
+    }
+    else{
+       searchFolder = 'InternResumes'
+    }
+    return lazy(() =>
+         import(`../A1_ResumeTemplates/${searchFolder}/${templateIdOfResume}.jsx`)
+    );
+  }, [templateIdOfResume]);
 
-  const [projects, setProjects] = useState([
-    {
-      name: "",
-      technologies: "",
-      link: "",
-      description: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-    },
-  ]);
-
-  const [workExperience, setWorkExperience] = useState([
-    {
-      companyName: "",
-      jobTitle: "",
-      startDate: "",
-      endDate: "",
-      responsibilities: "",
-    },
-  ]);
-
-  const [certificates, setCertificates] = useState([
-    {
-      name: "",
-      organization: "",
-      issueDate: "",
-      expiryDate: "",
-      link: "",
-    },
-  ]);
-
-  const [skills, setSkills] = useState({
-    technical: [],
-    soft: [],
-    related: "",
-  });
-
-  const [summary, setSummary] = useState("");
-
-  const [additional, setAdditional] = useState({
-    languages: [{ name: "", proficiency: "" }],
-    hobbies: "",
-    achievements: [{ name: "", organization: "", description: "" }],
-  });
+  const {
+    formData, setFormData,
+    education, setEducation,
+    projects, setProjects,
+    workExperience, setWorkExperience,
+    certificates, setCertificates,
+    skills, setSkills,
+    summary, setSummary,
+    additional, setAdditional
+  } = useResume();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -102,7 +59,7 @@ function ResumeForm() {
   return (
     <div className="flex flex-col lg:flex-row w-full min-h-screen bg-gray-50">
       {/* Left Form Section */}
-      <div className="w-full lg:w-2/5 bg-white p-6 lg:p-8 shadow-lg overflow-y-auto max-h-screen flex flex-col gap-6 no-scrollbar">
+      <div className="w-full md:w-2/6 bg-white p-4 sm:p-6 md:p-[30px] shadow-md overflow-y-auto flex flex-col gap-6 no-scrollbar-arrows">
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <PersonalInfo formData={formData} setFormData={setFormData} />
           <Education education={education} setEducation={setEducation} />
@@ -130,20 +87,26 @@ function ResumeForm() {
         </form>
       </div>
 
-      {/* Resume Preview */}
-      <div className="w-full lg:w-2/5 h-screen p-4 lg:p-6 flex justify-center items-center bg-gray-100">
+      {/* Right Resume Preview Section */}
+
+      {/* work in progress */}
+      <div className="w-full lg:w-3/5 h-screen p-4 lg:p-6 flex justify-center items-center bg-gray-100 sticky top-[1vw]">
         <div className="w-full h-full max-w-[794px] max-h-[1123px] bg-white rounded-xl shadow-lg border border-gray-200 overflow-y-auto flex justify-center items-center scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-          <div className="w-[794px] h-[1123px] scale-[0.65] lg:scale-[0.85] transform origin-top">
-            <RESUME_ExpAndFresher_1
-              formData={formData}
-              education={education}
-              projects={projects}
-              workExperience={workExperience}
-              certificates={certificates}
-              skills={skills}
-              summary={summary}
-              additional={additional}
-            />
+          <div className="w-[794px] h-[830px] scale-[0.65] lg:scale-[0.85] ">
+            <Suspense fallback={<div>Loading Template...</div>}>
+              {TemplateComponent && TemplateComponent?(
+                <TemplateComponent
+                  formData={formData}
+                  education={education}
+                  projects={projects}
+                  workExperience={workExperience}
+                  certificates={certificates}
+                  skills={skills}
+                  summary={summary}
+                  additional={additional}
+                />
+              ):"No component"}
+            </Suspense>
           </div>
         </div>
       </div>

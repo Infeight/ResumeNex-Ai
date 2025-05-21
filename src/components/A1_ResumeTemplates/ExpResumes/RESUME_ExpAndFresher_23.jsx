@@ -1,6 +1,170 @@
 import React from "react";
+import { useResume } from "../../AIResume/FormSteps/resumecontext";
+
 
 const RESUME_ExpAndFresher_23 = () => {
+  const {
+    formData,
+    education,
+    projects,
+    workExperience,
+    certificates,
+    skills,
+    summary,
+    additional,
+  } = useResume();
+
+  // Helper to check if any object in array has a non-empty value
+  const hasNonEmptyItem = (arr) =>
+    Array.isArray(arr) &&
+    arr.some((item) =>
+      Object.values(item).some(
+        (val) =>
+          (Array.isArray(val) && val.length > 0) ||
+          (typeof val === "string" && val.trim() !== "")
+      )
+    );
+
+  // Fallbacks
+  const educationToDisplay = hasNonEmptyItem(education)
+    ? education
+    : [
+        {
+          degree: "Master’s in Data Science",
+          collegeName: "New York University, New York, NY",
+          stream: "Data Analytics",
+          cgpa: "3.8/4.0",
+          startDate: "Jan 2015",
+          endDate: "Dec 2016",
+        },
+        {
+          degree: "Bachelor’s in Statistics",
+          collegeName: "Columbia University, New York, NY",
+          stream: "Applied Statistics",
+          cgpa: "3.7/4.0",
+          startDate: "Sep 2011",
+          endDate: "May 2015",
+        },
+      ];
+
+  const projectsToDisplay = hasNonEmptyItem(projects)
+    ? projects
+    : [
+        {
+          name: "Sales Forecasting Model",
+          technologies: "Python, Scikit-learn, Tableau",
+          startDate: "Jan 2023",
+          endDate: "Mar 2023",
+          description: [
+            "Built a predictive model, improving sales forecasts by 18%.",
+            "Visualized results in Tableau for executive reporting.",
+          ],
+          link: "https://github.com/alexismanchester/sales-forecast",
+        },
+        {
+          name: "Healthcare Analytics Dashboard",
+          technologies: "R, Power BI, SQL",
+          startDate: "Sep 2022",
+          endDate: "Nov 2022",
+          description: [
+            "Developed a dashboard to track hospital KPIs, reducing analysis time by 20%.",
+            "Integrated SQL for real-time data updates.",
+          ],
+          link: "https://github.com/alexismanchester/health-dashboard",
+        },
+      ];
+
+  const certificationsToDisplay = hasNonEmptyItem(certificates)
+    ? certificates
+    : [
+        {
+          name: "Microsoft Certified: Data Analyst Associate",
+          organization: "Microsoft",
+          issueDate: "Jun 2023",
+          expiryDate: "No Expiry",
+          link: "https://learn.microsoft.com/certifications/data-analyst-associate",
+        },
+        {
+          name: "Data Science Professional Certificate",
+          organization: "Coursera",
+          issueDate: "Feb 2023",
+          expiryDate: "No Expiry",
+          link: "https://coursera.org/certificates/data-science",
+        },
+      ];
+
+  const workExperienceToDisplay = hasNonEmptyItem(workExperience)
+    ? workExperience
+    : [
+        {
+          jobTitle: "Senior Data Analyst",
+          companyName: "DataCorp Solutions, New York, NY",
+          startDate: "Jan 2019",
+          endDate: "Present",
+          summary: "Analyzed data for a leading fintech firm, specializing in predictive modeling.",
+          responsibilities: [
+            "Developed machine learning models, increasing forecast accuracy by 15%.",
+            "Created Tableau dashboards, reducing reporting time by 25%.",
+            "Led a team of 5 analysts, delivering projects 10% under budget.",
+          ],
+        },
+        {
+          jobTitle: "Data Analyst",
+          companyName: "Insight Analytics, Boston, MA",
+          startDate: "Jan 2017",
+          endDate: "Dec 2018",
+          summary: "Provided data insights for a healthcare analytics provider.",
+          responsibilities: [
+            "Optimized SQL queries, improving data retrieval speed by 30%.",
+            "Visualized patient trends, enhancing care strategies for 10,000+ patients.",
+            "Collaborated with engineers to automate data pipelines.",
+          ],
+        },
+        {
+          jobTitle: "Junior Data Analyst",
+          companyName: "StatWorks, New York, NY",
+          startDate: "Jun 2015",
+          endDate: "Dec 2016",
+          summary: "Supported statistical analysis for a consulting firm.",
+          responsibilities: [
+            "Conducted A/B testing, improving client campaign ROI by 12%.",
+            "Prepared R-based reports, streamlining client presentations.",
+          ],
+        },
+      ];
+
+  // Skills fallback
+  const technicalSkills =
+    skills.technical && skills.technical.length > 0
+      ? skills.technical
+      : [
+          "Python (Advanced)",
+          "R (Advanced)",
+          "SQL (Proficient)",
+          "Tableau (Proficient)",
+          "Power BI (Intermediate)",
+          "Machine Learning (Intermediate)",
+        ];
+
+  const softSkills =
+    skills.soft && skills.soft.length > 0
+      ? skills.soft
+      : [
+          "Problem-Solving",
+          "Critical Thinking",
+          "Collaboration",
+          "Communication",
+          "Teamwork",
+        ];
+
+  const languagesToDisplay =
+    additional.languages && additional.languages.length > 0
+      ? additional.languages
+      : [
+          { name: "English", proficiency: "Fluent" },
+          { name: "Spanish", proficiency: "Intermediate" },
+        ];
+
   return (
     <div className="font-sans text-black bg-gray-100 min-h-screen flex justify-center items-start">
       <div
@@ -11,17 +175,22 @@ const RESUME_ExpAndFresher_23 = () => {
         <div className="bg-[#FFE4C4] py-[5px] mb-[10px]">
           <div className="flex justify-between items-center px-[10px]">
             <h1 className="font-serif text-[26px] font-bold m-0">
-              Alexis Manchester
+              {formData.firstName || formData.middleName || formData.lastName
+                ? `${formData.firstName} ${formData.middleName} ${formData.lastName}`.trim()
+                : "Alexis Manchester"}
             </h1>
           </div>
           <hr className="border-t-2 border-black my-[5px] mx-[10px]" />
-          <div className="text-[12px] text-right px-[10px]">Data Analyst</div>
+          <div className="text-[12px] text-right px-[10px]">
+            {formData.jobTitle ? formData.jobTitle : "Data Analyst"}
+          </div>
         </div>
 
         {/* Content */}
         <div className="flex justify-between relative">
           {/* Left Column */}
           <div className="w-[30%]">
+            {/* Contact */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Contact
@@ -29,121 +198,122 @@ const RESUME_ExpAndFresher_23 = () => {
               <hr className="border-t border-black mb-[5px]" />
               <div className="text-[12px] leading-[1.2]">
                 <p className="m-[2px_0]">
-                  <span className="mr-[5px]">📞</span>732-314-2399
+                  <span className="mr-[5px]">📞</span>
+                  {formData.phoneNumber ? formData.phoneNumber : "732-314-2399"}
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">✉</span>
                   <a
-                    href="mailto:alexis.manchester@gmail.com"
+                    href={`mailto:${formData.email ? formData.email : "alexis.manchester@gmail.com"}`}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    alexis.manchester@gmail.com
+                    {formData.email ? formData.email : "alexis.manchester@gmail.com"}
                   </a>
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">🔗</span>
                   <a
-                    href="https://linkedin.com/in/alexismanchester"
+                    href={formData.linkedin ? formData.linkedin : "https://linkedin.com/in/alexismanchester"}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    linkedin.com/in/alexismanchester
+                    {formData.linkedin
+                      ? formData.linkedin.replace(/^https?:\/\//, "")
+                      : "linkedin.com/in/alexismanchester"}
                   </a>
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">🌐</span>
                   <a
-                    href="https://portfolio.alexismanchester.com"
+                    href={formData.otherLink ? formData.otherLink : "https://portfolio.alexismanchester.com"}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    portfolio.alexismanchester.com
+                    {formData.otherLink
+                      ? formData.otherLink.replace(/^https?:\/\//, "")
+                      : "portfolio.alexismanchester.com"}
                   </a>
                 </p>
                 <p className="m-[2px_0]">
-                  <span className="mr-[5px]">📍</span>New York, NY, 10001
+                  <span className="mr-[5px]">📍</span>
+                  {formData.city || formData.state || formData.pincode
+                    ? `${formData.city}${formData.city ? ", " : ""}${formData.state}${formData.state ? ", " : ""}${formData.pincode}`
+                    : "New York, NY, 10001"}
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">💻</span>
                   <a
-                    href="https://github.com/alexismanchester"
+                    href={formData.github ? formData.github : "https://github.com/alexismanchester"}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    github.com/alexismanchester
+                    {formData.github
+                      ? formData.github.replace(/^https?:\/\//, "")
+                      : "github.com/alexismanchester"}
                   </a>
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">🎨</span>
                   <a
-                    href="https://figma.com/@alexismanchester"
+                    href={formData.figma ? formData.figma : "https://figma.com/@alexismanchester"}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    figma.com/@alexismanchester
+                    {formData.figma
+                      ? formData.figma.replace(/^https?:\/\//, "")
+                      : "figma.com/@alexismanchester"}
                   </a>
                 </p>
                 <p className="m-[2px_0]">
                   <span className="mr-[5px]">🧩</span>
                   <a
-                    href="https://leetcode.com/alexismanchester"
+                    href={formData.leetcode ? formData.leetcode : "https://leetcode.com/alexismanchester"}
                     className="text-[#0000EE] underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    leetcode.com/alexismanchester
+                    {formData.leetcode
+                      ? formData.leetcode.replace(/^https?:\/\//, "")
+                      : "leetcode.com/alexismanchester"}
                   </a>
                 </p>
               </div>
             </div>
 
+            {/* Education */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Education
               </h2>
               <hr className="border-t border-black mb-[5px]" />
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">
-                  Master’s in Data Science
+              {educationToDisplay.map((edu, i) => (
+                <div className="mb-[8px]" key={i}>
+                  <div className="font-bold text-[12px]">{edu.degree}</div>
+                  <div className="flex justify-between text-[12px]">
+                    <p className="m-[2px_0]">
+                      {edu.collegeName}
+                      <br />
+                      Stream: {edu.stream}
+                    </p>
+                    <p className="m-[2px_0] font-bold">
+                      {edu.startDate} – {edu.endDate}
+                    </p>
+                  </div>
+                  <div className="flex justify-between text-[12px]">
+                    <p></p>
+                    <p className="m-[2px_0] font-normal">CGPA: {edu.cgpa}</p>
+                  </div>
                 </div>
-                <div className="flex justify-between text-[12px]">
-                  <p className="m-[2px_0]">
-                    New York University, New York, NY
-                    <br />
-                    Stream: Data Analytics
-                  </p>
-                  <p className="m-[2px_0] font-bold">Jan 2015 – Dec 2016</p>
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <p></p>
-                  <p className="m-[2px_0] font-normal">CGPA: 3.8/4.0</p>
-                </div>
-              </div>
-              <div>
-                <div className="font-bold text-[12px]">
-                  Bachelor’s in Statistics
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <p className="m-[2px_0]">
-                    Columbia University, New York, NY
-                    <br />
-                    Stream: Applied Statistics
-                  </p>
-                  <p className="m-[2px_0] font-bold">Sep 2011 – May 2015</p>
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <p></p>
-                  <p className="m-[2px_0] font-normal">CGPA: 3.7/4.0</p>
-                </div>
-              </div>
+              ))}
             </div>
 
+            {/* Skills */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Skills
@@ -153,28 +323,29 @@ const RESUME_ExpAndFresher_23 = () => {
                 <p className="m-[2px_0]">
                   <span className="font-bold">Technical Skills</span>
                 </p>
-                <p className="m-[2px_0]">
-                  Python (Advanced), R (Advanced), SQL (Proficient)
-                </p>
-                <p className="m-[2px_0]">
-                  Tableau (Proficient), Power BI (Intermediate)
-                </p>
-                <p className="m-[2px_0]">Machine Learning (Intermediate)</p>
+                {technicalSkills.map((skill, i) => (
+                  <p className="m-[2px_0]" key={i}>
+                    {skill}
+                  </p>
+                ))}
                 <hr className="border-t border-black my-[5px]" />
                 <p className="m-[2px_0]">
                   <span className="font-bold">Languages</span>
                 </p>
                 <p className="m-[2px_0]">
-                  English (Fluent), Spanish (Intermediate)
+                  {languagesToDisplay
+                    .map((l) => `${l.name} (${l.proficiency})`)
+                    .join(", ")}
                 </p>
                 <hr className="border-t border-black my-[5px]" />
                 <p className="m-[2px_0]">
                   <span className="font-bold">Soft Skills</span>
                 </p>
-                <p className="m-[2px_0]">
-                  Problem-Solving, Critical Thinking, Collaboration
-                </p>
-                <p className="m-[2px_0]">Communication, Teamwork</p>
+                {softSkills.map((skill, i) => (
+                  <p className="m-[2px_0]" key={i}>
+                    {skill}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
@@ -187,216 +358,121 @@ const RESUME_ExpAndFresher_23 = () => {
 
           {/* Right Column */}
           <div className="w-[65%]">
+            {/* Summary */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Summary
               </h2>
               <hr className="border-t border-black mb-[5px]" />
               <div className="text-[12px] text-justify leading-[1.2]">
-                Data Analyst with 7+ years of experience in transforming complex
-                datasets into actionable insights, driving 15% revenue growth
-                for Fortune 500 clients. Expert in Python, R, and SQL, with a
-                Master’s in Data Science from NYU. Proven ability to develop
-                predictive models and visualize trends using Tableau, enhancing
-                decision-making efficiency by 20%. Skilled in cross-functional
-                collaboration, delivering data-driven solutions aligned with
-                business objectives.
+                {summary
+                  ? summary
+                  : `Data Analyst with 7+ years of experience in transforming complex datasets into actionable insights, driving 15% revenue growth for Fortune 500 clients. Expert in Python, R, and SQL, with a Master’s in Data Science from NYU. Proven ability to develop predictive models and visualize trends using Tableau, enhancing decision-making efficiency by 20%. Skilled in cross-functional collaboration, delivering data-driven solutions aligned with business objectives.`}
               </div>
             </div>
 
+            {/* Work Experience */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Work Experience
               </h2>
               <hr className="border-t border-black mb-[5px]" />
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">Senior Data Analyst</div>
-                <p className="text-[12px] m-[2px_0]">
-                  DataCorp Solutions, New York, NY |{" "}
-                  <span className="font-bold">Jan 2019 – Present</span>
-                </p>
-                <p className="text-[12px] m-[2px_0]">
-                  Analyzed data for a leading fintech firm, specializing in
-                  predictive modeling.
-                </p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                  <li>
-                    Developed machine learning models, increasing forecast
-                    accuracy by 15%.
-                  </li>
-                  <li>
-                    Created Tableau dashboards, reducing reporting time by 25%.
-                  </li>
-                  <li>
-                    Led a team of 5 analysts, delivering projects 10% under
-                    budget.
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">Data Analyst</div>
-                <p className="text-[12px] m-[2px_0]">
-                  Insight Analytics, Boston, MA |{" "}
-                  <span className="font-bold">Jan 2017 – Dec 2018</span>
-                </p>
-                <p className="text-[12px] m-[2px_0]">
-                  Provided data insights for a healthcare analytics provider.
-                </p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                  <li>
-                    Optimized SQL queries, improving data retrieval speed by
-                    30%.
-                  </li>
-                  <li>
-                    Visualized patient trends, enhancing care strategies for
-                    10,000+ patients.
-                  </li>
-                  <li>
-                    Collaborated with engineers to automate data pipelines.
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">Junior Data Analyst</div>
-                <p className="text-[12px] m-[2px_0]">
-                  StatWorks, New York, NY |{" "}
-                  <span className="font-bold">Jun 2015 – Dec 2016</span>
-                </p>
-                <p className="text-[12px] m-[2px_0]">
-                  Supported statistical analysis for a consulting firm.
-                </p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                  <li>
-                    Conducted A/B testing, improving client campaign ROI by 12%.
-                  </li>
-                  <li>
-                    Prepared R-based reports, streamlining client presentations.
-                  </li>
-                </ul>
-              </div>
+              {workExperienceToDisplay.map((exp, i) => (
+                <div className="mb-[8px]" key={i}>
+                  <div className="font-bold text-[12px]">{exp.jobTitle}</div>
+                  <p className="text-[12px] m-[2px_0]">
+                    {exp.companyName} |{" "}
+                    <span className="font-bold">
+                      {exp.startDate} – {exp.endDate}
+                    </span>
+                  </p>
+                  {exp.summary && (
+                    <p className="text-[12px] m-[2px_0]">{exp.summary}</p>
+                  )}
+                  <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
+                    {(Array.isArray(exp.responsibilities)
+                      ? exp.responsibilities
+                      : exp.responsibilities
+                      ? exp.responsibilities.split("\n")
+                      : []
+                    ).map((item, idx) => (
+                      <li key={idx}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
 
+            {/* Projects */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Projects
               </h2>
               <hr className="border-t border-black mb-[5px]" />
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">
-                  Sales Forecasting Model
+              {projectsToDisplay.map((project, i) => (
+                <div className="mb-[8px]" key={i}>
+                  <div className="font-bold text-[12px]">{project.name}</div>
+                  <p className="text-[12px] m-[2px_0]">
+                    Technologies: {project.technologies} |{" "}
+                    <span className="font-bold">
+                      {project.startDate} – {project.endDate}
+                    </span>
+                  </p>
+                  <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
+                    {(Array.isArray(project.description)
+                      ? project.description
+                      : project.description
+                      ? project.description.split("\n")
+                      : []
+                    ).map((desc, idx) => (
+                      <li key={idx}>{desc}</li>
+                    ))}
+                    {project.link && (
+                      <li>
+                        <a
+                          href={project.link}
+                          className="text-[#0000EE] underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {project.link.replace(/^https?:\/\//, "")}
+                        </a>
+                      </li>
+                    )}
+                  </ul>
                 </div>
-                <p className="text-[12px] m-[2px_0]">
-                  Technologies: Python, Scikit-learn, Tableau |{" "}
-                  <span className="font-bold">Jan 2023 – Mar 2023</span>
-                </p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                  <li>
-                    Built a predictive model, improving sales forecasts by 18%.
-                  </li>
-                  <li>
-                    Visualized results in Tableau for executive reporting.
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/alexismanchester/sales-forecast"
-                      className="text-[#0000EE] underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      github.com/alexismanchester/sales-forecast
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-[8px]">
-                <div className="font-bold text-[12px]">
-                  Healthcare Analytics Dashboard
-                </div>
-                <p className="text-[12px] m-[2px_0]">
-                  Technologies: R, Power BI, SQL |{" "}
-                  <span className="font-bold">Sep 2022 – Nov 2022</span>
-                </p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                  <li>
-                    Developed a dashboard to track hospital KPIs, reducing
-                    analysis time by 20%.
-                  </li>
-                  <li>Integrated SQL for real-time data updates.</li>
-                  <li>
-                    <a
-                      href="https://github.com/alexismanchester/health-dashboard"
-                      className="text-[#0000EE] underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      github.com/alexismanchester/health-dashboard
-                    </a>
-                  </li>
-                </ul>
-              </div>
+              ))}
             </div>
 
+            {/* Certifications */}
             <div className="mb-[10px]">
               <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
                 Certifications
               </h2>
               <hr className="border-t border-black mb-[5px]" />
               <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                <li>
-                  Microsoft Certified: Data Analyst Associate – Microsoft
-                  <br />
-                  Issued: Jun 2023, No Expiry
-                  <br />
-                  <a
-                    href="https://learn.microsoft.com/certifications/data-analyst-associate"
-                    className="text-[#0000EE] underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    learn.microsoft.com/certifications
-                  </a>
-                </li>
-                <li>
-                  Data Science Professional Certificate – Coursera
-                  <br />
-                  Issued: Feb 2023, No Expiry
-                  <br />
-                  <a
-                    href="https://coursera.org/certificates/data-science"
-                    className="text-[#0000EE] underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    coursera.org/certificates/data-science
-                  </a>
-                </li>
+                {certificationsToDisplay.map((cert, i) => (
+                  <li key={i}>
+                    {cert.name}
+                    {cert.organization && <> – {cert.organization}</>}
+                    <br />
+                    Issued: {cert.issueDate}, {cert.expiryDate}
+                    {cert.link && (
+                      <>
+                        <br />
+                        <a
+                          href={cert.link}
+                          className="text-[#0000EE] underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {cert.link.replace(/^https?:\/\//, "")}
+                        </a>
+                      </>
+                    )}
+                  </li>
+                ))}
               </ul>
-            </div>
-
-            <div className="mb-[10px]">
-              <h2 className="text-[20px] font-bold uppercase text-center mb-[5px]">
-                Additional Information
-              </h2>
-              <hr className="border-t border-black mb-[5px]" />
-              <div className="text-[12px] leading-[1.2]">
-                <div className="font-bold">Hobbies & Interests</div>
-                <ul className="list-disc pl-[20px] m-[3px_0]">
-                  <li>Data Visualization, Blogging, Chess</li>
-                </ul>
-                <div className="font-bold mt-[3px]">Achievements & Awards</div>
-                <ul className="list-disc pl-[20px] m-[3px_0]">
-                  <li>
-                    Analyst of the Year – DataCorp, 2022
-                    <br />
-                    Recognized for predictive modeling impact
-                  </li>
-                  <li>
-                    Hackathon Winner – DataFest 2021
-                    <br />
-                    Built a real-time analytics tool
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>

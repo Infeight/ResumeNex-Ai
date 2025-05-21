@@ -1,16 +1,19 @@
 import { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const Skills = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const generaticon = "/AIResumeAssets/generateicon.png";
   const deleteminicon = "/AIResumeAssets/delete-min.png";
 
-  const [skills, setSkills] = useState({
-    technical: [],
-    soft: [],
-    related: "",
-    relatedHeading: "", // New state for Related Skills heading
-  });
+  // const [skills, setSkills] = useState({
+  //   technical: [],
+  //   soft: [],
+  //   related: "",
+  //   relatedHeading: "", // New state for Related Skills heading
+  // });
+
+   const {skills,setSkills} = useResume()
 
   const [technicalInput, setTechnicalInput] = useState("");
   const [softInput, setSoftInput] = useState("");

@@ -1,22 +1,25 @@
 import React, { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const Projects = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const deleteicon = "/AIResumeAssets/delete.png";
   const generaticon = "/AIResumeAssets/generateicon.png";
 
-  const [projects, setProjects] = useState([
-    {
-      name: "",
-      technologies: "",
-      link: "",
-      description: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-    },
-  ]);
+  // const [projects, setProjects] = useState([
+  //   {
+  //     name: "",
+  //     technologies: "",
+  //     link: "",
+  //     description: "",
+  //     startDate: "",
+  //     endDate: "",
+  //     summary: "",
+  //   },
+  // ]);
 
+  const{projects,setProjects} = useResume();
+   
   const addProject = () => {
     setProjects([
       ...projects,

@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useResume } from "./resumecontext";
 
 const ProfileSummary = () => {
   const generaticon = "/AIResumeAssets/generateicon.png";
 
   // Initialize local state for profile summary
-  const [summary, setSummary] = useState("");
+  // const [summary, setSummary] = useState("");
+  const {summary,setSummary} = useResume();
 
   const generateSummary = async () => {
     try {

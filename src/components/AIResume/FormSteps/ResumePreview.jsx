@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import ExperienceResume from "../ExpAndFresherResume";
 
+import RESUME_ExpAndFresher_4 from '../../A1_ResumeTemplates/ExpResumes/RESUME_ExpAndFresher_4'
+import { useResume } from "./resumecontext";
+
 const ResumePreview = () => {
+
+   const resumeData = useResume;
+
   const resume1 = "/AIResumeAssets/resume1.png";
   const resume2 = "/AIResumeAssets/resume2.png";
   const resume3 = "/AIResumeAssets/resume3.png";
@@ -70,13 +76,16 @@ const ResumePreview = () => {
       )}
 
       {/* Resume Preview */}
-      <div className="w-full lg:w-3/4 h-[calc(100vh-4rem)] sm:h-[calc(100vh-3rem)]">
+      <div className="w-full lg:w-3/4 h-[calc(100vh-3rem)] sm:h-[calc(100vh-7rem)]">
         <div className="w-full h-full bg-white rounded-2xl shadow-lg border border-gray-200 flex justify-center items-start overflow-y-auto">
           <img
             src={selectedResume}
             alt="Resume Preview"
             className="w-full h-[80vh] sm:h-[85vh] object-contain rounded-2xl"
           />
+
+ {/* <RESUME_ExpAndFresher_4 {...resumeData} /> */}
+
         </div>
       </div>
 

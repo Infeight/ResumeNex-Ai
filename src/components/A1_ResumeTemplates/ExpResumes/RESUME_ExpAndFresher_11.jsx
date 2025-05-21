@@ -1,46 +1,74 @@
 import React from "react";
+import { useResume } from "../../AIResume/FormSteps/resumecontext";
+
 
 const RESUME_ExpAndFresher_11 = () => {
+
+    const {
+      formData,
+      education,
+      projects,
+      workExperience,
+      certificates,
+      skills,
+      summary,
+      additional,
+    } = useResume();
+
+//Name help
+     const fullName =
+    formData.firstName || formData.middleName || formData.lastName
+      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      : "Your Name";
+
+  //address help
+  const address =
+    formData.city || formData.state || formData.pincode
+      ? `${formData.city ? formData.city : ""}${formData.city && formData.state ? ", " : ""}${formData.state ? formData.state : ""}${formData.state && formData.pincode ? ", " : ""}${formData.pincode ? formData.pincode : ""}`
+      : "City, State, Pincode";
+
   return (
     <div className="font-['Arial',sans-serif] text-gray-800 w-[794px] min-h-[1122px] mx-auto p-[20mm] box-border flex">
       {/* Sidebar */}
       <div className="w-[30%] bg-gray-100 p-4 text-gray-800">
-        <h1 className="text-[24px] font-bold mb-2">Priya Sharma</h1>
+        <h1 className="text-[24px] font-bold mb-2">{formData?formData.firstName+" "+formData.middleName+" "+formData.lastName :"Priya Sharma" }</h1>
         <div className="text-[12px]">
-          <p className="my-1">Bangalore, India, 560001</p>
-          <p className="my-1">9876 543 210</p>
+          <p className="my-1">{formData.city?formData.city:"Bangalore"}, {formData.state?formData.state:"Karnataka"}, {formData.pincode?formData.pincode:"112255"}</p>
+          <p className="my-1">{formData.phoneNumber?formData.phoneNumber:"9987558965"}</p>
           <p className="my-1">
             <a
-              href="mailto:priya.sharma@email.com"
+              href={`mailto:${formData.email}`}
               className="text-gray-800 no-underline hover:underline"
             >
-              priya.sharma@email.com
+              {formData.email?formData.email:"priya@gmail.com"}
             </a>
           </p>
           <p className="my-1">
             <a
-              href="https://linkedin.com/in/priyasharma"
+              href={formData.linkedin}
               className="text-gray-800 no-underline hover:underline"
             >
-              linkedin.com/in/priyasharma
+              {formData.linkedin?formData.linkedin:"linkedin.com/in/priyasharma"}
             </a>
           </p>
           <p className="my-1">
             <a
-              href="https://github.com/priyasharma"
+              href={formData.github}
               className="text-gray-800 no-underline hover:underline"
             >
-              github.com/priyasharma
+              {formData.github?formData.github:"github.com/priyasharma"}
             </a>
           </p>
-          <p className="my-1">
-            <a
-              href="https://priyasharma.dev"
-              className="text-gray-800 no-underline hover:underline"
-            >
-              priyasharma.dev
-            </a>
-          </p>
+
+           <a
+            href={formData.otherLink || "https://priya.dev"}
+            className="text-gray-800 no-underline hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {formData.otherLink || "priya.dev"}
+          </a>
+    
         </div>
       </div>
 
@@ -50,66 +78,93 @@ const RESUME_ExpAndFresher_11 = () => {
         <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-0 text-left">
           Objective
         </h2>
-        <p className="text-[12px] text-justify">
-          Motivated Computer Science graduate seeking an entry-level software
-          development role to apply my programming skills in Python and Java,
-          honed through academic projects and internships. Eager to contribute
-          to innovative projects while growing my expertise in a dynamic team
-          environment.
-        </p>
+         <div className="mb-4">
+        <h2 className="text-xl font-semibold">Summary</h2>
+        <p>{summary ? summary :  <>
+                Dedicated professional with a strong educational background in
+                computer science and extensive experience in software development.
+                Skilled in designing and implementing innovative solutions using
+                modern programming languages and frameworks. Achieved a <b>25%</b> increase in project efficiency through optimized workflows.
+                Proficient in project management and data analysis, with a passion
+                for leveraging technology to solve complex challenges.
+              </>}</p>
+      </div>
 
         {/* Education */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Education
-        </h2>
-        <div className="mb-3">
-          <div className="flex justify-between text-[14px]">
-            <span className="font-bold">B.Tech in Computer Science</span>
-            <span className="italic font-bold">Jun 2020 - May 2024</span>
-          </div>
-          <div className="text-[12px]">
-            <p>Indian Institute of Technology, Bangalore, India</p>
-            <p className="italic">CGPA: 8.7/10 (Top 10%)</p>
-            <p>
-              <span className="font-bold">Relevant Coursework:</span> Data
-              Structures, Algorithms, Database Systems, Web Development
-            </p>
-          </div>
-        </div>
+         <div className="mb-4">
+        <h2 className="text-xl font-semibold">Education</h2>
+        {education && education.length > 0 && (education[0].collegeName || education[0].degree) ? (
+          education.map((edu, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{edu.degree ? edu.degree : "Degree"}</strong>
+              {edu.stream && ` in ${edu.stream}`}
+              <div>{edu.collegeName ? edu.collegeName : "College Name"}</div>
+              <div>
+                {edu.location ? edu.location : "Location"} |{" "}
+                {edu.startDate ? edu.startDate : "Start"} - {edu.endDate ? edu.endDate : "End"}
+              </div>
+              <div>CGPA: {edu.cgpa ? edu.cgpa : "N/A"}</div>
+            </div>
+          ))
+        ) : (
+          <p>No education details provided.</p>
+        )}
+      </div>
 
         {/* Internships */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Internships
-        </h2>
-        <div className="mb-3">
-          <div className="flex justify-between text-[14px] font-bold">
-            <span>Software Development Intern</span>
-            <span className="italic">Jun 2023 - Aug 2023</span>
-          </div>
-          <div className="text-[14px] font-bold">
-            TechSolutions Pvt. Ltd., Bangalore, India
-          </div>
-          <ul className="list-disc pl-5 text-[12px] mt-1">
-            <li>
-              <i>Developed</i> a user authentication module using Python and
-              Django, improving login security by <b>15%</b>.
-            </li>
-            <li>
-              <i>Collaborated</i> with a team of 5 to design and test REST APIs
-              for a web application.
-            </li>
-            <li>
-              <i>Assisted</i> in debugging and optimizing database queries,
-              reducing response time by <b>20%</b>.
-            </li>
-          </ul>
-        </div>
+       <div className="mb-4">
+        <h2 className="text-xl font-semibold">Work Experience</h2>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((exp, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{exp.jobTitle ? exp.jobTitle : "Job Title"}</strong>
+              <div>{exp.companyName ? exp.companyName : "Company Name"}</div>
+              <div>
+                {exp.startDate ? exp.startDate : "Start"} - {exp.endDate ? exp.endDate : "End"}
+              </div>
+              <div>
+                {exp.responsibilities
+                  ? exp.responsibilities
+                  : "Describe your responsibilities here."}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No work experience provided.</p>
+        )}
+      </div>
 
         {/* Projects */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Projects
-        </h2>
-        <div className="mb-3">
+  
+         <div className="mb-4">
+        <h2 className="text-xl font-semibold">Projects</h2>
+        {projects && projects.length > 0 && projects[0].name ? (
+          projects.map((proj, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{proj.name ? proj.name : "Project Name"}</strong>
+              <div>
+                <span>
+                  {proj.technologies ? proj.technologies : "Technologies Used"}
+                </span>
+                {" | "}
+                <a
+                  href={proj.link ? proj.link : "#"}
+                  className="text-blue-700 underline"
+                >
+                  {proj.link ? proj.link : "Project Link"}
+                </a>
+              </div>
+              <div>
+                {proj.startDate ? proj.startDate : "Start"} - {proj.endDate ? proj.endDate : "End"}
+              </div>
+              <div>{proj.description ? proj.description : "Project Description"}</div>
+              <div>
+                <em>{proj.summary ? proj.summary : "Project Summary"}</em>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="mb-3">
           <div className="flex justify-between text-[14px] font-bold">
             <span>E-Commerce Website</span>
             <span className="italic">Jan 2024 - Apr 2024</span>
@@ -144,87 +199,88 @@ const RESUME_ExpAndFresher_11 = () => {
               score of <b>92/100</b>.
             </li>
           </ul>
-        </div>
+        </div> 
+        )}
+      </div>
 
         {/* Skills */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Skills
-        </h2>
-        <div className="text-[12px] mb-4">
-          <div className="flex">
-            <div className="w-[65%]">
-              <p>
-                <span className="font-bold">Programming Languages:</span>{" "}
-                Python, Java, JavaScript
-              </p>
-              <p>
-                <span className="font-bold">Frameworks:</span> Django, React,
-                Node.js
-              </p>
-              <p>
-                <span className="font-bold">Other:</span> Data Structures,
-                Algorithms, Git, SQL
-              </p>
-            </div>
-            <div className="w-[30%] text-right">
-              <p>Proficiency: Intermediate</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Certifications
-        </h2>
         <div className="mb-4">
-          <div className="flex">
-            <div className="w-[65%] text-[12px]">
-              <p>
-                <span className="font-bold">Python Programming</span> - Coursera
-                <br />
-                <a
-                  href="https://coursera.org/verify/python"
-                  className="text-gray-800 no-underline hover:underline"
-                >
-                  Verify
-                </a>
-              </p>
-            </div>
-            <div className="w-[30%] text-right text-[12px] italic">
-              <p>
-                Issued: Aug 2023
-                <br />
-                No Expiry
-              </p>
-            </div>
-          </div>
+        <h2 className="text-xl font-semibold">Skills</h2>
+        <div>
+          <strong>Technical:</strong>{" "}
+          {skills.technical && skills.technical.length > 0
+            ? skills.technical.join(", ")
+            : "List your technical skills"}
         </div>
-
-        {/* Extracurricular Activities */}
-        <h2 className="text-[16px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-left">
-          Extracurricular Activities
-        </h2>
-        <div className="text-[12px]">
-          <div className="flex">
-            <div className="w-[65%]">
-              <ul className="list-disc pl-5">
-                <li>
-                  President, Coding Club, IIT Bangalore (2022–2023): Organized{" "}
-                  <b>5</b> coding competitions with <b>100+</b> participants.
-                </li>
-                <li>
-                  Volunteer, TechFest 2023: Managed logistics for a tech
-                  symposium attended by <b>500+</b> students.
-                </li>
-              </ul>
-            </div>
-            <div className="w-[30%] text-right italic">
-              <p>2022-2023</p>
-              <p>2023</p>
-            </div>
-          </div>
+        <div>
+          <strong>Soft:</strong>{" "}
+          {skills.soft && skills.soft.length > 0
+            ? skills.soft.join(", ")
+            : "List your soft skills"}
+        </div>
+        <div>
+          <strong>Related:</strong>{" "}
+          {skills.related ? skills.related : "Related skills"}
         </div>
       </div>
+
+        {/* Certifications */}
+       <div className="mb-4">
+        <h2 className="text-xl font-semibold">Certificates</h2>
+        {certificates && certificates.length > 0 && certificates[0].name ? (
+          certificates.map((cert, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{cert.name ? cert.name : "Certificate Name"}</strong>
+              <div>{cert.organization ? cert.organization : "Organization"}</div>
+              <div>
+                {cert.issueDate ? cert.issueDate : "Issue Date"}{" "}
+                {cert.expiryDate ? `- ${cert.expiryDate}` : ""}
+              </div>
+              <div>
+                <a
+                  href={cert.link ? cert.link : "#"}
+                  className="text-blue-700 underline"
+                >
+                  {cert.link ? cert.link : "Certificate Link"}
+                </a>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No certificates provided.</p>
+        )}
+      </div>
+        {/* Extracurricular Activities */}
+         <div className="mb-4">
+        <h2 className="text-xl font-semibold">Additional Information</h2>
+        <div>
+          <strong>Languages:</strong>{" "}
+          {additional.languages && additional.languages.length > 0 && additional.languages[0].name
+            ? additional.languages
+                .map(
+                  (lang) =>
+                    `${lang.name ? lang.name : "Language"} (${lang.proficiency ? lang.proficiency : "Proficiency"})`
+                )
+                .join(", ")
+            : "Languages you know"}
+        </div>
+        <div>
+          <strong>Hobbies:</strong>{" "}
+          {additional.hobbies ? additional.hobbies : "Your hobbies"}
+        </div>
+        <div>
+          <strong>Achievements:</strong>{" "}
+          {additional.achievements && additional.achievements.length > 0 && additional.achievements[0].name
+            ? additional.achievements
+                .map(
+                  (ach) =>
+                    `${ach.name ? ach.name : "Achievement"} at ${ach.organization ? ach.organization : "Organization"} (${ach.description ? ach.description : "Description"})`
+                )
+                .join("; ")
+            : "Your achievements"}
+        </div>
+      </div>
+    </div>
     </div>
   );
 };

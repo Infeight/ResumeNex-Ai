@@ -1,48 +1,223 @@
-// src/components/RESUME_ExpAndFresher_28.js
 import React from "react";
+import { useResume } from "../../AIResume/FormSteps/resumecontext";
 
 const RESUME_ExpAndFresher_28 = () => {
+  const {
+    formData,
+    education,
+    projects,
+    workExperience,
+    certificates,
+    skills,
+    summary,
+    additional,
+  } = useResume();
+
+  // Helper to check if any object in array has a non-empty value
+  const hasNonEmptyItem = (arr) =>
+    Array.isArray(arr) &&
+    arr.some((item) =>
+      Object.values(item).some(
+        (val) =>
+          (Array.isArray(val) && val.length > 0) ||
+          (typeof val === "string" && val.trim() !== "")
+      )
+    );
+
+  // Fallbacks
+  const educationToDisplay = hasNonEmptyItem(education)
+    ? education
+    : [
+        {
+          degree: "B.Tech in Computer Science and Engineering",
+          collegeName: "Indian Institute of Information Technology, Design Manufacturing, Kurnool",
+          cgpa: "6.25",
+          stream: "",
+          startDate: "2020",
+          endDate: "2024",
+          percentage: "",
+        },
+        {
+          degree: "Intermediate MPC",
+          collegeName: "Sri Chaitanya Junior College",
+          cgpa: "",
+          stream: "",
+          startDate: "2018",
+          endDate: "2020",
+          percentage: "94%",
+        },
+        {
+          degree: "10th Class SSC",
+          collegeName: "Gauthami Techno School",
+          cgpa: "8.8",
+          stream: "",
+          startDate: "2018",
+          endDate: "",
+          percentage: "",
+        },
+      ];
+
+  const workExperienceToDisplay = hasNonEmptyItem(workExperience)
+    ? workExperience
+    : [
+        {
+          jobTitle: "Front-End Developer Intern",
+          companyName: "Esha Technology",
+          startDate: "Nov 2024",
+          endDate: "Jan 2025",
+          responsibilities: [
+            "Built front-end features for 3 projects using React, JavaScript, HTML, and CSS, improving responsiveness across browsers.",
+            "Optimized UI components, cutting load times by 20%, and collaborated on API integration for seamless functionality.",
+          ],
+        },
+        {
+          jobTitle: "Front-End Developer",
+          companyName: "Mehaa Finserv",
+          startDate: "Jun 2024",
+          endDate: "Oct 2024",
+          responsibilities: [
+            "Led development of loan services website components using React and Tailwind CSS, including loan cards and forms.",
+            "Integrated real-time loan data APIs, enhancing UX, and ensured responsive design across devices with team collaboration.",
+          ],
+        },
+      ];
+
+  const skillsProgramming =
+    skills.technical && skills.technical.length > 0
+      ? skills.technical.join(", ")
+      : "Python, HTML, CSS, JavaScript, ReactJS, NodeJS, Git";
+  const skillsWeb =
+    skills.related && skills.related.trim()
+      ? skills.related
+      : "Frontend Design, UI/UX Optimization, API Integration";
+  const skillsDB = "SQL, MongoDB";
+  const skillsDS = "Machine Learning, Pandas, NumPy, Matplotlib";
+  const skillsCourse =
+    skills.soft && skills.soft.length > 0
+      ? skills.soft.join(", ")
+      : "Operating Systems, Software Engineering, Data Structures & Algorithms, Probability & Statistics";
+
+  const projectsToDisplay = hasNonEmptyItem(projects)
+    ? projects
+    : [
+        {
+          name: "Mehaa Finserv Website",
+          link: "https://mehaafinserv.com",
+          description: [
+            "Developed a responsive lending services website using React and Tailwind CSS.",
+            "Built scalable components like loan cards and forms, integrating real-time APIs for enhanced functionality.",
+          ],
+        },
+        {
+          name: "Esha Technology Project",
+          link: "https://github.com/saicharan/esha-project",
+          description: [
+            "Created front-end features for multiple projects using React and JavaScript.",
+            "Optimized UI for mobile responsiveness and performance, improving user experience by 15%.",
+          ],
+        },
+      ];
+
+  const certificatesToDisplay = hasNonEmptyItem(certificates)
+    ? certificates
+    : [
+        {
+          name: "Python for Beginners, SkillUp Simplilearn",
+          link: "https://skillup.simplilearn.com/cert/python-for-beginners",
+          issueDate: "2025",
+        },
+        {
+          name: "React Basics, Coursera",
+          link: "https://coursera.org/verify/react-basics",
+          issueDate: "2024",
+        },
+      ];
+
+  const volunteerToDisplay =
+    additional.achievements && additional.achievements.length > 0
+      ? additional.achievements
+      : [
+          {
+            name: "Active member of Narthanashala (Drama Club) at IIITDM Kurnool, performing in 5+ events.",
+          },
+          {
+            name: "Contributed to community outreach with Social Service Group at school.",
+          },
+          {
+            name: "Served as Head Boy, leading student initiatives and organizing 10+ events.",
+          },
+        ];
+
+  const languagesToDisplay =
+    additional.languages && additional.languages.length > 0
+      ? additional.languages
+      : [
+          { name: "English", proficiency: "Fluent" },
+          { name: "Telugu", proficiency: "Native" },
+          { name: "Hindi", proficiency: "Intermediate" },
+        ];
+
+  const hobbiesToDisplay = additional.hobbies
+    ? additional.hobbies.map((h) => h.trim())
+    : ["Web Development", "Data Science", "Theater"];
+
+  const achievementsToDisplay =
+    additional.achievements && additional.achievements.length > 0
+      ? additional.achievements
+      : [
+          { name: "Best Project Award, IIITDM Kurnool Tech Fest, 2023" },
+          { name: "Top Performer, School Leadership Award, 2018" },
+        ];
+
   return (
     <div className="font-['Times_New_Roman',Times,serif] text-[#000000] text-[11pt] leading-[1.5] max-w-[800px] mx-auto my-[20px] p-[20px] bg-white">
       {/* Header */}
       <header className="text-center mb-[20px]">
         <h1 className="text-[20pt] font-normal text-[#000000] mb-[0px]">
-          Jarpula Sai Charan Nayak
+          {formData.firstName || formData.middleName || formData.lastName
+            ? `${formData.firstName} ${formData.middleName} ${formData.lastName}`.trim()
+            : "Jarpula Sai Charan Nayak"}
         </h1>
         <p className="text-[11pt] mb-[10px]">
           <a
-            href="mailto:jarupulacharannayak@gmail.com"
+            href={`mailto:${formData.email ? formData.email : "jarupulacharannayak@gmail.com"}`}
             className="text-[#0000FF] no-underline hover:underline"
           >
-            jarupulacharannayak@gmail.com
+            {formData.email ? formData.email : "jarupulacharannayak@gmail.com"}
           </a>{" "}
           |{" "}
           <a
-            href="https://linkedin.com/in/saicharan"
+            href={formData.linkedin ? formData.linkedin : "https://linkedin.com/in/saicharan"}
             className="text-[#0000FF] no-underline hover:underline"
           >
-            linkedin.com/in/saicharan
+            {formData.linkedin
+              ? formData.linkedin.replace(/^https?:\/\//, "")
+              : "linkedin.com/in/saicharan"}
           </a>{" "}
           |{" "}
           <a
-            href="tel:+919849544717"
+            href={`tel:${formData.phoneNumber ? formData.phoneNumber : "+919849544717"}`}
             className="text-[#0000FF] no-underline hover:underline"
           >
-            +91 9849544717
+            {formData.phoneNumber ? formData.phoneNumber : "+91 9849544717"}
           </a>{" "}
           |{" "}
           <a
-            href="https://github.com/saicharan"
+            href={formData.github ? formData.github : "https://github.com/saicharan"}
             className="text-[#0000FF] no-underline hover:underline"
           >
-            github.com/saicharan
+            {formData.github
+              ? formData.github.replace(/^https?:\/\//, "")
+              : "github.com/saicharan"}
           </a>{" "}
           |{" "}
           <a
-            href="https://saicharan.dev"
+            href={formData.otherLink ? formData.otherLink : "https://saicharan.dev"}
             className="text-[#0000FF] no-underline hover:underline"
           >
-            saicharan.dev
+            {formData.otherLink
+              ? formData.otherLink.replace(/^https?:\/\//, "")
+              : "saicharan.dev"}
           </a>
         </p>
       </header>
@@ -54,10 +229,9 @@ const RESUME_ExpAndFresher_28 = () => {
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
         <p>
-          Computer Science graduate with expertise in React, JavaScript, and
-          problem-solving. Skilled in building scalable, responsive web
-          applications, optimizing performance by 20% at Esha Technology.
-          Passionate about frontend development and collaborative tech projects.
+          {summary
+            ? summary
+            : `Computer Science graduate with expertise in React, JavaScript, and problem-solving. Skilled in building scalable, responsive web applications, optimizing performance by 20% at Esha Technology. Passionate about frontend development and collaborative tech projects.`}
         </p>
       </section>
 
@@ -67,41 +241,22 @@ const RESUME_ExpAndFresher_28 = () => {
           Education
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <div className="flex justify-between items-start mb-[5px]">
-          <div className="flex-grow">
-            <h3 className="text-[12pt] font-bold mb-[2px]">
-              B.Tech in Computer Science and Engineering
-            </h3>
-            <p>
-              Indian Institute of Information Technology, Design Manufacturing,
-              Kurnool
-            </p>
+        {educationToDisplay.map((edu, i) => (
+          <div className="flex justify-between items-start mb-[5px]" key={i}>
+            <div className="flex-grow">
+              <h3 className="text-[12pt] font-bold mb-[2px]">{edu.degree}</h3>
+              <p>{edu.collegeName}</p>
+            </div>
+            <div className="text-right text-[11pt]">
+              {edu.cgpa && <p className="font-bold">CGPA: {edu.cgpa}</p>}
+              {edu.percentage && <p className="font-bold">Percentage: {edu.percentage}</p>}
+              <p>
+                {edu.startDate}
+                {edu.endDate && `-${edu.endDate}`}
+              </p>
+            </div>
           </div>
-          <div className="text-right text-[11pt]">
-            <p className="font-bold">CGPA: 6.25</p>
-            <p>2020-2024</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-start mb-[5px]">
-          <div className="flex-grow">
-            <h3 className="text-[12pt] font-bold mb-[2px]">Intermediate MPC</h3>
-            <p>Sri Chaitanya Junior College</p>
-          </div>
-          <div className="text-right text-[11pt]">
-            <p className="font-bold">Percentage: 94%</p>
-            <p>2018-2020</p>
-          </div>
-        </div>
-        <div className="flex justify-between items-start mb-[5px]">
-          <div className="flex-grow">
-            <h3 className="text-[12pt] font-bold mb-[2px]">10th Class SSC</h3>
-            <p>Gauthami Techno School</p>
-          </div>
-          <div className="text-right text-[11pt]">
-            <p className="font-bold">CGPA: 8.8</p>
-            <p>2018</p>
-          </div>
-        </div>
+        ))}
       </section>
 
       {/* Experience */}
@@ -110,38 +265,28 @@ const RESUME_ExpAndFresher_28 = () => {
           Experience
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <div className="mb-[5px]">
-          <div className="flex justify-between items-start">
-            <h3 className="text-[12pt] font-bold mb-[2px]">
-              Front-End Developer Intern, Esha Technology
-            </h3>
-            <p className="text-[11pt] text-right">Nov 2024 - Jan 2025</p>
+        {workExperienceToDisplay.map((exp, i) => (
+          <div className="mb-[5px]" key={i}>
+            <div className="flex justify-between items-start">
+              <h3 className="text-[12pt] font-bold mb-[2px]">
+                {exp.jobTitle}, {exp.companyName}
+              </h3>
+              <p className="text-[11pt] text-right">
+                {exp.startDate} - {exp.endDate}
+              </p>
+            </div>
+            <ul className="list-disc ml-[20px] mb-[10px]">
+              {(Array.isArray(exp.responsibilities)
+                ? exp.responsibilities
+                : exp.responsibilities
+                ? exp.responsibilities.split("\n")
+                : []
+              ).map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="list-disc ml-[20px] mb-[10px]">
-            <li>
-              Built front-end features for 3 projects using React, JavaScript,
-              HTML, and CSS, improving responsiveness across browsers. Optimized
-              UI components, cutting load times by 20%, and collaborated on API
-              integration for seamless functionality.
-            </li>
-          </ul>
-        </div>
-        <div className="mb-[5px]">
-          <div className="flex justify-between items-start">
-            <h3 className="text-[12pt] font-bold mb-[2px]">
-              Front-End Developer, Mehaa Finserv
-            </h3>
-            <p className="text-[11pt] text-right">Jun 2024 - Oct 2024</p>
-          </div>
-          <ul className="list-disc ml-[20px] mb-[10px]">
-            <li>
-              Led development of loan services website components using React
-              and Tailwind CSS, including loan cards and forms. Integrated
-              real-time loan data APIs, enhancing UX, and ensured responsive
-              design across devices with team collaboration.
-            </li>
-          </ul>
-        </div>
+        ))}
       </section>
 
       {/* Skills */}
@@ -152,23 +297,19 @@ const RESUME_ExpAndFresher_28 = () => {
         <hr className="border-t border-[#808080] mb-[10px]" />
         <ul className="list-disc ml-[20px] mb-[10px]">
           <li>
-            <strong>Programming:</strong> Python, HTML, CSS, JavaScript,
-            ReactJS, NodeJS, Git
+            <strong>Programming:</strong> {skillsProgramming}
           </li>
           <li>
-            <strong>Web Development:</strong> Frontend Design, UI/UX
-            Optimization, API Integration
+            <strong>Web Development:</strong> {skillsWeb}
           </li>
           <li>
-            <strong>Databases:</strong> SQL, MongoDB
+            <strong>Databases:</strong> {skillsDB}
           </li>
           <li>
-            <strong>Data Science:</strong> Machine Learning, Pandas, NumPy,
-            Matplotlib
+            <strong>Data Science:</strong> {skillsDS}
           </li>
           <li>
-            <strong>Coursework:</strong> Operating Systems, Software
-            Engineering, Data Structures & Algorithms, Probability & Statistics
+            <strong>Coursework:</strong> {skillsCourse}
           </li>
         </ul>
       </section>
@@ -179,50 +320,33 @@ const RESUME_ExpAndFresher_28 = () => {
           Projects
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <div className="mb-[5px]">
-          <div className="flex items-center gap-[10px]">
-            <h3 className="text-[12pt] font-bold mb-[2px]">
-              Mehaa Finserv Website
-            </h3>
-            <p>
-              <a
-                href="https://mehaafinserv.com"
-                className="text-[#0000FF] no-underline hover:underline"
-              >
-                mehaafinserv.com
-              </a>
-            </p>
+        {projectsToDisplay.map((project, i) => (
+          <div className="mb-[5px]" key={i}>
+            <div className="flex items-center gap-[10px]">
+              <h3 className="text-[12pt] font-bold mb-[2px]">{project.name}</h3>
+              {project.link && (
+                <p>
+                  <a
+                    href={project.link}
+                    className="text-[#0000FF] no-underline hover:underline"
+                  >
+                    {project.link.replace(/^https?:\/\//, "")}
+                  </a>
+                </p>
+              )}
+            </div>
+            <ul className="list-disc ml-[20px] mb-[10px]">
+              {(Array.isArray(project.description)
+                ? project.description
+                : project.description
+                ? project.description.split("\n")
+                : []
+              ).map((desc, idx) => (
+                <li key={idx}>{desc}</li>
+              ))}
+            </ul>
           </div>
-          <ul className="list-disc ml-[20px] mb-[10px]">
-            <li>
-              Developed a responsive lending services website using React and
-              Tailwind CSS. Built scalable components like loan cards and forms,
-              integrating real-time APIs for enhanced functionality.
-            </li>
-          </ul>
-        </div>
-        <div className="mb-[5px]">
-          <div className="flex items-center gap-[10px]">
-            <h3 className="text-[12pt] font-bold mb-[2px]">
-              Esha Technology Project
-            </h3>
-            <p>
-              <a
-                href="https://github.com/saicharan/esha-project"
-                className="text-[#0000FF] no-underline hover:underline"
-              >
-                github.com/saicharan/esha-project
-              </a>
-            </p>
-          </div>
-          <ul className="list-disc ml-[20px] mb-[10px]">
-            <li>
-              Created front-end features for multiple projects using React and
-              JavaScript. Optimized UI for mobile responsiveness and
-              performance, improving user experience by 15%.
-            </li>
-          </ul>
-        </div>
+        ))}
       </section>
 
       {/* Certifications */}
@@ -232,28 +356,19 @@ const RESUME_ExpAndFresher_28 = () => {
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
         <ul className="list-disc ml-[20px] mb-[10px]">
-          <li>
-            <strong>
-              <a
-                href="https://skillup.simplilearn.com/cert/python-for-beginners"
-                className="text-[#0000FF] no-underline hover:underline"
-              >
-                Python for Beginners, SkillUp Simplilearn
-              </a>
-            </strong>{" "}
-            (2025)
-          </li>
-          <li>
-            <strong>
-              <a
-                href="https://coursera.org/verify/react-basics"
-                className="text-[#0000FF] no-underline hover:underline"
-              >
-                React Basics, Coursera
-              </a>
-            </strong>{" "}
-            (2024)
-          </li>
+          {certificatesToDisplay.map((cert, i) => (
+            <li key={i}>
+              <strong>
+                <a
+                  href={cert.link}
+                  className="text-[#0000FF] no-underline hover:underline"
+                >
+                  {cert.name}
+                </a>
+              </strong>{" "}
+              {cert.issueDate && `(${cert.issueDate})`}
+            </li>
+          ))}
         </ul>
       </section>
 
@@ -263,20 +378,19 @@ const RESUME_ExpAndFresher_28 = () => {
           Volunteer Experience
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <ul className="list-disc ml-[20px] mb-[10px]">
-          <li>
-            Active member of Narthanashala (Drama Club) at IIITDM Kurnool,
-            performing in 5+ events.
-          </li>
-          <li>
-            Contributed to community outreach with Social Service Group at
-            school.
-          </li>
-          <li>
-            Served as Head Boy, leading student initiatives and organizing 10+
-            events.
-          </li>
-        </ul>
+       <ul className="list-disc ml-[20px] mb-[10px]">
+  {volunteerToDisplay.map((vol, i) =>
+    typeof vol === "string" ? (
+      <li key={i}>{vol}</li>
+    ) : (
+      <li key={i}>
+        {vol.name}
+        {vol.organization && `, ${vol.organization}`}
+        {vol.description && ` – ${vol.description}`}
+      </li>
+    )
+  )}
+</ul>
       </section>
 
       {/* Languages */}
@@ -285,7 +399,15 @@ const RESUME_ExpAndFresher_28 = () => {
           Languages
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <p>English (Fluent), Telugu (Native), Hindi (Intermediate)</p>
+        <p>
+          {languagesToDisplay
+            .map((l) =>
+              l.name && l.proficiency
+                ? `${l.name} (${l.proficiency})`
+                : l.name || l
+            )
+            .join(", ")}
+        </p>
       </section>
 
       {/* Hobbies */}
@@ -294,7 +416,7 @@ const RESUME_ExpAndFresher_28 = () => {
           Hobbies & Interests
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <p>Web Development, Data Science, Theater</p>
+        <p>{hobbiesToDisplay.join(", ")}</p>
       </section>
 
       {/* Achievements */}
@@ -303,10 +425,20 @@ const RESUME_ExpAndFresher_28 = () => {
           Achievements & Awards
         </h2>
         <hr className="border-t border-[#808080] mb-[10px]" />
-        <ul className="list-disc ml-[20px] mb-[10px]">
-          <li>Best Project Award, IIITDM Kurnool Tech Fest, 2023</li>
-          <li>Top Performer, School Leadership Award, 2018</li>
-        </ul>
+       <ul className="list-disc ml-[20px] mb-[10px]">
+  {achievementsToDisplay.map((ach, i) =>
+    typeof ach === "string" ? (
+      <li key={i}>{ach}</li>
+    ) : (
+      <li key={i}>
+        {ach.name}
+        {ach.organization && `, ${ach.organization}`}
+        {ach.description && ` – ${ach.description}`}
+        {ach.date && ` (${ach.date})`}
+      </li>
+    )
+  )}
+</ul>
       </section>
     </div>
   );
