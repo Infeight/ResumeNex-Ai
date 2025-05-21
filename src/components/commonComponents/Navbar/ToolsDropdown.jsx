@@ -77,9 +77,9 @@ const ToolsDropdown = ({
             </div>
           ) : (
             // Desktop Tools Dropdown Cards
-            <div className="absolute top-full left-0 lg:-left-[400px] mt-2 flex flex-col lg:flex-row gap-4 bg-sky-200 p-4 rounded-2xl shadow-2xl shadow-sky-100 z-30">
+            <div className="absolute top-full left-0 lg:-left-[400px]  mt-6 flex flex-col lg:flex-row gap-4 bg-sky-200 p-4 rounded-2xl shadow-2xl shadow-sky-100 z-30 border border-sky-500">
               <Link to="/resumes_templates" onClick={toggleTool}>
-                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-gray-100 transition-all overflow-hidden group">
+                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-pink-0 transition-all overflow-hidden group">
                   <div className="p-4 flex items-end">
                     <p className="font-manrope font-bold text-lg lg:text-xl">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
@@ -96,7 +96,7 @@ const ToolsDropdown = ({
                 </div>
               </Link>
               <Link to="/cover_letter_templates" onClick={toggleTool}>
-                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-gray-100 transition-all overflow-hidden group">
+                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-pink-0 transition-all overflow-hidden group">
                   <div className="p-4 flex items-end">
                     <p className="font-manrope font-bold text-lg lg:text-xl">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
@@ -113,7 +113,7 @@ const ToolsDropdown = ({
                 </div>
               </Link>
               <Link to="/resume_optimization" onClick={toggleTool}>
-                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-gray-100 transition-all overflow-hidden group">
+                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-pink-0 transition-all overflow-hidden group">
                   <div className="p-4 flex items-end">
                     <p className="font-manrope font-bold text-lg lg:text-xl">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
@@ -130,7 +130,7 @@ const ToolsDropdown = ({
                 </div>
               </Link>
               <Link to="/job_specific_resume" onClick={toggleTool}>
-                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-gray-100 transition-all overflow-hidden group">
+                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-pink-0 transition-all overflow-hidden group">
                   <div className="p-4 flex items-end">
                     <p className="font-manrope font-bold text-lg lg:text-xl">
                       <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
@@ -147,7 +147,7 @@ const ToolsDropdown = ({
                 </div>
               </Link>
               <Link to="/linkedIn_optimization" onClick={toggleTool}>
-                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-gray-100 transition-all overflow-hidden group">
+                <div className="relative w-full lg:w-[200px] h-36 bg-gray-100 rounded-2xl flex cursor-pointer hover:shadow-[0_0_0_2px_#4C95FB] hover:bg-gradient-to-tr from-sky-100 to-pink-0 transition-all overflow-hidden group">
                   <div className="p-4 flex items-end">
                     <p className="font-manrope font-bold text-lg lg:text-xl">
                       LinkedIn Optimization
@@ -160,6 +160,8 @@ const ToolsDropdown = ({
                   />
                 </div>
               </Link>
+
+              <div className="w-5 h-5 bg-sky-200  absolute -top-2.5 left-[430px] rotate-45 border-t border-l border-sky-500 "></div>
             </div>
           )}
         </>
