@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+// ats indicator
 const ProgressIndicator = ({ percentage }) => {
   const radius = 96;
   const circumference = 2 * Math.PI * radius;
@@ -44,10 +44,41 @@ const ProgressIndicator = ({ percentage }) => {
 
 const FinalPageOR = () => {
   const [templatePopupOpen, setTemplatePopupOpen] = useState(false);
+  // Array of suggestion data
+  const suggestions = [
+    {
+      id: "profile",
+      title: "Profile Summary:",
+      content:
+        "Aspiring software developer skilled in MERN stack and Java full-stack development, with a focus on building scalable web applications. Seeking a challenging role to enhance development skills and contribute to impactful projects",
+    },
+    {
+      id: "wellsFargo",
+      title: "Experience Section (Wells Fargo Advisors):",
+      content:
+        "Aspiring software developer skilled in MERN stack and Java full-stack development, with a focus on building scalable web applications. Seeking a challenging role to enhance development skills and contribute to impactful projects",
+    },
+    {
+      id: "suntrust1",
+      title: "Experience Section (Suntrust Investment Services):",
+      content:
+        "Aspiring software developer skilled in MERN stack and Java full-stack development, with a focus on building scalable web applications. Seeking a challenging role to enhance development skills and contribute to impactful projects",
+    },
+    {
+      id: "suntrust2",
+      title: "Experience Section (Suntrust Investment Services):",
+      content:
+        "Aspiring software developer skilled in MERN stack and Java full-stack development, with a focus on building scalable web applications. Seeking a challenging role to enhance development skills and contribute to impactful projects",
+    },
+  ];
+  // State to track replaced status for each suggestion
+  const [replaced, setReplaced] = useState({});
 
-  const handleOpenTemplates = () => setTemplatePopupOpen(true);
-  const handleCloseTemplates = () => setTemplatePopupOpen(false);
+  const toggleReplace = (id) => {
+    setReplaced((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
 
+  // side resume popup
   const expResumes = [
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
@@ -170,13 +201,14 @@ const FinalPageOR = () => {
       url: "/resumes_templates/resume_expAndFresher_030",
     },
   ];
+  const handleOpenTemplates = () => setTemplatePopupOpen(true);
+  const handleCloseTemplates = () => setTemplatePopupOpen(false);
   const [popupImage, setPopupImage] = useState(null);
   const [popupBtn, setPopupBtn] = useState(null);
   const openPopup = (img, url) => {
     setPopupImage(img);
     setPopupBtn(url);
   };
-
   const closePopup = () => {
     setPopupImage(null);
     setPopupBtn(null);
@@ -208,78 +240,43 @@ const FinalPageOR = () => {
                 d="M15.1523 0.171875C15.3992 4.09924 17.0706 7.80203 19.8535 10.585C22.6363 13.3676 26.3386 15.0382 30.2656 15.2852V15.2979C26.3385 15.5448 22.6363 17.2172 19.8535 20C17.0707 22.7828 15.3993 26.485 15.1523 30.4121H15.1387C14.8998 26.608 13.3251 23.0145 10.6973 20.2637L10.4385 19.999C7.73221 17.2929 4.15616 15.638 0.349609 15.3223C4.03394 15.0134 7.50224 13.4004 10.1748 10.8438L10.4385 10.585C13.2215 7.80196 14.8922 4.09936 15.1387 0.171875H15.1523Z"
                 fill="#336EE7"
                 stroke="black"
-                stroke-width="0.0512"
+                strokeWidth="0.0512"
               />
             </svg>
           </span>
         </p>
 
-        {/* Suggestions */}
-        <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-          <p className="font-medium text-sm sm:text-base">Profile Summary:</p>
-          <p className="text-xs sm:text-sm">
-            Aspiring software developer skilled in MERN stack and Java
-            full-stack development, with a focus on building scalable web
-            applications. Seeking a challenging role to enhance development
-            skills and contribute to impactful projects
-          </p>
-          <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
-            <div className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100">
-              Undo
-            </div>
-            <div className="px-3 py-1 border rounded-full cursor-pointer bg-[#C5F1DB] flex gap-1 items-center">
-              <img src="/Icons/Check.svg" alt="Check" /> Replaced
-            </div>
-          </div>
-        </div>
-        <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-          <p className="font-medium text-sm sm:text-base">
-            Experience Section (Wells Fargo Advisors):
-          </p>
-          <p className="text-xs sm:text-sm">
-            Aspiring software developer skilled in MERN stack and Java
-            full-stack development, with a focus on building scalable web
-            applications. Seeking a challenging role to enhance development
-            skills and contribute to impactful projects
-          </p>
-          <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
-            <div className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100">
-              Replace
+        {suggestions.map(({ id, title, content }) => (
+          <div
+            key={id}
+            className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]"
+          >
+            <p className="font-medium text-sm sm:text-base">{title}</p>
+            <p className="text-xs sm:text-sm">{content}</p>
+            <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
+              {replaced[id] ? (
+                <>
+                  <button
+                    className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100"
+                    onClick={() => toggleReplace(id)}
+                  >
+                    Undo
+                  </button>
+                  <div className="px-3 py-1 border rounded-full bg-[#C5F1DB] flex gap-1 items-center">
+                    <img src="/Icons/Check.svg" alt="Check" /> Replaced
+                  </div>
+                </>
+              ) : (
+                <button
+                  className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100"
+                  onClick={() => toggleReplace(id)}
+                >
+                  Replace
+                </button>
+              )}
             </div>
           </div>
-        </div>
-        <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-          <p className="font-medium text-sm sm:text-base">
-            Experience Section (Suntrust Investment Services):
-          </p>
-          <p className="text-xs sm:text-sm">
-            Aspiring software developer skilled in MERN stack and Java
-            full-stack development, with a focus on building scalable web
-            applications. Seeking a challenging role to enhance development
-            skills and contribute to impactful projects
-          </p>
-          <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
-            <div className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100">
-              Replace
-            </div>
-          </div>
-        </div>
-        <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-          <p className="font-medium text-sm sm:text-base">
-            Experience Section (Suntrust Investment Services):
-          </p>
-          <p className="text-xs sm:text-sm">
-            Aspiring software developer skilled in MERN stack and Java
-            full-stack development, with a focus on building scalable web
-            applications. Seeking a challenging role to enhance development
-            skills and contribute to impactful projects
-          </p>
-          <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
-            <div className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100">
-              Replace
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
 
       {/* Right action buttons */}

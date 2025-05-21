@@ -28,7 +28,7 @@ const OrganizationDropdown = ({
                   toggleOrg();
                   closeMobileMenuAndDropdowns();
                 }}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg cursor-pointer"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010] hover:bg-sky-200/70 rounded-lg cursor-pointer"
               >
                 College / University
               </div>
@@ -37,7 +37,7 @@ const OrganizationDropdown = ({
                   toggleOrg();
                   closeMobileMenuAndDropdowns();
                 }}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg cursor-pointer"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010] hover:bg-sky-200/70 rounded-lg cursor-pointer"
               >
                 Corporate
               </div>

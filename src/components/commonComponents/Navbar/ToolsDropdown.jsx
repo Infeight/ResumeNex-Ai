@@ -12,7 +12,19 @@ const ToolsDropdown = ({
         className="flex items-center gap-1 cursor-pointer hover:text-pink-600 transition-all lg:hover:underline py-2 lg:py-0"
         onClick={toggleTool}
       >
-        <img src="/img/Star.svg" className="w-3 h-3" alt="star" />
+        <svg
+          viewBox="0 0 31 31"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-3.5 h-3.5 "
+        >
+          <path
+            d="M15.1523 0.171875C15.3992 4.09924 17.0706 7.80203 19.8535 10.585C22.6363 13.3676 26.3386 15.0382 30.2656 15.2852V15.2979C26.3385 15.5448 22.6363 17.2172 19.8535 20C17.0707 22.7828 15.3993 26.485 15.1523 30.4121H15.1387C14.8998 26.608 13.3251 23.0145 10.6973 20.2637L10.4385 19.999C7.73221 17.2929 4.15616 15.638 0.349609 15.3223C4.03394 15.0134 7.50224 13.4004 10.1748 10.8438L10.4385 10.585C13.2215 7.80196 14.8922 4.09936 15.1387 0.171875H15.1523Z"
+            fill="#f7329a"
+            stroke="black"
+            strokeWidth="0.0512"
+          />
+        </svg>
         Tools
         <img
           src="/img/toolsDownArr.svg"
@@ -30,35 +42,35 @@ const ToolsDropdown = ({
               <Link
                 to="/resumes_templates"
                 onClick={closeMobileMenuAndDropdowns}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010]hover:bg-sky-200/70 rounded-lg"
               >
                 AI Resume
               </Link>
               <Link
                 to="/cover_letter_templates"
                 onClick={closeMobileMenuAndDropdowns}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010]hover:bg-sky-200/70 rounded-lg"
               >
                 AI Cover Letter
               </Link>
               <Link
                 to="/resume_optimization"
                 onClick={closeMobileMenuAndDropdowns}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010]hover:bg-sky-200/70 rounded-lg"
               >
                 AI Resume Optimization
               </Link>
               <Link
                 to="/job_specific_resume"
                 onClick={closeMobileMenuAndDropdowns}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010]hover:bg-sky-200/70 rounded-lg"
               >
                 AI Specified Job Resume
               </Link>
               <Link
                 to="/linkedIn_optimization"
                 onClick={closeMobileMenuAndDropdowns}
-                className="block px-3 py-1.5 text-sm font-manrope font-semibold text-gray-700 hover:bg-sky-200/70 rounded-lg"
+                className="block px-3 py-1.5 text-sm  font-inter font-semibold text-[#101010]hover:bg-sky-200/70 rounded-lg"
               >
                 LinkedIn Optimization
               </Link>

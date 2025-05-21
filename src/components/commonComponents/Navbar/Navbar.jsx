@@ -119,12 +119,12 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Right Section */}
+        {/* Right Section login / hamburger/ dashboard with profile popup */}
         <section className="flex items-center gap-x-2 sm:gap-x-3 text-base font-medium">
           {!isDashboard && (
             <div className="hidden lg:flex items-center gap-x-3">
               <Link to="/resumes_templates" onClick={closeAllMenus}>
-                <p className="flex items-center gap-2 px-3 py-2 text-sm text-white font-semibold rounded-lg bg-gradient-to-t from-blue-600 to-blue-400 cursor-pointer hover:from-blue-700 hover:to-blue-500 whitespace-nowrap">
+                <p className="flex items-center gap-2 px-4 py-2 text-start text-white font-semibold rounded-lg bg-gradient-to-t from-blue-600 to-blue-400 cursor-pointer hover:from-blue-700 hover:to-blue-500 whitespace-nowrap">
                   Build Your Resume
                   <img src="/img/BtnRightArr.svg" alt="" className="w-4 h-4" />
                 </p>
@@ -197,7 +197,7 @@ const Navbar = () => {
           />
         }
       />
-
+      {/* login popup */}
       <Login isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
