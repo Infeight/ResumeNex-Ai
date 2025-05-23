@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
+import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
 
 const Step3OfLO = () => {

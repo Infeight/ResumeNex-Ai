@@ -22,10 +22,9 @@ const RESUME_ExpAndFresher_10 = () => {
       {/* Personal Info */}
       <div className="text-center mb-2">
         <h1 className="text-[26px] font-bold mb-0">
-          {(formData.firstName || "Adelaide") +
-            " " +
-            (formData.middleName ? formData.middleName + " " : "") +
-            (formData.lastName || "Reeves")}
+          { formData.firstName || formData.middleName || formData.lastName
+      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      : "Adelide Reeves"}
         </h1>
         <p className="text-[12px] my-0.5">
           {(formData.city || "New York")}, {(formData.state || "NY")},{" "}

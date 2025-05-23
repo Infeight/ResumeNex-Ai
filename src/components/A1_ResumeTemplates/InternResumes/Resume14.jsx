@@ -22,7 +22,7 @@ const Resume14 = () => {
           <div className="flex justify-between items-start">
             <div className="w-[65%]">
               <h1 className="text-[26px] font-bold text-left m-0 mb-[5px]">
-                {formData.firstName
+                {formData.firstName || formData.middleName || formData.lastName
                   ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
                   : "Sophia Marie Chen"}
               </h1>

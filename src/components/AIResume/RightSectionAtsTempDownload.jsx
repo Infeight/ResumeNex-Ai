@@ -1,8 +1,12 @@
-import { useState } from "react";
+import {  useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ProgressIndicator from "../commonComponents/ProgressIndicator";
 
 const RightSectionAtsTempDownload = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+    const [templateUrl, setTemplateUrl] = useState("");
   const [templatePopupOpen, setTemplatePopupOpen] = useState(false);
 
   const handleOpenTemplates = () => setTemplatePopupOpen(true);
@@ -131,10 +135,20 @@ const RightSectionAtsTempDownload = () => {
     },
   ];
 
+
+    if (templateUrl && templateUrl !== location.pathname) {
+      navigate(templateUrl);
+    }
+  
+
+ 
+
+
   const [popupImage, setPopupImage] = useState(null);
   const [popupBtn, setPopupBtn] = useState(null);
   const openPopup = (img, url) => {
     setPopupImage(img);
+    setTemplateUrl(url);
     setPopupBtn(url);
   };
 
@@ -226,6 +240,7 @@ const RightSectionAtsTempDownload = () => {
                       to={resume.url}
                       className="absolute bottom-3 left-5 bg-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-blue-600 transition opacity-0 group-hover:opacity-100 z-10"
                       onClick={(e) => {
+                            setTemplateUrl(resume.url);
                         e.stopPropagation();
                         handleCloseTemplates();
                         closePopup();
@@ -278,9 +293,10 @@ const RightSectionAtsTempDownload = () => {
               {/* Select Button */}
               <div className="p-6 text-center bg-gray-50">
                 <Link
-                  to={popupBtn}
+                  to={templateUrl}
                   className="bg-blue-500 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md hover:bg-blue-600 transition-all duration-300 hover:shadow-lg"
                   onClick={(e) => {
+                            // setTemplateUrl(resume.url);
                     e.stopPropagation();
                     handleCloseTemplates();
                     closePopup();

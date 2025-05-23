@@ -22,7 +22,7 @@ const Dashboard = () => {
       </Suspense>
 
       {/* Main Content */}
-      <div className="flex-1 pt-[20px] p-5">
+      <div className="flex-1 pt-[20px] p-5 mt-20 lg:mt-0">
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<DashboardContent />} />

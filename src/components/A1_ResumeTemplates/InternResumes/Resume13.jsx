@@ -20,7 +20,7 @@ const Resume13 = () => {
         {/* Header */}
         <div className="flex justify-between items-center border-b-2 border-[#0056b3] pb-[10px] mb-[15px]">
           <h1 className="m-0 text-[26px] text-[#0056b3] font-bold">
-            {formData.firstName
+            {formData.firstName || formData.middleName || formData.lastName
               ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
               : "John Doe"}
           </h1>

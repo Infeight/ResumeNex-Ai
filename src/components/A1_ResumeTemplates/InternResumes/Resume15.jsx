@@ -19,7 +19,7 @@ const Resume15 = () => {
       {/* Header */}
       <div className="bg-[#f4a261] text-white p-5 -mx-5 -mt-5 mb-[15px] text-center">
         <h1 className="text-[26px] font-bold m-0">
-          {formData.firstName
+          {formData.firstName || formData.middleName || formData.lastName
             ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
             : "Olivia Grace Taylor"}
         </h1>

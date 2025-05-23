@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo, lazy, Suspense } from "react";
 import PersonalInfo from "./FormSteps/PersonalInfo";
 import Education from "./FormSteps/Education";
 import Projects from "./FormSteps/Projects";
@@ -8,38 +8,44 @@ import Skills from "./FormSteps/Skills";
 import ProfileSummary from "./FormSteps/ProfileSummary";
 import AdditionalSections from "./FormSteps/AdditionalSections";
 import RightSectionAtsTempDownload from "./RightSectionAtsTempDownload";
-// import RESUME_ExpAndFresher_4 from "../A1_ResumeTemplates/ExpResumes/RESUME_ExpAndFresher_4";
-
-import React, { lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-
 import { useResume } from "./FormSteps/resumecontext";
-function ResumeForm() {
 
+
+function ResumeForm() {
   const { templateIdOfResume } = useParams();
-  let searchFolder = '';
-  const TemplateComponent = React.useMemo(() => {
+
+  // Dynamically import the template based on the URL param
+  const TemplateComponent = useMemo(() => {
     if (!templateIdOfResume) return null;
-    if(templateIdOfResume.includes('ExpAndFresher')){
-      searchFolder = 'ExpResumes'
-    }
-    else{
-       searchFolder = 'InternResumes'
-    }
+    const searchFolder = templateIdOfResume.includes("ExpAndFresher")
+      ? "ExpResumes"
+      : "InternResumes";
     return lazy(() =>
-         import(`../A1_ResumeTemplates/${searchFolder}/${templateIdOfResume}.jsx`)
+      import(
+        `../A1_ResumeTemplates/${searchFolder}/${templateIdOfResume}.jsx`
+      )
     );
+    // eslint-disable-next-line
   }, [templateIdOfResume]);
 
   const {
-    formData, setFormData,
-    education, setEducation,
-    projects, setProjects,
-    workExperience, setWorkExperience,
-    certificates, setCertificates,
-    skills, setSkills,
-    summary, setSummary,
-    additional, setAdditional
+    formData,
+    setFormData,
+    education,
+    setEducation,
+    projects,
+    setProjects,
+    workExperience,
+    setWorkExperience,
+    certificates,
+    setCertificates,
+    skills,
+    setSkills,
+    summary,
+    setSummary,
+    additional,
+    setAdditional,
   } = useResume();
 
   const handleSubmit = (e) => {
@@ -88,14 +94,13 @@ function ResumeForm() {
       </div>
 
       {/* Right Resume Preview Section */}
-
-      {/* work in progress */}
       <div className="w-full lg:w-3/5 h-screen p-4 lg:p-6 flex justify-center items-center bg-gray-100 sticky top-[1vw]">
         <div className="w-full h-full max-w-[794px] max-h-[1123px] bg-white rounded-xl shadow-lg border border-gray-200 overflow-y-auto flex justify-center items-center scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
           <div className="w-[794px] h-[830px] scale-[0.65] lg:scale-[0.85] ">
             <Suspense fallback={<div>Loading Template...</div>}>
-              {TemplateComponent && TemplateComponent?(
+              {TemplateComponent ? (
                 <TemplateComponent
+                  key={templateIdOfResume} // Ensures remount on template change
                   formData={formData}
                   education={education}
                   projects={projects}
@@ -105,7 +110,9 @@ function ResumeForm() {
                   summary={summary}
                   additional={additional}
                 />
-              ):"No component"}
+              ) : (
+                "No component"
+              )}
             </Suspense>
           </div>
         </div>

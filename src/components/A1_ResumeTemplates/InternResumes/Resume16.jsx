@@ -19,7 +19,7 @@ const Resume16 = () => {
       {/* Header */}
       <div className="border-b-2 border-[#333] pb-[10px] text-center mb-[30px]">
         <h1 className="text-[28px] font-bold text-[#111] mb-[5px]">
-          {formData.firstName
+          {formData.firstName || formData.middleName || formData.lastName
             ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`.toUpperCase()
             : "SOPHIA MARIE EVANS"}
         </h1>

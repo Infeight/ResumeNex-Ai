@@ -21,10 +21,9 @@ const RESUME_ExpAndFresher_7 = () => {
     <div className="font-['Calibri',sans-serif] text-gray-800 w-[794px] min-h-[1122px] mx-auto p-[15mm] leading-relaxed">
       {/* Personal Info & Job Role */}
       <h1 className="text-[26px] font-bold text-blue-800 mb-1">
-        {(formData.firstName || "Sophia") +
-          " " +
-          (formData.middleName ? formData.middleName + " " : "") +
-          (formData.lastName || "Nguyen")}
+        { formData.firstName || formData.middleName || formData.lastName
+      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      : "Sophia Ngyugen"}
       </h1>
       <h2 className="text-[20px] font-bold text-blue-800 mb-4">
         {formData.jobTitle || "Backend Developer"}
