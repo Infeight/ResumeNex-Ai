@@ -30,6 +30,7 @@ const ResumeCard = () => {
           {/* Image Section */}
           <div className="w-52 h-auto">
             <img
+            loading="lazy"
               src={resume.img}
               alt="Resume"
               className="rounded-md shadow-md w-full h-auto"

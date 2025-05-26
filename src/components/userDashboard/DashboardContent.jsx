@@ -1,52 +1,116 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+
+
+
+
+
+const FileTypeSelector = ({ id }) => {
+  // Each component instance manages its own state
+  const [selected, setSelected] = useState("pdf");
+
+  return (
+    <div className="flex flex-wrap gap-0 sm:gap-3 justify-around">
+      {/* PDF Option */}
+      <label className="w-[45%] font-lexend text-xs sm:text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-1 sm:px-3 py-1 sm:py-2 rounded-xl bg-white flex items-center justify-center gap-2 cursor-pointer">
+        <input
+          type="radio"
+          name={`fileType-${id}`} // Unique name per div
+          value="pdf"
+          checked={selected === "pdf"}
+          onChange={() => setSelected("pdf")}
+          className="hidden"
+        />
+        <img
+          src={selected === "pdf" ? "/Icons/select.png" : "/Icons/unSelect.svg"}
+          alt={selected === "pdf" ? "Selected" : "Unselected"}
+          className="w-4 md:w-5"
+        />
+        <img src="/Icons/PDF.svg" alt="PDF" className="w-5 md:w-6" />
+        PDF
+      </label>
+
+      {/* DOCX Option */}
+      <label className="w-1/2 font-lexend text-xs sm:text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-1 sm:px-3 py-1 sm:py-2 rounded-xl bg-white flex items-center justify-center gap-2 cursor-pointer">
+        <input
+          type="radio"
+          name={`fileType-${id}`} // Unique name per div
+          value="docx"
+          checked={selected === "docx"}
+          onChange={() => setSelected("docx")}
+          className="hidden"
+        />
+        <img
+          src={selected === "docx" ? "/Icons/select.png" : "/Icons/unSelect.svg"}
+          alt={selected === "docx" ? "Selected" : "Unselected"}
+          className="w-4 md:w-5"
+        />
+        <img src="/Icons/DOCX.svg" alt="Docx" className="w-5 md:w-6" />
+        Docx
+      </label>
+    </div>
+  );
+};
+
+
+
+
+
+
 
 const DashboardContent = () => {
   const [userName, setUserName] = useState("Talha");
+   const [selected, setSelected] = useState("pdf");
+  const navigate = useNavigate();
+
+  const url = `/resumes_templates/steps/`
 
   const halfwayActivities = [
     {
-      id: 1,
+      id: 'RESUME_ExpAndFresher_1',
       creationDate: "12/11/2025",
-      resumeImage: "/img/demoCL.png",
+      resumeImage: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       type: "Resume",
     },
     {
-      id: 2,
+      id: 'RESUME_ExpAndFresher_2',
       creationDate: "12/11/2025",
-      resumeImage: "/img/demoCL.png",
+      resumeImage: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       type: "Resume",
     },
   ];
 
   const recentActivities = [
     {
-      id: 1,
+      id: 'RESUME_ExpAndFresher_1',
       name: "Syed Talha Ahmed",
       jobRole: "Full Stack Developer",
       experience: "Fresher",
       creationDate: "11/05/2025",
-      resumeImage: "/img/demoCL.png",
+      resumeImage: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       type: "Resume",
       icon: "/Icons/Sidebar/MyResume.svg",
+      
     },
     {
-      id: 2,
+      id: 'RESUME_ExpAndFresher_2',
       name: "Jarupula Sai Charan",
       jobRole: "Full Stack Developer",
       experience: "Fresher",
       creationDate: "20/05/2025",
-      resumeImage: "/img/resume2.png",
+      resumeImage: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       type: "Cover Letter",
       icon: "/Icons/Sidebar/MyCL.svg",
     },
     {
-      id: 3,
+      id: 'RESUME_ExpAndFresher_3',
       name: "Syed Talha Ahmed",
       jobRole: "Full Stack Developer",
       experience: "Fresher",
       creationDate: "25/05/2025",
-      resumeImage: "/img/demoCL.png",
+      resumeImage: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
       type: "Resume",
       icon: "/Icons/Sidebar/MyResume.svg",
     },
@@ -79,11 +143,11 @@ const DashboardContent = () => {
           <p className="font-inter font-semibold text-[20px] sm:text-[24px] md:text-[30px]">
             - Halfway there! Let's finish what you started and land that job.
           </p>
-          <div className="flex flex-wrap gap-[16px] md:gap-[20px]">
+          <div className="flex flex-wrap gap-[16px] md:gap-[20px] ">
             {halfwayActivities.map((activity) => (
               <div
                 key={activity.id}
-                className="flex flex-col sm:flex-row justify-between w-full sm:w-fit gap-[12px] md:gap-[20px] bg-white border border-[#DCDCDC] rounded-[20px] p-[12px] md:p-[20px]"
+                className="items-center flex flex-col sm:flex-row justify-between w-full sm:w-fit gap-[12px] md:gap-[20px] bg-white border border-[#DCDCDC] rounded-[20px] p-[12px] md:p-[20px]"
               >
                 {/* Resume Image */}
              <img
@@ -94,8 +158,9 @@ const DashboardContent = () => {
     md:w-[194px]
     border border-[#DCDCDC] rounded-[15px]
     mx-auto sm:mx-0
+    h-[80%]
   "
-  src="/img/demoCL.png"
+  src={activity.resumeImage}
 />
 
                 {/* Details */}
@@ -118,7 +183,10 @@ const DashboardContent = () => {
                     </p>
                   </div>
 
-                  <div className="flex justify-center gap-[10px] border border-[#00A6F4] w-full py-[5px] rounded-full bg-[#F0F9FF] text-[#00A6F4] font-inter font-semibold text-[16px] md:text-[19.2px] cursor-pointer transition-all hover:scale-95 mt-2 sm:mt-0">
+                  <div className="flex justify-center gap-[10px] border border-[#00A6F4] w-full py-[5px] rounded-full bg-[#F0F9FF] text-[#00A6F4] font-inter font-semibold text-[16px] md:text-[19.2px] cursor-pointer transition-all hover:scale-95 mt-2 sm:mt-0"
+                    onClick={()=>{
+                          navigate(`${url}${activity.id}`)
+                    }}>
                     Continue
                   </div>
                 </div>
@@ -139,7 +207,7 @@ const DashboardContent = () => {
               </p>
             </div>
             <img
-              src="/ToolsImg/1.png"
+              src="/ToolsImg/1.avif"
               alt=""
               className="w-[60px] sm:w-[80px] md:w-[99px] -rotate-[20deg] absolute right-[-15px] bottom-[-20px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0"
             />
@@ -154,7 +222,7 @@ const DashboardContent = () => {
               </p>
             </div>
             <img
-              src="/ToolsImg/2.png"
+              src="/ToolsImg/2.avif"
               alt=""
               className="w-[60px] sm:w-[80px] md:w-[99px] -rotate-[8deg] absolute right-[-30px] sm:right-[-40px] md:right-[-50px] bottom-[-10px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0"
             />
@@ -169,7 +237,7 @@ const DashboardContent = () => {
               </p>
             </div>
             <img
-              src="/ToolsImg/3.png"
+              src="/ToolsImg/3.avif"
               alt=""
               className="w-[70px] sm:w-[90px] md:w-[110px] -rotate-[8deg] absolute right-[-30px] sm:right-[-40px] md:right-[-50px] bottom-[-10px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0"
             />
@@ -184,7 +252,7 @@ const DashboardContent = () => {
               </p>
             </div>
             <img
-              src="/ToolsImg/4.png"
+              src="/ToolsImg/4.avif"
               alt=""
               className="w-[60px] sm:w-[75px] md:w-[88px] absolute right-[-15px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:-rotate-12"
             />
@@ -198,7 +266,7 @@ const DashboardContent = () => {
               </p>
             </div>
             <img
-              src="/ToolsImg/5.png"
+              src="/ToolsImg/5.avif"
               alt=""
               className="w-[70px] sm:w-[90px] md:w-[109px] -rotate-[20deg] absolute right-[-15px] top-[-20px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:w-[120px]"
             />
@@ -262,34 +330,8 @@ const DashboardContent = () => {
             {/* Buttons */}
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5 w-full md:w-auto">
               <div className="w-full px-2 py-3 sm:px-4 sm:py-4 md:px-6 md:py-5 bg-[#E3F6FF] border border-[#74D4FF] flex flex-col md:flex-row justify-between rounded-2xl gap-2 sm:gap-4 md:gap-4">
-               <div className="flex flex-wrap gap-0 sm:gap-3 justify-around">
-  <div className="w-[45%] font-lexend text-xs sm:text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-1 sm:px-3 py-1 sm:py-2 rounded-xl bg-white flex items-center justify-center gap-2 cursor-pointer">
-    <img
-      src="/Icons/unSelect.svg"
-      alt="unSelect"
-      className="w-4 md:w-5"
-    />
-    <img
-      src="/Icons/PDF.svg"
-      alt="PDF"
-      className="w-5 md:w-6"
-    />
-    PDF
-  </div>
-  <div className="w-1/2 font-lexend text-xs sm:text-base md:text-lg border border-[#D3D9DE] text-[#212529] px-1 sm:px-3 py-1 sm:py-2 rounded-xl bg-white flex items-center justify-center gap-2 cursor-pointer">
-    <img
-      src="/Icons/unSelect.svg"
-      alt="unSelect"
-      className="w-4 md:w-5"
-    />
-    <img
-      src="/Icons/DOCX.svg"
-      alt="Docx"
-      className="w-5 md:w-6"
-    />
-    Docx
-  </div>
-</div>
+                 
+<FileTypeSelector id={activity.id} />
 
 <div className="mt-2 font-lexend text-xs sm:text-base md:text-lg border border-[#D3D9DE] text-white px-3 sm:px-4 py-1 sm:py-2 rounded-xl flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-t from-[#336EE7] to-[#4C95FB]">
   <img
@@ -301,7 +343,11 @@ const DashboardContent = () => {
 </div>
 </div>
              <div className="flex flex-row flex-wrap sm:flex-row justify-between w-full gap-2 sm:gap-4">
-  <div className="max-w-[calc(50%-0.25rem)] sm:w-full font-lexend font-semibold text-[10px] sm:text-base md:text-lg border-2 px-1.5 sm:px-3 py-1 sm:py-2 rounded-xl flex items-center justify-center gap-1.5 sm:gap-3 cursor-pointer text-[#336EE7] border-[#336EE7] bg-[#F8FDFF]">
+  <div className="max-w-[calc(50%-0.25rem)] sm:w-full font-lexend font-semibold text-[10px] sm:text-base md:text-lg border-2 px-1.5 sm:px-3 py-1 sm:py-2 rounded-xl flex items-center justify-center gap-1.5 sm:gap-3 cursor-pointer text-[#336EE7] border-[#336EE7] bg-[#F8FDFF]"
+   onClick={()=>{
+                  navigate(`${url}${activity.id}`)
+                }}
+  >
     <img src="/Icons/Edit.svg" alt="edit" className="w-4 sm:w-5 md:w-6" />
     Edit
   </div>

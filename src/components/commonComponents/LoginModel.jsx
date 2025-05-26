@@ -34,6 +34,7 @@ const LoginModal = ({ isOpen, onClose }) => {
       <div className="relative w-full max-w-[525px] bg-white rounded-[30px] shadow-lg px-8 py-11 border-2 border-[#DCDCDC] ">
         <div className="space-y-4 text-center ">
           <img
+           
             src="/img/Logo.webp"
             loading="lazy"
             className="w-[205px] mx-auto "

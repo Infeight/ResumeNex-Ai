@@ -2,25 +2,33 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className=" w-full mx-auto bg-[#12141D] font-inter pt-20">
-      <section className="mx-auto">
-        <section className="flex justify-between max-w-[1240px] min-w-auto mx-auto">
-          <div className=" flex gap-[32px] flex-col  w-[308px]">
-            <img src="/img/Logo.webp" alt="Logo" className="w-[308px]" />
-            <p className="text-[14px] text-[#B9B3B3]">
+    <footer className="w-full mx-auto bg-[#12141D] font-inter pt-20 px-4">
+      <section className="max-w-[1240px] mx-auto">
+        <section className="flex flex-col lg:flex-row justify-between gap-10 items-center lg:items-start text-center lg:text-left">
+          {/* Left Section */}
+          <div className="flex flex-col gap-8 items-center lg:items-start lg:w-[308px]">
+            <img
+              src="/img/Logo.webp"
+              alt="Logo"
+              className="w-[200px] md:w-[250px] lg:w-[308px]"
+            />
+            <p className="text-sm text-[#B9B3B3] max-w-sm">
               The purpose of a FAQ is generally to provide information on
               frequent questions or concerns.
             </p>
-            <div className="flex gap-1 ">
-              <img src="/img/x.png" alt="" />
-              <img src="/img/facebook.png" alt="" />
-              <img src="/img/insta.png" alt="" />
+            <div className="flex gap-3 justify-center">
+              <img src="/img/x.png" alt="X" className="w-5 h-5" />
+              <img src="/img/facebook.png" alt="Facebook" className="w-5 h-5" />
+              <img src="/img/insta.png" alt="Instagram" className="w-5 h-5" />
             </div>
           </div>
-          <div className="flex gap-[140px] ">
-            <div className="flex flex-col gap-[32px]">
-              <p className="text-[18px] text-[#fafafa] font-semibold">Tools</p>
-              <ul className="flex flex-col gap-[18px] text-[14px] text-[#B9B3B3]">
+
+          {/* Right Section */}
+          <div className="flex flex-col sm:flex-row gap-10 lg:gap-[140px] items-center lg:items-start">
+            {/* Tools */}
+            <div className="flex flex-col gap-8 items-center lg:items-start">
+              <p className="text-lg text-[#fafafa] font-semibold">Tools</p>
+              <ul className="flex flex-col gap-4 text-sm text-[#B9B3B3]">
                 <li>AI Resume</li>
                 <li>AI Cover Letter</li>
                 <li>AI Specified Job Resume</li>
@@ -28,19 +36,21 @@ const Footer = () => {
                 <li>LinkedIn Optimization</li>
               </ul>
             </div>
-            <div className="flex flex-col gap-[32px]">
-              <p className="text-[18px] text-[#fafafa] font-semibold">
-                Company
-              </p>
-              <ul className="flex flex-col gap-[18px] text-[14px] text-[#B9B3B3]">
+
+            {/* Company */}
+            <div className="flex flex-col gap-8 items-center lg:items-start">
+              <p className="text-lg text-[#fafafa] font-semibold">Company</p>
+              <ul className="flex flex-col gap-4 text-sm text-[#B9B3B3]">
                 <li>Blogs</li>
                 <li>Resources</li>
                 <li>About us</li>
               </ul>
             </div>
-            <div className="flex flex-col gap-[32px]">
-              <p className="text-[18px] text-[#fafafa] font-semibold">Help</p>
-              <ul className="flex flex-col gap-[18px] text-[14px] text-[#B9B3B3]">
+
+            {/* Help */}
+            <div className="flex flex-col gap-8 items-center lg:items-start">
+              <p className="text-lg text-[#fafafa] font-semibold">Help</p>
+              <ul className="flex flex-col gap-4 text-sm text-[#B9B3B3]">
                 <li>Customer Support</li>
                 <li>Terms & Conditions</li>
                 <li>Privacy Policy</li>
@@ -48,9 +58,11 @@ const Footer = () => {
             </div>
           </div>
         </section>
-        <section className=" mt-10 w-full mx-auto border-t-2 border-[#8A8A8A] pt-11 p-5">
-          <p className=" text-[14px] text-[#B9B3B3] text-center">
-            © Copyright 2024, All Rights Reserved by Resumekaro,Ai
+
+        {/* Footer Bottom */}
+        <section className="mt-10 w-full border-t-2 border-[#8A8A8A] pt-8">
+          <p className="text-sm text-[#B9B3B3] text-center px-4">
+            © Copyright 2024, All Rights Reserved by ResumeNex.Ai
           </p>
         </section>
       </section>

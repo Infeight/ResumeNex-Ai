@@ -95,35 +95,37 @@ const [sections, setSections] = useState('');
 };
 
   return (
-    <section className="relative  w-full mx-auto flex flex-col justify-center items-center gap-[50px] py-[50px] text-[#212529] bg-[#ffffff]">
-      <p className="font-lexend font-semibold text-[30px] flex gap-3">
+    <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-[30px] lg:gap-[50px] py-[30px] lg:py-[50px] text-[#212529] bg-[#ffffff] px-4 sm:px-6">
+      <p className="text-[#212529] font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto">
         <span
-          className="text-[#E3B200] flex items-center gap-1  "
+          className="text-[#E3B200] font-black inline-flex items-center gap-1.5"
           style={{ textShadow: "0px 0px 100px #FFD230" }}
         >
           <svg
-            width="31"
-            height="31"
+            width="28"
+            height="28"
             viewBox="0 0 31 31"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
           >
             <path
               d="M15.1523 0.171875C15.3992 4.09924 17.0706 7.80203 19.8535 10.585C22.6363 13.3676 26.3386 15.0382 30.2656 15.2852V15.2979C26.3385 15.5448 22.6363 17.2172 19.8535 20C17.0707 22.7828 15.3993 26.485 15.1523 30.4121H15.1387C14.8998 26.608 13.3251 23.0145 10.6973 20.2637L10.4385 19.999C7.73221 17.2929 4.15616 15.638 0.349609 15.3223C4.03394 15.0134 7.50224 13.4004 10.1748 10.8438L10.4385 10.585C13.2215 7.80196 14.8922 4.09936 15.1387 0.171875H15.1523Z"
               fill="#E3B200"
               stroke="black"
-              stroke-width="0.0512"
+              strokeWidth="0.0512"
             />
           </svg>
-          Optimize{" "}
-        </span>
+          Optimize
+        </span>{" "}
         Your Resume In Just One Click
       </p>
 
-      <div className="relative">
-        <div className="relative z-1 flex flex-col gap-[35px] w-[981px] mx-auto p-[50px] bg-[#fff9e4] rounded-[34px] border border-[#FFD230] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+      <div className="relative w-full max-w-[981px]">
+        <div className="relative z-1 flex flex-col gap-[35px] w-full p-6 sm:p-8 md:p-[50px] bg-[#fff9e4] rounded-[20px] md:rounded-[34px] border border-[#FFD230] shadow-sm">
+          {/* UPLOAD LABEL */}
           <div className="space-y-[15px] ">
-            <p className="font-inter font-medium text-[#212529] text-[18px]">
+            <p className="font-inter font-medium text-[#212529] text-[16px] sm:text-[18px]">
               Upload resume:
             </p>
             <label
@@ -143,13 +145,13 @@ const [sections, setSections] = useState('');
                   </p>
                   <button
                     onClick={handleRemove}
-                    className="mt-4 px-8 py-2 font-semibold text-red-500 rounded-full border-2 border-red-500 hover:bg-red-100 border-dashed text-[18px]"
+                    className="mt-4 px-6 py-2 font-semibold text-red-500 rounded-full border-2 border-red-500 hover:bg-red-100 border-dashed text-[16px] sm:text-[18px]"
                   >
                     Remove
                   </button>
                 </div>
               ) : (
-                <div className="flex flex-col items-center justify-center gap-3 px-6 py-10 border-gray-300 rounded-xl ">
+                <div className="flex flex-col items-center justify-center gap-3 px-4 sm:px-6 py-8 border-gray-300 rounded-xl text-center">
                   <svg
                     width="62"
                     height="51"
@@ -166,14 +168,12 @@ const [sections, setSections] = useState('');
                       strokeLinejoin="round"
                     />
                   </svg>
-
-                  <p className="text-center text-gray-700 text-base">
-                    <span className="block font-semibold text-[18px] text-blue-600 hover:underline cursor-pointer transition">
+                  <p className="text-center text-gray-700 text-sm sm:text-base">
+                    <span className="block font-semibold text-blue-600 hover:underline cursor-pointer transition text-[16px]">
                       Click to upload
                     </span>
                     or drag and drop
                   </p>
-
                   <p className="text-sm text-gray-500">(PDF or DOCX)</p>
                 </div>
               )}
@@ -187,26 +187,28 @@ const [sections, setSections] = useState('');
             </label>
           </div>
 
+          {/* JOB ROLE INPUT */}
           <div className="flex flex-col gap-[15px]">
-            <label className="text-[#212529] font-inter font-medium mb-1 text-[18px]">
+            <label className="text-[#212529] font-inter font-medium mb-1 text-[16px] sm:text-[18px]">
               Job role applying for :
             </label>
             <input
               type="text"
-              className={`bg-white border-[3px] rounded-full px-8 py-5  focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[18px] font-medium ${
-                jobRole ? "border-[#FFD230]" : "border-[#DCDCDC] "
+              className={`bg-white border-[3px] rounded-full px-6 sm:px-8 py-4 sm:py-5 focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[16px] sm:text-[18px] font-medium ${
+                jobRole ? "border-[#FFD230]" : "border-[#DCDCDC]"
               }`}
               placeholder="Enter Job Role here"
-              value={jobRole} // Bind the state to the value of the input
-              onChange={handleInputChange} // Update the state on input change
+              value={jobRole}
+              onChange={handleInputChange}
             />
           </div>
         </div>
 
+        {/* SVG Image - Hide on smaller screens */}
         <img
           src="/Icons/OPResumeSvg.svg"
           alt=""
-          className=" border-[#dcdcdc] w-[222px] rotate-[17deg] absolute right-[-175px] top-[50px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0 z-0"
+          className="hidden lg:block border-[#dcdcdc] w-[222px] rotate-[17deg] absolute right-[-175px] top-[50px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0 z-0"
         />
 
         <div className="w-full flex justify-end mt-[35px]">
@@ -246,8 +248,7 @@ const [sections, setSections] = useState('');
             </Link>
           ) : (
             <button
-              className="group relative flex items-center justify-center pr-14 pl-10 py-4 text-[18px] font-bold font-lexend rounded-full transition-all duration-300 overflow-hidden
-      bg-gray-300 text-gray-500 cursor-not-allowed"
+              className="group relative flex items-center justify-center px-6 py-4 text-[16px] sm:text-[18px] font-bold font-lexend rounded-full transition-all duration-300 overflow-hidden bg-gray-300 text-gray-500 cursor-not-allowed"
               disabled
             >
               Optimize Resume By Ai

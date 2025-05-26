@@ -14,123 +14,123 @@ const ExpJSTemplates = () => {
   // Array of images and their corresponding URLs
   const expResumes = [
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate001/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate002/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate003/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate004/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate005/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate006/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate007/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate008/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate009/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate010/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate011/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate012/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate013/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate014/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate015/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate016/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate017/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate018/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate019/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate020/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate021/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate022/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate023/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate024/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate025/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate026/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate027/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate028/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate029/steps",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
       url: "/job_specific_resume/templates/Exp&FresherTemplate030/steps",
     },
   ];

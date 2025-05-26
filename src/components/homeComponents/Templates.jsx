@@ -27,7 +27,7 @@ const Templates = () => {
   };
   return (
     <>
-      <section className="relative max-w-[1440px] min-w-auto mx-auto bg-[#F0F9FF] border-t border-[#B8E6FE] flex flex-col gap-[40px] justify-center items-center pt-[80px] px-[50px]">
+      <section className="relative max-w-[1440px] min-w-auto mx-auto bg-[#F0F9FF]  flex flex-col gap-[40px] justify-center items-center pt-[80px] px-[50px]">
         <div className="flex flex-col gap-[20px] items-center">
           <p className="font-lexend font-semibold text-[30px]">
             <span className="purpleGradient"> HR - Approved </span>
@@ -38,14 +38,74 @@ const Templates = () => {
             approved by real hiring managers.
           </p>
         </div>
-        {/* button right */}
+      </section>
+
+      <div className="relative">
+        <Swiper
+          loop={true}
+          spaceBetween={0}
+          grabCursor={true}
+          centeredSlides="auto"
+          ref={swiperRef}
+          breakpoints={{
+            320: { slidesPerView: 1 },
+            640: { slidesPerView: 1.2 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+          modules={[Autoplay, Pagination, Navigation]}
+          className="mySwiper bg-[#F0F9FF] border-b border-[#B8E6FE]"
+        >
+          <SwiperSlide>
+            <div className="w-[fit] max-w-[auto] mx-auto scale-75 ">
+              <img
+               loading="lazy"
+                src="/img/resume.avif"
+                alt="book-1"
+                className="rounded-xl  "
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="w-[fit] max-w-[auto] mx-auto scale-75">
+              <img
+              loading="lazy"
+                src="/img/resume2.avif"
+                alt="book-2"
+                className="rounded-xl  "
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="w-[fit] max-w-[auto] mx-auto scale-75">
+              <img
+              loading="lazy"
+                src="/img/resume3.avif"
+                alt="book-1"
+                className="rounded-xl  "
+              />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="w-[fit] max-w-[auto] mx-auto scale-75">
+              <img
+              loading="lazy"
+                src="/img/resume4.avif"
+                alt="book-2"
+                className="rounded-xl  "
+              />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+
+        {/* Left Button (previous) */}
         <button
-          title="Right Button"
+          title="Previous"
           onClick={handlePrev}
-          className="absolute -bottom-[320px] left-[430px] z-40  group flex justify-center items-center    bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:scale-90 w-11 h-11 transition-all duration-200 rounded-full "
+          className="absolute top-1/2 left-4 md:left-12 lg:left-[100px] -translate-y-1/2 z-40 group flex justify-center items-center bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:scale-90 w-11 h-11 transition-all duration-200 rounded-full"
         >
           <svg
-            className="h-6 w-6  text-white group-hover:text-white"
+            className="h-6 w-6 text-white group-hover:text-white"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -59,11 +119,11 @@ const Templates = () => {
           </svg>
         </button>
 
-        {/* button left */}
+        {/* Right Button (next) */}
         <button
-          title="Left Button"
+          title="Next"
           onClick={handleNext}
-          className="absolute -bottom-[320px] right-[430px] z-40 group flex justify-center items-center   w-11 h-11 transition-all duration-500 rounded-full  bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:scale-90"
+          className="absolute top-1/2 right-4 md:right-12 lg:right-[100px] -translate-y-1/2 z-40 group flex justify-center items-center w-11 h-11 transition-all duration-500 rounded-full bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:scale-90"
         >
           <svg
             className="h-6 w-6 text-white group-hover:text-white"
@@ -79,48 +139,13 @@ const Templates = () => {
             />
           </svg>
         </button>
+
         {/* select btn */}
 
-        <p className=" px-[10px] py-[5px] text-white font-semibold rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer absolute -bottom-[550px] z-40 hover:scale-110 transition-all">
+        <p className="px-[20px] py-[10px] text-white font-semibold rounded-lg bg-gradient-to-t from-[#336EE7] to-[#4C95FB] cursor-pointer absolute bottom-[100px] left-1/2 transform -translate-x-1/2 z-40 hover:scale-110 transition-all text-xl text-nowrap">
           Use This Template
         </p>
-      </section>
-
-      <Swiper
-        loop={true}
-        spaceBetween={0}
-        grabCursor={true}
-        slidesPerView={3}
-        centeredSlides="auto"
-        ref={swiperRef}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper bg-[#F0F9FF]  border-b  border-[#B8E6FE] "
-      >
-        <SwiperSlide>
-          <div className="w-[fit] max-w-[auto] mx-auto scale-75 ">
-            <img src="/img/resume.png" alt="book-1" className="rounded-xl  " />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[fit] max-w-[auto] mx-auto scale-75">
-            <img src="/img/resume2.png" alt="book-2" className="rounded-xl  " />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[fit] max-w-[auto] mx-auto scale-75">
-            <img src="/img/resume3.png" alt="book-1" className="rounded-xl  " />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="w-[fit] max-w-[auto] mx-auto scale-75">
-            <img src="/img/resume4.png" alt="book-2" className="rounded-xl  " />
-          </div>
-        </SwiperSlide>
-      </Swiper>
+      </div>
     </>
   );
 };

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useJobSpecific } from '../components/JobSpecific/jobspecificcontext';
 
 const JobSpecificResume = () => {
-  const [jobRole, setJobRole] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [jobDescription, setJobDescription] = useState("");
+  const {jobRole, setJobRole} = useJobSpecific();
+  const {companyName, setCompanyName} = useJobSpecific();
+  const {jobDescription, setJobDescription} = useJobSpecific();
 
   const isFormComplete = jobRole && companyName && jobDescription;
 

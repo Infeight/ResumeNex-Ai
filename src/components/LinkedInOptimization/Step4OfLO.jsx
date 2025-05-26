@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
+import { useLinkedIn } from "./linkedincontext.jsx";
 
 const Step4OfLO = () => {
   // State for Technical Skills
-  const [technicalSkills, setTechnicalSkills] = useState("");
+  const {technicalSkills, setTechnicalSkills} = useLinkedIn();
 
   // State for Soft Skills
-  const [softSkills, setSoftSkills] = useState("");
+  const {softSkills, setSoftSkills} = useLinkedIn();
 
   // State for Achievements
-  const [achievements, setAchievements] = useState([
-    { name: "", description: "", year: "" },
-  ]);
+  const {achievements, setAchievements} = useLinkedIn();
 
   // State for LinkedIn Goal (single selection)
-  const [selectedGoal, setSelectedGoal] = useState("");
+  const {selectedGoal, setSelectedGoal} = useLinkedIn();
 
   // Handle Achievement input changes
   const handleAchievementChange = (index, field, value) => {
@@ -45,14 +44,14 @@ const Step4OfLO = () => {
   return (
     <section className="flex flex-col gap-[36px]">
       {/* Skills Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Skills
           </h2>
           <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#FDC700] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#FDC700] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
             {/* Technical Skills */}
             <div className="flex flex-col">
@@ -86,14 +85,14 @@ const Step4OfLO = () => {
       </div>
 
       {/* Achievements Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Achievements / Awards
           </h2>
           <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#DAB2FF] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {achievements.map((achievement, index) => (
             <div key={index} className="mb-[20px] relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
@@ -135,6 +134,7 @@ const Step4OfLO = () => {
                     Description
                   </label>
                   <textarea
+                    rows={6}
                     value={achievement.description}
                     onChange={(e) =>
                       handleAchievementChange(
@@ -177,24 +177,24 @@ const Step4OfLO = () => {
       </div>
 
       {/* LinkedIn Goals Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             LinkedIn Goals (Optional)
           </h2>
           <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#9AE600] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#9AE600] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           <div className="flex flex-wrap gap-[15px]">
             {[
               { key: "attractRecruiters", label: "Attract recruiters" },
               { key: "growNetwork", label: "Grow your network" },
-              { key: "showcaseBrand", label: "Showcase your personal brand" },
+              { key: "showcaseBrand", label: "Personal brand" },
             ].map((goal) => (
               <button
                 key={goal.key}
                 onClick={() => handleGoalChange(goal.key)}
-                className={`border flex items-center gap-1 font-inter font-medium text-[18px] px-4 py-2 rounded-full transition-all cursor-pointer ${
+                className={`border flex items-center gap-1 font-inter font-medium text-start text-[18px] px-4 py-2 rounded-full transition-all cursor-pointer ${
                   selectedGoal === goal.key
                     ? "bg-[#e5fabc] text-[#699C01]"
                     : "text-[#A59DAA] hover:bg-[#f5f5f5]"

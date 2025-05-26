@@ -14,63 +14,63 @@ const InternJSTemplates = () => {
   // Array of images and their corresponding URLs
   const InternResumes = [
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_1.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_1.avif",
       url: "/job_specific_resume/templates/InternTemplate001/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_2.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_2.avif",
       url: "/job_specific_resume/templates/InternTemplate002/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_3.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_3.avif",
       url: "/job_specific_resume/templates/InternTemplate003/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_4.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_4.avif",
       url: "/job_specific_resume/templates/InternTemplate004/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_5.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_5.avif",
       url: "/job_specific_resume/templates/InternTemplate005/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_6.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_6.avif",
       url: "/job_specific_resume/templates/InternTemplate006/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_7.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_7.avif",
       url: "/job_specific_resume/templates/InternTemplate007/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_8.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_8.avif",
       url: "/job_specific_resume/templates/InternTemplate008/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_9.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_9.avif",
       url: "/job_specific_resume/templates/InternTemplate009/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_10.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_10.avif",
       url: "/job_specific_resume/templates/InternTemplate010/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_11.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_11.avif",
       url: "/job_specific_resume/templates/InternTemplate011/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_12.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_12.avif",
       url: "/job_specific_resume/templates/InternTemplate012/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_13.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_13.avif",
       url: "/job_specific_resume/templates/InternTemplate013/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_14.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_14.avif",
       url: "/job_specific_resume/templates/InternTemplate014/steps",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_15.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_15.avif",
       url: "/job_specific_resume/templates/InternTemplate015/steps",
     },
   ];

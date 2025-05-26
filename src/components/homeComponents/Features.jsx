@@ -41,6 +41,7 @@ const Features = () => {
                   <img
                     src={feature.img}
                     alt={feature.alt}
+                    loading="lazy"
                     className="w-3/4 sm:w-auto max-w-[200px] relative -bottom-4 sm:-bottom-8"
                   />
                 </div>
@@ -61,7 +62,7 @@ const featureData = [
     bgColor: "bg-[#F0FDF4]",
     borderColor: "border-[#B9F8CF]",
     shadow: "shadow-green-50",
-    img: "/img/feature1.png",
+    img: "/img/feature1.avif",
     alt: "AI Resume Builder",
     link: "/templates",
     btnText: " Build Your Resume",
@@ -73,7 +74,7 @@ const featureData = [
     bgColor: "bg-[#FEFCE8]",
     borderColor: "border-[#FFF085]",
     shadow: "shadow-yellow-50",
-    img: "/img/feature2.png",
+    img: "/img/feature2.avif",
     alt: "AI Resume Optimization",
     btnText: "Optimize Your Resume",
   },
@@ -84,7 +85,7 @@ const featureData = [
     bgColor: "bg-[#F0F9FF]",
     borderColor: "border-[#B8E6FE]",
     shadow: "shadow-blue-50",
-    img: "/img/feature3.png",
+    img: "/img/feature3.avif",
     alt: "AI LinkedIn Optimization",
     btnText: "Boost Your LinkedIn",
   },
@@ -95,7 +96,7 @@ const featureData = [
     bgColor: "bg-[#F5F3FF]",
     borderColor: "border-[#DDD6FF]",
     shadow: "shadow-purple-50",
-    img: "/img/feature1.png",
+    img: "/img/feature1.avif",
     alt: "AI Skill Recommendation",
     link: "/templates",
     btnText: "Find Skills Now",

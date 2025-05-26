@@ -10,6 +10,12 @@
   --font-rainbow: "Over the Rainbow", "cursive";
 }
 
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope.woff2') format('woff2');
+  font-display: swap;
+}
+
 .blueGradient {
   background-image: linear-gradient(to bottom, #336ee7, #4c95fb);
   -webkit-background-clip: text;
@@ -139,4 +145,23 @@ select:focus {
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .animate-gradient-move {
+    background-size: 200% 200%;
+    animation: gradient-move 6s ease infinite;
+  }
 }

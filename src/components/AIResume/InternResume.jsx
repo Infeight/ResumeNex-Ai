@@ -25,63 +25,63 @@ const InternResume = () => {
   // Array of images and their corresponding URLs
   const InternResumes = [
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_1.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_1.avif",
       url: "/resumes_templates/steps/Resume1",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_2.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_2.avif",
       url: "/resumes_templates/steps/Resume2",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_3.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_3.avif",
       url: "/resumes_templates/steps/Resume3",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_4.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_4.avif",
       url: "/resumes_templates/steps/Resume4",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_5.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_5.avif",
       url: "/resumes_templates/steps/Resume5",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_6.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_6.avif",
       url: "/resumes_templates/steps/Resume6",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_7.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_7.avif",
       url: "/resumes_templates/steps/Resume7",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_8.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_8.avif",
       url: "/resumes_templates/steps/Resume8",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_9.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_9.avif",
       url: "/resumes_templates/steps/Resume9",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_10.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_10.avif",
       url: "/resumes_templates/steps/Resume10",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_11.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_11.avif",
       url: "/resumes_templates/steps/Resume11",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_12.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_12.avif",
       url: "/resumes_templates/steps/Resume12",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_13.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_13.avif",
       url: "/resumes_templates/steps/Resume13",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_14.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_14.avif",
       url: "/resumes_templates/steps/Resume15",
     },
     {
-      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_15.png",
+      img: "/ResumesTempImg/Intern/HighImg/RESUME_INTERN_15.avif",
       url: "/resumes_templates/steps/Resume16",
     },
   ];
@@ -176,6 +176,7 @@ const InternResume = () => {
             onClick={() => openPopup(resume.img, resume.url)}
           >
             <img
+            loading="lazy"
               src={resume.img}
               className="w-full"
               alt={`Resume ${index + 1}`}

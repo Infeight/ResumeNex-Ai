@@ -14,123 +14,123 @@ const RightSectionAtsTempDownload = () => {
 
   const expResumes = [
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_4",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_5",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_6",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_7",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_10",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_11",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_12",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_13",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_14",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_15",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_16",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_17",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_18",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_19",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_20",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_21",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_22",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_23",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_24",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_25",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_26",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_27",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_30",
     },
   ];
@@ -161,7 +161,7 @@ const RightSectionAtsTempDownload = () => {
       {/* ATS Progress Card */}
       <div className="w-full h-[143px] px-2 py-6 bg-white border border-[#DCDCDC] text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm">
         <p>ATS</p>
-        <ProgressIndicator percentage={85} />
+        <ProgressIndicator percentage={10} />
       </div>
 
       {/* Recommend Templates */}
@@ -171,7 +171,8 @@ const RightSectionAtsTempDownload = () => {
         </p>
         <div className="flex flex-col gap-3 items-center bg-white p-3 w-full rounded-[10px] border border-[#DCDCDC]">
           <img
-            src="/img/demoCL.png"
+            loading="lazy"
+            src="/img/demoCL.avif"
             alt="img"
             className="w-full rounded-[10px] border border-[#DCDCDC]"
           />
@@ -227,6 +228,7 @@ const RightSectionAtsTempDownload = () => {
                   >
                     {/* Resume Image */}
                     <img
+                    loading="lazy"
                       src={resume.img}
                       className="w-full"
                       alt={`Resume ${index + 1}`}
@@ -284,6 +286,7 @@ const RightSectionAtsTempDownload = () => {
               {/* Image Container */}
               <div className="max-h-[80vh] overflow-y-auto custom-scrollbar p-4">
                 <img
+                loading="lazy"
                   src={popupImage}
                   alt="Expanded Resume"
                   className="w-full h-auto object-contain"

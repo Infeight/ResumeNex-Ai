@@ -14,15 +14,15 @@ const TrustBy = () => {
           <span className="z-1 h-[57px] w-[200px]  absolute bg-gradient-to-r from-[#FAF5FF] to-[#faf5ff00]   "></span>
           <span className="z-1 h-[57px] w-[200px] right-0  absolute bg-gradient-to-l from-[#FAF5FF] to-[#faf5ff00]   "></span>
           <div className="z-0 flex items-center gap-[80px] w-full ">
-            <img src="/companyLogo/1.png" alt="" />
-            <img src="/companyLogo/2.png" alt="" />
-            <img src="/companyLogo/3.png" alt="" />
-            <img src="/companyLogo/4.png" alt="" />
-            <img src="/companyLogo/5.png" alt="" />
-            <img src="/companyLogo/6.png" alt="" />
-            <img src="/companyLogo/7.png" alt="" />
-            <img src="/companyLogo/8.png" alt="" />
-            <img src="/companyLogo/9.png" alt="" />
+            <img loading="lazy" src="/companyLogo/1.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/2.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/3.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/4.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/5.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/6.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/7.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/8.avif" alt="" />
+            <img loading="lazy" src="/companyLogo/9.avif" alt="" />
           </div>
           {/* <div className="z-0 flex items-center gap-[80px] w-full  loopScroll">
             <img src="/companyLogo/1.png" alt="" />

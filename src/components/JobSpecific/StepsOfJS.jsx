@@ -5,8 +5,10 @@ import Step2OfJS from "./Steps/Step2OfJS";
 import Step3OfJS from "./Steps/Step3OfJS";
 import Step4OfJS from "./Steps/Step4OfJS";
 import Step5OfJS from "./Steps/Step5OfJS";
+import { useJobSpecific } from "./jobspecificcontext";
 
 const StepsOfJS = () => {
+  const jobspecific = useJobSpecific()
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 5;
 
@@ -81,7 +83,12 @@ const StepsOfJS = () => {
 
         {currentStep === totalSteps ? (
           <Link to={`/`}>
-            <button className="px-[30px] py-[15px] -mt-5 rounded-full text-white transition-all cursor-pointer bg-[#4C95FB] hover:scale-95">
+            <button
+             onClick={() => {
+              window.scrollTo({ top: 0 });
+              console.log(jobspecific)
+            }}
+            className="px-[30px] py-[15px] -mt-5 rounded-full text-white transition-all cursor-pointer bg-[#4C95FB] hover:scale-95">
               Generate Ai Job Specific Resume
             </button>
           </Link>

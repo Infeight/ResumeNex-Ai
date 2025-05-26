@@ -22,6 +22,15 @@ const Home = () => {
   return (
     <>
       {/* HeroSection loads independently */}
+
+ {/* <h1 className="text-[#151515] font-manrope font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[52px] text-center max-w-4xl mx-auto">
+          One Step Closer To Your{" "}
+          <span className="purpleGradient">Dream Career</span> With
+          <span className="blueGradient"> AI-Powered </span>
+          Resume.
+        </h1> */}
+
+
       <Suspense fallback={<Loading />}>
         <HeroSection />
       </Suspense>

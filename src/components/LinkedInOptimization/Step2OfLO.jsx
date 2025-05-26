@@ -1,27 +1,14 @@
 import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
+import { useLinkedIn } from "./linkedincontext.jsx";
 
 const Step2OfLO = () => {
   // State for Education
-  const [educationList, setEducationList] = useState([
-    {
-      college: "",
-      degree: "",
-      stream: "",
-      startYear: "",
-      endYear: "",
-    },
-  ]);
+  const {educationList, setEducationList} = useLinkedIn();
 
   // State for Certifications
-  const [certifications, setCertifications] = useState([
-    {
-      name: "",
-      provider: "",
-      link: "",
-    },
-  ]);
+  const {certifications, setCertifications} = useLinkedIn();
 
   // Handle Education input changes
   const handleEducationChange = (index, field, value) => {
@@ -80,16 +67,16 @@ const Step2OfLO = () => {
   };
 
   return (
-    <section className="flex flex-col gap-[36px]">
+    <section className="flex flex-col gap-[36px] ">
       {/* Education Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px] bg-white  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Education Details
           </h2>
           <div className="bg-[#E3F6FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#74D4FF] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#74D4FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {educationList.map((edu, index) => (
             <div key={index} className="mb-[20px] relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
@@ -143,8 +130,8 @@ const Step2OfLO = () => {
 
                 {/* Start Year and End Year */}
                 <div className="flex flex-col gap-3">
-                  <div className="flex gap-3">
-                    <div className="flex flex-col w-1/2">
+                  <div className="flex gap-3  flex-col md:flex-row">
+                    <div className="flex flex-col  w-full md:w-1/2">
                       <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
                         Start Date
                       </label>
@@ -163,7 +150,7 @@ const Step2OfLO = () => {
                       />
                     </div>
                     {!edu.currentlyPursuing && (
-                      <div className="flex flex-col w-1/2">
+                      <div className="flex flex-col w-full md:w-1/2">
                         <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
                           End Date
                         </label>
@@ -234,14 +221,14 @@ const Step2OfLO = () => {
       </div>
 
       {/* Certifications Section */}
-      <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full">
+      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
             Certifications (Optional)
           </h2>
           <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
         </div>
-        <div className="border-l-2 border-[#9AE600] p-[30px] mx-[20px]">
+        <div className="border-l-2 border-[#9AE600]  pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {certifications.map((cert, index) => (
             <div key={index} className="mb-[20px] relative">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
@@ -262,59 +249,39 @@ const Step2OfLO = () => {
                 </div>
 
                 {/* Provider */}
-                <div className="flex flex-col gap-4">
-                  <div className="flex flex-col">
-                    <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                      Organisation
-                    </label>
-                    <input
-                      type="text"
-                      value={cert.provider}
-                      onChange={(e) =>
-                        handleCertificationChange(
-                          index,
-                          "provider",
-                          e.target.value
-                        )
-                      }
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
-                      placeholder="e.g., Udemy"
-                    />
-                  </div>
+                <div className="flex flex-col">
+                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                    Organisation
+                  </label>
+                  <input
+                    type="text"
+                    value={cert.provider}
+                    onChange={(e) =>
+                      handleCertificationChange(
+                        index,
+                        "provider",
+                        e.target.value
+                      )
+                    }
+                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    placeholder="e.g., Udemy"
+                  />
                 </div>
 
-                {/* issue date and expire */}
-                <div className="flex gap-4  col-span-2 ">
-                  <div className="flex flex-col w-1/2">
-                    <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                      Issue Date
-                    </label>
-                    <input
-                      type="month"
-                      value={cert.issueDate}
-                      onChange={(e) =>
-                        handleCertificationChange(
-                          index,
-                          "issueDate",
-                          e.target.value
-                        )
-                      }
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
-                      placeholder="Select a month"
-                    />
-                  </div>
-                  {!cert.noExpiry && (
-                    <div className="flex flex-col w-1/2">
+                {/* Issue Date and Expiry Date */}
+                <div className="flex flex-col gap-3">
+                  <div className="flex gap-3 flex-col md:flex-row ">
+                    <div className="flex flex-col w-full md:w-1/2">
                       <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                        Expiry Date
+                        Issue Date
                       </label>
                       <input
                         type="month"
-                        value={cert.expireDate}
+                        value={cert.issueDate}
                         onChange={(e) =>
                           handleCertificationChange(
                             index,
-                            "expireDate",
+                            "issueDate",
                             e.target.value
                           )
                         }
@@ -322,8 +289,28 @@ const Step2OfLO = () => {
                         placeholder="Select a month"
                       />
                     </div>
-                  )}
-                  <div className="flex items-center text-nowrap mt-6">
+                    {!cert.noExpiry && (
+                      <div className="flex flex-col w-full md:w-1/2">
+                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                          Expiry Date
+                        </label>
+                        <input
+                          type="month"
+                          value={cert.expireDate}
+                          onChange={(e) =>
+                            handleCertificationChange(
+                              index,
+                              "expireDate",
+                              e.target.value
+                            )
+                          }
+                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
+                          placeholder="Select a month"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <div className="flex items-center">
                     <input
                       type="checkbox"
                       checked={cert.noExpiry}
@@ -346,7 +333,7 @@ const Step2OfLO = () => {
                 </div>
 
                 {/* Certification Link */}
-                <div className="flex flex-col col-span-1 md:col-span-2">
+                <div className="flex flex-col">
                   <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
                     Certification Link{" "}
                     <span className="text-[#A59DAA] text-[14px]">
@@ -368,7 +355,7 @@ const Step2OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {certifications.length > 1 && (
                 <button
-                  className=" border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10"
+                  className="border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10"
                   onClick={() => removeCertification(index)}
                 >
                   Remove Certification
