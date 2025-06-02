@@ -17,13 +17,13 @@ const RightSectionAtsTempDownload = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+   {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
@@ -45,9 +45,10 @@ const RightSectionAtsTempDownload = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
+    
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
@@ -121,9 +122,10 @@ const RightSectionAtsTempDownload = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_27",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
+  
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
@@ -157,7 +159,8 @@ const RightSectionAtsTempDownload = () => {
     setPopupBtn(null);
   };
   return (
-    <div className="w-full max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[1vw]">
+    <div className="w-full lg:max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[1vw]">
+
       {/* ATS Progress Card */}
       <div className="w-full h-[143px] px-2 py-6 bg-white border border-[#DCDCDC] text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm">
         <p>ATS</p>
@@ -189,9 +192,9 @@ const RightSectionAtsTempDownload = () => {
           <div className="fixed inset-0 z-50 flex">
             {/* Left side blur */}
             <div
-              className="relative w-[20%] bg-black/30 backdrop-blur-sm cursor-pointer"
-              onClick={handleCloseTemplates}
-            >
+  className="relative w-[8%] lg:w-[20%] bg-black/30 backdrop-blur-sm cursor-pointer"
+  onClick={handleCloseTemplates}
+>
               <button
                 title="Left Button"
                 className="absolute top-1/2 -right-5   z-40 group flex justify-center items-center   w-11 h-11 transition-all duration-500 rounded-full  bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:scale-90 cursor-pointer"
@@ -213,7 +216,8 @@ const RightSectionAtsTempDownload = () => {
             </div>
 
             {/* Right side white panel */}
-            <div className=" w-[80%] bg-[#F7F7FB] h-full p-[50px] overflow-y-auto cursor-pointer">
+           <div className="w-[92%] lg:w-[80%] bg-[#F7F7FB] h-full p-[50px] overflow-y-auto cursor-pointer">
+
               <h2 className="font-lexend text-[35px] font-bold mb-6">
                 Select Templates
               </h2>

@@ -31,7 +31,11 @@ const PersonalInfo = () => {
         </h2>
         <div className="w-40 h-5 bg-[#F3E8FF] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
+      
+     <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
+                pl-0 ml-0 border-l-0 
+                lg:pl-[30px] lg:ml-3 lg:border-l-[2px] lg:border-[#DAB2FF]">
+
         <div className="flex flex-wrap gap-[20px] font-inter mt-10">
           {["firstName", "middleName", "lastName"].map((name, idx) => (
             <input

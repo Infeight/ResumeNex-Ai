@@ -51,7 +51,11 @@ const Certificates = () => {
         </div>
         <div className="w-24 h-5 bg-[#F3E8FF] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#DAB2FF] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
+      
+      <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
+                ml-0 pl-0 border-l-0 
+                lg:ml-3 lg:pl-[30px] lg:border-l-[2px] lg:border-[#DAB2FF]">
+
         {certificates.map((cert, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
             <h2 className="flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#DAB2FF] bg-[#FAF5FF] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">

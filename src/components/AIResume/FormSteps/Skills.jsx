@@ -105,7 +105,11 @@ const Skills = () => {
         </h2>
         <div className="w-10 h-5 bg-[#DFF2FE] -mt-8"></div>
       </div>
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#74D4FF] pb-[40px] pl-[30px] gap-[20px] font-inter sm:ml-0 sm:pl-4">
+
+      <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
+                ml-0 pl-0 border-l-0 
+                lg:ml-3 lg:pl-[30px] lg:border-l-[2px] lg:border-[#74D4FF]">
+
         {/* Technical Skills */}
         <div className="mt-6">
           <h4 className="text-lg font-semibold text-[#212529] mb-2">

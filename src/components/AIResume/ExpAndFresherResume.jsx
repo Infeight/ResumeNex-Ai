@@ -22,13 +22,14 @@ const ExpAndFresherResume = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+      {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
+  
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
@@ -46,9 +47,10 @@ const ExpAndFresherResume = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_7",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
+  
+      {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
@@ -130,9 +132,10 @@ const ExpAndFresherResume = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
+   
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
