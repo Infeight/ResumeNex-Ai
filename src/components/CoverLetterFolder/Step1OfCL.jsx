@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useCoverLetter } from "./coverlettercontext";
 
 const Step1OfCL = () => {
-  const [fullName, setFullName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [date, setDate] = useState("");
+  // const { formData, setFormData } = useResume();
+
+  const {fullName, setFullName} = useCoverLetter();
+  const {phoneNumber, setPhoneNumber} = useCoverLetter();
+  const {emailAddress, setEmailAddress} = useCoverLetter();
+  const {date, setDate} = useCoverLetter();
 
   return (
     <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full ">

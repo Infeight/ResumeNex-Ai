@@ -89,7 +89,8 @@ const ToolsDropdown = ({
                     </p>
                   </div>
                   <img
-                    src="/ToolsImg/1.png"
+                    loading="lazy"
+                    src="/ToolsImg/1.avif"
                     alt="AI Resume"
                     className="w-20 lg:w-24 -rotate-[20deg] absolute right-[-15px] bottom-[-20px] transition-all duration-300 group-hover:right-0 group-hover:bottom-0"
                   />
@@ -106,7 +107,8 @@ const ToolsDropdown = ({
                     </p>
                   </div>
                   <img
-                    src="/ToolsImg/2.png"
+                  loading="lazy"
+                    src="/ToolsImg/2.avif"
                     alt="AI Cover Letter"
                     className="w-20 lg:w-24 -rotate-[8deg] absolute right-[-50px] bottom-[-10px] transition-all duration-300 group-hover:right-0 group-hover:bottom-0"
                   />
@@ -123,7 +125,8 @@ const ToolsDropdown = ({
                     </p>
                   </div>
                   <img
-                    src="/ToolsImg/3.png"
+                  loading="lazy"
+                    src="/ToolsImg/3.avif"
                     alt="AI Resume Optimization"
                     className="w-24 lg:w-28 -rotate-[8deg] absolute right-[-50px] bottom-[-10px] transition-all duration-300 group-hover:right-0 group-hover:bottom-0"
                   />
@@ -140,7 +143,8 @@ const ToolsDropdown = ({
                     </p>
                   </div>
                   <img
-                    src="/ToolsImg/4.png"
+                  loading="lazy"
+                    src="/ToolsImg/4.avif"
                     alt="AI Specified Job Resume"
                     className="w-16 lg:w-22 absolute right-[-15px] transition-all duration-300 group-hover:right-0 group-hover:-rotate-12"
                   />
@@ -154,7 +158,8 @@ const ToolsDropdown = ({
                     </p>
                   </div>
                   <img
-                    src="/ToolsImg/5.png"
+                  loading="lazy"
+                    src="/ToolsImg/5.avif"
                     alt="LinkedIn Optimization"
                     className="w-24 lg:w-28 -rotate-[20deg] absolute right-[-15px] top-[-20px] transition-all duration-300 group-hover:right-0 group-hover:w-28 lg:group-hover:w-32"
                   />

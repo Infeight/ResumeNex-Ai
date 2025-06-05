@@ -4,8 +4,10 @@ import Step1OfCL from "./Step1OfCL";
 import Step2OfCL from "./Step2OfCL";
 import Step3OfCL from "./Step3OfCL";
 import Step4OfCL from "./Step4OfCL";
+import { useCoverLetter } from "./coverlettercontext";
 
 const StepsCoverLetter = () => {
+ const coverletterdata = useCoverLetter();
   const { templateIdOfCL } = useParams();
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
@@ -98,6 +100,7 @@ const StepsCoverLetter = () => {
               to={`/cover_letter_templates/steps/${templateIdOfCL}/final-download-page`}
               className="w-full sm:w-auto"
               onClick={() => {
+                console.log(coverletterdata);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
             >
@@ -111,6 +114,7 @@ const StepsCoverLetter = () => {
           ) : (
             <button
               onClick={() => {
+                console.log();
                 window.scrollTo({ top: 0, behavior: "smooth" });
                 setCurrentStep((prev) => prev + 1);
               }}

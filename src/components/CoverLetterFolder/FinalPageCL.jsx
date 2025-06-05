@@ -36,63 +36,63 @@ const FinalPageCL = () => {
 
   const coverLetter = [
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/cover_letter_templates/steps/cover_letter_001",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       url: "/cover_letter_templates/steps/cover_letter_002",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
       url: "/cover_letter_templates/steps/cover_letter_003",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/cover_letter_templates/steps/cover_letter_004",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.avif",
       url: "/cover_letter_templates/steps/cover_letter_005",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.avif",
       url: "/cover_letter_templates/steps/cover_letter_006",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/cover_letter_templates/steps/cover_letter_007",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/cover_letter_templates/steps/cover_letter_008",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
       url: "/cover_letter_templates/steps/cover_letter_009",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
       url: "/cover_letter_templates/steps/cover_letter_010",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.avif",
       url: "/cover_letter_templates/steps/cover_letter_011",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.avif",
       url: "/cover_letter_templates/steps/cover_letter_012",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.avif",
       url: "/cover_letter_templates/steps/cover_letter_013",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
       url: "/cover_letter_templates/steps/cover_letter_014",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.avif",
       url: "/cover_letter_templates/steps/cover_letter_015",
     },
   ];

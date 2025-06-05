@@ -19,123 +19,126 @@ const ExpAndFresherResume = () => {
 
   const expResumes = [
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_4",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_5",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_6",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_7",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.png",
+      {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
+  
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_10",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_11",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_12",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_13",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_14",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_15",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_16",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_17",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_18",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_19",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_20",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_21",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_22",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_23",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_24",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_25",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_26",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_27",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.png",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
-    },
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_4",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_5",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_6",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_7",
+    },
+  
+      {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_10",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_11",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_12",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_13",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_14",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_15",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_16",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_17",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_18",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_19",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_20",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_21",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_22",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_23",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_24",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_25",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_26",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_27",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
+    },
+   
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
+    },
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_30",
     },
   ];
@@ -225,6 +228,7 @@ const ExpAndFresherResume = () => {
             onClick={() => openPopup(resume.img, resume.url)}
           >
             <img
+              loading="lazy"
               src={resume.img}
               className="w-full"
               alt={`Resume ${index + 1}`}

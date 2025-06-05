@@ -25,7 +25,10 @@ const ProfileSummary = () => {
         <div className="w-28 h-5 bg-[#ECFCCA] -mt-8"></div>
       </div>
 
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#9AE600] pb-[20px] pl-[30px] font-inter sm:ml-0 sm:pl-4">
+      <div className="flex flex-col w-full max-w-[527px] pb-[20px] font-inter 
+                ml-0 pl-0 border-l-0 
+                lg:ml-3 lg:pl-[30px] lg:border-l-[2px] lg:border-[#9AE600]">
+
         <div className="relative w-full mt-6">
           <textarea
             placeholder="Enter Profile Summary"

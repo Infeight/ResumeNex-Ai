@@ -23,10 +23,9 @@ const RESUME_ExpAndFresher_9 = () => {
         {/* Personal Info & Job Role */}
         <div className="flex justify-between items-center border-b-4 border-blue-700 pb-4 mb-5">
           <h1 className="text-[26px] font-bold text-blue-700">
-            {(formData.firstName || "John") +
-              " " +
-              (formData.middleName ? formData.middleName + " " : "") +
-              (formData.lastName || "Doe")}
+            { formData.firstName || formData.middleName || formData.lastName
+      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      : "John Doe"}
           </h1>
           <div className="text-right text-[12px]">
             <p>

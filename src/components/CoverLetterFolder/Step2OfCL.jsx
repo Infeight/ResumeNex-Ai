@@ -1,23 +1,16 @@
 import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon";
+import { useCoverLetter } from "./coverlettercontext";
 
 const Step2OfCL = () => {
-  const [educationList, setEducationList] = useState([
-    {
-      college: "",
-      degree: "",
-      stream: "",
-      startYear: "",
-      endYear: "",
-    },
-  ]);
+  const {educationList, setEducationList} = useCoverLetter();
 
-  const [company, setCompany] = useState("");
-  const [jobRole, setJobRole] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
-  const [showNoticePeriod, setShowNoticePeriod] = useState(false);
-  const [noticePeriod, setNoticePeriod] = useState("");
+  const {company, setCompany} = useCoverLetter();
+  const {jobRole, setJobRole} = useCoverLetter();
+  const {startYear, setStartYear} = useCoverLetter();
+  const {endYear, setEndYear} = useCoverLetter();
+  const {showNoticePeriod, setShowNoticePeriod} = useCoverLetter();
+  const {noticePeriod, setNoticePeriod} = useCoverLetter();
 
   const handleEducationChange = (index, field, value) => {
     const updated = [...educationList];

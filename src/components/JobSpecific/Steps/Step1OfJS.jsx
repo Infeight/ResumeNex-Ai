@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import AddIcon from "../../commonComponents/AddIcon";
+import { useJobSpecific } from "../jobspecificcontext";
 
 const Step1OfJS = () => {
-  const [fullName, setFullName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [date, setDate] = useState("");
+  // Destructure all fields from context
+  const {
+    fullName, setFullName,
+    middleName, setMiddleName,
+    lastName, setLastName,
+    phoneNumber, setPhoneNumber,
+    emailAddress, setEmailAddress,
+    state, setState,
+    city, setCity,
+    pincode, setPincode,
+    // date, setDate, // Uncomment if needed
+  } = useJobSpecific();
+
   return (
     <>
-      {/* Form container with white background, padding, shadow, and max width */}
       <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full ">
         <div className="relative  w-fit">
           <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
@@ -19,7 +28,7 @@ const Step1OfJS = () => {
         {/* input fields */}
         <div className="border-l-2 border-[#DAB2FF] p-[30px] mx-[20px]">
           <div className="flex flex-col gap-[40px]">
-            {/* Full Name Field */}
+            {/* Full Name Fields */}
             <div className="flex gap-5">
               <div className="flex flex-col">
                 <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
@@ -30,19 +39,19 @@ const Step1OfJS = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="John"
                 />
               </div>
               <div className="flex flex-col">
                 <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
-                  Middle Name{" "}
+                  Middle Name
                 </label>
                 <input
                   type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  value={middleName}
+                  onChange={(e) => setMiddleName(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="Michael"
                 />
               </div>
               <div className="flex flex-col">
@@ -51,10 +60,10 @@ const Step1OfJS = () => {
                 </label>
                 <input
                   type="text"
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="Doe"
                 />
               </div>
             </div>
@@ -95,9 +104,10 @@ const Step1OfJS = () => {
                 </label>
                 <input
                   type="text"
-                  value={fullName}
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="California"
                 />
               </div>
               <div className="flex flex-col">
@@ -106,9 +116,10 @@ const Step1OfJS = () => {
                 </label>
                 <input
                   type="text"
-                  value={fullName}
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="San Francisco"
                 />
               </div>
               <div className="flex flex-col">
@@ -117,9 +128,10 @@ const Step1OfJS = () => {
                 </label>
                 <input
                   type="text"
-                  value={fullName}
+                  value={pincode}
+                  onChange={(e) => setPincode(e.target.value)}
                   className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
-                  placeholder="John Doe"
+                  placeholder="94105"
                 />
               </div>
             </div>

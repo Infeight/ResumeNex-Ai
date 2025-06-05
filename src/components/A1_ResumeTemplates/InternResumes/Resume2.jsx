@@ -17,7 +17,7 @@ const Resume2 = () => {
       {/* Header */}
       <header className="bg-gradient-to-r from-[#dfe9f3] to-[#b3cde0] p-[30px] text-center border-b-[3px] border-[#6497b1] shadow-md">
         <h1 className="text-[32px] font-bold text-[#003366]">
-          {formData.firstName
+          {formData.firstName || formData.middleName || formData.lastName
             ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
             : "Ava Patel"}
         </h1>

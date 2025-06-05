@@ -15,7 +15,7 @@ const Login = ({ isOpen, onClose }) => {
       <div className="bg-gray-100 flex rounded-2xl shadow-lg max-w-[900px] w-full sm:w-auto p-5 items-center gap-3">
         {/* Image - Hidden on mobile */}
         <div className="hidden sm:block w-full sm:w-1/2 h-[600px] rounded-2xl overflow-hidden">
-          <img src="/img/LoginImage1.png" alt="img" className="w-full" />
+          <img loading="lazy" src="/img/LoginImage1.avif" alt="img" className="w-full" />
         </div>
 
         {/* Form */}

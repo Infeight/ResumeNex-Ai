@@ -53,7 +53,10 @@ const Education = () => {
         <div className="w-16 h-5 bg-[#DFF2FE] -mt-8"></div>
       </div>
 
-      <div className="flex flex-col w-full max-w-[600px] ml-3 border-l-[2px] border-[#74D4FF] pb-10 pl-6 font-inter sm:ml-0 sm:pl-4">
+     <div className="flex flex-col w-full max-w-[600px] pb-10 font-inter 
+                ml-0 pl-0 border-l-0 
+                lg:ml-3 lg:pl-6 lg:border-l-[2px] lg:border-[#74D4FF]">
+
         {education.map((edu, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
             <div className="flex items-center justify-between px-5 py-2 border border-[#B8E6FE] bg-[#F0F9FF] rounded-lg text-[#212529] text-[16px] font-medium">

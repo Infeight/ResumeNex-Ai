@@ -19,7 +19,7 @@ const RESUME_ExpAndFresher_29 = () => {
       {/* Header */}
       <header className="text-left mb-[20px]">
         <h1 className="text-[24pt] font-bold text-[#8A2BE2] mb-[5px]">
-          {formData.firstName
+          {formData.firstName || formData.middleName || formData.lastName
             ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
             : "Syed Talha Ahmed"}
         </h1>

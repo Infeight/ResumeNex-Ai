@@ -13,7 +13,7 @@ const FAQ = () => {
         "An ATS-friendly resume uses proper structure, relevant keywords, and avoids complex formatting to pass through ATS screening without errors.",
     },
     {
-      question: "How does Resume Karo AI improve my resume?",
+      question: "How does ResumeNex AI improve my resume?",
       answer:
         "Our AI analyzes job descriptions, enhances keywords, optimizes formatting, and improves your ATS score to increase your chances of getting shortlisted.",
     },
@@ -25,7 +25,7 @@ const FAQ = () => {
     {
       question: "Can I create different resumes for different jobs?",
       answer:
-        "Yes! Resume Karo AI allows you to generate customized resumes tailored for specific job roles, improving your chances of success.",
+        "Yes! ResumeNex AI allows you to generate customized resumes tailored for specific job roles, improving your chances of success.",
     },
     {
       question: "How does LinkedIn optimization help in job search?",

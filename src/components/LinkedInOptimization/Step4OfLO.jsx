@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
+import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
+import { useLinkedIn } from "./linkedincontext.jsx";
 
 const Step4OfLO = () => {
   // State for Technical Skills
-  const [technicalSkills, setTechnicalSkills] = useState("");
+  const {technicalSkills, setTechnicalSkills} = useLinkedIn();
 
   // State for Soft Skills
-  const [softSkills, setSoftSkills] = useState("");
+  const {softSkills, setSoftSkills} = useLinkedIn();
 
   // State for Achievements
-  const [achievements, setAchievements] = useState([
-    { name: "", description: "", year: "" },
-  ]);
+  const {achievements, setAchievements} = useLinkedIn();
 
   // State for LinkedIn Goal (single selection)
-  const [selectedGoal, setSelectedGoal] = useState("");
+  const {selectedGoal, setSelectedGoal} = useLinkedIn();
 
   // Handle Achievement input changes
   const handleAchievementChange = (index, field, value) => {

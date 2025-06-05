@@ -1,27 +1,14 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
+import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
+import { useLinkedIn } from "./linkedincontext.jsx";
 
 const Step2OfLO = () => {
   // State for Education
-  const [educationList, setEducationList] = useState([
-    {
-      college: "",
-      degree: "",
-      stream: "",
-      startYear: "",
-      endYear: "",
-    },
-  ]);
+  const {educationList, setEducationList} = useLinkedIn();
 
   // State for Certifications
-  const [certifications, setCertifications] = useState([
-    {
-      name: "",
-      provider: "",
-      link: "",
-    },
-  ]);
+  const {certifications, setCertifications} = useLinkedIn();
 
   // Handle Education input changes
   const handleEducationChange = (index, field, value) => {

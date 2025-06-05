@@ -1,17 +1,14 @@
 import React, { useState } from "react";
-import AddIcon from "../commonComponents/AddIcon";
+import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
+import { useLinkedIn } from "./linkedincontext.jsx";
 
 const Step3OfLO = () => {
   // State for Work Experience
-  const [workExperiences, setWorkExperiences] = useState([
-    { title: "", company: "", duration: "", description: "", tools: "" },
-  ]);
+  const {workExperiences, setWorkExperiences} = useLinkedIn();
 
   // State for Projects
-  const [projects, setProjects] = useState([
-    { title: "", description: "", tools: "", link: "" },
-  ]);
+  const {projects, setProjects} = useLinkedIn();
 
   // Handle Work Experience input changes
   const handleWorkExperienceChange = (index, field, value) => {

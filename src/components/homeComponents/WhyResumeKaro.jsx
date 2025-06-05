@@ -75,7 +75,7 @@ const WhyResumeKaro = () => {
         </div>
 
         {/* 2 */}
-        <img src="/img/ResumeFrame.png" alt="" className="hidden md:block" />
+        <img loading="lazy" src="/img/ResumeFrame.avif" alt="" className="hidden md:block" />
 
         {/* 3 */}
         <div className="flex flex-col gap-4 md:gap-5 lg:gap-0 justify-between w-full md:w-auto">

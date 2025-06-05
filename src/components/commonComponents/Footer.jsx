@@ -62,7 +62,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <section className="mt-10 w-full border-t-2 border-[#8A8A8A] pt-8">
           <p className="text-sm text-[#B9B3B3] text-center px-4">
-            © Copyright 2024, All Rights Reserved by Resumekaro.Ai
+            © Copyright 2024, All Rights Reserved by ResumeNex.Ai
           </p>
         </section>
       </section>

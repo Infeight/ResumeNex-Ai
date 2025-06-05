@@ -10,6 +10,12 @@
   --font-rainbow: "Over the Rainbow", "cursive";
 }
 
+@font-face {
+  font-family: 'Manrope';
+  src: url('/fonts/Manrope.woff2') format('woff2');
+  font-display: swap;
+}
+
 .blueGradient {
   background-image: linear-gradient(to bottom, #336ee7, #4c95fb);
   -webkit-background-clip: text;

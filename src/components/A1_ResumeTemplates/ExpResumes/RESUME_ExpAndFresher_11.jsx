@@ -18,7 +18,7 @@ const RESUME_ExpAndFresher_11 = () => {
 //Name help
      const fullName =
     formData.firstName || formData.middleName || formData.lastName
-      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      ? `${formData.firstName ? formData.firstName : "Jane"}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? "Doe" + formData.lastName : ""}`.trim()
       : "Your Name";
 
   //address help
@@ -31,7 +31,7 @@ const RESUME_ExpAndFresher_11 = () => {
     <div className="font-['Arial',sans-serif] text-gray-800 w-[794px] min-h-[1122px] mx-auto p-[20mm] box-border flex">
       {/* Sidebar */}
       <div className="w-[30%] bg-gray-100 p-4 text-gray-800">
-        <h1 className="text-[24px] font-bold mb-2">{formData?formData.firstName+" "+formData.middleName+" "+formData.lastName :"Priya Sharma" }</h1>
+        <h1 className="text-[24px] font-bold mb-2">{formData.firstName?formData.firstName+" "+formData.middleName+" "+formData.lastName :"Priya Sharma" }</h1>
         <div className="text-[12px]">
           <p className="my-1">{formData.city?formData.city:"Bangalore"}, {formData.state?formData.state:"Karnataka"}, {formData.pincode?formData.pincode:"112255"}</p>
           <p className="my-1">{formData.phoneNumber?formData.phoneNumber:"9987558965"}</p>

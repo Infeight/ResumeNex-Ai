@@ -18,7 +18,7 @@ const Resume5 = () => {
     <div className="font-['Arial',sans-serif] w-[794px] mx-auto my-[35px] p-5 leading-[1.5] text-[#2d3748] overflow-x-hidden">
       {/* Header */}
       <h1 className="text-[30px] m-[0_0_5px_0] text-[#1e40af] font-bold">
-        {formData.firstName
+        {formData.firstName || formData.middleName || formData.lastName
           ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
           : "Sophia Nguyen"}
       </h1>

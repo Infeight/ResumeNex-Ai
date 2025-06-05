@@ -1,7 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Document, Page, pdfjs } from "react-pdf";
+
+import { useEffect } from "react";
+// import * as pdfjsLib from "pdfjs-dist/build/pdf";
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
+
+
+
+
+
+
 
 const ResumeOptimization = () => {
+  const [pdfText, setPdfText] = useState("");
+  const [parsedResume, setParsedResume] = useState({});
+const [sections, setSections] = useState('');
+
   // Define state for the job role input
   const [jobRole, setJobRole] = useState("");
 
@@ -11,7 +27,7 @@ const ResumeOptimization = () => {
   };
 
   // handle file drag and drop from here
-  const [fileName, setFileName] = useState(null);
+  const [file, setFile] = useState(null);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -29,25 +45,55 @@ const ResumeOptimization = () => {
   };
 
   const handleFile = (file) => {
-    if (
-      file &&
-      (file.type === "application/pdf" ||
-        file.type ===
-          "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
-    ) {
-      setFileName(file.name);
-    } else {
-      alert("Please upload only PDF or DOCX files.");
-      setFileName(null);
-    }
-  };
+  if (
+    file &&
+    (file.type === "application/pdf" ||
+      file.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document")
+  ) {
+    setFile(file);
+  } else {
+    alert("Please upload only PDF or DOCX files.");
+    setFile(null);
+  }
+};
 
-  const handleRemove = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setFileName(null);
-    document.getElementById("dropzone-file").value = "";
-  };
+//extract text from the PDF file
+
+  useEffect(() => {
+    if (!file) return;
+
+    const extractText = async () => {
+      const loadingTask = pdfjsLib.getDocument(URL.createObjectURL(file));
+      const pdf = await loadingTask.promise;
+      let fullText = "";
+
+      for (let i = 1; i <= pdf.numPages; i++) {
+        const page = await pdf.getPage(i);
+        const content = await page.getTextContent();
+
+        let pageText = "";
+        content.items.forEach((item) => {
+          pageText += item.str + (item.str.trim() ? "\n" : "");
+        });
+
+        fullText += pageText + "\n\n";
+      }
+      setSections(fullText);
+    };
+
+    extractText();
+  
+  }, [file]);
+
+    
+ 
+ const handleRemove = (e) => {
+  e.preventDefault();
+  e.stopPropagation();
+  setFile(null);
+  document.getElementById("dropzone-file").value = "";
+};
+
   return (
     <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-[30px] lg:gap-[50px] py-[30px] lg:py-[50px] text-[#212529] bg-[#ffffff] px-4 sm:px-6">
       <p className="text-[#212529] font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto">
@@ -85,15 +131,17 @@ const ResumeOptimization = () => {
             <label
               htmlFor="dropzone-file"
               className={`flex flex-col items-center justify-center w-full h-52 border-[3px] border-dashed rounded-[16px] cursor-pointer transition-all  bg-white
-          hover:border-[#FFD230] 
-          ${fileName ? "border-[#FFD230]" : "hover:scale-95 border-[#dcdcdc]"}`}
+    
+    hover:border-[#FFD230] 
+    ${file ? "border-[#FFD230] " : "hover:scale-95 border-[#dcdcdc] "}
+  `}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
             >
-              {fileName ? (
-                <div className="flex flex-col items-center justify-center w-full px-4 text-center">
-                  <p className="text-[16px] sm:text-[18px] font-inter font-semibold text-gray-700 truncate">
-                    {fileName}
+              {file ? (
+                <div className="flex flex-col items-center justify-center w-full">
+                  <p className="text-[18px] font-inter font-semibold text-gray-700">
+                    {file.name}
                   </p>
                   <button
                     onClick={handleRemove}
@@ -163,11 +211,13 @@ const ResumeOptimization = () => {
           className="hidden lg:block border-[#dcdcdc] w-[222px] rotate-[17deg] absolute right-[-175px] top-[50px] transition-all duration-300 ease-in-out group-hover:right-0 group-hover:bottom-0 z-0"
         />
 
-        {/* BUTTON */}
-        <div className="w-full flex justify-center md:justify-end mt-[35px]">
-          {fileName && jobRole ? (
-            <Link to="/resume_optimization/final-download-page">
-              <button className="group relative flex items-center justify-center pr-10 pl-8 py-4 text-[16px] sm:text-[18px] font-bold font-lexend rounded-full transition-all duration-300 overflow-hidden bg-[#FFD230] text-[#212529] hover:bg-white border-[3px] border-white hover:border-[#FFD230] cursor-pointer">
+        <div className="w-full flex justify-end mt-[35px]">
+          {file && jobRole ? (
+            <Link to="/resume_optimization/final-download-page"   state={{sections: sections, jobRole: jobRole, uploadedFile: file}} >
+              <button
+                className="group relative flex items-center justify-center pr-14 pl-10 py-4 text-[18px] font-bold font-lexend rounded-full transition-all duration-300 overflow-hidden
+        bg-[#FFD230] text-[#212529] hover:bg-white border-[3px] border-white  hover:border-[#FFD230] cursor-pointer"
+              >
                 Optimize Resume By Ai
                 <span className="absolute right-6 flex items-center justify-center">
                   <svg

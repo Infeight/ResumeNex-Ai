@@ -12,21 +12,21 @@ const FresherResume = () => {
 
   // Array of images and their corresponding URLs
   const fresherResumes = [
-    { img: "/expResume/expResume2.png", url: "/template/2" },
-    { img: "/expResume/expResume3.png", url: "/template/3" },
-    { img: "/expResume/expResume3.png", url: "/template/3" },
-    { img: "/expResume/expResume2.png", url: "/template/2" },
-    { img: "/expResume/expResume1.png", url: "/template/1" },
-    { img: "/expResume/expResume1.png", url: "/template/1" },
-    { img: "/expResume/expResume4.png", url: "/template/4" },
-    { img: "/expResume/expResume5.png", url: "/template/5" },
-    { img: "/expResume/expResume1.png", url: "/template/1" },
-    { img: "/expResume/expResume3.png", url: "/template/3" },
-    { img: "/expResume/expResume4.png", url: "/template/4" },
-    { img: "/expResume/expResume5.png", url: "/template/5" },
-    { img: "/expResume/expResume2.png", url: "/template/2" },
-    { img: "/expResume/expResume4.png", url: "/template/4" },
-    { img: "/expResume/expResume5.png", url: "/template/5" },
+    { img: "/expResume/expResume2.avif", url: "/template/2" },
+    { img: "/expResume/expResume3.avif", url: "/template/3" },
+    { img: "/expResume/expResume3.avif", url: "/template/3" },
+    { img: "/expResume/expResume2.avif", url: "/template/2" },
+    { img: "/expResume/expResume1.avif", url: "/template/1" },
+    { img: "/expResume/expResume1.avif", url: "/template/1" },
+    { img: "/expResume/expResume4.avif", url: "/template/4" },
+    { img: "/expResume/expResume5.avif", url: "/template/5" },
+    { img: "/expResume/expResume1.avif", url: "/template/1" },
+    { img: "/expResume/expResume3.avif", url: "/template/3" },
+    { img: "/expResume/expResume4.avif", url: "/template/4" },
+    { img: "/expResume/expResume5.avif", url: "/template/5" },
+    { img: "/expResume/expResume2.avif", url: "/template/2" },
+    { img: "/expResume/expResume4.avif", url: "/template/4" },
+    { img: "/expResume/expResume5.avif", url: "/template/5" },
   ];
 
   // Show only the first 10 fresherResumes when not expanded
@@ -58,7 +58,7 @@ const FresherResume = () => {
             onClick={() => openPopup(resume.img)}
           >
             {/* Resume Image */}
-            <img src={resume.img} alt={`Resume ${index + 1}`} />
+            <img loading="lazy" src={resume.img} alt={`Resume ${index + 1}`} />
 
             {/* Black Fade */}
             <div className="w-full h-full transition duration-300 ease-in-out group-hover:bg-[rgba(0,0,0,0.27)] absolute top-0 rounded-[5px]"></div>

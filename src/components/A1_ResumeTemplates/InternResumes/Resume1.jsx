@@ -6,7 +6,7 @@ import { useResume } from "../../AIResume/FormSteps/resumecontext";
 const Header = ({ formData }) => (
   <div className="bg-[#dfe6e9] p-4 text-center shadow-md">
     <h1 className="text-[26px] text-[#3498db] uppercase font-bold">
-      {formData.firstName
+      {formData.firstName || formData.middleName || formData.lastName
         ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`
         : "Ethan Lee"}
     </h1>

@@ -54,7 +54,8 @@ const OrganizationDropdown = ({
                   </p>
                 </div>
                 <img
-                  src="/OrgImg/1.png"
+                loading="lazy"
+                  src="/OrgImg/1.avif"
                   className="relative -bottom-8 w-24 h-fit"
                   alt="College/University"
                 />
@@ -67,7 +68,8 @@ const OrganizationDropdown = ({
                   <p className="font-manrope font-bold text-lg">Corporate</p>
                 </div>
                 <img
-                  src="/OrgImg/2.png"
+                loading="lazy"
+                  src="/OrgImg/2.avif"
                   className="relative -bottom-3 -right-7 w-24 h-fit"
                   alt="Corporate"
                 />

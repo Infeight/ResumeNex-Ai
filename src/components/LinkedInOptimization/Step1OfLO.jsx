@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { useLinkedIn } from "./linkedincontext";
 
 const Step1OfLO = () => {
-  const [fullName, setFullName] = useState("");
-  const [currentRole, setCurrentRole] = useState("");
-  const [isStudying, setIsStudying] = useState(false);
-  const [stream, setStream] = useState("");
-  const [institution, setInstitution] = useState("");
-  const [currentYear, setCurrentYear] = useState("");
-  const [gradYear, setGradYear] = useState("");
-  const [industry, setIndustry] = useState("");
-  const [location, setLocation] = useState("");
-  const [experience, setExperience] = useState("");
-  const [images, setImages] = useState([null, null, null, null]); // State for four image slots
+  const {fullName, setFullName} = useLinkedIn();
+  const {currentRole, setCurrentRole} = useLinkedIn();
+  const {isStudying, setIsStudying} = useLinkedIn();
+  const {stream, setStream} = useLinkedIn();
+  const {institution, setInstitution} = useLinkedIn();
+  const {currentYear, setCurrentYear} = useLinkedIn();
+  const {gradYear, setGradYear} = useLinkedIn();
+  const {industry, setIndustry} = useLinkedIn();
+  const {location, setLocation} = useLinkedIn();
+  const {experience, setExperience} = useLinkedIn();
+  const {images, setImages} = useLinkedIn(); // State for four image slots
 
   // Handle drag over
   const handleDragOver = (e, index) => {

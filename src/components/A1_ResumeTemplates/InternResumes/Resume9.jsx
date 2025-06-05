@@ -21,7 +21,7 @@ const Resume9 = () => {
         <div className="flex justify-between items-center">
           <div>
             <h1 className="m-0 text-[24px] font-bold uppercase tracking-tight">
-              {formData.firstName
+              {formData.firstName || formData.middleName || formData.lastName
                 ? `${formData.firstName} ${formData.middleName ? formData.middleName + " " : ""}${formData.lastName}`.toUpperCase()
                 : "JOHN DOE"}
             </h1>

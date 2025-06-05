@@ -16,31 +16,31 @@ const Join = () => {
         <div className="resume-animation  w-fit ">
           <div className="rb-1">
             <div className="resume-box1">
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
             </div>
             <div className="resume-box1">
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
             </div>
           </div>
 
           <div className="rb-2">
             <div className="resume-box2">
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
             </div>
             <div className="resume-box2">
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
-              <img src="/img/resume.png" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
+              <img loading="lazy" src="/img/resume.avif" alt="" className="w-[200px]" />
             </div>
           </div>
         </div>

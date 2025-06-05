@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon";
+import { useCoverLetter } from "./coverlettercontext";
 
 const Step3OfCL = () => {
-  const [jobRole, setJobRole] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyAddress, setCompanyAddress] = useState("");
-  const [whyThisCompany, setWhyThisCompany] = useState("");
-  const [skills, setSkills] = useState("");
-  const [achievements, setAchievements] = useState("");
-  const [certifications, setCertifications] = useState("");
+  const {jobRole, setJobRole} = useCoverLetter();
+  const {companyName, setCompanyName} = useCoverLetter();
+  const {companyAddress, setCompanyAddress} = useCoverLetter();
+  const {whyThisCompany, setWhyThisCompany} = useCoverLetter();
+  const {skills, setSkills} = useCoverLetter();
+  const {achievements, setAchievements} = useCoverLetter();
+  const {certifications, setCertifications} = useCoverLetter();
 
-  const [hrInputVisible, setHrInputVisible] = useState(false);
-  const [hrName, setHrName] = useState("");
+  const {hrInputVisible, setHrInputVisible} = useCoverLetter();
+  const {hrName, setHrName} = useCoverLetter();
 
   // Example suggested skills based on job role
   const suggestedSkills = ["SQL", "Flask", "Python"];

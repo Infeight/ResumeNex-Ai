@@ -4,8 +4,10 @@ import Step1OfLO from "./Step1OfLO"; // Assuming these components are also respo
 import Step2OfLO from "./Step2OfLO";
 import Step3OfLO from "./Step3OfLO";
 import Step4OfLO from "./Step4OfLO";
+import { useLinkedIn } from "./linkedincontext";
 
 const StepsCoverLetter = () => {
+  const linkedindata = useLinkedIn()
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
 
@@ -97,6 +99,7 @@ const StepsCoverLetter = () => {
               to={`/linkedIn_optimization/steps/final_page`}
               className="w-full sm:w-auto"
               onClick={() => {
+                console.log(linkedindata)
                 window.scrollTo({ top: 0 }); // Added smooth scroll
                 setCurrentStep((prev) => prev - 1);
               }}

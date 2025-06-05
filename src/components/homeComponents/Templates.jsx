@@ -59,7 +59,8 @@ const Templates = () => {
           <SwiperSlide>
             <div className="w-[fit] max-w-[auto] mx-auto scale-75 ">
               <img
-                src="/img/resume.png"
+               loading="lazy"
+                src="/img/resume.avif"
                 alt="book-1"
                 className="rounded-xl  "
               />
@@ -68,7 +69,8 @@ const Templates = () => {
           <SwiperSlide>
             <div className="w-[fit] max-w-[auto] mx-auto scale-75">
               <img
-                src="/img/resume2.png"
+              loading="lazy"
+                src="/img/resume2.avif"
                 alt="book-2"
                 className="rounded-xl  "
               />
@@ -77,7 +79,8 @@ const Templates = () => {
           <SwiperSlide>
             <div className="w-[fit] max-w-[auto] mx-auto scale-75">
               <img
-                src="/img/resume3.png"
+              loading="lazy"
+                src="/img/resume3.avif"
                 alt="book-1"
                 className="rounded-xl  "
               />
@@ -86,7 +89,8 @@ const Templates = () => {
           <SwiperSlide>
             <div className="w-[fit] max-w-[auto] mx-auto scale-75">
               <img
-                src="/img/resume4.png"
+              loading="lazy"
+                src="/img/resume4.avif"
                 alt="book-2"
                 className="rounded-xl  "
               />

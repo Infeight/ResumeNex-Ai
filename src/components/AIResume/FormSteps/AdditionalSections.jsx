@@ -113,7 +113,10 @@ const AdditionalSections = () => {
         <div className="w-24 h-5 bg-[#FEF9C2] -mt-8"></div>
       </div>
 
-      <div className="flex flex-col w-full max-w-[527px] ml-3 border-l-[2px] border-[#FDC700] pb-[40px] pl-[30px] gap-[40px] font-inter sm:ml-0 sm:pl-4">
+      <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[40px] font-inter 
+                ml-0 pl-0 border-l-0 
+                lg:ml-3 lg:pl-[30px] lg:border-l-[2px] lg:border-[#FDC700]">
+
         {/* LANGUAGES */}
         <div>
           <h3 className="text-[16px] font-inter font-semibold border-[#FFDF20] bg-[#FEFCE8] text-[#212529] rounded-[10px] px-[20px] py-[5px] border">

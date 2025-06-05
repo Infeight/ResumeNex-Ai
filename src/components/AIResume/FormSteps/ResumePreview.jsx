@@ -8,11 +8,11 @@ const ResumePreview = () => {
 
    const resumeData = useResume;
 
-  const resume1 = "/AIResumeAssets/resume1.png";
-  const resume2 = "/AIResumeAssets/resume2.png";
-  const resume3 = "/AIResumeAssets/resume3.png";
-  const resume4 = "/AIResumeAssets/resume4.png";
-  const resume5 = "/AIResumeAssets/resume5.png";
+  const resume1 = "/AIResumeAssets/resume1.avif";
+  const resume2 = "/AIResumeAssets/resume2.avif";
+  const resume3 = "/AIResumeAssets/resume3.avif";
+  const resume4 = "/AIResumeAssets/resume4.avif";
+  const resume5 = "/AIResumeAssets/resume5.avif";
 
   const printicon = "/AIResumeAssets/printicon.png";
   const mailicon = "/AIResumeAssets/mailicon.png";
@@ -79,6 +79,7 @@ const ResumePreview = () => {
       <div className="w-full lg:w-3/4 h-[calc(100vh-3rem)] sm:h-[calc(100vh-7rem)]">
         <div className="w-full h-full bg-white rounded-2xl shadow-lg border border-gray-200 flex justify-center items-start overflow-y-auto">
           <img
+          loading="lazy"
             src={selectedResume}
             alt="Resume Preview"
             className="w-full h-[80vh] sm:h-[85vh] object-contain rounded-2xl"

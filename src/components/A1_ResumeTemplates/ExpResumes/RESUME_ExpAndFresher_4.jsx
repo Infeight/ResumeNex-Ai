@@ -22,10 +22,9 @@ const RESUME_ExpAndFresher_4 = () => {
       {/* Sidebar */}
       <div className="w-[220px] bg-blue-500 text-white p-4">
         <h1 className="text-[26px] font-bold text-center mb-4">
-          {(formData.firstName || "Sai") +
-            " " +
-            (formData.middleName ? formData.middleName + " " : "") +
-            (formData.lastName || "Patel")}
+          { formData.firstName || formData.middleName || formData.lastName
+      ? `${formData.firstName ? formData.firstName : ""}${formData.middleName ? " " + formData.middleName : ""}${formData.lastName ? " " + formData.lastName : ""}`.trim()
+      : "Sai Patel"}
         </h1>
         <h2 className="text-[20px] font-bold text-blue-100 mb-2">Contact</h2>
         <div className="text-[12px]">

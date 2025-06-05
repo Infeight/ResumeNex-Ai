@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { useCoverLetter } from "./coverlettercontext";
 
 const Step4OfCL = () => {
-  const [date, setDate] = useState("");
-  const [coverLetterMode, setCoverLetterMode] = useState("Professional");
-
+  const {date, setDate} = useCoverLetter();
+  const {coverLetterMode, setCoverLetterMode} = useCoverLetter();
   const modes = ["Formal", "Professional", "Enthusiastic", "Interested"];
 
   return (

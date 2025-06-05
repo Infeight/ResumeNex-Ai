@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import { Link } from "react-router-dom";
-// ats indicator
+import { Document, Page, pdfjs } from "react-pdf";
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import html2pdf from 'html2pdf.js'
+import { jsPDF } from "jspdf";
+
+
+pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 const ProgressIndicator = ({ percentage }) => {
   const radius = 96;
   const circumference = 2 * Math.PI * radius;
@@ -42,7 +51,56 @@ const ProgressIndicator = ({ percentage }) => {
   );
 };
 
+
+
+const highlightHeadings = (text) => {
+  const SECTION_HEADINGS = [
+    "objective", "summary", "experience", "education", "projects",
+    "skills", "languages", "certifications", "interests", "awards",
+    "contact", "profile"
+  ];
+
+  const lines = text.split("\n");
+  const highlighted = lines.map((line) => {
+    const lower = line.toLowerCase().trim();
+
+    const matched = SECTION_HEADINGS.find((heading) =>
+      lower.startsWith(heading)
+    );
+
+    if (matched) {
+      const regex = new RegExp(`^(${matched})(.*)`, "i");
+      return `<br><span style="font-weight: bold; font-style: italic; text-decoration: underline; color: #00ffff;">${line.trim()}</span><br>`;
+    }
+
+    return line;
+  });
+
+  return highlighted.join("<br>");
+};
+
+
+
+
 const FinalPageOR = () => {
+   const location = useLocation();
+    const uploadedFile = location.state?.uploadedFile || null; 
+    const jobRole = location.state?.jobRole || null;
+    const sections = location.state?.sections||null;
+
+    console.log(jobRole, sections)
+     
+   
+     const [numPages, setNumPages] = useState(null);
+      const [pageNumber, setPageNumber] = useState(1);
+     
+
+
+
+  const onDocumentLoadSuccess = ({ numPages }) => {
+    setNumPages(numPages);
+  };
+
   const [templatePopupOpen, setTemplatePopupOpen] = useState(false);
   // Array of suggestion data
   const suggestions = [
@@ -214,14 +272,92 @@ const FinalPageOR = () => {
     setPopupBtn(null);
   };
 
+
+
+  // test
+
+const pdfRef = useRef();
+const downloadPDF = () => {
+    const element = pdfRef.current;
+
+    html2pdf()
+      .set({
+        margin: 0.5,
+        filename: "resume.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: "in", format: "a4", orientation: "portrait" }
+      })
+      .from(element)
+      .save();
+  };
+
+  // const generatePDF = (text) => {
+  //   const doc = new jsPDF();
+  //   // Split text into lines to handle long text
+  //   const lines = doc.splitTextToSize(text, 180); // 180 = width in mm
+  //   doc.text(lines, 10, 10); // (text, x, y)
+  //   doc.save("output.pdf");
+  // };
+  
+  
+
   return (
+
+    
     <section className="w-full max-w-[1700px] mx-auto bg-[#F7F7FB] flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 p-4 sm:p-6 lg:p-12">
       {/* Left resume display */}
-      <img
-        src="/img/demoOR1.png"
-        alt="demo"
-        className="w-full max-w-[496px] rounded-[20px] border border-[#DCDCDC] shadow-sm"
-      />
+   <div className="w-full max-w-[496px] max-h-[45vw] overflow-y-scroll rounded-[20px] border border-[#DCDCDC] shadow-sm bg-white">
+
+    {/* {To display pdf as is directly} */}
+        {/* {uploadedFile && uploadedFile.type === "application/pdf" ? (
+           <div
+      style={{
+        width: '450px',
+        height: '600px',
+        overflowY: 'auto',
+        borderRadius: '20px',
+        border: '1px solid #DCDCDC',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+        background: '#fff',
+      }}
+      
+    >
+      <Document
+        file={uploadedFile}
+        onLoadSuccess={onDocumentLoadSuccess}
+        loading={<div>Loading PDF...</div>}
+      >
+        <Page
+          pageNumber={pageNumber}
+          width={430}
+        />
+      </Document>
+      <div style={{ textAlign: 'center', margin: '10px 0', color: '#888' }}>
+        Page {pageNumber} of {numPages}
+      </div>
+    </div>
+        ) : (
+          // Fallback to static image if no PDF uploaded
+          <img
+            src="/img/demoOR1.png"
+            alt="demo"
+            className="w-full max-w-[496px] rounded-[20px] border border-[#DCDCDC] shadow-sm"
+          />
+        )} */}
+
+        <pre ref={pdfRef} className="max-w-[40vw] p-[25px] whitespace-pre-wrap break-words bg-[#121212] text-[#f1f1f1] rounded"   dangerouslySetInnerHTML={{ __html: highlightHeadings(sections) }}>
+         
+        </pre>
+      </div>
+
+
+<button
+  onClick={downloadPDF}
+  className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700"
+>
+  Download as PDF
+</button>
 
       {/* Middle AI suggestions */}
       <div className="w-full max-w-[502px] h-[702px] rounded-[20px] border border-[#DCDCDC] bg-white p-4 sm:p-5 flex flex-col gap-5 font-inter font-normal overflow-y-auto custom-scrollbar">
