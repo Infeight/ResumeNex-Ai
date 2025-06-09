@@ -5,6 +5,9 @@ import OrganizationDropdown from "./OrganizationDropdown";
 import ProfilePopup from "./ProfilePopup";
 import MobileMenu from "./MobileMenu";
 import Login from "../Login";
+import { useUser } from "../usercontext";
+import { IoSunnyOutline } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa";
 
 // Mobile Menu Component
 
@@ -12,6 +15,8 @@ import Login from "../Login";
 const Navbar = () => {
   const location = useLocation();
   const isDashboard = location.pathname.includes("dashboard");
+
+  const{darkMode,setDarkMode} = useUser();
 
   const [isToolOpen, setIsToolOpen] = useState(false);
   const [isOrgOpen, setIsOrgOpen] = useState(false);
@@ -78,11 +83,26 @@ const Navbar = () => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
+
+// daarkmode btn  
+  const [rotation, setRotation] = useState(0);
+
+  const handleDarkmode = () => {
+   setDarkMode(prev=>!prev);
+
+   if(!darkMode){ document.body.style.backgroundColor = '#23272F'}
+   else{
+     document.body.style.backgroundColor = 'white'
+   }
+    setRotation(prev => prev + 360); // Add 360° each time
+  };
+
+
   return (
     <>
       <nav
         ref={navRef}
-        className="sticky top-0 z-50 w-full mx-auto px-4 sm:px-6 lg:px-12 py-4 border-b border-gray-200 flex items-center justify-between text-gray-900 font-inter bg-white"
+        className={`sticky top-0 z-50 w-full mx-auto px-4 sm:px-6 lg:px-12 py-4 border-b ${darkMode?'border-[#363B45]':'border-gray-200'} flex items-center justify-between text-gray-900 font-inter ${!darkMode?'bg-white':'bg-[#23272F]'}`}
       >
         {/* Logo */}
         <Link to="/" onClick={closeAllMenus}>
@@ -94,7 +114,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden lg:flex flex-grow justify-center items-center gap-x-6 xl:gap-x-8 text-base font-medium">
+        <div className={`hidden lg:flex flex-grow justify-center items-center gap-x-6 xl:gap-x-8 text-base font-medium ${darkMode ? 'text-white' : 'text-gray-900'}`}>
           <Link to="/" onClick={closeAllMenus}>
             Home
           </Link>
@@ -117,10 +137,13 @@ const Navbar = () => {
           >
             Blogs
           </Link>
+
+         
         </div>
 
         {/* Right Section login / hamburger/ dashboard with profile popup */}
         <section className="flex items-center gap-x-2 sm:gap-x-3 text-base font-medium">
+
           {!isDashboard && (
             <div className="hidden lg:flex items-center gap-x-3">
               <Link to="/resumes_templates" onClick={closeAllMenus}>
@@ -135,18 +158,45 @@ const Navbar = () => {
                   setIsModalOpen(true);
                   closeAllMenus();
                 }}
-                className="cursor-pointer hover:text-blue-600 hover:underline text-sm font-semibold whitespace-nowrap"
+                className={`${darkMode ? 'text-white' : 'text-gray-900'} cursor-pointer hover:text-blue-600 hover:underline text-sm font-semibold whitespace-nowrap`}
               >
                 Sign In
               </p>
             </div>
           )}
+
+
+           {/* Dark Mode btn */}
+          {/* <button id="darkmodebtn" className="w-10 h-10 flex justify-center items-center cursor-pointer" onClick={
+           handleDarkmode
+          }>
+           {darkMode?<IoSunnyOutline style={{color:'white'}} /> :<FaMoon style={{}} />}
+          </button> */}
+
+           <button
+      id="darkmodebtn"
+      onClick={handleDarkmode}
+      className="w-10 h-10 flex justify-center items-center cursor-pointer transition-transform duration-500"
+      style={{ transform: `rotate(${rotation}deg)` }}
+    >
+      {darkMode ? (
+        <IoSunnyOutline className="text-white text-xl" />
+      ) : (
+        <FaMoon className="text-black text-xl" />
+      )}
+    </button>
+          
+
+
           {isDashboard && (
             <ProfilePopup
               isProfileOpen={isProfileOpen}
               toggleProfilePopup={toggleProfilePopup}
             />
           )}
+
+        
+
           <button
             className="lg:hidden p-1 sm:p-2 focus:outline-none z-[70]"
             onClick={toggleMobileMenu}
@@ -157,7 +207,7 @@ const Navbar = () => {
               fill="none"
               strokeWidth="0"
               viewBox="0 0 15 15"
-              className="w-6 h-6 text-gray-700"
+              className={`w-6 h-6 ${darkMode ? 'text-[#fff]' : 'text-gray-700'}`}
               height="1em"
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
@@ -170,6 +220,8 @@ const Navbar = () => {
               ></path>
             </svg>
           </button>
+
+          
         </section>
       </nav>
 

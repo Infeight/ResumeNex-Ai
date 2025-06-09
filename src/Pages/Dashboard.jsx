@@ -16,7 +16,7 @@ const AISugg = lazy(() => import("../components/userDashboard/AISugg"));
 
 const Dashboard = () => {
   return (
-    <div className="flex max-w-[1400px] mx-auto ">
+    <div className="flex  mx-auto ">
       <Suspense fallback={"Loading..."}>
         <Sidebar />
       </Suspense>

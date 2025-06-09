@@ -70,6 +70,13 @@ const RESUME_ExpAndFresher_8 = () => {
           >
             {formData.otherLink || "sophianguyen.dev"}
           </a>
+          
+          {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+
         </p>
       </div>
 
@@ -123,72 +130,7 @@ const RESUME_ExpAndFresher_8 = () => {
         </div>
       </div>
 
-      {/* Work Experience */}
-      <div className="mb-2 p-2">
-        <h2 className="text-[20px] font-bold text-blue-700 mb-1">
-          Work Experience
-        </h2>
-        {hasArrayData(workExperience, "companyName")
-          ? workExperience.map((exp, idx) => (
-              <div className="flex mb-3" key={idx}>
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">
-                    {exp.jobTitle || "Backend Intern"}
-                  </h3>
-                  <p className="text-[12px] italic">
-                    {exp.companyName || "DataSync Ltd., Chicago, IL"}
-                  </p>
-                  <ul className="list-disc pl-4 text-[12px]">
-                    {exp.responsibilities
-                      ? exp.responsibilities.split("\n").map((line, i) => (
-                          <li key={i}>{line}</li>
-                        ))
-                      : [
-                          <li key="1">
-                            Developed and maintained RESTful APIs using Node.js and
-                            PostgreSQL.
-                          </li>,
-                          <li key="2">
-                            Optimized SQL queries, reducing API response time by 20%.
-                          </li>,
-                          <li key="3">
-                            Assisted in database schema design for better performance and
-                            scalability.
-                          </li>,
-                        ]}
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px]">
-                  <p>
-                    {(exp.startDate || "Jan 2024")} - {(exp.endDate || "Jun 2024")}
-                  </p>
-                </div>
-              </div>
-            ))
-          : (
-            <div className="flex mb-3">
-              <div className="w-[65%]">
-                <h3 className="text-[14px] font-bold">Backend Intern</h3>
-                <p className="text-[12px] italic">DataSync Ltd., Chicago, IL</p>
-                <ul className="list-disc pl-4 text-[12px]">
-                  <li>
-                    Developed and maintained RESTful APIs using Node.js and
-                    PostgreSQL.
-                  </li>
-                  <li>Optimized SQL queries, reducing API response time by 20%.</li>
-                  <li>
-                    Assisted in database schema design for better performance and
-                    scalability.
-                  </li>
-                </ul>
-              </div>
-              <div className="w-[30%] text-right text-[12px]">
-                <p>Jan 2024 - Jun 2024</p>
-              </div>
-            </div>
-          )}
-      </div>
-
+      
       {/* Projects */}
       <div className="mb-2 p-2">
         <h2 className="text-[20px] font-bold text-blue-700 mb-1">Projects</h2>
@@ -349,6 +291,73 @@ const RESUME_ExpAndFresher_8 = () => {
               </div>
               <div className="w-[30%] text-right text-[12px]">
                 <p>Aug 2022 - Expected May 2026</p>
+              </div>
+            </div>
+          )}
+      </div>
+
+
+      {/* Work Experience */}
+      <div className="mb-2 p-2">
+        <h2 className="text-[20px] font-bold text-blue-700 mb-1">
+          Work Experience
+        </h2>
+        {hasArrayData(workExperience, "companyName")
+          ? workExperience.map((exp, idx) => (
+              <div className="flex mb-3" key={idx}>
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">
+                    {exp.jobTitle || "Backend Intern"}
+                  </h3>
+                  <p className="text-[12px] italic">
+                    {exp.companyName || "DataSync Ltd., Chicago, IL"}
+                  </p>
+                  <ul className="list-disc pl-4 text-[12px]">
+                    {exp.responsibilities
+                      ? exp.responsibilities.split("\n").map((line, i) => (
+                          <li key={i}>{line}</li>
+                        ))
+                      : [
+                          <li key="1">
+                            Developed and maintained RESTful APIs using Node.js and
+                            PostgreSQL.
+                          </li>,
+                          <li key="2">
+                            Optimized SQL queries, reducing API response time by 20%.
+                          </li>,
+                          <li key="3">
+                            Assisted in database schema design for better performance and
+                            scalability.
+                          </li>,
+                        ]}
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px]">
+                  <p>
+                    {(exp.startDate || "Jan 2024")} - {(exp.endDate || "Jun 2024")}
+                  </p>
+                </div>
+              </div>
+            ))
+          : (
+            <div className="flex mb-3">
+              <div className="w-[65%]">
+                <h3 className="text-[14px] font-bold">Backend Intern</h3>
+                <p className="text-[12px] italic">DataSync Ltd., Chicago, IL</p>
+                <ul className="list-disc pl-4 text-[12px]">
+                  <li>
+                    Developed and maintained RESTful APIs using Node.js and
+                    PostgreSQL.
+                  </li>
+                  <li>Optimized SQL queries, reducing API response time by 20%.</li>
+                  <li>
+                    Assisted in database schema design for better performance and
+                    scalability.
+                  </li>
+                </ul>
+              </div>
+              <div className="w-[30%] text-right text-[12px]">
+                <p>Jan 2024 - Jun 2024</p>
               </div>
             </div>
           )}

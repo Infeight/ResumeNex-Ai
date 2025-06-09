@@ -79,78 +79,7 @@ const Resume7 = () => {
         </div>
       </div>
 
-      {/* Work Experience */}
-      <div className="mb-[15px] bg-white p-[12px] border border-[#e2e8f0]">
-        <h2 className="text-[16px] font-bold text-[#1e3a8a] mb-[8px] border-b border-[#93c5fd] pb-[3px]">
-          EXPERIENCE
-        </h2>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((work, idx) => (
-            <div className="mb-[12px]" key={idx}>
-              <div className="flex justify-between mb-[5px]">
-                <h3 className="text-[15px] font-bold">
-                  {work.jobTitle ? work.jobTitle : "Mechanical Engineering Intern"}
-                </h3>
-                <span className="text-[14px] font-semibold">
-                  {work.startDate && work.endDate
-                    ? `${work.startDate} - ${work.endDate}`
-                    : "Jan 2024 - Jun 2024"}
-                </span>
-              </div>
-              <p className="text-[14px] text-[#1e3a8a] mb-[5px]">
-                {work.companyName ? work.companyName : "EngiTech Corp."},{" "}
-                {formData.city ? formData.city : "Chicago, IL"}
-              </p>
-              <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
-                {work.responsibilities
-                  ? work.responsibilities.split("\n").map((resp, i) => (
-                      <li key={i}>{resp}</li>
-                    ))
-                  : (
-                    <>
-                      <li>
-                        Designed gear assembly in SolidWorks, reducing weight by 10% while maintaining structural integrity
-                      </li>
-                      <li>
-                        Performed FEA simulations in ANSYS to optimize component durability
-                      </li>
-                      <li>
-                        Created technical documentation for manufacturing processes
-                      </li>
-                    </>
-                  )}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <div className="mb-[12px]">
-            <div className="flex justify-between mb-[5px]">
-              <h3 className="text-[15px] font-bold">
-                Mechanical Engineering Intern
-              </h3>
-              <span className="text-[14px] font-semibold">
-                Jan 2024 - Jun 2024
-              </span>
-            </div>
-            <p className="text-[14px] text-[#1e3a8a] mb-[5px]">
-              EngiTech Corp., Chicago, IL
-            </p>
-            <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
-              <li>
-                Designed gear assembly in SolidWorks, reducing weight by 10% while
-                maintaining structural integrity
-              </li>
-              <li>
-                Performed FEA simulations in ANSYS to optimize component
-                durability
-              </li>
-              <li>Created technical documentation for manufacturing processes</li>
-            </ul>
-          </div>
-        )}
-      </div>
-
-      {/* Projects */}
+       {/* Projects */}
       <div className="mb-[15px] bg-white p-[12px] border border-[#e2e8f0]">
         <h2 className="text-[16px] font-bold text-[#1e3a8a] mb-[8px] border-b border-[#93c5fd] pb-[3px]">
           PROJECTS
@@ -240,6 +169,79 @@ const Resume7 = () => {
         )}
       </div>
 
+
+      {/* Work Experience */}
+      <div className="mb-[15px] bg-white p-[12px] border border-[#e2e8f0]">
+        <h2 className="text-[16px] font-bold text-[#1e3a8a] mb-[8px] border-b border-[#93c5fd] pb-[3px]">
+          EXPERIENCE
+        </h2>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((work, idx) => (
+            <div className="mb-[12px]" key={idx}>
+              <div className="flex justify-between mb-[5px]">
+                <h3 className="text-[15px] font-bold">
+                  {work.jobTitle ? work.jobTitle : "Mechanical Engineering Intern"}
+                </h3>
+                <span className="text-[14px] font-semibold">
+                  {work.startDate && work.endDate
+                    ? `${work.startDate} - ${work.endDate}`
+                    : "Jan 2024 - Jun 2024"}
+                </span>
+              </div>
+              <p className="text-[14px] text-[#1e3a8a] mb-[5px]">
+                {work.companyName ? work.companyName : "EngiTech Corp."},{" "}
+                {formData.city ? formData.city : "Chicago, IL"}
+              </p>
+              <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
+                {work.responsibilities
+                  ? work.responsibilities.split("\n").map((resp, i) => (
+                      <li key={i}>{resp}</li>
+                    ))
+                  : (
+                    <>
+                      <li>
+                        Designed gear assembly in SolidWorks, reducing weight by 10% while maintaining structural integrity
+                      </li>
+                      <li>
+                        Performed FEA simulations in ANSYS to optimize component durability
+                      </li>
+                      <li>
+                        Created technical documentation for manufacturing processes
+                      </li>
+                    </>
+                  )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <div className="mb-[12px]">
+            <div className="flex justify-between mb-[5px]">
+              <h3 className="text-[15px] font-bold">
+                Mechanical Engineering Intern
+              </h3>
+              <span className="text-[14px] font-semibold">
+                Jan 2024 - Jun 2024
+              </span>
+            </div>
+            <p className="text-[14px] text-[#1e3a8a] mb-[5px]">
+              EngiTech Corp., Chicago, IL
+            </p>
+            <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
+              <li>
+                Designed gear assembly in SolidWorks, reducing weight by 10% while
+                maintaining structural integrity
+              </li>
+              <li>
+                Performed FEA simulations in ANSYS to optimize component
+                durability
+              </li>
+              <li>Created technical documentation for manufacturing processes</li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+     
       {/* Education */}
       <div className="mb-[15px] bg-white p-[12px] border border-[#e2e8f0]">
         <h2 className="text-[16px] font-bold text-[#1e3a8a] mb-[8px] border-b border-[#93c5fd] pb-[3px]">

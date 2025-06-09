@@ -2,12 +2,14 @@ import {  useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import ProgressIndicator from "../commonComponents/ProgressIndicator";
+import { useUser } from "../commonComponents/usercontext";
 
 const RightSectionAtsTempDownload = () => {
   const navigate = useNavigate();
   const location = useLocation();
     const [templateUrl, setTemplateUrl] = useState("");
   const [templatePopupOpen, setTemplatePopupOpen] = useState(false);
+  const {darkMode}= useUser();
 
   const handleOpenTemplates = () => setTemplatePopupOpen(true);
   const handleCloseTemplates = () => setTemplatePopupOpen(false);
@@ -17,14 +19,16 @@ const RightSectionAtsTempDownload = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
-   {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
+      {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
     },
      {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
     },
+   
+    
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_4",
@@ -46,9 +50,10 @@ const RightSectionAtsTempDownload = () => {
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
     
-     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+   
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
@@ -122,11 +127,11 @@ const RightSectionAtsTempDownload = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_27",
     },
-  
-     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
+   {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
     },
+    
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
@@ -159,10 +164,10 @@ const RightSectionAtsTempDownload = () => {
     setPopupBtn(null);
   };
   return (
-    <div className="w-full lg:max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[1vw]">
+    <div className="w-full lg:max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[7vw]">
 
       {/* ATS Progress Card */}
-      <div className="w-full h-[143px] px-2 py-6 bg-white border border-[#DCDCDC] text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm">
+      <div className={`w-full h-[143px] px-2 py-6 ${darkMode?'text-[white]':'text-gray-600'} ${darkMode?'bg-[#363B45]':'bg-[white]'} border ${darkMode?'border-[#23272F]':'border-[#DCDCDC]'} text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm`}>
         <p>ATS</p>
         <ProgressIndicator percentage={10} />
       </div>
@@ -172,7 +177,7 @@ const RightSectionAtsTempDownload = () => {
         <p className="text-xs sm:text-sm font-inter font-medium py-2">
           Recommend Templates
         </p>
-        <div className="flex flex-col gap-3 items-center bg-white p-3 w-full rounded-[10px] border border-[#DCDCDC]">
+        <div className={`flex flex-col gap-3 items-center ${darkMode?'bg-[#363B45]':'bg-[white]'}  p-3 w-full rounded-[10px] border ${darkMode?'border-[#23272F]':'border-[#DCDCDC]'}`}>
           <img
             loading="lazy"
             src="/img/demoCL.avif"
@@ -181,7 +186,7 @@ const RightSectionAtsTempDownload = () => {
           />
           {/* Updated Show All Button */}
           <p
-            className="flex items-center gap-2 px-3 py-1 border-2 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-xs sm:text-sm cursor-pointer transition hover:bg-[#3367E7] hover:text-white"
+            className={` ${darkMode?'text-[white]':'text-gray-600'} flex items-center gap-2 px-3 py-1 border-2 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-xs sm:text-sm cursor-pointer transition hover:bg-[#3367E7] hover:text-white`}
             onClick={handleOpenTemplates}
           >
             Show All
@@ -216,7 +221,7 @@ const RightSectionAtsTempDownload = () => {
             </div>
 
             {/* Right side white panel */}
-           <div className="w-[92%] lg:w-[80%] bg-[#F7F7FB] h-full p-[50px] overflow-y-auto cursor-pointer">
+           <div className={`w-[92%] lg:w-[80%] ${darkMode?'bg-[#23272F]':'bg-[white]'} h-full p-[50px] overflow-y-auto cursor-pointer`}>
 
               <h2 className="font-lexend text-[35px] font-bold mb-6">
                 Select Templates
@@ -318,20 +323,20 @@ const RightSectionAtsTempDownload = () => {
       </div>
 
       {/* Download, Print, Mail, WhatsApp Actions */}
-      <div className="w-full bg-[#FFFFFF] flex flex-col gap-3 items-center justify-center rounded-[16px] border border-[#DCDCDC] p-4">
+      <div className={`w-full ${darkMode?'bg-[#363B45]':'bg-[white]'} flex flex-col gap-3 items-center justify-center rounded-[16px] border ${darkMode?'border-[#23272F]':'border-[#DCDCDC]'} p-4`}>
         <div className="w-full font-lexend text-base border border-[#D3D9DE] text-white px-4 py-2 rounded-xl flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:from-[#2F61D3] hover:to-[#4387E5]">
           <img src="/Icons/download.svg" alt="download" />
           Download
         </div>
 
         <div className="flex justify-between w-full gap-2">
-          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#FE9A00] bg-[#FFFAF2] hover:bg-[#FFF5E6]">
+          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#FE9A00] ${darkMode?'bg-[#FE9A0033]':'bg-[#FFFAF2]'}  hover:bg-[#FFF5E6]">
             <img src="/Icons/print.svg" alt="printer" className="w-6 sm:w-8" />
           </div>
-          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#9810FA] bg-[#FAF3FF] hover:bg-[#F5E9FF]">
+          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#9810FA] ${darkMode?'bg-[#9810FA33]':'bg-[#FAF3FF]'}    hover:bg-[#F5E9FF]">
             <img src="/Icons/mail.svg" alt="mail" className="w-6 sm:w-8" />
           </div>
-          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#00A63E] bg-[#F2FBF5] hover:bg-[#E6F8EB]">
+          <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#00A63E] ${darkMode?'bg-[#00A63E33]':'bg-[#F2FBF5]'} hover:bg-[#E6F8EB]">
             <img
               src="/Icons/whatsapp.svg"
               alt="whatsapp"

@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import AddIcon from "../../commonComponents/AddIcon";
 import { useJobSpecific } from "../jobspecificcontext";
+import { useUser } from "../../commonComponents/usercontext";
 
 const Step4OfJS = () => {
   // Certifications
   const {certifications, setCertifications} = useJobSpecific();
-
+  const{darkMode} = useUser();
   // Languages Known
   const {languages, setLanguages} = useJobSpecific();
 
@@ -51,12 +52,12 @@ const Step4OfJS = () => {
     <>
       <section className="flex flex-col gap-[36px]">
         {/* Certification details */}
-        <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg w-full ">
+        <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} p-6 rounded-lg w-full `}>
           <div className="relative w-fit">
-            <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+            <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
               Certification{" "}
             </h2>
-            <div className="bg-[#E3F6FF] h-2/4 w-3/4 absolute -bottom-0 -left-2 "></div>
+            <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#E3F6FF]'} h-2/4 w-3/4 absolute -bottom-0 -left-2 `}></div>
           </div>
           <div className="border-l-2 border-[#74D4FF] p-[30px] mx-[20px]">
             {certifications.map((cert, idx) => (
@@ -66,7 +67,7 @@ const Step4OfJS = () => {
               >
                 {/* Certification Name */}
                 <div className="flex flex-col gap-[5px]">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Certification name
                   </label>
                   <input
@@ -75,14 +76,14 @@ const Step4OfJS = () => {
                     onChange={(e) =>
                       handleCertificationChange(idx, "certificationName", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]  ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                     placeholder="e.g. AWS Certified Solutions Architect"
                   />
                 </div>
                 {/* Start/End Year */}
                 <div className="flex gap-[13px]">
                   <div className="flex flex-col gap-[5px]">
-                    <label className="text-[#170F49] font-inter font-medium text-[18px]">
+                    <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium text-[18px]`}>
                       Start Year
                     </label>
                     <input
@@ -91,7 +92,7 @@ const Step4OfJS = () => {
                       onChange={(e) =>
                         handleCertificationChange(idx, "startYear", e.target.value)
                       }
-                      className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                      className={`w-full mt-1 ${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]  ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                       placeholder="e.g. 2022"
                     />
                   </div>
@@ -105,14 +106,14 @@ const Step4OfJS = () => {
                       onChange={(e) =>
                         handleCertificationChange(idx, "endYear", e.target.value)
                       }
-                      className="w-full mt-1 bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                      className={`w-full mt-1 ${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]  ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                       placeholder="e.g. 2023"
                     />
                   </div>
                 </div>
                 {/* Issued By */}
                 <div className="flex flex-col gap-[5px]">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Issued By
                   </label>
                   <input
@@ -121,7 +122,7 @@ const Step4OfJS = () => {
                     onChange={(e) =>
                       handleCertificationChange(idx, "issuedBy", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]  ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                     placeholder="e.g. Amazon Web Services"
                   />
                 </div>
@@ -130,7 +131,7 @@ const Step4OfJS = () => {
           </div>
           <button
             type="button"
-            className="border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F0F9FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd] "
+            className={`border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#00A6F433]':'bg-[#F0F9FF]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd] `}
             onClick={addMoreCertification}
           >
             Add More Certification
@@ -139,19 +140,19 @@ const Step4OfJS = () => {
         </div>
 
         {/* Languages Known */}
-        <div className="flex flex-col gap-[20px] bg-white p-6 rounded-lg   ">
+        <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} p-6 rounded-lg   `}>
           <div className="relative w-fit">
-            <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+            <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
               Languages known
               <span className="text-[18px] text-[#A59DAA]"> (Optional)</span>
             </h2>
-            <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2 "></div>
+            <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#EBFACC]'}  h-2/4 w-3/4 absolute -bottom-0 -left-2 `}></div>
           </div>
           <div className="border-l-2 border-[#9AE600] p-[30px] mx-[20px] ">
             {languages.map((lang, idx) => (
               <div key={idx} className="flex gap-[35px] mb-6">
                 <div className="relative flex flex-col gap-[5px] w-full">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Enter Language
                   </label>
                   <input
@@ -160,13 +161,13 @@ const Step4OfJS = () => {
                     onChange={(e) =>
                       handleLanguageChange(idx, "language", e.target.value)
                     }
-                    className="w-full bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    className={`w-full ${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]  ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                     placeholder="e.g. English"
                   />
                   {/* option */}
                   <div className="absolute right-5 top-[50px] w-fit flex gap-2">
                     <select
-                      className="w-fit text-[16px] rounded-full text-[#212529] bg-[#EEEEEE] pl-5 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 appearance-none cursor-pointer"
+                      className={`w-fit text-[16px] rounded-full ${darkMode?'text-[white]':'text-[#1E1B39]'} ${darkMode?'bg-[#363B45]':'bg-white'}  pl-5 pr-8 py-1 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 appearance-none cursor-pointer`}
                       value={lang.proficiency}
                       onChange={(e) =>
                         handleLanguageChange(idx, "proficiency", e.target.value)
@@ -186,7 +187,7 @@ const Step4OfJS = () => {
           </div>
           <button
             type="button"
-            className="border flex items-center gap-1 font-inter text-[#699C01] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#EBFACC] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e5fabc] "
+            className="border flex items-center gap-1 font-inter text-[#699C01] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#699C0133]':'bg-[#EBFACC]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e5fabc] "
             onClick={addMoreLanguage}
           >
             Add More Language

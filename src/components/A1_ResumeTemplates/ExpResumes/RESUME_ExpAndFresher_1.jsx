@@ -60,33 +60,37 @@ const RESUME_ExpAndFresher_1 = () => {
         <hr className="border-t border-black my-[4px]" />
       </section>
 
-      {/* Education */}
 
- <section>
-   <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
-          Education
+        {/* Skills */}
+      <section>
+        <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
+          Skills
         </h2>
-
-     {education.map((edu, idx) => (
-  <div key={idx} className="text-[12px] m-0 flex justify-between">
-    <div>
-      <span className="font-bold">{edu.collegeName? edu.collegeName:"College Name"}</span>
-      <br />
-      {edu.degree? edu.degree: "Degree"}, Stream: {edu.stream ? edu.stream :"Stream"}
-      <br />
-      Location: {edu.location? edu.location:"Location"}
-    </div>
-    <div className="text-right">
-      {edu.startDate ?edu.startDate: "Start date"} - {edu.endDate ? edu.endDate:"End date"}
-      <br />
-      CGPA: {edu.cgpa? edu.cgpa:"cgpa"}
-    </div>
+        <div className="text-[12px] m-0 flex justify-between">
+  <div>
+    <span className="font-bold">Technical Skills</span>
+    <ul className="list-disc pl-[20px] m-0 mt-[2px]">
+      {skills.technical.map((skill, idx) => <li key={idx}>{skill}</li>)}
+    </ul>
+    <span className="font-bold block mt-[5px]">Soft Skills</span>
+    <ul className="list-disc pl-[20px] m-0 mt-[2px]">
+      {skills.soft.map((skill, idx) => <li key={idx}>{skill}</li>)}
+    </ul>
+    {skills.related && (
+      <>
+        <span className="font-bold block mt-[5px]">Other Skills</span>
+        <ul className="list-disc pl-[20px] m-0 mt-[2px]">
+          <li>{skills.related}</li>
+        </ul>
+      </>
+    )}
   </div>
-))}
- </section>
+</div>
+
+      </section>
 
 
-      {/* Projects */}
+        {/* Projects */}
 <section>
   
  <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
@@ -118,6 +122,35 @@ const RESUME_ExpAndFresher_1 = () => {
 </section>
 
 
+
+
+      {/* Education */}
+
+ <section>
+   <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
+          Education
+        </h2>
+
+     {education.map((edu, idx) => (
+  <div key={idx} className="text-[12px] m-0 flex justify-between">
+    <div>
+      <span className="font-bold">{edu.collegeName? edu.collegeName:"College Name"}</span>
+      <br />
+      {edu.degree? edu.degree: "Degree"}, Stream: {edu.stream ? edu.stream :"Stream"}
+      <br />
+      Location: {edu.location? edu.location:"Location"}
+    </div>
+    <div className="text-right">
+      {edu.startDate ?edu.startDate: "Start date"} - {edu.endDate ? edu.endDate:"End date"}
+      <br />
+      CGPA: {edu.cgpa? edu.cgpa:"cgpa"}
+    </div>
+  </div>
+))}
+ </section>
+
+
+    
       {/* Work Experience */}
     <section>
          <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
@@ -173,34 +206,7 @@ const RESUME_ExpAndFresher_1 = () => {
 
      </section>
 
-      {/* Skills */}
-      <section>
-        <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
-          Skills
-        </h2>
-        <div className="text-[12px] m-0 flex justify-between">
-  <div>
-    <span className="font-bold">Technical Skills</span>
-    <ul className="list-disc pl-[20px] m-0 mt-[2px]">
-      {skills.technical.map((skill, idx) => <li key={idx}>{skill}</li>)}
-    </ul>
-    <span className="font-bold block mt-[5px]">Soft Skills</span>
-    <ul className="list-disc pl-[20px] m-0 mt-[2px]">
-      {skills.soft.map((skill, idx) => <li key={idx}>{skill}</li>)}
-    </ul>
-    {skills.related && (
-      <>
-        <span className="font-bold block mt-[5px]">Other Skills</span>
-        <ul className="list-disc pl-[20px] m-0 mt-[2px]">
-          <li>{skills.related}</li>
-        </ul>
-      </>
-    )}
-  </div>
-</div>
-
-      </section>
-
+    
       {/* Additional Sections */}
       <section>
         <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+
 import { Link } from "react-router-dom";
+import { useUser } from "../commonComponents/usercontext";
+
 
 const ExpJSTemplates = () => {
   const [isExpanded, setIsExpanded] = useState(false); // State to track whether the content is expanded
@@ -10,7 +13,7 @@ const ExpJSTemplates = () => {
 
   const [popupImage, setPopupImage] = useState(null);
   const [popupBtn, setPopupBtn] = useState(null);
-
+  const {darkMode} = useUser();
   // Array of images and their corresponding URLs
   const expResumes = [
     {
@@ -149,7 +152,7 @@ const ExpJSTemplates = () => {
   };
   return (
     <div className="flex flex-col items-center gap-[30px] w-full bg-[#774b352c] border border-[#774B35] rounded-[30px] px-[50px] py-[30px] ">
-      <p className="font-manrope font-extrabold text-[30px] text-center">
+      <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-extrabold text-[30px] text-center`}>
         Experience & Freshers
       </p>
 
@@ -232,7 +235,7 @@ const ExpJSTemplates = () => {
       <div className="flex justify-center mt-6">
         <p
           onClick={toggleContent}
-          className="flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition hover:bg-[#3367E7] hover:text-white"
+          className={`${darkMode?'bg-[black]':'bg-[#F8F0FF]'} ${darkMode?'text-[white]':'text-[black]'} flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition hover:bg-[#3367E7] hover:text-white`}
         >
           {isExpanded ? "See Less" : "See More"}
           <img

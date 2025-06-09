@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useUser } from "./usercontext";
 
 const FAQ = () => {
+  const{darkMode} = useUser();
   const faqs = [
     {
       question: "What is an ATS and why is it important?",
@@ -45,7 +47,7 @@ const FAQ = () => {
   return (
     <section className="max-w-3xl mx-auto py-16 px-6 md:px-12 flex flex-col items-center space-y-8 ">
       {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-manrope font-bold text-gray-900 text-center">
+      <h2 className={`text-3xl md:text-4xl font-manrope font-bold  ${darkMode?'text-[white]':'text-[black]'} text-center`}>
         Frequently Asked Questions
       </h2>
 
@@ -54,9 +56,9 @@ const FAQ = () => {
         {visibleFaqs.map((faq, index) => (
           <details
             key={index}
-            className="group border border-gray-300 rounded-lg p-5 mb-4 bg-white  transition-all duration-300 hover:shadow-lg"
+            className={`group border border-gray-300 rounded-lg p-5 mb-4 ${darkMode?'bg-[#23272F]':'bg-[white]'}  transition-all duration-300 hover:shadow-lg`}
           >
-            <summary className="flex justify-between items-center text-lg font-semibold cursor-pointer text-gray-800 group-open:text-blue-500">
+            <summary className={`flex justify-between items-center text-lg font-semibold cursor-pointer ${darkMode?'text-[white]':'text-[black]'} group-open:text-blue-500`}>
               {faq.question}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +73,7 @@ const FAQ = () => {
                 />
               </svg>
             </summary>
-            <p className="mt-3 text-gray-700 leading-relaxed">{faq.answer}</p>
+            <p className={`mt-3 ${darkMode?'text-[white]':'text-[black]'} leading-relaxed`}>{faq.answer}</p>
           </details>
         ))}
       </div>

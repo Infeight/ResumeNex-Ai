@@ -75,6 +75,13 @@ const RESUME_ExpAndFresher_4 = () => {
               {formData.otherLink || "saipatel.dev"}
             </a>
           </p>
+
+{formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-white-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+
           <p>
             City:{" "}
             {formData.city || "Mumbai"}, {formData.state || "Maharashtra"},{" "}
@@ -128,141 +135,8 @@ const RESUME_ExpAndFresher_4 = () => {
         </div>
         <hr className="border-t border-dashed border-gray-300 my-3" />
 
-        {/* Work Experience */}
-        <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">
-          Work Experience
-        </h2>
-        <div className="mb-4">
-          {hasArrayData(workExperience, "companyName")
-            ? workExperience.map((exp, idx) => (
-                <div className="flex mb-3" key={idx}>
-                  <div className="w-[65%]">
-                    <h3 className="text-[14px] font-bold">
-                      {exp.jobTitle || "Front-End Development Intern"}
-                    </h3>
-                    <p className="text-[12px] italic text-gray-600">
-                      {exp.companyName || "TechNova Solutions, Mumbai, India"}
-                    </p>
-                    <ul className="list-disc pl-5 text-[12px]">
-                      {exp.responsibilities
-                        ? exp.responsibilities.split("\n").map((line, i) => (
-                            <li key={i}>{line}</li>
-                          ))
-                        : [
-                            <li key="1">
-                              Built responsive web pages with React.js and Tailwind CSS for a SaaS product.
-                            </li>,
-                            <li key="2">
-                              Boosted site speed by 25% using CSS optimization and image compression.
-                            </li>,
-                            <li key="3">
-                              Integrated RESTful APIs for real-time dashboard content.
-                            </li>,
-                          ]}
-                    </ul>
-                  </div>
-                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
-                    <p>
-                      {(exp.startDate || "Jan 2024")} - {(exp.endDate || "May 2024")}
-                    </p>
-                  </div>
-                </div>
-              ))
-            : (
-              <>
-                <div className="flex mb-3">
-                  <div className="w-[65%]">
-                    <h3 className="text-[14px] font-bold">
-                      Front-End Development Intern
-                    </h3>
-                    <p className="text-[12px] italic text-gray-600">
-                      TechNova Solutions, Mumbai, India
-                    </p>
-                    <ul className="list-disc pl-5 text-[12px]">
-                      <li>
-                        Built responsive web pages with React.js and Tailwind CSS for a SaaS product.
-                      </li>
-                      <li>
-                        Boosted site speed by 25% using CSS optimization and image compression.
-                      </li>
-                      <li>
-                        Integrated RESTful APIs for real-time dashboard content.
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
-                    <p>Jan 2024 - May 2024</p>
-                  </div>
-                </div>
-                <div className="flex">
-                  <div className="w-[65%]">
-                    <h3 className="text-[14px] font-bold">Web Development Intern</h3>
-                    <p className="text-[12px] italic text-gray-600">
-                      InnovateX, Pune, India
-                    </p>
-                    <ul className="list-disc pl-5 text-[12px]">
-                      <li>
-                        Developed reusable UI components using JavaScript and Bootstrap.
-                      </li>
-                      <li>
-                        Tested compatibility across Chrome, Firefox, and Safari browsers.
-                      </li>
-                      <li>Converted Figma designs into precise HTML/CSS layouts.</li>
-                    </ul>
-                  </div>
-                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
-                    <p>June 2023 - Aug 2023</p>
-                  </div>
-                </div>
-              </>
-            )}
-        </div>
-        <hr className="border-t border-dashed border-gray-300 my-3" />
 
-        {/* Education */}
-        <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">
-          Education
-        </h2>
-        <div className="flex mb-4">
-          {hasArrayData(education, "collegeName")
-            ? education.map((edu, idx) => (
-                <React.Fragment key={idx}>
-                  <div className="w-[65%]">
-                    <h3 className="text-[14px] font-bold">
-                      {edu.degree || "B.E. in Information Technology"}
-                    </h3>
-                    <p className="text-[12px] italic text-gray-600">
-                      {edu.collegeName || "XYZ Institute of Technology, Mumbai, India"}
-                    </p>
-                    <p className="text-[12px]">CGPA: {edu.cgpa || "8.5/10"}</p>
-                  </div>
-                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
-                    <p>
-                      {(edu.startDate || "June 2020")} - {(edu.endDate || "May 2024")}
-                    </p>
-                  </div>
-                </React.Fragment>
-              ))
-            : (
-              <>
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">
-                    B.E. in Information Technology
-                  </h3>
-                  <p className="text-[12px] italic text-gray-600">
-                    XYZ Institute of Technology, Mumbai, India
-                  </p>
-                  <p className="text-[12px]">CGPA: 8.5/10</p>
-                </div>
-                <div className="w-[30%] text-right text-[12px] italic text-gray-600">
-                  <p>June 2020 - May 2024</p>
-                </div>
-              </>
-            )}
-        </div>
-        <hr className="border-t border-dashed border-gray-300 my-3" />
-
-        {/* Projects */}
+  {/* Projects */}
         <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">
           Projects
         </h2>
@@ -370,6 +244,147 @@ const RESUME_ExpAndFresher_4 = () => {
             )}
         </div>
         <hr className="border-t border-dashed border-gray-300 my-3" />
+
+
+        
+        {/* Education */}
+        <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">
+          Education
+        </h2>
+        <div className="flex mb-4">
+          {hasArrayData(education, "collegeName")
+            ? education.map((edu, idx) => (
+                <React.Fragment key={idx}>
+                  <div className="w-[65%]">
+                    <h3 className="text-[14px] font-bold">
+                      {edu.degree || "B.E. in Information Technology"}
+                    </h3>
+                    <p className="text-[12px] italic text-gray-600">
+                      {edu.collegeName || "XYZ Institute of Technology, Mumbai, India"}
+                    </p>
+                    <p className="text-[12px]">CGPA: {edu.cgpa || "8.5/10"}</p>
+                  </div>
+                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
+                    <p>
+                      {(edu.startDate || "June 2020")} - {(edu.endDate || "May 2024")}
+                    </p>
+                  </div>
+                </React.Fragment>
+              ))
+            : (
+              <>
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">
+                    B.E. in Information Technology
+                  </h3>
+                  <p className="text-[12px] italic text-gray-600">
+                    XYZ Institute of Technology, Mumbai, India
+                  </p>
+                  <p className="text-[12px]">CGPA: 8.5/10</p>
+                </div>
+                <div className="w-[30%] text-right text-[12px] italic text-gray-600">
+                  <p>June 2020 - May 2024</p>
+                </div>
+              </>
+            )}
+        </div>
+        <hr className="border-t border-dashed border-gray-300 my-3" />
+
+      
+
+
+
+        {/* Work Experience */}
+        <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">
+          Work Experience
+        </h2>
+        <div className="mb-4">
+          {hasArrayData(workExperience, "companyName")
+            ? workExperience.map((exp, idx) => (
+                <div className="flex mb-3" key={idx}>
+                  <div className="w-[65%]">
+                    <h3 className="text-[14px] font-bold">
+                      {exp.jobTitle || "Front-End Development Intern"}
+                    </h3>
+                    <p className="text-[12px] italic text-gray-600">
+                      {exp.companyName || "TechNova Solutions, Mumbai, India"}
+                    </p>
+                    <ul className="list-disc pl-5 text-[12px]">
+                      {exp.responsibilities
+                        ? exp.responsibilities.split("\n").map((line, i) => (
+                            <li key={i}>{line}</li>
+                          ))
+                        : [
+                            <li key="1">
+                              Built responsive web pages with React.js and Tailwind CSS for a SaaS product.
+                            </li>,
+                            <li key="2">
+                              Boosted site speed by 25% using CSS optimization and image compression.
+                            </li>,
+                            <li key="3">
+                              Integrated RESTful APIs for real-time dashboard content.
+                            </li>,
+                          ]}
+                    </ul>
+                  </div>
+                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
+                    <p>
+                      {(exp.startDate || "Jan 2024")} - {(exp.endDate || "May 2024")}
+                    </p>
+                  </div>
+                </div>
+              ))
+            : (
+              <>
+                <div className="flex mb-3">
+                  <div className="w-[65%]">
+                    <h3 className="text-[14px] font-bold">
+                      Front-End Development Intern
+                    </h3>
+                    <p className="text-[12px] italic text-gray-600">
+                      TechNova Solutions, Mumbai, India
+                    </p>
+                    <ul className="list-disc pl-5 text-[12px]">
+                      <li>
+                        Built responsive web pages with React.js and Tailwind CSS for a SaaS product.
+                      </li>
+                      <li>
+                        Boosted site speed by 25% using CSS optimization and image compression.
+                      </li>
+                      <li>
+                        Integrated RESTful APIs for real-time dashboard content.
+                      </li>
+                    </ul>
+                  </div>
+                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
+                    <p>Jan 2024 - May 2024</p>
+                  </div>
+                </div>
+                <div className="flex">
+                  <div className="w-[65%]">
+                    <h3 className="text-[14px] font-bold">Web Development Intern</h3>
+                    <p className="text-[12px] italic text-gray-600">
+                      InnovateX, Pune, India
+                    </p>
+                    <ul className="list-disc pl-5 text-[12px]">
+                      <li>
+                        Developed reusable UI components using JavaScript and Bootstrap.
+                      </li>
+                      <li>
+                        Tested compatibility across Chrome, Firefox, and Safari browsers.
+                      </li>
+                      <li>Converted Figma designs into precise HTML/CSS layouts.</li>
+                    </ul>
+                  </div>
+                  <div className="w-[30%] text-right text-[12px] italic text-gray-600">
+                    <p>June 2023 - Aug 2023</p>
+                  </div>
+                </div>
+              </>
+            )}
+        </div>
+        <hr className="border-t border-dashed border-gray-300 my-3" />
+
 
         {/* Certifications */}
         <h2 className="text-[20px] font-bold text-blue-500 mb-2 border-b border-blue-500">

@@ -5,11 +5,13 @@ import Step2OfCL from "./Step2OfCL";
 import Step3OfCL from "./Step3OfCL";
 import Step4OfCL from "./Step4OfCL";
 import { useCoverLetter } from "./coverlettercontext";
+import { useUser } from "../commonComponents/usercontext";
 
 const StepsCoverLetter = () => {
  const coverletterdata = useCoverLetter();
   const { templateIdOfCL } = useParams();
   const [currentStep, setCurrentStep] = useState(1);
+  const{darkMode}=  useUser();
   const totalSteps = 4;
 
   const steps = [
@@ -20,16 +22,16 @@ const StepsCoverLetter = () => {
   ];
 
   return (
-    <section className="bg-[#F7F7FB] min-h-screen">
+    <section className={`${darkMode?'bg-[#23272F]':'bg-white'} min-h-screen`}>
       <div className="w-full md:w-fit mx-auto flex flex-col justify-center items-center gap-[30px] md:gap-[50px] py-[30px] md:py-[50px] px-4 sm:px-6 text-[#212529]">
-        <p className="font-lexend font-semibold text-[22px] sm:text-[26px] md:text-[30px] flex flex-wrap justify-center gap-2 md:gap-3 text-center md:text-left">
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-lexend font-semibold text-[22px] sm:text-[26px] md:text-[30px] flex flex-wrap justify-center gap-2 md:gap-3 text-center md:text-left`}>
           Build
           <span className="purpleGradient"> Cover Letter </span>
           In Just Simple 4 Steps
         </p>
 
         <div className="relative w-full">
-          <div className="relative flex flex-col gap-[25px] md:gap-[35px] w-full max-w-[1000px] mx-auto p-[20px] sm:p-[30px] md:p-[50px] bg-white rounded-[24px] md:rounded-[34px] border border-[#DCDCDC] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+          <div className={`relative flex flex-col gap-[25px] md:gap-[35px] w-full max-w-[1000px] mx-auto p-[20px] sm:p-[30px] md:p-[50px] ${darkMode?'bg-[#1A1D23]':'bg-white'} rounded-[24px] md:rounded-[34px] border ${darkMode?'border-[#1A1D23]':'border-[#DCDCDC]'} [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]`}>
             {/* Progress Bar */}
             <div
               className="relative flex items-center gap-[10px] sm:gap-[18px] w-full max-w-[539px] mx-auto"
@@ -44,7 +46,7 @@ const StepsCoverLetter = () => {
                     className={`w-[30px] h-[30px] sm:w-[34px] sm:h-[34px] flex items-center justify-center rounded-full text-[14px] sm:text-[16px] font-medium transition-all duration-300 ${
                       currentStep >= idx + 1
                         ? "bg-[#4C95FB] text-white"
-                        : "bg-[#DCDCDC] text-[#A59DAA]"
+                        : `${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'} text-[#A59DAA]`
                     }`}
                     aria-label={`Step ${idx + 1} ${
                       currentStep === idx + 1 ? "current" : ""
@@ -54,7 +56,7 @@ const StepsCoverLetter = () => {
                   </div>
 
                   {idx < arr.length - 1 && (
-                    <div className="w-full relative flex-1 h-[4px] sm:h-[6px] mx-1 sm:mx-2 bg-[#DCDCDC] rounded-4xl">
+                    <div className={`w-full relative flex-1 h-[4px] sm:h-[6px] mx-1 sm:mx-2 ${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'} rounded-4xl`}>
                       {currentStep > idx + 1 && (
                         <div className="absolute inset-0 bg-[#4C95FB] rounded-4xl transition-all duration-300" />
                       )}

@@ -113,6 +113,150 @@ const RESUME_ExpAndFresher_17 = () => {
       </div>
       <hr className="border-0 border-t border-[#ddd] my-[15px]" />
 
+{/* Skills */}
+      <div className="mb-[20px]">
+        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
+          Skills
+        </h3>
+        <div className="flex justify-between">
+          <ul className="list-none p-0 text-[9pt] text-[#666]">
+            {(skills.technical && skills.technical.length > 0
+              ? skills.technical
+              : ["JavaScript", "React", "CSS", "Problem-solving"]
+            ).map((skill, idx) => (
+              <li key={idx} className="mb-[5px] relative pl-[15px] before:content-['•'] before:absolute before:left-0 before:text-[#333]">
+                {skill}
+              </li>
+            ))}
+          </ul>
+          <ul className="list-none p-0 text-[9pt] text-[#666]">
+            {(skills.soft && skills.soft.length > 0
+              ? skills.soft
+              : ["Creativity", "Critical Thinking", "Team Collaboration"]
+            ).map((skill, idx) => (
+              <li key={idx} className="mb-[5px] relative pl-[15px] before:content-['•'] before:absolute before:left-0 before:text-[#333]">
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
+
+
+       {/* Projects */}
+      <div className="mb-[20px]">
+        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
+          Projects
+        </h3>
+        {proj && proj.length > 0 && proj[0].name
+          ? proj.map((p, idx) => (
+              <div className="mb-[15px]" key={idx}>
+                <h4 className="text-[10pt] font-bold m-0">{p.name ? p.name : "Project Name"}</h4>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  Technologies: {p.technologies ? p.technologies : "Technologies"} •{" "}
+                  <a
+                    href={p.link ? p.link : "#"}
+                    className="text-[#666] no-underline hover:underline"
+                  >
+                    {p.link ? p.link : "Project Link"}
+                  </a>
+                </p>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  {p.description
+                    ? p.description
+                    : "Describe your project and its impact here."}
+                </p>
+              </div>
+            ))
+          : (
+            <>
+              <div className="mb-[15px]">
+                <h4 className="text-[10pt] font-bold m-0">Portfolio Website</h4>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  Technologies: React, Tailwind CSS •{" "}
+                  <a
+                    href="https://github.com/alyceschneider/portfolio"
+                    className="text-[#666] no-underline hover:underline"
+                  >
+                    github.com/alyceschneider/portfolio
+                  </a>
+                </p>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  Designed and developed a responsive portfolio showcasing 5+ projects, achieving 1,000+ views in 3 months. Optimized for SEO, improving search ranking by 30%.
+                </p>
+              </div>
+              <div className="mb-[15px]">
+                <h4 className="text-[10pt] font-bold m-0">Task Management App</h4>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  Technologies: JavaScript, Firebase •{" "}
+                  <a
+                    href="https://github.com/alyceschneider/task-app"
+                    className="text-[#666] no-underline hover:underline"
+                  >
+                    github.com/alyceschneider/task-app
+                  </a>
+                </p>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  Built a real-time task manager with user authentication, supporting 500+ active users. Enhanced UX with drag-and-drop features, reducing task completion time by 15%.
+                </p>
+              </div>
+            </>
+          )}
+      </div>
+      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
+
+
+ {/* Education */}
+      <div className="mb-[20px]">
+        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
+          Education
+        </h3>
+        {edu && (edu.degree || edu.collegeName)
+          ? (
+            <div className="flex justify-between items-baseline mb-[10px]">
+              <div>
+                <h4 className="text-[10pt] font-bold m-0">
+                  {edu.degree ? edu.degree : "Degree"}
+                  {edu.stream ? `, ${edu.stream}` : ""}
+                </h4>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  {edu.collegeName ? edu.collegeName : "University Name"}
+                </p>
+              </div>
+              <div className="text-right">
+                <span className="text-[9pt] text-[#666] block">
+                  {(edu.startDate || edu.endDate)
+                    ? `${edu.startDate ? edu.startDate : "Start"}-${edu.endDate ? edu.endDate : "End"}`
+                    : "2014-2017"}
+                </span>
+                <span className="text-[9pt] text-[#666] block">
+                  CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
+                </span>
+              </div>
+            </div>
+          )
+          : (
+            <div className="flex justify-between items-baseline mb-[10px]">
+              <div>
+                <h4 className="text-[10pt] font-bold m-0">
+                  BSc in Computer Science
+                </h4>
+                <p className="my-[2px] text-[9pt] text-[#666]">
+                  University of Texas at Austin
+                </p>
+              </div>
+              <div className="text-right">
+                <span className="text-[9pt] text-[#666] block">2014-2017</span>
+                <span className="text-[9pt] text-[#666] block">CGPA: 3.8</span>
+              </div>
+            </div>
+          )}
+      </div>
+      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
+      
+
+
       {/* Experience */}
       <div className="mb-[20px]">
         <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
@@ -175,53 +319,7 @@ const RESUME_ExpAndFresher_17 = () => {
       </div>
       <hr className="border-0 border-t border-[#ddd] my-[15px]" />
 
-      {/* Education */}
-      <div className="mb-[20px]">
-        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
-          Education
-        </h3>
-        {edu && (edu.degree || edu.collegeName)
-          ? (
-            <div className="flex justify-between items-baseline mb-[10px]">
-              <div>
-                <h4 className="text-[10pt] font-bold m-0">
-                  {edu.degree ? edu.degree : "Degree"}
-                  {edu.stream ? `, ${edu.stream}` : ""}
-                </h4>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  {edu.collegeName ? edu.collegeName : "University Name"}
-                </p>
-              </div>
-              <div className="text-right">
-                <span className="text-[9pt] text-[#666] block">
-                  {(edu.startDate || edu.endDate)
-                    ? `${edu.startDate ? edu.startDate : "Start"}-${edu.endDate ? edu.endDate : "End"}`
-                    : "2014-2017"}
-                </span>
-                <span className="text-[9pt] text-[#666] block">
-                  CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
-                </span>
-              </div>
-            </div>
-          )
-          : (
-            <div className="flex justify-between items-baseline mb-[10px]">
-              <div>
-                <h4 className="text-[10pt] font-bold m-0">
-                  BSc in Computer Science
-                </h4>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  University of Texas at Austin
-                </p>
-              </div>
-              <div className="text-right">
-                <span className="text-[9pt] text-[#666] block">2014-2017</span>
-                <span className="text-[9pt] text-[#666] block">CGPA: 3.8</span>
-              </div>
-            </div>
-          )}
-      </div>
-      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
+     
 
       {/* Certifications */}
       <div className="mb-[20px]">
@@ -297,97 +395,8 @@ const RESUME_ExpAndFresher_17 = () => {
       </div>
       <hr className="border-0 border-t border-[#ddd] my-[15px]" />
 
-      {/* Projects */}
-      <div className="mb-[20px]">
-        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
-          Projects
-        </h3>
-        {proj && proj.length > 0 && proj[0].name
-          ? proj.map((p, idx) => (
-              <div className="mb-[15px]" key={idx}>
-                <h4 className="text-[10pt] font-bold m-0">{p.name ? p.name : "Project Name"}</h4>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  Technologies: {p.technologies ? p.technologies : "Technologies"} •{" "}
-                  <a
-                    href={p.link ? p.link : "#"}
-                    className="text-[#666] no-underline hover:underline"
-                  >
-                    {p.link ? p.link : "Project Link"}
-                  </a>
-                </p>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  {p.description
-                    ? p.description
-                    : "Describe your project and its impact here."}
-                </p>
-              </div>
-            ))
-          : (
-            <>
-              <div className="mb-[15px]">
-                <h4 className="text-[10pt] font-bold m-0">Portfolio Website</h4>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  Technologies: React, Tailwind CSS •{" "}
-                  <a
-                    href="https://github.com/alyceschneider/portfolio"
-                    className="text-[#666] no-underline hover:underline"
-                  >
-                    github.com/alyceschneider/portfolio
-                  </a>
-                </p>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  Designed and developed a responsive portfolio showcasing 5+ projects, achieving 1,000+ views in 3 months. Optimized for SEO, improving search ranking by 30%.
-                </p>
-              </div>
-              <div className="mb-[15px]">
-                <h4 className="text-[10pt] font-bold m-0">Task Management App</h4>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  Technologies: JavaScript, Firebase •{" "}
-                  <a
-                    href="https://github.com/alyceschneider/task-app"
-                    className="text-[#666] no-underline hover:underline"
-                  >
-                    github.com/alyceschneider/task-app
-                  </a>
-                </p>
-                <p className="my-[2px] text-[9pt] text-[#666]">
-                  Built a real-time task manager with user authentication, supporting 500+ active users. Enhanced UX with drag-and-drop features, reducing task completion time by 15%.
-                </p>
-              </div>
-            </>
-          )}
-      </div>
-      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
-
-      {/* Skills */}
-      <div className="mb-[20px]">
-        <h3 className="text-[12pt] font-bold uppercase mb-[10px] text-[#333]">
-          Skills
-        </h3>
-        <div className="flex justify-between">
-          <ul className="list-none p-0 text-[9pt] text-[#666]">
-            {(skills.technical && skills.technical.length > 0
-              ? skills.technical
-              : ["JavaScript", "React", "CSS", "Problem-solving"]
-            ).map((skill, idx) => (
-              <li key={idx} className="mb-[5px] relative pl-[15px] before:content-['•'] before:absolute before:left-0 before:text-[#333]">
-                {skill}
-              </li>
-            ))}
-          </ul>
-          <ul className="list-none p-0 text-[9pt] text-[#666]">
-            {(skills.soft && skills.soft.length > 0
-              ? skills.soft
-              : ["Creativity", "Critical Thinking", "Team Collaboration"]
-            ).map((skill, idx) => (
-              <li key={idx} className="mb-[5px] relative pl-[15px] before:content-['•'] before:absolute before:left-0 before:text-[#333]">
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <hr className="border-0 border-t border-[#ddd] my-[15px]" />
+     
+      
 
       {/* Languages */}
       <div className="mb-[20px]">

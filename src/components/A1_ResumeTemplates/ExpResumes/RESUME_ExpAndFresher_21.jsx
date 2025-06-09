@@ -251,62 +251,37 @@ const RESUME_ExpAndFresher_21 = () => {
           </div>
         </div>
 
-        {/* Work Experience */}
+
+ {/* Skills */}
         <div className="mb-[10px]">
-          <h2 className="text-[20px] font-bold uppercase mb-[5px]">
-            Work Experience
-          </h2>
+          <h2 className="text-[20px] font-bold uppercase mb-[5px]">Skills</h2>
           <hr className="border-t border-black mb-[10px]" />
-          {workExperienceToDisplay.map((exp, i) => (
-            <div className="mb-[8px]" key={i}>
-              <div className="flex justify-between font-bold text-[12px]">
-                {exp.jobTitle}
-                <span className="font-normal text-[12px]">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </div>
-              <p className="text-[12px] m-[2px_0]">{exp.companyName}</p>
-              <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
-                {(Array.isArray(exp.responsibilities)
-                  ? exp.responsibilities
-                  : exp.responsibilities
-                  ? exp.responsibilities.split("\n")
-                  : []
-                ).map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <ul className="list-none pl-0 text-[12px] leading-[1.2]">
+            <li>
+              Technical Skills:{" "}
+              {skills.technical && skills.technical.length > 0
+                ? skills.technical.join(", ")
+                : "JavaScript, Python, React.js, Node.js, MongoDB, PostgreSQL, AWS, Docker"}
+            </li>
+            <li>
+              Soft Skills:{" "}
+              {skills.soft && skills.soft.length > 0
+                ? skills.soft.join(", ")
+                : "Collaboration, Problem-Solving, Time Management, Communication"}
+            </li>
+            <li>
+              Languages:{" "}
+              {additional.languages && additional.languages.length > 0
+                ? additional.languages
+                    .map((l) => `${l.name} (${l.proficiency})`)
+                    .join(", ")
+                : "English (Fluent), Spanish (Intermediate)"}
+            </li>
+          </ul>
         </div>
 
-        {/* Education */}
-        <div className="mb-[10px]">
-          <h2 className="text-[20px] font-bold uppercase mb-[5px]">
-            Education
-          </h2>
-          <hr className="border-t border-black mb-[10px]" />
-          {educationToDisplay.map((edu, i) => (
-            <div className="mb-[8px]" key={i}>
-              <div className="flex justify-between font-bold text-[12px]">
-                {edu.degree}
-                <span className="font-normal text-[12px]">
-                  {edu.startDate} – {edu.endDate}
-                </span>
-              </div>
-              <div className="flex justify-between text-[12px]">
-                <p className="m-[2px_0]">
-                  {edu.collegeName}
-                  <br />
-                  Stream: {edu.stream}
-                </p>
-                <p className="m-[2px_0] font-normal">CGPA: {edu.cgpa}</p>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[10px]">
           <h2 className="text-[20px] font-bold uppercase mb-[5px]">Projects</h2>
           <hr className="border-t border-black mb-[10px]" />
@@ -347,6 +322,65 @@ const RESUME_ExpAndFresher_21 = () => {
           ))}
         </div>
 
+ {/* Education */}
+        <div className="mb-[10px]">
+          <h2 className="text-[20px] font-bold uppercase mb-[5px]">
+            Education
+          </h2>
+          <hr className="border-t border-black mb-[10px]" />
+          {educationToDisplay.map((edu, i) => (
+            <div className="mb-[8px]" key={i}>
+              <div className="flex justify-between font-bold text-[12px]">
+                {edu.degree}
+                <span className="font-normal text-[12px]">
+                  {edu.startDate} – {edu.endDate}
+                </span>
+              </div>
+              <div className="flex justify-between text-[12px]">
+                <p className="m-[2px_0]">
+                  {edu.collegeName}
+                  <br />
+                  Stream: {edu.stream}
+                </p>
+                <p className="m-[2px_0] font-normal">CGPA: {edu.cgpa}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+ {/* Work Experience */}
+        <div className="mb-[10px]">
+          <h2 className="text-[20px] font-bold uppercase mb-[5px]">
+            Work Experience
+          </h2>
+          <hr className="border-t border-black mb-[10px]" />
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="mb-[8px]" key={i}>
+              <div className="flex justify-between font-bold text-[12px]">
+                {exp.jobTitle}
+                <span className="font-normal text-[12px]">
+                  {exp.startDate} – {exp.endDate}
+                </span>
+              </div>
+              <p className="text-[12px] m-[2px_0]">{exp.companyName}</p>
+              <ul className="list-disc pl-[20px] text-[12px] m-[3px_0] leading-[1.2]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+       
+       
+
         {/* Certifications */}
         <div className="mb-[10px]">
           <h2 className="text-[20px] font-bold uppercase mb-[5px]">
@@ -373,34 +407,9 @@ const RESUME_ExpAndFresher_21 = () => {
           </ul>
         </div>
 
-        {/* Skills */}
-        <div className="mb-[10px]">
-          <h2 className="text-[20px] font-bold uppercase mb-[5px]">Skills</h2>
-          <hr className="border-t border-black mb-[10px]" />
-          <ul className="list-none pl-0 text-[12px] leading-[1.2]">
-            <li>
-              Technical Skills:{" "}
-              {skills.technical && skills.technical.length > 0
-                ? skills.technical.join(", ")
-                : "JavaScript, Python, React.js, Node.js, MongoDB, PostgreSQL, AWS, Docker"}
-            </li>
-            <li>
-              Soft Skills:{" "}
-              {skills.soft && skills.soft.length > 0
-                ? skills.soft.join(", ")
-                : "Collaboration, Problem-Solving, Time Management, Communication"}
-            </li>
-            <li>
-              Languages:{" "}
-              {additional.languages && additional.languages.length > 0
-                ? additional.languages
-                    .map((l) => `${l.name} (${l.proficiency})`)
-                    .join(", ")
-                : "English (Fluent), Spanish (Intermediate)"}
-            </li>
-          </ul>
-        </div>
 
+       
+       
         {/* Additional Sections */}
         <div className="mb-[10px]">
           <h2 className="text-[20px] font-bold uppercase mb-[5px]">

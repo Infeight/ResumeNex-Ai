@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
 import { useLinkedIn } from "./linkedincontext.jsx";
+import { useUser } from "../commonComponents/usercontext.jsx";
 
 const Step3OfLO = () => {
   // State for Work Experience
@@ -31,6 +32,7 @@ const Step3OfLO = () => {
       { title: "", company: "", duration: "", description: "", tools: "" },
     ]);
   };
+  const{darkMode} = useUser();
 
   // Add new Project entry
   const addProject = () => {
@@ -59,12 +61,12 @@ const Step3OfLO = () => {
   return (
     <section className="flex flex-col gap-[36px] ">
       {/* Work Experience Section */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Work Experience
           </h2>
-          <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#FFF4CC]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#FDC700] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {workExperiences.map((experience, index) => (
@@ -72,7 +74,7 @@ const Step3OfLO = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                 {/* Job Title */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Job Title
                   </label>
                   <input
@@ -81,14 +83,14 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleWorkExperienceChange(index, "title", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                     placeholder="e.g., Software Engineer"
                   />
                 </div>
 
                 {/* Company Name */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Company Name
                   </label>
                   <input
@@ -101,7 +103,7 @@ const Step3OfLO = () => {
                         e.target.value
                       )
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                     placeholder="e.g., ABC Corp"
                   />
                 </div>
@@ -110,7 +112,7 @@ const Step3OfLO = () => {
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3 flex-col md:flex-row">
                     <div className="flex flex-col w-full md:w-1/2">
-                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                      <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                         Start Date
                       </label>
                       <input
@@ -123,13 +125,13 @@ const Step3OfLO = () => {
                             e.target.value
                           )
                         }
-                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                        className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                         placeholder="Select a month"
                       />
                     </div>
                     {!experience.currentlyWorking && (
                       <div className="flex flex-col w-full md:w-1/2">
-                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                           End Date
                         </label>
                         <input
@@ -142,7 +144,7 @@ const Step3OfLO = () => {
                               e.target.value
                             )
                           }
-                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                          className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                           placeholder="Select a month"
                         />
                       </div>
@@ -164,7 +166,7 @@ const Step3OfLO = () => {
                       }}
                       className="w-5 h-5 text-[#FDC700] border-[#DCDCDC] rounded focus:ring-[#FDC700]"
                     />
-                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                    <label className={`ml-2 ${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium text-[16px]`}>
                       Currently Working
                     </label>
                   </div>
@@ -172,7 +174,7 @@ const Step3OfLO = () => {
 
                 {/* Technologies/Tools */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Technologies/Tools
                   </label>
                   <input
@@ -181,14 +183,14 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleWorkExperienceChange(index, "tools", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                     placeholder="e.g., React, Node.js, AWS"
                   />
                 </div>
 
                 {/* Description */}
                 <div className="flex flex-col col-span-1 md:col-span-2">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Description{" "}
                     <span className="text-[#A59DAA] text-[14px]">
                       (Short paragraph or bullets)
@@ -204,7 +206,7 @@ const Step3OfLO = () => {
                         e.target.value
                       )
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                     placeholder="Describe your responsibilities and achievements"
                   />
                 </div>
@@ -213,7 +215,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {workExperiences.length > 1 && (
                 <button
-                  className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] mt-5"
+                  className={`border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#D0870033]':'bg-[#FEFCE8]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] mt-5`}
                   onClick={() => removeWorkExperience(index)}
                 >
                   Remove Experience
@@ -228,7 +230,7 @@ const Step3OfLO = () => {
             </div>
           ))}
           <button
-            className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada]"
+            className={`border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#D0870033]':'bg-[#FEFCE8]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada]`}
             onClick={addWorkExperience}
           >
             Add Another Experience
@@ -238,12 +240,12 @@ const Step3OfLO = () => {
       </div>
 
       {/* Projects Section */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Projects
           </h2>
-          <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#F8F0FF]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {projects.map((project, index) => (
@@ -251,7 +253,7 @@ const Step3OfLO = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                 {/* Project Title */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Project Title
                   </label>
                   <input
@@ -260,14 +262,14 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleProjectChange(index, "title", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., E-commerce Platform"
                   />
                 </div>
 
                 {/* Tools Used */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Tools Used
                   </label>
                   <input
@@ -276,14 +278,14 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleProjectChange(index, "tools", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., React, Firebase, Tailwind CSS"
                   />
                 </div>
 
                 {/* GitHub/Live Link */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     GitHub/Live Link{" "}
                     <span className="text-[#A59DAA] text-[14px]">
                       (Optional)
@@ -295,14 +297,14 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleProjectChange(index, "link", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., https://github.com/your-repo"
                   />
                 </div>
 
                 {/* Description */}
                 <div className="flex flex-col col-span-1 md:col-span-2">
-                  <label className="flex flex-col gap-1 md:flex-row md:items-center text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`flex flex-col gap-1 md:flex-row md:items-center ${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Project Description{" "}
                     <span className="text-[#A59DAA] text-[14px]">
                       (Short paragraph or bullets)
@@ -314,7 +316,7 @@ const Step3OfLO = () => {
                     onChange={(e) =>
                       handleProjectChange(index, "description", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="Describe the project, its purpose, and your contributions"
                   />
                 </div>
@@ -323,7 +325,7 @@ const Step3OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {projects.length > 1 && (
                 <button
-                  className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10 "
+                  className={`border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#AD46FF33]':'bg-[#FAF5FF] '} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10 `}
                   onClick={() => removeProject(index)}
                 >
                   Remove Project
@@ -338,7 +340,7 @@ const Step3OfLO = () => {
             </div>
           ))}
           <button
-            className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]"
+            className={`border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#AD46FF33]':'bg-[#FAF5FF] '} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]`}
             onClick={addProject}
           >
             Add Another Project

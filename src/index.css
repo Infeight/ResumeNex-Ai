@@ -165,3 +165,12 @@ select:focus {
     animation: gradient-move 6s ease infinite;
   }
 }
+
+/* .custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(0);
+}
+
+
+.dark .custom-date::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+} */

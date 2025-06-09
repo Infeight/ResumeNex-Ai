@@ -93,78 +93,8 @@ const Resume10 = () => {
           </ul>
         </div>
 
-        {/* Experience */}
-        <div className="m-[12px_0] p-[12px] bg-white rounded-[6px]">
-          <div className="text-[16px] font-bold text-[#1e3a8a] p-[4px_0] mb-[8px] bg-[#f1f5f9]">
-            PROFESSIONAL EXPERIENCE
-          </div>
-          {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-            workExperience.map((work, idx) => (
-              <div className="mb-[12px]" key={idx}>
-                <div className="experience-line flex justify-between items-center text-[14px] m-[4px_0]">
-                  <strong>
-                    {work.jobTitle
-                      ? work.jobTitle
-                      : "Business Analyst Intern"}{" "}
-                    | {work.companyName ? work.companyName : "DataCore Inc."}
-                  </strong>
-                  <span className="bg-[#e0e7ff] text-[#1e3a8a] px-[8px] py-[2px] rounded-[4px]">
-                    {work.startDate && work.endDate
-                      ? `${work.startDate} – ${work.endDate}`
-                      : "Jan 2024 – Jun 2024"}
-                  </span>
-                </div>
-                <ul className="text-[14px] m-[4px_0] pl-[18px] space-y-[4px]">
-                  {work.responsibilities
-                    ? work.responsibilities.split("\n").map((resp, i) => (
-                        <li key={i}>{resp}</li>
-                      ))
-                    : (
-                      <>
-                        <li>
-                          Identified 15% operational efficiency gap through analysis of
-                          10,000+ sales records using SQL and Tableau
-                        </li>
-                        <li>
-                          Streamlined workflows for 3 cross-functional teams by
-                          documenting requirements in Jira
-                        </li>
-                        <li>
-                          Presented data-driven recommendations to management, influencing
-                          Q2 strategic planning
-                        </li>
-                      </>
-                    )}
-                </ul>
-              </div>
-            ))
-          ) : (
-            <div className="mb-[12px]">
-              <div className="experience-line flex justify-between items-center text-[14px] m-[4px_0]">
-                <strong>Business Analyst Intern | DataCore Inc.</strong>
-                <span className="bg-[#e0e7ff] text-[#1e3a8a] px-[8px] py-[2px] rounded-[4px]">
-                  Jan 2024 – Jun 2024
-                </span>
-              </div>
-              <ul className="text-[14px] m-[4px_0] pl-[18px] space-y-[4px]">
-                <li>
-                  Identified 15% operational efficiency gap through analysis of
-                  10,000+ sales records using SQL and Tableau
-                </li>
-                <li>
-                  Streamlined workflows for 3 cross-functional teams by
-                  documenting requirements in Jira
-                </li>
-                <li>
-                  Presented data-driven recommendations to management, influencing
-                  Q2 strategic planning
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <div className="m-[12px_0] p-[12px] bg-white rounded-[6px]">
           <div className="text-[16px] font-bold text-[#1e3a8a] p-[4px_0] mb-[8px] bg-[#f1f5f9]">
             KEY PROJECTS
@@ -307,6 +237,79 @@ const Resume10 = () => {
           )}
         </div>
 
+
+        {/* Experience */}
+        <div className="m-[12px_0] p-[12px] bg-white rounded-[6px]">
+          <div className="text-[16px] font-bold text-[#1e3a8a] p-[4px_0] mb-[8px] bg-[#f1f5f9]">
+            PROFESSIONAL EXPERIENCE
+          </div>
+          {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+            workExperience.map((work, idx) => (
+              <div className="mb-[12px]" key={idx}>
+                <div className="experience-line flex justify-between items-center text-[14px] m-[4px_0]">
+                  <strong>
+                    {work.jobTitle
+                      ? work.jobTitle
+                      : "Business Analyst Intern"}{" "}
+                    | {work.companyName ? work.companyName : "DataCore Inc."}
+                  </strong>
+                  <span className="bg-[#e0e7ff] text-[#1e3a8a] px-[8px] py-[2px] rounded-[4px]">
+                    {work.startDate && work.endDate
+                      ? `${work.startDate} – ${work.endDate}`
+                      : "Jan 2024 – Jun 2024"}
+                  </span>
+                </div>
+                <ul className="text-[14px] m-[4px_0] pl-[18px] space-y-[4px]">
+                  {work.responsibilities
+                    ? work.responsibilities.split("\n").map((resp, i) => (
+                        <li key={i}>{resp}</li>
+                      ))
+                    : (
+                      <>
+                        <li>
+                          Identified 15% operational efficiency gap through analysis of
+                          10,000+ sales records using SQL and Tableau
+                        </li>
+                        <li>
+                          Streamlined workflows for 3 cross-functional teams by
+                          documenting requirements in Jira
+                        </li>
+                        <li>
+                          Presented data-driven recommendations to management, influencing
+                          Q2 strategic planning
+                        </li>
+                      </>
+                    )}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <div className="mb-[12px]">
+              <div className="experience-line flex justify-between items-center text-[14px] m-[4px_0]">
+                <strong>Business Analyst Intern | DataCore Inc.</strong>
+                <span className="bg-[#e0e7ff] text-[#1e3a8a] px-[8px] py-[2px] rounded-[4px]">
+                  Jan 2024 – Jun 2024
+                </span>
+              </div>
+              <ul className="text-[14px] m-[4px_0] pl-[18px] space-y-[4px]">
+                <li>
+                  Identified 15% operational efficiency gap through analysis of
+                  10,000+ sales records using SQL and Tableau
+                </li>
+                <li>
+                  Streamlined workflows for 3 cross-functional teams by
+                  documenting requirements in Jira
+                </li>
+                <li>
+                  Presented data-driven recommendations to management, influencing
+                  Q2 strategic planning
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+       
         {/* Hobbies / Interests */}
         <div className="m-[12px_0] p-[12px] bg-white rounded-[6px]">
           <div className="text-[16px] font-bold text-[#1e3a8a] p-[4px_0] mb-[8px] bg-[#f1f5f9]">

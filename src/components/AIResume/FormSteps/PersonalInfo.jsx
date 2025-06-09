@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { useResume } from "./resumecontext";
+import { useUser } from "../../commonComponents/usercontext";
+import { RiDeleteBin6Line } from "react-icons/ri";
+
 
 const PersonalInfo = () => {
   // { formData, setFormData }
-
+  const {darkMode} =useUser();
   const add_circle = "/AIResumeAssets/add_circle.png";
 
    const { formData, setFormData } = useResume();
@@ -26,10 +29,10 @@ const PersonalInfo = () => {
   return (
     <div className="mb-8">
       <div className="mb-3">
-        <h2 className="text-[25px] leading-[40px] tracking-[0px] text-[#212529] font-manrope font-bold mb-4">
+        <h2 className={`text-[25px] leading-[40px] tracking-[0px] ${darkMode?'text-[white]':'text-[#212529]'}  font-manrope font-bold mb-4`}>
           Personal Info & Job Role
         </h2>
-        <div className="w-40 h-5 bg-[#F3E8FF] -mt-8"></div>
+        <div className={`w-40 h-5 ${darkMode?'bg-[#AB2FFF33]':'bg-[#F3E8FF] '} -mt-8`}></div>
       </div>
       
      <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
@@ -46,7 +49,7 @@ const PersonalInfo = () => {
               value={formData[name]}
               onChange={handleChange}
               autoComplete="off"
-              className="flex-1 min-w-[150px] sm:min-w-[120px] h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+              className={`${darkMode?'text-[white]':'text-gray-600'} flex-1 min-w-[150px] sm:min-w-[120px] h-[56px] border ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
             />
           ))}
         </div>
@@ -57,7 +60,7 @@ const PersonalInfo = () => {
           value={formData.jobTitle}
           onChange={handleChange}
           autoComplete="off"
-          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+          className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
         />
         <input
           type="text"
@@ -66,7 +69,7 @@ const PersonalInfo = () => {
           value={formData.phoneNumber}
           onChange={handleChange}
           autoComplete="off"
-          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+          className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
         />
         <div className="flex flex-wrap gap-4">
           {["city", "state", "pincode"].map((name, idx) => (
@@ -78,7 +81,7 @@ const PersonalInfo = () => {
               value={formData[name]}
               onChange={handleChange}
               autoComplete="off"
-              className="flex-1 min-w-[150px] sm:min-w-[100px] h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+              className={`${darkMode?'text-[white]':'text-gray-600'} flex-1 min-w-[150px] sm:min-w-[100px] h-[56px] border ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
             />
           ))}
         </div>
@@ -89,15 +92,15 @@ const PersonalInfo = () => {
           value={formData.email}
           onChange={handleChange}
           autoComplete="off"
-          className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+          className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
         />
-        <div className="mt-6 p-4 border-2 border-dashed border-[#DAB2FF] rounded-xl bg-[#FAF5FF]">
+        <div className={`mt-6 p-4 border-2 border-dashed border-[#DAB2FF] rounded-xl ${darkMode?'bg-[#AB2FFF33]':'bg-[#FAF5FF]'} `}>
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-sm font-semibold text-gray-800 bg-[#DAB2FF] px-3 py-1 rounded-3xl">
                 Optional
               </span>
-              <p className="text-sm font-semibold text-gray-600">
+              <p className={`text-sm font-semibold ${darkMode?'text-[white]':'text-gray-600'} `}>
                 (we recommend to add for good ATS resume)
               </p>
             </div>
@@ -124,7 +127,7 @@ const PersonalInfo = () => {
                 value={formData.linkedin}
                 onChange={handleChange}
                 autoComplete="off"
-                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+                className={`w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA] ${darkMode?'text-[white]':'text-gray-600'}`}
               />
             )}
             {showInputs.github && (
@@ -135,7 +138,7 @@ const PersonalInfo = () => {
                 value={formData.github}
                 onChange={handleChange}
                 autoComplete="off"
-                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+                className= {`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
               />
             )}
             {showInputs.figma && (
@@ -146,7 +149,7 @@ const PersonalInfo = () => {
                 value={formData.figma}
                 onChange={handleChange}
                 autoComplete="off"
-                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
               />
             )}
             {showInputs.other && (
@@ -157,7 +160,7 @@ const PersonalInfo = () => {
                 value={formData.otherLink}
                 onChange={handleChange}
                 autoComplete="off"
-                className="w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#DAB2FF] placeholder:text-[#A59DAA]`}
               />
             )}
           </div>

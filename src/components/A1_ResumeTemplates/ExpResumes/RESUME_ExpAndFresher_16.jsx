@@ -97,123 +97,27 @@ const RESUME_ExpAndFresher_16 = () => {
         }
       </div>
 
-      {/* Work Experience */}
+       {/* Skills */}
       <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
-        Professional Experience
+        Key Skills
       </h2>
-      {work && work.length > 0 && (work[0].jobTitle || work[0].companyName) ? (
-        work.map((item, idx) => (
-          <div key={idx}>
-            <div className="flex justify-between mb-[2px]">
-              <div className="text-[10.5pt] font-bold">
-                {item.jobTitle ? item.jobTitle : "Job Title"}
-              </div>
-              <div className="text-[9.5pt] italic">
-                {(item.startDate || item.endDate)
-                  ? `${item.startDate ? item.startDate : "Start"} - ${item.endDate ? item.endDate : "End"}`
-                  : "Date"}
-              </div>
-            </div>
-            <div className="text-[10pt] font-bold mb-[4px]">
-              {item.companyName ? item.companyName : "Company Name"}
-              {item.location ? `, ${item.location}` : ""}
-            </div>
-            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
-              {item.responsibilities
-                ? item.responsibilities.split("\n").map((line, i) => <li key={i}>{line}</li>)
-                : (
-                  <>
-                    <li>
-                      Developed full-stack web applications using React and Node.js, serving
-                      10,000+ monthly users.
-                    </li>
-                    <li>Optimized backend APIs, reducing response times by 30%.</li>
-                    <li>
-                      Collaborated with designers to implement pixel-perfect UI designs.
-                    </li>
-                    <li>Mentored junior developers, improving team productivity by 15%.</li>
-                  </>
-                )}
-            </ul>
-          </div>
-        ))
-      ) : (
-        <>
-          <div>
-            <div className="flex justify-between mb-[2px]">
-              <div className="text-[10.5pt] font-bold">Full Stack Developer</div>
-              <div className="text-[9.5pt] italic">Apr 2021 - Present</div>
-            </div>
-            <div className="text-[10pt] font-bold mb-[4px]">
-              TechTrend Solutions, Dallas, TX
-            </div>
-            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
-              <li>
-                Developed full-stack web applications using React and Node.js, serving
-                10,000+ monthly users.
-              </li>
-              <li>Optimized backend APIs, reducing response times by 30%.</li>
-              <li>
-                Collaborated with designers to implement pixel-perfect UI designs.
-              </li>
-              <li>Mentored junior developers, improving team productivity by 15%.</li>
-            </ul>
-          </div>
-          <div>
-            <div className="flex justify-between mb-[2px]">
-              <div className="text-[10.5pt] font-bold">Junior Web Developer</div>
-              <div className="text-[9.5pt] italic">Jul 2019 - Mar 2021</div>
-            </div>
-            <div className="text-[10pt] font-bold mb-[4px]">
-              CodeZap Innovations, Dallas, TX
-            </div>
-            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
-              <li>
-                Built responsive front-end interfaces with HTML, CSS, and JavaScript.
-              </li>
-              <li>Assisted in integrating third-party APIs for real-time data.</li>
-              <li>Contributed to code reviews, reducing bugs by 20%.</li>
-              <li>Supported migration of legacy systems to modern frameworks.</li>
-            </ul>
-          </div>
-        </>
-      )}
+      <ul className="columns-2 gap-[15px] text-[10pt] mt-[4px] mb-[12px] pl-[18px] space-y-[3px]">
+        {skills.technical && skills.technical.length > 0
+          ? skills.technical.map((skill, idx) => <li key={idx}>{skill}</li>)
+          : (
+            <>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node.js</li>
+              <li>MongoDB</li>
+              <li>AWS</li>
+              <li>Git</li>
+              <li>Team Collaboration</li>
+              <li>Agile Methodologies</li>
+            </>
+          )}
+      </ul>
 
-      {/* Education */}
-      <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
-        Education
-      </h2>
-      {edu && (edu.degree || edu.collegeName) ? (
-        <div>
-          <div className="flex justify-between mb-[2px]">
-            <div className="text-[10.5pt] font-medium">
-              {edu.degree ? edu.degree : "Degree"}
-              {edu.stream ? `, ${edu.stream}` : ""}
-            </div>
-            <div className="text-[9.5pt] italic">
-              {(edu.startDate || edu.endDate)
-                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
-                : "Date"}
-            </div>
-          </div>
-          <div className="text-[10pt] font-normal italic mb-[8px]">
-            {edu.collegeName ? edu.collegeName : "University Name"}
-            {edu.location ? `, ${edu.location}` : ""}
-          </div>
-        </div>
-      ) : (
-        <div>
-          <div className="flex justify-between mb-[2px]">
-            <div className="text-[10.5pt] font-medium">
-              Bachelor of Science, Computer Science
-            </div>
-            <div className="text-[9.5pt] italic">Aug 2015 - May 2019</div>
-          </div>
-          <div className="text-[10pt] font-normal italic mb-[8px]">
-            University of Texas at Dallas, Richardson, TX
-          </div>
-        </div>
-      )}
 
       {/* Projects */}
       <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
@@ -307,27 +211,128 @@ const RESUME_ExpAndFresher_16 = () => {
         </>
       )}
 
-      {/* Skills */}
-      <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
-        Key Skills
-      </h2>
-      <ul className="columns-2 gap-[15px] text-[10pt] mt-[4px] mb-[12px] pl-[18px] space-y-[3px]">
-        {skills.technical && skills.technical.length > 0
-          ? skills.technical.map((skill, idx) => <li key={idx}>{skill}</li>)
-          : (
-            <>
-              <li>JavaScript</li>
-              <li>React</li>
-              <li>Node.js</li>
-              <li>MongoDB</li>
-              <li>AWS</li>
-              <li>Git</li>
-              <li>Team Collaboration</li>
-              <li>Agile Methodologies</li>
-            </>
-          )}
-      </ul>
 
+       {/* Education */}
+      <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
+        Education
+      </h2>
+      {edu && (edu.degree || edu.collegeName) ? (
+        <div>
+          <div className="flex justify-between mb-[2px]">
+            <div className="text-[10.5pt] font-medium">
+              {edu.degree ? edu.degree : "Degree"}
+              {edu.stream ? `, ${edu.stream}` : ""}
+            </div>
+            <div className="text-[9.5pt] italic">
+              {(edu.startDate || edu.endDate)
+                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
+                : "Date"}
+            </div>
+          </div>
+          <div className="text-[10pt] font-normal italic mb-[8px]">
+            {edu.collegeName ? edu.collegeName : "University Name"}
+            {edu.location ? `, ${edu.location}` : ""}
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="flex justify-between mb-[2px]">
+            <div className="text-[10.5pt] font-medium">
+              Bachelor of Science, Computer Science
+            </div>
+            <div className="text-[9.5pt] italic">Aug 2015 - May 2019</div>
+          </div>
+          <div className="text-[10pt] font-normal italic mb-[8px]">
+            University of Texas at Dallas, Richardson, TX
+          </div>
+        </div>
+      )}
+
+      
+
+      {/* Work Experience */}
+      <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
+        Professional Experience
+      </h2>
+      {work && work.length > 0 && (work[0].jobTitle || work[0].companyName) ? (
+        work.map((item, idx) => (
+          <div key={idx}>
+            <div className="flex justify-between mb-[2px]">
+              <div className="text-[10.5pt] font-bold">
+                {item.jobTitle ? item.jobTitle : "Job Title"}
+              </div>
+              <div className="text-[9.5pt] italic">
+                {(item.startDate || item.endDate)
+                  ? `${item.startDate ? item.startDate : "Start"} - ${item.endDate ? item.endDate : "End"}`
+                  : "Date"}
+              </div>
+            </div>
+            <div className="text-[10pt] font-bold mb-[4px]">
+              {item.companyName ? item.companyName : "Company Name"}
+              {item.location ? `, ${item.location}` : ""}
+            </div>
+            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
+              {item.responsibilities
+                ? item.responsibilities.split("\n").map((line, i) => <li key={i}>{line}</li>)
+                : (
+                  <>
+                    <li>
+                      Developed full-stack web applications using React and Node.js, serving
+                      10,000+ monthly users.
+                    </li>
+                    <li>Optimized backend APIs, reducing response times by 30%.</li>
+                    <li>
+                      Collaborated with designers to implement pixel-perfect UI designs.
+                    </li>
+                    <li>Mentored junior developers, improving team productivity by 15%.</li>
+                  </>
+                )}
+            </ul>
+          </div>
+        ))
+      ) : (
+        <>
+          <div>
+            <div className="flex justify-between mb-[2px]">
+              <div className="text-[10.5pt] font-bold">Full Stack Developer</div>
+              <div className="text-[9.5pt] italic">Apr 2021 - Present</div>
+            </div>
+            <div className="text-[10pt] font-bold mb-[4px]">
+              TechTrend Solutions, Dallas, TX
+            </div>
+            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
+              <li>
+                Developed full-stack web applications using React and Node.js, serving
+                10,000+ monthly users.
+              </li>
+              <li>Optimized backend APIs, reducing response times by 30%.</li>
+              <li>
+                Collaborated with designers to implement pixel-perfect UI designs.
+              </li>
+              <li>Mentored junior developers, improving team productivity by 15%.</li>
+            </ul>
+          </div>
+          <div>
+            <div className="flex justify-between mb-[2px]">
+              <div className="text-[10.5pt] font-bold">Junior Web Developer</div>
+              <div className="text-[9.5pt] italic">Jul 2019 - Mar 2021</div>
+            </div>
+            <div className="text-[10pt] font-bold mb-[4px]">
+              CodeZap Innovations, Dallas, TX
+            </div>
+            <ul className="mt-[4px] mb-[12px] pl-[18px] text-[10pt] space-y-[3px]">
+              <li>
+                Built responsive front-end interfaces with HTML, CSS, and JavaScript.
+              </li>
+              <li>Assisted in integrating third-party APIs for real-time data.</li>
+              <li>Contributed to code reviews, reducing bugs by 20%.</li>
+              <li>Supported migration of legacy systems to modern frameworks.</li>
+            </ul>
+          </div>
+        </>
+      )}
+
+     
       {/* Certifications */}
       <h2 className="text-[11pt] font-bold mt-[14px] mb-[8px] uppercase text-[#222] border-b border-[#ddd] pb-[2px]">
         Certifications

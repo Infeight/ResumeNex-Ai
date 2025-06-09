@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLinkedIn } from "./linkedincontext";
+import { useUser } from "../commonComponents/usercontext";
 
 const Step1OfLO = () => {
   const {fullName, setFullName} = useLinkedIn();
@@ -13,6 +14,7 @@ const Step1OfLO = () => {
   const {location, setLocation} = useLinkedIn();
   const {experience, setExperience} = useLinkedIn();
   const {images, setImages} = useLinkedIn(); // State for four image slots
+  const {darkMode} = useUser();
 
   // Handle drag over
   const handleDragOver = (e, index) => {
@@ -58,12 +60,12 @@ const Step1OfLO = () => {
   return (
     <section className="flex flex-col gap-[24px] sm:gap-[36px]">
       {/* Basic Profile Information Section */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Basic Profile Information
           </h2>
-          <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#F8F0FF]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
 
         <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px] md:ml-[20px]">
@@ -72,7 +74,7 @@ const Step1OfLO = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="fullName"
-                className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
               >
                 Full Name
               </label>
@@ -81,7 +83,7 @@ const Step1OfLO = () => {
                 type="text"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full`}
                 placeholder="Enter your full name"
               />
             </div>
@@ -90,7 +92,7 @@ const Step1OfLO = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="currentRole"
-                className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
               >
                 Current Role
               </label>
@@ -99,7 +101,7 @@ const Step1OfLO = () => {
                 type="text"
                 value={currentRole}
                 onChange={(e) => setCurrentRole(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full`}
                 placeholder="e.g., Full Stack Developer"
               />
             </div>
@@ -115,7 +117,7 @@ const Step1OfLO = () => {
               />
               <label
                 htmlFor="isStudying"
-                className="text-[#170F49] font-inter font-medium text-[16px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium text-[16px`}
               >
                 I am currently studying
               </label>
@@ -123,13 +125,13 @@ const Step1OfLO = () => {
 
             {/* Currently Studying Section */}
             {isStudying && (
-              <div className="md:col-span-2 bg-[#FAF5FF] border border-dashed border-[#AD46FF] rounded-lg p-6">
+              <div className={`md:col-span-2 ${darkMode?'bg-[#1A1D23]':'bg-white'} border border-dashed border-[#AD46FF] rounded-lg p-6`}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                   {/* Stream */}
                   <div className="flex flex-col">
                     <label
                       htmlFor="stream"
-                      className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                      className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
                     >
                       Stream / Course Name
                     </label>
@@ -138,7 +140,7 @@ const Step1OfLO = () => {
                       type="text"
                       value={stream}
                       onChange={(e) => setStream(e.target.value)}
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full"
+                      className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full`}
                       placeholder="e.g., B.Tech CSE"
                     />
                   </div>
@@ -147,7 +149,7 @@ const Step1OfLO = () => {
                   <div className="flex flex-col">
                     <label
                       htmlFor="institution"
-                      className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                      className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
                     >
                       Institution Name
                     </label>
@@ -156,7 +158,7 @@ const Step1OfLO = () => {
                       type="text"
                       value={institution}
                       onChange={(e) => setInstitution(e.target.value)}
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full"
+                      className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full`}
                       placeholder="Enter your college/university"
                     />
                   </div>
@@ -165,7 +167,7 @@ const Step1OfLO = () => {
                   <div className="flex flex-col">
                     <label
                       htmlFor="currentYear"
-                      className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                      className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
                     >
                       Current Year of Study
                     </label>
@@ -173,7 +175,7 @@ const Step1OfLO = () => {
                       id="currentYear"
                       value={currentYear}
                       onChange={(e) => setCurrentYear(e.target.value)}
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] text-[#170F49] text-base w-full appearance-none"
+                      className={`${darkMode?'bg-[#363B45]':'bg-white'} border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] text-[#170F49] text-base w-full appearance-none`}
                     >
                       <option value="" disabled>
                         Select Year
@@ -189,7 +191,7 @@ const Step1OfLO = () => {
                   <div className="flex flex-col">
                     <label
                       htmlFor="gradYear"
-                      className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                      className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
                     >
                       Expected Graduation Year{" "}
                       <span className="text-[#A59DAA] text-[14px]">
@@ -201,7 +203,7 @@ const Step1OfLO = () => {
                       type="text"
                       value={gradYear}
                       onChange={(e) => setGradYear(e.target.value)}
-                      className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full"
+                      className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#AD46FF] placeholder-[#A59DAA] text-base w-full`}
                       placeholder="e.g., 2025"
                     />
                   </div>
@@ -213,7 +215,7 @@ const Step1OfLO = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="industry"
-                className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
               >
                 Industry
               </label>
@@ -222,7 +224,7 @@ const Step1OfLO = () => {
                 type="text"
                 value={industry}
                 onChange={(e) => setIndustry(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full`}
                 placeholder="e.g., IT, Marketing"
               />
             </div>
@@ -231,7 +233,7 @@ const Step1OfLO = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="location"
-                className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
               >
                 Location
               </label>
@@ -240,7 +242,7 @@ const Step1OfLO = () => {
                 type="text"
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-base w-full`}
                 placeholder="e.g., New York, NY"
               />
             </div>
@@ -249,7 +251,7 @@ const Step1OfLO = () => {
             <div className="flex flex-col">
               <label
                 htmlFor="experience"
-                className="text-[#170F49] font-inter font-medium mb-1 text-[18px]"
+                className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}
               >
                 Years of Experience
               </label>
@@ -257,7 +259,7 @@ const Step1OfLO = () => {
                 id="experience"
                 value={experience}
                 onChange={(e) => setExperience(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] text-[#170F49] text-base w-full appearance-none"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] ${darkMode?'text-[white]':'text-[#1E1B39]'} text-base w-full appearance-none`}
               >
                 <option value="" disabled>
                   Select Experience
@@ -273,19 +275,19 @@ const Step1OfLO = () => {
       </div>
 
       {/* Profile Images Section */}
-      <div className="flex flex-col gap-[16px] sm:gap-[20px] bg-white p-4 sm:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[16px] sm:gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} p-4 sm:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[20px] sm:text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[20px] sm:text-[24px] relative z-1`}>
             Profile Images (Min 2 images)
           </h2>
-          <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-1 sm:-left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#FFF4CC]'} h-2/4 w-3/4 absolute -bottom-0 -left-1 sm:-left-2`}></div>
         </div>
         <div className="border-l-2 border-[#FDC700] p-3 sm:p-5 md:p-[30px] ml-2 mr-0 sm:mx-[10px] md:mx-[20px]">
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
             {(images || Array(4).fill(null)).map((image, index) => (
               <div
                 key={index}
-                className="relative flex items-center justify-center aspect-square bg-[#FFF4CC] border-2 border-dashed border-[#FDC700] rounded-lg cursor-pointer transition-all"
+                className={`relative flex items-center justify-center aspect-square ${darkMode?'bg-[#FDC70033]':'bg-[#FFF4CC]'} border-2 border-dashed border-[#FDC700] rounded-lg cursor-pointer transition-all`}
                 onDragOver={(e) => handleDragOver && handleDragOver(e, index)}
                 onDragLeave={handleDragLeave}
                 onDrop={(e) => handleDrop && handleDrop(e, index)}

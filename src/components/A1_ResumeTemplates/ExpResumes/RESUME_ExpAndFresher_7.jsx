@@ -69,6 +69,13 @@ const RESUME_ExpAndFresher_7 = () => {
           >
             {formData.otherLink || "sophianguyen.dev"}
           </a>
+
+{formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+
         </p>
       </div>
 
@@ -127,79 +134,8 @@ const RESUME_ExpAndFresher_7 = () => {
         </div>
       </div>
 
-      {/* Work Experience */}
-      <h2 className="text-[20px] font-bold text-blue-800 border-b-2 border-blue-800 pb-1 mb-2 mt-5">
-        Work Experience
-      </h2>
-      <div className="mb-4">
-        {hasArrayData(workExperience, "companyName")
-          ? workExperience.map((exp, idx) => (
-              <div className="flex mb-3" key={idx}>
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">
-                    {exp.jobTitle || "Backend Developer Intern"}
-                  </h3>
-                  <p className="text-[12px] italic text-gray-600">
-                    {exp.companyName || "DataSync Inc., Chicago, IL"}
-                  </p>
-                  <ul className="list-disc pl-5 text-[12px]">
-                    {exp.responsibilities
-                      ? exp.responsibilities.split("\n").map((line, i) => (
-                          <li key={i}>{line}</li>
-                        ))
-                      : [
-                          <li key="1">
-                            Developed RESTful APIs using Node.js that reduced average
-                            response time by 20% through query optimization
-                          </li>,
-                          <li key="2">
-                            Implemented AWS Lambda functions reducing operational costs by
-                            15%
-                          </li>,
-                          <li key="3">
-                            Optimized PostgreSQL queries improving database performance by
-                            30%
-                          </li>,
-                        ]}
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px] text-gray-500">
-                  <p>
-                    {(exp.startDate || "Jan 2024")} - {(exp.endDate || "Jun 2024")}
-                  </p>
-                </div>
-              </div>
-            ))
-          : (
-            <div className="flex mb-3">
-              <div className="w-[65%]">
-                <h3 className="text-[14px] font-bold">Backend Developer Intern</h3>
-                <p className="text-[12px] italic text-gray-600">
-                  DataSync Inc., Chicago, IL
-                </p>
-                <ul className="list-disc pl-5 text-[12px]">
-                  <li>
-                    Developed RESTful APIs using Node.js that reduced average
-                    response time by 20% through query optimization
-                  </li>
-                  <li>
-                    Implemented AWS Lambda functions reducing operational costs by
-                    15%
-                  </li>
-                  <li>
-                    Optimized PostgreSQL queries improving database performance by
-                    30%
-                  </li>
-                </ul>
-              </div>
-              <div className="w-[30%] text-right text-[12px] text-gray-500">
-                <p>Jan 2024 - Jun 2024</p>
-              </div>
-            </div>
-          )}
-      </div>
 
-      {/* Projects */}
+       {/* Projects */}
       <h2 className="text-[20px] font-bold text-blue-800 border-b-2 border-blue-800 pb-1 mb-2 mt-5">
         Projects
       </h2>
@@ -330,7 +266,7 @@ const RESUME_ExpAndFresher_7 = () => {
           )}
       </div>
 
-      {/* Education */}
+       {/* Education */}
       <h2 className="text-[20px] font-bold text-blue-800 border-b-2 border-blue-800 pb-1 mb-2 mt-5">
         Education
       </h2>
@@ -387,6 +323,82 @@ const RESUME_ExpAndFresher_7 = () => {
             </>
           )}
       </div>
+
+      {/* Work Experience */}
+      <h2 className="text-[20px] font-bold text-blue-800 border-b-2 border-blue-800 pb-1 mb-2 mt-5">
+        Work Experience
+      </h2>
+      <div className="mb-4">
+        {hasArrayData(workExperience, "companyName")
+          ? workExperience.map((exp, idx) => (
+              <div className="flex mb-3" key={idx}>
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">
+                    {exp.jobTitle || "Backend Developer Intern"}
+                  </h3>
+                  <p className="text-[12px] italic text-gray-600">
+                    {exp.companyName || "DataSync Inc., Chicago, IL"}
+                  </p>
+                  <ul className="list-disc pl-5 text-[12px]">
+                    {exp.responsibilities
+                      ? exp.responsibilities.split("\n").map((line, i) => (
+                          <li key={i}>{line}</li>
+                        ))
+                      : [
+                          <li key="1">
+                            Developed RESTful APIs using Node.js that reduced average
+                            response time by 20% through query optimization
+                          </li>,
+                          <li key="2">
+                            Implemented AWS Lambda functions reducing operational costs by
+                            15%
+                          </li>,
+                          <li key="3">
+                            Optimized PostgreSQL queries improving database performance by
+                            30%
+                          </li>,
+                        ]}
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px] text-gray-500">
+                  <p>
+                    {(exp.startDate || "Jan 2024")} - {(exp.endDate || "Jun 2024")}
+                  </p>
+                </div>
+              </div>
+            ))
+          : (
+            <div className="flex mb-3">
+              <div className="w-[65%]">
+                <h3 className="text-[14px] font-bold">Backend Developer Intern</h3>
+                <p className="text-[12px] italic text-gray-600">
+                  DataSync Inc., Chicago, IL
+                </p>
+                <ul className="list-disc pl-5 text-[12px]">
+                  <li>
+                    Developed RESTful APIs using Node.js that reduced average
+                    response time by 20% through query optimization
+                  </li>
+                  <li>
+                    Implemented AWS Lambda functions reducing operational costs by
+                    15%
+                  </li>
+                  <li>
+                    Optimized PostgreSQL queries improving database performance by
+                    30%
+                  </li>
+                </ul>
+              </div>
+              <div className="w-[30%] text-right text-[12px] text-gray-500">
+                <p>Jan 2024 - Jun 2024</p>
+              </div>
+            </div>
+          )}
+      </div>
+
+     
+
+     
 
       {/* Certifications */}
       <h2 className="text-[20px] font-bold text-blue-800 border-b-2 border-blue-800 pb-1 mb-2 mt-5">

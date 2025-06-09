@@ -80,6 +80,12 @@ const RESUME_ExpAndFresher_12 = () => {
             >
               {formData.otherLink ? formData.otherLink : "yourwebsite.com"}
             </a>
+
+            {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
           </p>
         </div>
       </div>
@@ -96,88 +102,44 @@ const RESUME_ExpAndFresher_12 = () => {
             : "Motivated Mechanical Engineering graduate with expertise in product design, manufacturing processes, and 3D modeling, seeking an entry-level role to apply my skills in AutoCAD and SolidWorks. Eager to contribute to prototyping, automation, and team collaboration in a dynamic engineering environment."}
         </p>
 
-        {/* Education */}
+
+         {/* Skills */}
         <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">
-          Education
+          Skills
         </h2>
-        <div className="mb-3">
-          <div className="flex justify-between text-[14px] flex-wrap items-start">
-            <span className="font-bold max-w-[70%] flex-1">
-              {edu.degree || edu.stream
-                ? `${edu.degree ? edu.degree : "Degree"}${edu.stream ? " (" + edu.stream + ")" : ""}`
-                : "B.E. in Mechanical Engineering (Robotics & Automation)"}
-            </span>
-            <span className="italic font-bold min-w-[100px] text-right flex-shrink-0">
-              {(edu.startDate || edu.endDate)
-                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
-                : "Jun 2020 - May 2024"}
-            </span>
+        <div className="text-[12px] mb-4 font-normal">
+          <div className="flex">
+            <div className="w-[65%]">
+              <p>
+                <span className="font-bold">Technical Skills:</span>{" "}
+                {skills.technical && skills.technical.length > 0
+                  ? skills.technical.join(", ")
+                  : "Product Design, 3D Modeling, Stress Analysis, Prototyping, Automation"}
+              </p>
+              <p>
+                <span className="font-bold">Technical Proficiencies:</span>{" "}
+                {skills.related
+                  ? skills.related
+                  : "AutoCAD, SolidWorks, MATLAB, Arduino, MS Office"}
+              </p>
+              <p>
+                <span className="font-bold">Soft Skills:</span>{" "}
+                {skills.soft && skills.soft.length > 0
+                  ? skills.soft.join(", ")
+                  : "Problem-Solving, Team Collaboration, Communication, Time Management"}
+              </p>
+            </div>
+            <div className="w-[30%] text-right">
+              <p>
+                Proficiency:{" "}
+                {skills.proficiency ? skills.proficiency : "Intermediate"}
+              </p>
+            </div>
           </div>
-          <div className="text-[14px] flex justify-between">
-            <span className="font-normal">
-              {edu.collegeName
-                ? edu.collegeName
-                : "National Institute of Technology, Mumbai, India"}
-            </span>
-            <span className="text-[12px] italic font-normal">
-              CGPA: {edu.cgpa ? edu.cgpa : "8.3/10"}
-            </span>
-          </div>
-          <p className="text-[12px]">
-            <span className="font-bold">Relevant Coursework:</span>{" "}
-            {edu.relevantCoursework
-              ? edu.relevantCoursework
-              : "Robotics, CAD/CAM, Manufacturing Processes, Finite Element Analysis"}
-          </p>
         </div>
 
-        {/* Internships */}
-        <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">
-          Internships
-        </h2>
-        <div className="mb-3">
-          <div className="flex justify-between text-[14px] font-bold">
-            <span>
-              {exp.jobTitle ? exp.jobTitle : "Design Intern"}
-            </span>
-            <span className="italic">
-              {(exp.startDate || exp.endDate)
-                ? `${exp.startDate ? exp.startDate : "Start"} - ${exp.endDate ? exp.endDate : "End"}`
-                : "Jun 2023 - Aug 2023"}
-            </span>
-          </div>
-          <div className="text-[14px] font-bold text-[#555]">
-            {exp.companyName
-              ? exp.companyName
-              : "AutoTech Industries, Mumbai, India"}
-          </div>
-          <ul className="list-disc pl-5 text-[12px] mt-1 font-normal">
-            {exp.responsibilities
-              ? exp.responsibilities
-              .split("\n")
-              .map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))
-              : (
-                <>
-                  <li>
-                    <i>Designed</i> 3D models of automotive parts using SolidWorks,
-                    enhancing product design accuracy.
-                  </li>
-                  <li>
-                    <i>Performed</i> stress analysis on components, improving
-                    durability by <b>10%</b> through finite element analysis.
-                  </li>
-                  <li>
-                    <i>Prepared</i> technical drawings and documentation for
-                    manufacturing processes, ensuring production readiness.
-                  </li>
-                </>
-              )}
-          </ul>
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">
           Projects
         </h2>
@@ -232,40 +194,90 @@ const RESUME_ExpAndFresher_12 = () => {
           </ul>
         </div>
 
-        {/* Skills */}
+
+        {/* Education */}
         <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">
-          Skills
+          Education
         </h2>
-        <div className="text-[12px] mb-4 font-normal">
-          <div className="flex">
-            <div className="w-[65%]">
-              <p>
-                <span className="font-bold">Technical Skills:</span>{" "}
-                {skills.technical && skills.technical.length > 0
-                  ? skills.technical.join(", ")
-                  : "Product Design, 3D Modeling, Stress Analysis, Prototyping, Automation"}
-              </p>
-              <p>
-                <span className="font-bold">Technical Proficiencies:</span>{" "}
-                {skills.related
-                  ? skills.related
-                  : "AutoCAD, SolidWorks, MATLAB, Arduino, MS Office"}
-              </p>
-              <p>
-                <span className="font-bold">Soft Skills:</span>{" "}
-                {skills.soft && skills.soft.length > 0
-                  ? skills.soft.join(", ")
-                  : "Problem-Solving, Team Collaboration, Communication, Time Management"}
-              </p>
-            </div>
-            <div className="w-[30%] text-right">
-              <p>
-                Proficiency:{" "}
-                {skills.proficiency ? skills.proficiency : "Intermediate"}
-              </p>
-            </div>
+        <div className="mb-3">
+          <div className="flex justify-between text-[14px] flex-wrap items-start">
+            <span className="font-bold max-w-[70%] flex-1">
+              {edu.degree || edu.stream
+                ? `${edu.degree ? edu.degree : "Degree"}${edu.stream ? " (" + edu.stream + ")" : ""}`
+                : "B.E. in Mechanical Engineering (Robotics & Automation)"}
+            </span>
+            <span className="italic font-bold min-w-[100px] text-right flex-shrink-0">
+              {(edu.startDate || edu.endDate)
+                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
+                : "Jun 2020 - May 2024"}
+            </span>
           </div>
+          <div className="text-[14px] flex justify-between">
+            <span className="font-normal">
+              {edu.collegeName
+                ? edu.collegeName
+                : "National Institute of Technology, Mumbai, India"}
+            </span>
+            <span className="text-[12px] italic font-normal">
+              CGPA: {edu.cgpa ? edu.cgpa : "8.3/10"}
+            </span>
+          </div>
+          <p className="text-[12px]">
+            <span className="font-bold">Relevant Coursework:</span>{" "}
+            {edu.relevantCoursework
+              ? edu.relevantCoursework
+              : "Robotics, CAD/CAM, Manufacturing Processes, Finite Element Analysis"}
+          </p>
         </div>
+
+        {/* Internships */}
+        <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">
+          Experience
+        </h2>
+        <div className="mb-3">
+          <div className="flex justify-between text-[14px] font-bold">
+            <span>
+              {exp.jobTitle ? exp.jobTitle : "Design Intern"}
+            </span>
+            <span className="italic">
+              {(exp.startDate || exp.endDate)
+                ? `${exp.startDate ? exp.startDate : "Start"} - ${exp.endDate ? exp.endDate : "End"}`
+                : "Jun 2023 - Aug 2023"}
+            </span>
+          </div>
+          <div className="text-[14px] font-bold text-[#555]">
+            {exp.companyName
+              ? exp.companyName
+              : "AutoTech Industries, Mumbai, India"}
+          </div>
+          <ul className="list-disc pl-5 text-[12px] mt-1 font-normal">
+            {exp.responsibilities
+              ? exp.responsibilities
+              .split("\n")
+              .map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))
+              : (
+                <>
+                  <li>
+                    <i>Designed</i> 3D models of automotive parts using SolidWorks,
+                    enhancing product design accuracy.
+                  </li>
+                  <li>
+                    <i>Performed</i> stress analysis on components, improving
+                    durability by <b>10%</b> through finite element analysis.
+                  </li>
+                  <li>
+                    <i>Prepared</i> technical drawings and documentation for
+                    manufacturing processes, ensuring production readiness.
+                  </li>
+                </>
+              )}
+          </ul>
+        </div>
+
+       
+       
 
         {/* Achievements & Certifications */}
         <h2 className="text-[20px] font-bold uppercase mb-2 mt-5 text-[#7b1fa2] border-l-[3px] border-[#7b1fa2] pl-2">

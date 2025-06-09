@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import html2pdf from 'html2pdf.js'
 import { jsPDF } from "jspdf";
+import { useUser } from "../commonComponents/usercontext";
 
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
@@ -14,9 +15,10 @@ const ProgressIndicator = ({ percentage }) => {
   const radius = 96;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
+  const{darkMode} = useUser();
 
   return (
-    <div className="flex items-center justify-center  bg-white ">
+    <div className={`flex items-center justify-center  ${darkMode?'bg-[#363B45]':'bg-white'} `}>
       <div className="relative w-[110px] h-[110px]">
         <svg
           className="transform -rotate-90 w-full h-full "
@@ -87,6 +89,7 @@ const FinalPageOR = () => {
     const uploadedFile = location.state?.uploadedFile || null; 
     const jobRole = location.state?.jobRole || null;
     const sections = location.state?.sections||null;
+    const {darkMode} = useUser();
 
     console.log(jobRole, sections)
      
@@ -139,123 +142,123 @@ const FinalPageOR = () => {
   // side resume popup
   const expResumes = [
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/resume_expAndFresher_001",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
       url: "/resumes_templates/resume_expAndFresher_002",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
       url: "/resumes_templates/resume_expAndFresher_003",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/resumes_templates/resume_expAndFresher_004",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_5.avif",
       url: "/resumes_templates/resume_expAndFresher_005",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_6.avif",
       url: "/resumes_templates/resume_expAndFresher_006",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/resumes_templates/resume_expAndFresher_007",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
       url: "/resumes_templates/resume_expAndFresher_008",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
       url: "/resumes_templates/resume_expAndFresher_009",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_10.avif",
       url: "/resumes_templates/resume_expAndFresher_010",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_11.avif",
       url: "/resumes_templates/resume_expAndFresher_011",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_12.avif",
       url: "/resumes_templates/resume_expAndFresher_012",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_13.avif",
       url: "/resumes_templates/resume_expAndFresher_013",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
       url: "/resumes_templates/resume_expAndFresher_014",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_15.avif",
       url: "/resumes_templates/resume_expAndFresher_015",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_16.avif",
       url: "/resumes_templates/resume_expAndFresher_016",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_17.avif",
       url: "/resumes_templates/resume_expAndFresher_017",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_18.avif",
       url: "/resumes_templates/resume_expAndFresher_018",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_19.avif",
       url: "/resumes_templates/resume_expAndFresher_019",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_20.avif",
       url: "/resumes_templates/resume_expAndFresher_020",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_21.avif",
       url: "/resumes_templates/resume_expAndFresher_021",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_22.avif",
       url: "/resumes_templates/resume_expAndFresher_022",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_23.avif",
       url: "/resumes_templates/resume_expAndFresher_023",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_24.avif",
       url: "/resumes_templates/resume_expAndFresher_024",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_25.avif",
       url: "/resumes_templates/resume_expAndFresher_025",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_26.avif",
       url: "/resumes_templates/resume_expAndFresher_026",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_27.avif",
       url: "/resumes_templates/resume_expAndFresher_027",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_28.avif",
       url: "/resumes_templates/resume_expAndFresher_028",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
       url: "/resumes_templates/resume_expAndFresher_029",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.png",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
       url: "/resumes_templates/resume_expAndFresher_030",
     },
   ];
@@ -305,7 +308,7 @@ const downloadPDF = () => {
   return (
 
     
-    <section className="w-full max-w-[1700px] mx-auto bg-[#F7F7FB] flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 p-4 sm:p-6 lg:p-12">
+    <section className={`w-full max-w-[1700px] mx-auto ${darkMode?'bg-[#23272F]':'bg-white'} flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 p-4 sm:p-6 lg:p-12`}>
       {/* Left resume display */}
    <div className="w-full max-w-[496px] max-h-[45vw] overflow-y-scroll rounded-[20px] border border-[#DCDCDC] shadow-sm bg-white">
 
@@ -352,16 +355,16 @@ const downloadPDF = () => {
       </div>
 
 
-<button
+{/* <button
   onClick={downloadPDF}
   className="mt-4 px-4 py-2 bg-cyan-600 text-white rounded hover:bg-cyan-700"
 >
   Download as PDF
-</button>
+</button> */}
 
       {/* Middle AI suggestions */}
-      <div className="w-full max-w-[502px] h-[702px] rounded-[20px] border border-[#DCDCDC] bg-white p-4 sm:p-5 flex flex-col gap-5 font-inter font-normal overflow-y-auto custom-scrollbar">
-        <p className="text-base sm:text-lg flex gap-1 items-center">
+      <div className={`w-full max-w-[502px] h-[702px] rounded-[20px] border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} ${darkMode?'bg-[#363B45]':'bg-white'} p-4 sm:p-5 flex flex-col gap-5 font-inter font-normal overflow-y-auto custom-scrollbar`}>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-base sm:text-lg flex gap-1 items-center`}>
           Suggested By
           <span className="text-[#336EE7] font-bold flex gap-0.5 items-center">
             AI
@@ -385,10 +388,10 @@ const downloadPDF = () => {
         {suggestions.map(({ id, title, content }) => (
           <div
             key={id}
-            className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]"
+            className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#23272F]':'bg-white'}`}
           >
-            <p className="font-medium text-sm sm:text-base">{title}</p>
-            <p className="text-xs sm:text-sm">{content}</p>
+            <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-sm sm:text-base`}>{title}</p>
+            <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-xs sm:text-sm`}>{content}</p>
             <div className="w-full flex gap-2 justify-end text-xs sm:text-sm font-medium">
               {replaced[id] ? (
                 <>
@@ -404,7 +407,7 @@ const downloadPDF = () => {
                 </>
               ) : (
                 <button
-                  className="px-3 py-1 border rounded-full cursor-pointer hover:bg-gray-100"
+                  className={`${darkMode?'text-[white]':'text-[#363B45]'} px-3 py-1 border rounded-full cursor-pointer hover:${darkMode?'bg-[#363B45]':'bg-gray-100'}`}
                   onClick={() => toggleReplace(id)}
                 >
                   Replace
@@ -418,7 +421,7 @@ const downloadPDF = () => {
       {/* Right action buttons */}
       <div className="w-full max-w-[242px] h-auto flex flex-col gap-4 relative sticky top-[1vw]">
         {/* ATS Progress Card */}
-        <div className="w-full h-[143px] px-2 py-6 bg-white border border-[#DCDCDC] text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm">
+        <div className={`${darkMode?'text-[white]':'text-[#363B45]'} w-full h-[143px] px-2 py-6 ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} ${darkMode?'bg-[#363B45]':'bg-[white]'} border text-xl sm:text-2xl font-manrope font-bold flex items-center justify-center gap-5 rounded-[30px] shadow-sm`}>
           <p>ATS</p>
           <ProgressIndicator percentage={85} />
         </div>
@@ -428,15 +431,15 @@ const downloadPDF = () => {
           <p className="text-xs sm:text-sm font-inter font-medium py-2">
             Recommend Templates
           </p>
-          <div className="flex flex-col gap-3 items-center bg-white p-3 w-full rounded-[10px] border border-[#DCDCDC]">
+          <div className={`flex flex-col gap-3 items-center ${darkMode?'bg-[#363B45]':'bg-[white]'} p-3 w-full rounded-[10px] border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'}`}>
             <img
-              src="/img/demoCL.png"
+              src="/img/demoCL.avif"
               alt="img"
               className="w-full rounded-[10px] border border-[#DCDCDC]"
             />
             {/* Updated Show All Button */}
             <p
-              className="flex items-center gap-2 px-3 py-1 border-2 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-xs sm:text-sm cursor-pointer transition hover:bg-[#3367E7] hover:text-white"
+              className={`${darkMode?'text-[white]':'text-[#363B45]'} flex items-center gap-2 px-3 py-1 border-2 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-xs sm:text-sm cursor-pointer transition hover:bg-[#3367E7] hover:text-white`}
               onClick={handleOpenTemplates}
             >
               Show All
@@ -471,8 +474,8 @@ const downloadPDF = () => {
               </div>
 
               {/* Right side white panel */}
-              <div className=" w-[80%] bg-[#F7F7FB] h-full p-[50px] overflow-y-auto cursor-pointer">
-                <h2 className="font-lexend text-[35px] font-bold mb-6">
+              <div className={` w-[80%] ${darkMode?'bg-[#363B45]':'bg-[white]'} h-full p-[50px] overflow-y-auto cursor-pointer`}>
+                <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-lexend text-[35px] font-bold mb-6`}>
                   Select Templates
                 </h2>
 
@@ -560,24 +563,24 @@ const downloadPDF = () => {
         </div>
 
         {/* Download, Print, Mail, WhatsApp Actions */}
-        <div className="w-full bg-[#FFFFFF] flex flex-col gap-3 items-center justify-center rounded-[16px] border border-[#DCDCDC] p-4">
+        <div className={`w-full ${darkMode?'bg-[#363B45]':'bg-[white]'} flex flex-col gap-3 items-center justify-center rounded-[16px] border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} p-4`}>
           <div className="w-full font-lexend text-base border border-[#D3D9DE] text-white px-4 py-2 rounded-xl flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-t from-[#336EE7] to-[#4C95FB] hover:from-[#2F61D3] hover:to-[#4387E5]">
             <img src="/Icons/download.svg" alt="download" />
             Download
           </div>
 
           <div className="flex justify-between w-full gap-2">
-            <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#FE9A00] bg-[#FFFAF2] hover:bg-[#FFF5E6]">
+            <div className={`w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#FE9A00]  ${darkMode?'bg-[#FE9A0033]':'bg-[#FFFAF2]'}   hover:bg-[#FFF5E6]`}>
               <img
                 src="/Icons/print.svg"
                 alt="printer"
                 className="w-6 sm:w-8"
               />
             </div>
-            <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#9810FA] bg-[#FAF3FF] hover:bg-[#F5E9FF]">
+            <div className={`w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#9810FA] ${darkMode?'bg-[#9810FA33]':'bg-[#FAF3FF]'}  hover:bg-[#F5E9FF]`}>
               <img src="/Icons/mail.svg" alt="mail" className="w-6 sm:w-8" />
             </div>
-            <div className="w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#00A63E] bg-[#F2FBF5] hover:bg-[#E6F8EB]">
+            <div className={`w-full h-12 border-2 p-2 rounded-[9.6px] flex items-center justify-center cursor-pointer border-[#00A63E] ${darkMode?'bg-[#00A63E33]':'bg-[#F2FBF5]'}  hover:bg-[#E6F8EB]`}>
               <img
                 src="/Icons/whatsapp.svg"
                 alt="whatsapp"

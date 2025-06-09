@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useUser } from "../usercontext";
 
 const MobileMenu = ({
   isMobileMenuOpen,
@@ -9,11 +10,12 @@ const MobileMenu = ({
   toolsNavElement,
   organizationNavElement,
 }) => {
+  const {darkMode} = useUser();
   return (
     <>
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-[#10101056] bg-opacity-50 z-[50] lg:hidden"
+          className={`fixed inset-0  ${darkMode ? 'text-[white]' : 'text-gray-700'}  bg-[#10101056] bg-opacity-50 z-[50] lg:hidden`}
           onClick={toggleMobileMenu}
         />
       )}
@@ -22,15 +24,15 @@ const MobileMenu = ({
           mobile-menu text-base font-medium
           ${
             isMobileMenuOpen
-              ? "fixed inset-y-0 right-0 w-[280px] sm:w-[300px] max-w-[85vw] bg-white shadow-2xl border-l border-gray-300 z-[60] flex flex-col p-6 space-y-3.5 overflow-y-auto transform transition-transform duration-300 ease-in-out translate-x-0"
-              : "fixed inset-y-0 right-0 w-[280px] sm:w-[300px] max-w-[85vw] bg-white shadow-2xl border-l border-gray-300 z-[60] flex flex-col p-6 space-y-3.5 overflow-y-auto transform transition-transform duration-300 ease-in-out translate-x-full pointer-events-none"
+              ? `fixed inset-y-0 right-0 w-[280px] sm:w-[300px] max-w-[85vw] ${darkMode ? 'bg-[#1A1D23]' : 'bg-[white]'} shadow-2xl border-l ${darkMode ? 'border-[#1A1D23]' : 'border-gray-300'}  z-[60] flex flex-col p-6 space-y-3.5 overflow-y-auto transform transition-transform duration-300 ease-in-out translate-x-0`
+              : `fixed inset-y-0 right-0 w-[280px] sm:w-[300px] max-w-[85vw] ${darkMode ? 'bg-[#1A1D23]' : 'bg-[white]'} shadow-2xl border-l ${darkMode ? 'border-[#1A1D23]' : 'border-gray-300'} z-[60] flex flex-col p-6 space-y-3.5 overflow-y-auto transform transition-transform duration-300 ease-in-out translate-x-full pointer-events-none`
           }
           lg:hidden
         `}
       >
         <button
           onClick={toggleMobileMenu}
-          className="self-end p-2 text-gray-700"
+          className={`self-end p-2 ${darkMode ? 'text-[white]' : 'text-gray-700'}`}
           aria-label="Close menu"
         >
           <svg
@@ -51,7 +53,7 @@ const MobileMenu = ({
         <Link
           to="/"
           onClick={closeMobileMenuAndDropdowns}
-          className="block py-2 hover:text-pink-600 transition-colors"
+          className={`block py-2 hover:text-pink-600 transition-colors ${darkMode ? 'text-[white]' : 'text-gray-700'}`}
         >
           Home
         </Link>
@@ -60,7 +62,7 @@ const MobileMenu = ({
         <Link
           to="/blogs"
           onClick={closeMobileMenuAndDropdowns}
-          className="block py-2 hover:text-pink-600 transition-colors"
+          className={`block py-2 hover:text-pink-600 transition-colors ${darkMode ? 'text-[white]' : 'text-gray-700'}`}
         >
           Blogs
         </Link>
@@ -79,7 +81,7 @@ const MobileMenu = ({
                 setIsModalOpen(true);
                 closeMobileMenuAndDropdowns();
               }}
-              className="cursor-pointer text-sm hover:text-blue-600 hover:underline text-center w-full py-2 font-semibold"
+              className={`cursor-pointer text-sm hover:text-blue-600 hover:underline text-center w-full py-2 font-semibold ${darkMode ? 'text-[white]' : 'text-gray-700'}`}
             >
               Sign In
             </p>

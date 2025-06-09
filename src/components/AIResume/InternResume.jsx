@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../commonComponents/usercontext";
 
 const InternResume = () => {
   const navigate = useNavigate();
-
+  const{darkMode} = useUser();
 
   const [isExpanded, setIsExpanded] = useState(false); // State to track whether the content is expanded
 
@@ -163,8 +164,8 @@ const InternResume = () => {
     };
 
   return (
-    <div className="flex flex-col items-center gap-[30px] w-full bg-[#F8F0FF] border border-[#DAB2FF] rounded-[30px] px-[50px] py-[30px] ">
-      <p className="font-manrope font-extrabold text-[30px] text-center">
+    <div className={`flex flex-col items-center gap-[30px] w-full ${darkMode?'bg-[#00A6F433]':'bg-[#F8F0FF]'}  border ${darkMode?'border-[#00A6F4]':'border-[#DAB2FF]'} rounded-[30px] px-[50px] py-[30px] `}>
+      <p className={`font-manrope font-extrabold text-[30px] text-center ${darkMode?'text-[#fff]':'text-[black]'}`}>
        Interns
       </p>
 
@@ -379,7 +380,7 @@ const InternResume = () => {
       <div className="flex justify-center mt-6">
         <p
           onClick={toggleContent}
-          className="flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition hover:bg-[#3367E7] hover:text-white"
+          className={`${darkMode?'bg-[black]':'bg-[#F8F0FF]'} ${darkMode?'text-[white]':'text-[black]'} flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition hover:bg-[#3367E7] hover:text-white`}
         >
           {isExpanded ? "See Less" : "See More"}
           <img

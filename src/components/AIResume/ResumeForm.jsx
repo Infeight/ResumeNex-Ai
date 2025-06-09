@@ -12,13 +12,14 @@ import AdditionalSections from "./FormSteps/AdditionalSections";
 import RightSectionAtsTempDownload from "./RightSectionAtsTempDownload";
 import { useParams } from "react-router-dom";
 import { useResume } from "./FormSteps/resumecontext";
+import { useUser } from "../commonComponents/usercontext";
 
 
 // import ReactToPdf from 'react-to-pdf';
 
 
 function ResumeForm() {
-
+ const {darkMode}= useUser()
     // const resumeref = useRef();
 
   const { templateIdOfResume } = useParams();
@@ -78,9 +79,9 @@ function ResumeForm() {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row w-full min-h-screen bg-gray-50">
+    <div className={`flex flex-col lg:flex-row w-full min-h-screen ${darkMode?'bg-[#23272F]':'bg-gray-50'}`}>
       {/* Left Form Section */}
-<div className="w-full lg:w-2/6 bg-white p-4 sm:p-6 md:p-[30px] shadow-md overflow-y-auto flex flex-col gap-6 no-scrollbar-arrows">
+<div className={`w-full lg:w-2/6 ${darkMode?'bg-[#23272F]':'bg-gray-50'} p-4 sm:p-6 md:p-[30px] shadow-md overflow-y-auto flex flex-col gap-6 no-scrollbar-arrows`}>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-6">
           <PersonalInfo formData={formData} setFormData={setFormData} />
@@ -107,12 +108,12 @@ function ResumeForm() {
             Save Resume
           </button>
 
-          <button
+          {/* <button
        className="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 w-full font-semibold transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
         onClick={() => setOpenDownload(true)}
       >
         Download
-      </button>
+      </button> */}
 
         </form>
       </div>
@@ -123,11 +124,11 @@ function ResumeForm() {
 
  {visible && (
         <div
-          className="
-            fixed inset-0 z-[48] flex items-center justify-center bg-black bg-opacity-40
+          className={`
+            fixed inset-0 z-[48] flex items-center justify-center ${darkMode?'bg-[#23272F]':'bg-gray-50'}
             lg:static lg:bg-transparent lg:z-50 lg:inset-auto lg:flex-none
             h-[100vh]
-          "
+          `}
         >
           {/* Close button for overlay (mobile/tablet only) */}
           {/* <button
@@ -140,13 +141,13 @@ function ResumeForm() {
 
           {/* Main Resume Preview */}
           <div
-            className="
+            className={`
               w-full max-w-[794px] max-h-[1123px] bg-white rounded-xl shadow-lg border border-gray-200
               overflow-y-auto flex justify-center items-center scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100
               h-[100vh] sm:h-[90vh] md:h-[95vh] lg:h-full
               relative
               scale-[1] sm:scale-[0.95] md:scale-[0.98] lg:scale-100
-            "
+            `}
           >
             <div className="w-[794px] h-auto sm:h-auto md:h-auto lg:h-[830px] scale-[0.5] sm:scale-[0.6] md:scale-[0.7] lg:scale-[0.85]">
               <Suspense fallback={<div>Loading Template...</div>}>
@@ -177,7 +178,7 @@ function ResumeForm() {
   className={`
     hidden
     lg:flex
-    justify-center items-center bg-gray-100 
+    justify-center items-center ${darkMode?'bg-[#23272F]':'bg-gray-50'}
     absolute top-[15vw] left-0 right-0 w-full h-auto
     lg:relative lg:w-3/5 lg:h-screen lg:p-6 lg:sticky lg:top-[1vw]
   `}

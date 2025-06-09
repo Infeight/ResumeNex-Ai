@@ -87,114 +87,28 @@ const RESUME_ExpAndFresher_13 = () => {
           : "Dedicated Web Developer with a Bachelor’s in Computer Science from Boston University. Skilled in building responsive web applications using HTML, CSS, JavaScript, and React, with experience in full-stack development. Successfully optimized load times by 30% on a portfolio project, enhancing user experience. Passionate about creating intuitive interfaces and collaborating on innovative solutions."}
       </p>
 
-      {/* Work Experience */}
-      <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
-        Work Experience
-      </h2>
-      {work && work.length > 0 && (work[0].jobTitle || work[0].companyName) ? (
-        work.map((item, idx) => (
-          <div className="mb-[10px]" key={idx}>
-            <div className="flex justify-between mb-[4px]">
-              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
-                {item.jobTitle ? item.jobTitle : "Job Title"}
-              </h3>
-              <div className="text-[9.5pt] italic">
-                {(item.startDate || item.endDate)
-                  ? `${item.startDate ? item.startDate : "Start"} - ${item.endDate ? item.endDate : "End"}`
-                  : "Date"}
-              </div>
-            </div>
-            <div className="text-[9.5pt] font-bold">
-              {item.companyName ? item.companyName : "Company Name"}
-            </div>
-            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
-              {item.responsibilities
-                ? item.responsibilities.split("\n").map((r, i) => <li key={i}>{r}</li>)
-                : (
-                  <>
-                    <li>Developing responsive web interfaces using React.</li>
-                    <li>Coordinating with designers to implement UI/UX improvements.</li>
-                    <li>Reducing page load times by 20% through optimization.</li>
-                  </>
-                )}
-            </ul>
-          </div>
-        ))
-      ) : (
-        <>
-          <div className="mb-[10px]">
-            <div className="flex justify-between mb-[4px]">
-              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
-                Junior Web Developer
-              </h3>
-              <div className="text-[9.5pt] italic">Jun 2022 - Present</div>
-            </div>
-            <div className="text-[9.5pt] font-bold">TechCorp (Boston, MA)</div>
-            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
-              <li>Developing responsive web interfaces using React.</li>
-              <li>Coordinating with designers to implement UI/UX improvements.</li>
-              <li>Reducing page load times by 20% through optimization.</li>
-            </ul>
-          </div>
-          <div className="mb-[10px]">
-            <div className="flex justify-between mb-[4px]">
-              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
-                Web Development Intern
-              </h3>
-              <div className="text-[9.5pt] italic">Jan 2021 - May 2021</div>
-            </div>
-            <div className="text-[9.5pt] font-bold">
-              Innovate Solutions (Boston, MA)
-            </div>
-            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
-              <li>Assisted in building static websites with HTML/CSS.</li>
-              <li>Updated legacy code to improve accessibility.</li>
-              <li>Collaborated on a team project to revamp client portal.</li>
-            </ul>
-          </div>
-        </>
-      )}
 
-      {/* Education */}
+       {/* Skills */}
       <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
-        Education
+        Skills
       </h2>
-      {edu && (edu.degree || edu.collegeName) ? (
-        <div className="mb-[6px]">
-          <div className="flex justify-between mb-[2px]">
-            <div className="text-[9.5pt] font-medium">
-              {edu.degree ? edu.degree : "Degree"}
-              {edu.stream ? `, ${edu.stream}` : ""}
-            </div>
-            <div className="text-[9.5pt] italic">
-              {(edu.startDate || edu.endDate)
-                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
-                : "Date"}
-            </div>
-          </div>
-          <div className="flex justify-between text-[8.5pt] text-[#555]">
-            <div>{edu.collegeName ? edu.collegeName : "College Name"}</div>
-            <div className="italic">
-              CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
-            </div>
-          </div>
+      <div className="text-[9.5pt] mt-[4px] mb-[10px]">
+        <div>
+          <span className="font-medium">Technical Skills:</span>{" "}
+          {skills.technical && skills.technical.length > 0
+            ? skills.technical.join(", ")
+            : "HTML, CSS, JavaScript, React, Node.js, Git"}
         </div>
-      ) : (
-        <div className="mb-[6px]">
-          <div className="flex justify-between mb-[2px]">
-            <div className="text-[9.5pt] font-medium">
-              Bachelor’s, Computer Science
-            </div>
-            <div className="text-[9.5pt] italic">Sep 2018 - May 2022</div>
-          </div>
-          <div className="flex justify-between text-[8.5pt] text-[#555]">
-            <div>Boston University, Boston, MA</div>
-            <div className="italic">CGPA: 3.85</div>
-          </div>
+        <div>
+          <span className="font-medium">Soft Skills:</span>{" "}
+          {skills.soft && skills.soft.length > 0
+            ? skills.soft.join(", ")
+            : "Teamwork, Problem-Solving, Communication"}
         </div>
-      )}
+      </div>
 
-      {/* Projects */}
+
+ {/* Projects */}
       <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
         Projects
       </h2>
@@ -269,6 +183,118 @@ const RESUME_ExpAndFresher_13 = () => {
         </>
       )}
 
+
+  {/* Education */}
+      <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
+        Education
+      </h2>
+      {edu && (edu.degree || edu.collegeName) ? (
+        <div className="mb-[6px]">
+          <div className="flex justify-between mb-[2px]">
+            <div className="text-[9.5pt] font-medium">
+              {edu.degree ? edu.degree : "Degree"}
+              {edu.stream ? `, ${edu.stream}` : ""}
+            </div>
+            <div className="text-[9.5pt] italic">
+              {(edu.startDate || edu.endDate)
+                ? `${edu.startDate ? edu.startDate : "Start"} - ${edu.endDate ? edu.endDate : "End"}`
+                : "Date"}
+            </div>
+          </div>
+          <div className="flex justify-between text-[8.5pt] text-[#555]">
+            <div>{edu.collegeName ? edu.collegeName : "College Name"}</div>
+            <div className="italic">
+              CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="mb-[6px]">
+          <div className="flex justify-between mb-[2px]">
+            <div className="text-[9.5pt] font-medium">
+              Bachelor’s, Computer Science
+            </div>
+            <div className="text-[9.5pt] italic">Sep 2018 - May 2022</div>
+          </div>
+          <div className="flex justify-between text-[8.5pt] text-[#555]">
+            <div>Boston University, Boston, MA</div>
+            <div className="italic">CGPA: 3.85</div>
+          </div>
+        </div>
+      )}
+
+     
+
+
+      {/* Work Experience */}
+      <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
+        Work Experience
+      </h2>
+      {work && work.length > 0 && (work[0].jobTitle || work[0].companyName) ? (
+        work.map((item, idx) => (
+          <div className="mb-[10px]" key={idx}>
+            <div className="flex justify-between mb-[4px]">
+              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
+                {item.jobTitle ? item.jobTitle : "Job Title"}
+              </h3>
+              <div className="text-[9.5pt] italic">
+                {(item.startDate || item.endDate)
+                  ? `${item.startDate ? item.startDate : "Start"} - ${item.endDate ? item.endDate : "End"}`
+                  : "Date"}
+              </div>
+            </div>
+            <div className="text-[9.5pt] font-bold">
+              {item.companyName ? item.companyName : "Company Name"}
+            </div>
+            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
+              {item.responsibilities
+                ? item.responsibilities.split("\n").map((r, i) => <li key={i}>{r}</li>)
+                : (
+                  <>
+                    <li>Developing responsive web interfaces using React.</li>
+                    <li>Coordinating with designers to implement UI/UX improvements.</li>
+                    <li>Reducing page load times by 20% through optimization.</li>
+                  </>
+                )}
+            </ul>
+          </div>
+        ))
+      ) : (
+        <>
+          <div className="mb-[10px]">
+            <div className="flex justify-between mb-[4px]">
+              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
+                Junior Web Developer
+              </h3>
+              <div className="text-[9.5pt] italic">Jun 2022 - Present</div>
+            </div>
+            <div className="text-[9.5pt] font-bold">TechCorp (Boston, MA)</div>
+            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
+              <li>Developing responsive web interfaces using React.</li>
+              <li>Coordinating with designers to implement UI/UX improvements.</li>
+              <li>Reducing page load times by 20% through optimization.</li>
+            </ul>
+          </div>
+          <div className="mb-[10px]">
+            <div className="flex justify-between mb-[4px]">
+              <h3 className="text-[10.5pt] font-bold mt-[10px] mb-[4px]">
+                Web Development Intern
+              </h3>
+              <div className="text-[9.5pt] italic">Jan 2021 - May 2021</div>
+            </div>
+            <div className="text-[9.5pt] font-bold">
+              Innovate Solutions (Boston, MA)
+            </div>
+            <ul className="mt-[4px] mb-[10px] pl-[18px] text-[9.5pt] space-y-[3px]">
+              <li>Assisted in building static websites with HTML/CSS.</li>
+              <li>Updated legacy code to improve accessibility.</li>
+              <li>Collaborated on a team project to revamp client portal.</li>
+            </ul>
+          </div>
+        </>
+      )}
+
+    
       {/* Certifications */}
       <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
         Certifications
@@ -331,25 +357,7 @@ const RESUME_ExpAndFresher_13 = () => {
         </>
       )}
 
-      {/* Skills */}
-      <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
-        Skills
-      </h2>
-      <div className="text-[9.5pt] mt-[4px] mb-[10px]">
-        <div>
-          <span className="font-medium">Technical Skills:</span>{" "}
-          {skills.technical && skills.technical.length > 0
-            ? skills.technical.join(", ")
-            : "HTML, CSS, JavaScript, React, Node.js, Git"}
-        </div>
-        <div>
-          <span className="font-medium">Soft Skills:</span>{" "}
-          {skills.soft && skills.soft.length > 0
-            ? skills.soft.join(", ")
-            : "Teamwork, Problem-Solving, Communication"}
-        </div>
-      </div>
-
+     
       {/* Languages */}
       <h2 className="text-[12pt] font-bold mt-[14px] mb-[6px] uppercase border-b border-[#333] pb-[2px]">
         Languages

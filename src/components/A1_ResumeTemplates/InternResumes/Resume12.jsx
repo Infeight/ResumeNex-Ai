@@ -94,66 +94,8 @@ const Resume12 = () => {
         </ul>
       </div>
 
-      {/* Experience */}
-      <div className="mb-[15px] p-[10px] bg-white border-l-2 border-[#1b3a57]">
-        <div className="text-[20px] font-bold text-[#1b3a57] mb-[5px]">
-          Experience
-        </div>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((work, idx) => (
-            <div className="mt-[5px]" key={idx}>
-              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-                <span>
-                  {work.jobTitle ? work.jobTitle : "AI Research Intern"},{" "}
-                  {work.companyName ? work.companyName : "ABC Labs"}
-                </span>
-                <span>
-                  {work.startDate && work.endDate
-                    ? `${work.startDate} – ${work.endDate}`
-                    : "May 2023 – Aug 2023"}
-                </span>
-              </p>
-              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-                {work.responsibilities
-                  ? work.responsibilities.split("\n").map((resp, i) => (
-                      <li key={i}>{resp}</li>
-                    ))
-                  : (
-                    <>
-                      <li>
-                        Developed and optimized NLP models, improving classification
-                        accuracy by 15%
-                      </li>
-                      <li>
-                        Conducted data preprocessing and feature engineering for deep
-                        learning projects
-                      </li>
-                    </>
-                  )}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <div className="mt-[5px]">
-            <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-              <span>AI Research Intern, ABC Labs</span>
-              <span>May 2023 – Aug 2023</span>
-            </p>
-            <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-              <li>
-                Developed and optimized NLP models, improving classification
-                accuracy by 15%
-              </li>
-              <li>
-                Conducted data preprocessing and feature engineering for deep
-                learning projects
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
 
-      {/* Projects */}
+       {/* Projects */}
       <div className="mb-[15px] p-[10px] bg-white border-l-2 border-[#1b3a57]">
         <div className="text-[20px] font-bold text-[#1b3a57] mb-[5px]">
           Projects
@@ -245,6 +187,67 @@ const Resume12 = () => {
           </div>
         )}
       </div>
+
+      {/* Experience */}
+      <div className="mb-[15px] p-[10px] bg-white border-l-2 border-[#1b3a57]">
+        <div className="text-[20px] font-bold text-[#1b3a57] mb-[5px]">
+          Experience
+        </div>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((work, idx) => (
+            <div className="mt-[5px]" key={idx}>
+              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+                <span>
+                  {work.jobTitle ? work.jobTitle : "AI Research Intern"},{" "}
+                  {work.companyName ? work.companyName : "ABC Labs"}
+                </span>
+                <span>
+                  {work.startDate && work.endDate
+                    ? `${work.startDate} – ${work.endDate}`
+                    : "May 2023 – Aug 2023"}
+                </span>
+              </p>
+              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+                {work.responsibilities
+                  ? work.responsibilities.split("\n").map((resp, i) => (
+                      <li key={i}>{resp}</li>
+                    ))
+                  : (
+                    <>
+                      <li>
+                        Developed and optimized NLP models, improving classification
+                        accuracy by 15%
+                      </li>
+                      <li>
+                        Conducted data preprocessing and feature engineering for deep
+                        learning projects
+                      </li>
+                    </>
+                  )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <div className="mt-[5px]">
+            <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+              <span>AI Research Intern, ABC Labs</span>
+              <span>May 2023 – Aug 2023</span>
+            </p>
+            <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+              <li>
+                Developed and optimized NLP models, improving classification
+                accuracy by 15%
+              </li>
+              <li>
+                Conducted data preprocessing and feature engineering for deep
+                learning projects
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+     
 
       {/* Certifications */}
       <div className="mb-[15px] p-[10px] bg-white border-l-2 border-[#1b3a57]">

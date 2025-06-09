@@ -100,113 +100,37 @@ const RESUME_ExpAndFresher_18 = () => {
           </p>
         </div>
 
-        {/* Professional Experience */}
+         {/* Areas of Expertise */}
         <div className="mb-[15px]">
-          <h2 className="text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
-            Professional Experience
+          <h2 className="expertise-heading text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
+            Areas of Expertise
           </h2>
-          {work && work.length > 0 && (work[0].jobTitle || work[0].companyName)
-            ? work.map((item, idx) => (
-                <div className="mb-[10px]" key={idx}>
-                  <div className="flex justify-between font-bold text-[13px]">
-                    {item.jobTitle ? item.jobTitle : "Job Title"},{" "}
-                    {item.companyName ? item.companyName : "Company Name"}
-                    <span className="font-normal italic">
-                      {(item.startDate || item.endDate)
-                        ? `${item.startDate ? item.startDate : "Start"} – ${item.endDate ? item.endDate : "End"}`
-                        : ""}
-                    </span>
-                  </div>
-                  <p className="my-[3px]">
-                    {item.responsibilities
-                      ? item.responsibilities.split("\n")[0]
-                      : "Describe your main responsibilities here."}
-                  </p>
-                  <ul className="my-[3px] pl-[15px]">
-                    {item.responsibilities
-                      ? item.responsibilities
-                          .split("\n")
-                          .slice(1)
-                          .map((line, i) => <li key={i}>{line}</li>)
-                      : (
-                        <>
-                          <li>Developed reusable component libraries, cutting development time by 20%.</li>
-                          <li>Improved SEO rankings, increasing organic traffic by 35%.</li>
-                          <li>Integrated GraphQL APIs, enhancing data retrieval efficiency.</li>
-                        </>
-                      )}
-                  </ul>
-                </div>
-              ))
-            : (
-              <>
-                <div className="mb-[10px]">
-                  <div className="flex justify-between font-bold text-[13px]">
-                    Frontend Developer, PixelWave Studio{" "}
-                    <span className="font-normal italic">May 2020 – Present</span>
-                  </div>
-                  <p className="my-[3px]">
-                    Led development of 10+ client websites using React and TypeScript, achieving 95% client satisfaction. Optimized performance, reducing page load times by 25%. Collaborated with designers to implement Figma prototypes.
-                  </p>
-                  <ul className="my-[3px] pl-[15px]">
-                    <li>Developed reusable component libraries, cutting development time by 20%.</li>
-                    <li>Improved SEO rankings, increasing organic traffic by 35%.</li>
-                    <li>Integrated GraphQL APIs, enhancing data retrieval efficiency.</li>
-                  </ul>
-                </div>
-                <div className="mb-[10px]">
-                  <div className="flex justify-between font-bold text-[13px]">
-                    Junior Web Developer, CodeCraft Inc.{" "}
-                    <span className="font-normal italic">Jun 2018 – Apr 2020</span>
-                  </div>
-                  <p className="my-[3px]">
-                    Built and maintained responsive web interfaces using JavaScript and CSS. Supported backend integration with Node.js, streamlining data workflows. Contributed to agile sprints, meeting 90% of deadlines.
-                  </p>
-                  <ul className="my-[3px] pl-[15px]">
-                    <li>Revamped 5+ legacy sites, boosting user retention by 15%.</li>
-                    <li>Automated testing processes, reducing bugs by 30%.</li>
-                    <li>Assisted in launching a SaaS platform with 1,000+ users.</li>
-                  </ul>
-                </div>
-              </>
-            )}
+          <div className="flex justify-between flex-wrap">
+            <div className="w-[48%]">
+              <ul className="my-[3px] pl-[15px]">
+                {(skills.technical && skills.technical.length > 0
+                  ? skills.technical
+                  : ["JavaScript", "React", "UI/UX Design", "Performance Optimization"]
+                ).map((skill, idx) => (
+                  <li key={idx}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="w-[48%]">
+              <ul className="my-[3px] pl-[15px]">
+                {(skills.soft && skills.soft.length > 0
+                  ? skills.soft
+                  : ["Communication", "Team Work", "Team Collaboration"]
+                ).map((skill, idx) => (
+                  <li key={idx}>{skill}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Education */}
-        <div className="mb-[15px]">
-          <h2 className="text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
-            Education
-          </h2>
-          {edu && (edu.degree || edu.collegeName)
-            ? (
-              <div className="mb-[10px]">
-                <div className="flex justify-between font-bold text-[13px]">
-                  {edu.degree ? edu.degree : "Degree"}
-                  {edu.stream ? `, ${edu.stream}` : ""}
-                  , {edu.collegeName ? edu.collegeName : "University Name"}
-                  <span className="font-normal italic">
-                    CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
-                  </span>
-                </div>
-                <p className="my-[3px]">
-                  {(edu.endDate || edu.startDate)
-                    ? `Graduated ${edu.endDate ? edu.endDate : edu.startDate}`
-                    : "Graduated May 2018"}
-                </p>
-              </div>
-            )
-            : (
-              <div className="mb-[10px]">
-                <div className="flex justify-between font-bold text-[13px]">
-                  Bachelor of Science in Computer Science, New York University{" "}
-                  <span className="font-normal italic">CGPA: 3.7/4.0</span>
-                </div>
-                <p className="my-[3px]">Graduated Cum Laude, May 2018</p>
-              </div>
-            )}
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[15px]">
           <h2 className="text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
             Projects
@@ -290,34 +214,117 @@ const RESUME_ExpAndFresher_18 = () => {
             )}
         </div>
 
-        {/* Areas of Expertise */}
+
+ {/* Education */}
         <div className="mb-[15px]">
-          <h2 className="expertise-heading text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
-            Areas of Expertise
+          <h2 className="text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
+            Education
           </h2>
-          <div className="flex justify-between flex-wrap">
-            <div className="w-[48%]">
-              <ul className="my-[3px] pl-[15px]">
-                {(skills.technical && skills.technical.length > 0
-                  ? skills.technical
-                  : ["JavaScript", "React", "UI/UX Design", "Performance Optimization"]
-                ).map((skill, idx) => (
-                  <li key={idx}>{skill}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="w-[48%]">
-              <ul className="my-[3px] pl-[15px]">
-                {(skills.soft && skills.soft.length > 0
-                  ? skills.soft
-                  : ["HTML & CSS", "API Integration", "Agile Development", "Team Collaboration"]
-                ).map((skill, idx) => (
-                  <li key={idx}>{skill}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {edu && (edu.degree || edu.collegeName)
+            ? (
+              <div className="mb-[10px]">
+                <div className="flex justify-between font-bold text-[13px]">
+                  {edu.degree ? edu.degree : "Degree"}
+                  {edu.stream ? `, ${edu.stream}` : ""}
+                  , {edu.collegeName ? edu.collegeName : "University Name"}
+                  <span className="font-normal italic">
+                    CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}
+                  </span>
+                </div>
+                <p className="my-[3px]">
+                  {(edu.endDate || edu.startDate)
+                    ? `Graduated ${edu.endDate ? edu.endDate : edu.startDate}`
+                    : "Graduated May 2018"}
+                </p>
+              </div>
+            )
+            : (
+              <div className="mb-[10px]">
+                <div className="flex justify-between font-bold text-[13px]">
+                  Bachelor of Science in Computer Science, New York University{" "}
+                  <span className="font-normal italic">CGPA: 3.7/4.0</span>
+                </div>
+                <p className="my-[3px]">Graduated Cum Laude, May 2018</p>
+              </div>
+            )}
         </div>
+
+       
+
+        {/* Professional Experience */}
+        <div className="mb-[15px]">
+          <h2 className="text-[14px] uppercase text-center bg-[#f5e8d3] py-[4px] shadow-[0_2px_4px_rgba(0,0,0,0.1)] mb-[8px]">
+            Professional Experience
+          </h2>
+          {work && work.length > 0 && (work[0].jobTitle || work[0].companyName)
+            ? work.map((item, idx) => (
+                <div className="mb-[10px]" key={idx}>
+                  <div className="flex justify-between font-bold text-[13px]">
+                    {item.jobTitle ? item.jobTitle : "Job Title"},{" "}
+                    {item.companyName ? item.companyName : "Company Name"}
+                    <span className="font-normal italic">
+                      {(item.startDate || item.endDate)
+                        ? `${item.startDate ? item.startDate : "Start"} – ${item.endDate ? item.endDate : "End"}`
+                        : ""}
+                    </span>
+                  </div>
+                  <p className="my-[3px]">
+                    {item.responsibilities
+                      ? item.responsibilities.split("\n")[0]
+                      : "Describe your main responsibilities here."}
+                  </p>
+                  <ul className="my-[3px] pl-[15px]">
+                    {item.responsibilities
+                      ? item.responsibilities
+                          .split("\n")
+                          .slice(1)
+                          .map((line, i) => <li key={i}>{line}</li>)
+                      : (
+                        <>
+                          <li>Developed reusable component libraries, cutting development time by 20%.</li>
+                          <li>Improved SEO rankings, increasing organic traffic by 35%.</li>
+                          <li>Integrated GraphQL APIs, enhancing data retrieval efficiency.</li>
+                        </>
+                      )}
+                  </ul>
+                </div>
+              ))
+            : (
+              <>
+                <div className="mb-[10px]">
+                  <div className="flex justify-between font-bold text-[13px]">
+                    Frontend Developer, PixelWave Studio{" "}
+                    <span className="font-normal italic">May 2020 – Present</span>
+                  </div>
+                  <p className="my-[3px]">
+                    Led development of 10+ client websites using React and TypeScript, achieving 95% client satisfaction. Optimized performance, reducing page load times by 25%. Collaborated with designers to implement Figma prototypes.
+                  </p>
+                  <ul className="my-[3px] pl-[15px]">
+                    <li>Developed reusable component libraries, cutting development time by 20%.</li>
+                    <li>Improved SEO rankings, increasing organic traffic by 35%.</li>
+                    <li>Integrated GraphQL APIs, enhancing data retrieval efficiency.</li>
+                  </ul>
+                </div>
+                <div className="mb-[10px]">
+                  <div className="flex justify-between font-bold text-[13px]">
+                    Junior Web Developer, CodeCraft Inc.{" "}
+                    <span className="font-normal italic">Jun 2018 – Apr 2020</span>
+                  </div>
+                  <p className="my-[3px]">
+                    Built and maintained responsive web interfaces using JavaScript and CSS. Supported backend integration with Node.js, streamlining data workflows. Contributed to agile sprints, meeting 90% of deadlines.
+                  </p>
+                  <ul className="my-[3px] pl-[15px]">
+                    <li>Revamped 5+ legacy sites, boosting user retention by 15%.</li>
+                    <li>Automated testing processes, reducing bugs by 30%.</li>
+                    <li>Assisted in launching a SaaS platform with 1,000+ users.</li>
+                  </ul>
+                </div>
+              </>
+            )}
+        </div>
+
+       
+       
 
         {/* Certifications */}
         <div className="mb-[15px]">

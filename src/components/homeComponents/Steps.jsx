@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useUser } from "../commonComponents/usercontext";
 const steps = [
   {
     number: "01",
@@ -48,10 +48,11 @@ const Arrow = () => (
 );
 
 const Steps = () => {
+  const{darkMode} = useUser();
   return (
     <div className="p-5">
-      <section className="max-w-6xl mx-auto px-4 py-10 bg-[#FAF5FF] rounded-3xl">
-        <h2 className="text-[28px] md:text-[32px] font-semibold text-center font-lexend">
+      <section className={`max-w-6xl mx-auto px-4 py-10 border ${darkMode?'bg-[#1A1D23]':'bg-[#FAF5FF] '}  ${darkMode?'border-[#363B45]':'border-[#FAF5FF]'} rounded-3xl`}>
+        <h2 className={`${darkMode?'text-[#fff]':'text-[black]'} text-[28px] md:text-[32px] font-semibold text-center font-lexend`}>
           Build Your Resume{" "}
           <span className="text-blue-500">In Just 5 Simple Steps</span>
         </h2>
@@ -65,7 +66,7 @@ const Steps = () => {
                     {step.number}
                   </p>
                 </div>
-                <p className="text-center text-[15px] md:text-[16px] font-semibold font-manrope">
+                <p className={`${darkMode?'text-[#fff]':'text-[black]'} text-center text-[15px] md:text-[16px] font-semibold font-manrope`}>
                   {step.text}
                 </p>
               </div>

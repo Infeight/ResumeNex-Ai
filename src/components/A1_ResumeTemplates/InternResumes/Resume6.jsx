@@ -65,59 +65,65 @@ const Resume6 = () => {
         </p>
       </div>
 
-      {/* Education */}
+
+      {/* Profile Summary */}
       <section className="mb-[20px]">
         <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
-          Education
+          Profile Summary
         </h2>
-        {education && education.length > 0 && education[0].collegeName ? (
-          education.map((edu, idx) => (
-            <div className="flex justify-between" key={idx}>
-              <div className="w-[65%]">
-                <h3 className="text-[18px] font-bold text-[#2d2d2d] m-[5px_0]">
-                  {edu.degree ? edu.degree : "B.A. in Marketing"}
-                </h3>
-                <p className="text-[16px] text-[#555555]">
-                  {edu.collegeName ? edu.collegeName : "University of Illinois, Marketing"}
-                </p>
-                <p className="text-[16px] text-[#555555]">
-                  {edu.stream ? `Focus: ${edu.stream}` : "Focus: Digital Marketing Strategies"}
-                </p>
-              </div>
-              <div className="w-[30%] text-right">
-                <p className="text-[16px] text-[#555555]">
-                  {edu.startDate && edu.endDate
-                    ? `${edu.startDate} - ${edu.endDate}`
-                    : "Aug 2018 - May 2022"}
-                </p>
-                <p className="text-[16px] text-[#555555]">
-                  {edu.cgpa ? `CGPA: ${edu.cgpa}/4.0` : "CGPA: 3.9/4.0"}
-                </p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="flex justify-between">
-            <div className="w-[65%]">
-              <h3 className="text-[18px] font-bold text-[#2d2d2d] m-[5px_0]">
-                B.A. in Marketing
-              </h3>
-              <p className="text-[16px] text-[#555555]">
-                University of Illinois, Marketing
-              </p>
-              <p className="text-[16px] text-[#555555]">
-                Focus: Digital Marketing Strategies
-              </p>
-            </div>
-            <div className="w-[30%] text-right">
-              <p className="text-[16px] text-[#555555]">Aug 2018 - May 2022</p>
-              <p className="text-[16px] text-[#555555]">CGPA: 3.9/4.0</p>
-            </div>
+        <div className="flex justify-between">
+          <div className="w-[65%]">
+            <p className="text-[16px] text-[#555555]">
+              {summary
+                ? summary
+                : "Marketing Specialist excelling in social media and analytics. Drove engagement and growth through data-driven strategies."}
+            </p>
           </div>
-        )}
+          <div className="w-[30%] text-right">
+            <p className="text-[16px] text-[#555555]">
+              Char Count: {summary ? summary.length : 125}
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Projects */}
+
+      {/* Skills */}
+      <section className="mb-[20px]">
+        <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
+          Skills
+        </h2>
+        <div className="flex justify-between">
+          <div className="w-[65%]">
+            <ul className="list-disc pl-[25px]">
+              <li className="text-[16px] text-[#444444]">
+                Technical:{" "}
+                {skills.technical && skills.technical.length > 0
+                  ? skills.technical.join(", ")
+                  : "Hootsuite, Canva, Google Analytics, SEO"}
+              </li>
+              <li className="text-[16px] text-[#444444]">
+                Soft:{" "}
+                {skills.soft && skills.soft.length > 0
+                  ? skills.soft.join(", ")
+                  : "Communication, Creativity, Data Analysis"}
+              </li>
+            </ul>
+          </div>
+          <div className="w-[30%] text-right">
+            <p className="text-[16px] text-[#555555]">
+              Proficiency: {skills.proficiency ? skills.proficiency : "Advanced"}
+            </p>
+            <p className="text-[16px] text-[#555555]">
+              Experience: {skills.experience ? skills.experience : "3+ Years"}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+
+       {/* Projects */}
       <section className="mb-[20px]">
         <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
           Projects
@@ -220,6 +226,60 @@ const Resume6 = () => {
           </div>
         )}
       </section>
+
+      {/* Education */}
+      <section className="mb-[20px]">
+        <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
+          Education
+        </h2>
+        {education && education.length > 0 && education[0].collegeName ? (
+          education.map((edu, idx) => (
+            <div className="flex justify-between" key={idx}>
+              <div className="w-[65%]">
+                <h3 className="text-[18px] font-bold text-[#2d2d2d] m-[5px_0]">
+                  {edu.degree ? edu.degree : "B.A. in Marketing"}
+                </h3>
+                <p className="text-[16px] text-[#555555]">
+                  {edu.collegeName ? edu.collegeName : "University of Illinois, Marketing"}
+                </p>
+                <p className="text-[16px] text-[#555555]">
+                  {edu.stream ? `Focus: ${edu.stream}` : "Focus: Digital Marketing Strategies"}
+                </p>
+              </div>
+              <div className="w-[30%] text-right">
+                <p className="text-[16px] text-[#555555]">
+                  {edu.startDate && edu.endDate
+                    ? `${edu.startDate} - ${edu.endDate}`
+                    : "Aug 2018 - May 2022"}
+                </p>
+                <p className="text-[16px] text-[#555555]">
+                  {edu.cgpa ? `CGPA: ${edu.cgpa}/4.0` : "CGPA: 3.9/4.0"}
+                </p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="flex justify-between">
+            <div className="w-[65%]">
+              <h3 className="text-[18px] font-bold text-[#2d2d2d] m-[5px_0]">
+                B.A. in Marketing
+              </h3>
+              <p className="text-[16px] text-[#555555]">
+                University of Illinois, Marketing
+              </p>
+              <p className="text-[16px] text-[#555555]">
+                Focus: Digital Marketing Strategies
+              </p>
+            </div>
+            <div className="w-[30%] text-right">
+              <p className="text-[16px] text-[#555555]">Aug 2018 - May 2022</p>
+              <p className="text-[16px] text-[#555555]">CGPA: 3.9/4.0</p>
+            </div>
+          </div>
+        )}
+      </section>
+
+     
 
       {/* Work Experience */}
       <section className="mb-[20px]">
@@ -360,59 +420,7 @@ const Resume6 = () => {
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mb-[20px]">
-        <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
-          Skills
-        </h2>
-        <div className="flex justify-between">
-          <div className="w-[65%]">
-            <ul className="list-disc pl-[25px]">
-              <li className="text-[16px] text-[#444444]">
-                Technical:{" "}
-                {skills.technical && skills.technical.length > 0
-                  ? skills.technical.join(", ")
-                  : "Hootsuite, Canva, Google Analytics, SEO"}
-              </li>
-              <li className="text-[16px] text-[#444444]">
-                Soft:{" "}
-                {skills.soft && skills.soft.length > 0
-                  ? skills.soft.join(", ")
-                  : "Communication, Creativity, Data Analysis"}
-              </li>
-            </ul>
-          </div>
-          <div className="w-[30%] text-right">
-            <p className="text-[16px] text-[#555555]">
-              Proficiency: {skills.proficiency ? skills.proficiency : "Advanced"}
-            </p>
-            <p className="text-[16px] text-[#555555]">
-              Experience: {skills.experience ? skills.experience : "3+ Years"}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Profile Summary */}
-      <section className="mb-[20px]">
-        <h2 className="text-[20px] font-bold text-[#3c6e71] border-b-2 border-[#780000] pb-[5px] mb-[15px]">
-          Profile Summary
-        </h2>
-        <div className="flex justify-between">
-          <div className="w-[65%]">
-            <p className="text-[16px] text-[#555555]">
-              {summary
-                ? summary
-                : "Marketing Specialist excelling in social media and analytics. Drove engagement and growth through data-driven strategies."}
-            </p>
-          </div>
-          <div className="w-[30%] text-right">
-            <p className="text-[16px] text-[#555555]">
-              Char Count: {summary ? summary.length : 125}
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Additional Information */}
       <section className="mb-[20px]">

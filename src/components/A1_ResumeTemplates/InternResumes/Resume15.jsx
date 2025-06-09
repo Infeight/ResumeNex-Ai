@@ -66,59 +66,44 @@ const Resume15 = () => {
         </p>
       </div>
 
-      {/* Education */}
+
+
+       {/* Profile Summary */}
       <section className="mb-[15px]">
         <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
-          Education
+          Profile Summary
         </h2>
-        {education && education.length > 0 && education[0].collegeName ? (
-          education.map((edu, idx) => (
-            <div className="mt-[5px]" key={idx}>
-              <div className="flex justify-between items-start">
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold text-[#264653] m-[10px_0_5px_0]">
-                    {edu.degree ? edu.degree : "B.F.A. in Interaction Design"}
-                  </h3>
-                  <p className="text-[12px] m-[5px_0]">
-                    {edu.collegeName
-                      ? edu.collegeName
-                      : "Portland State University, Interaction Design"}
-                  </p>
-                </div>
-                <div className="w-[30%] text-right">
-                  <p className="text-[12px] m-[5px_0]">
-                    {edu.startDate && edu.endDate
-                      ? `${edu.startDate} - ${edu.endDate}`
-                      : "Aug 2018 - May 2022"}
-                  </p>
-                  <p className="text-[12px] m-[5px_0]">
-                    {edu.cgpa ? `CGPA: ${edu.cgpa}` : "CGPA: 3.7/4.0"}
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="mt-[5px]">
-            <div className="flex justify-between items-start">
-              <div className="w-[65%]">
-                <h3 className="text-[14px] font-bold text-[#264653] m-[10px_0_5px_0]">
-                  B.F.A. in Interaction Design
-                </h3>
-                <p className="text-[12px] m-[5px_0]">
-                  Portland State University, Interaction Design
-                </p>
-              </div>
-              <div className="w-[30%] text-right">
-                <p className="text-[12px] m-[5px_0]">Aug 2018 - May 2022</p>
-                <p className="text-[12px] m-[5px_0]">CGPA: 3.7/4.0</p>
-              </div>
-            </div>
-          </div>
-        )}
+        <p className="text-[12px] m-[5px_0]">
+          {summary
+            ? summary
+            : "UX Designer with a knack for user-centered design in Figma. Enhanced app usability and team efficiency."}
+        </p>
       </section>
 
-      {/* Projects */}
+
+       {/* Skills */}
+      <section className="mb-[15px]">
+        <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
+          Skills
+        </h2>
+        <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] space-y-[3px]">
+          <li>
+            Technical:{" "}
+            {skills.technical && skills.technical.length > 0
+              ? skills.technical.join(", ")
+              : "Figma, Adobe XD, Sketch, Prototyping"}
+          </li>
+          <li>
+            Soft:{" "}
+            {skills.soft && skills.soft.length > 0
+              ? skills.soft.join(", ")
+              : "Creativity, User Empathy, Collaboration"}
+          </li>
+        </ul>
+      </section>
+
+
+        {/* Projects */}
       <section className="mb-[15px]">
         <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
           Projects
@@ -211,6 +196,61 @@ const Resume15 = () => {
         )}
       </section>
 
+
+
+      {/* Education */}
+      <section className="mb-[15px]">
+        <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
+          Education
+        </h2>
+        {education && education.length > 0 && education[0].collegeName ? (
+          education.map((edu, idx) => (
+            <div className="mt-[5px]" key={idx}>
+              <div className="flex justify-between items-start">
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold text-[#264653] m-[10px_0_5px_0]">
+                    {edu.degree ? edu.degree : "B.F.A. in Interaction Design"}
+                  </h3>
+                  <p className="text-[12px] m-[5px_0]">
+                    {edu.collegeName
+                      ? edu.collegeName
+                      : "Portland State University, Interaction Design"}
+                  </p>
+                </div>
+                <div className="w-[30%] text-right">
+                  <p className="text-[12px] m-[5px_0]">
+                    {edu.startDate && edu.endDate
+                      ? `${edu.startDate} - ${edu.endDate}`
+                      : "Aug 2018 - May 2022"}
+                  </p>
+                  <p className="text-[12px] m-[5px_0]">
+                    {edu.cgpa ? `CGPA: ${edu.cgpa}` : "CGPA: 3.7/4.0"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="mt-[5px]">
+            <div className="flex justify-between items-start">
+              <div className="w-[65%]">
+                <h3 className="text-[14px] font-bold text-[#264653] m-[10px_0_5px_0]">
+                  B.F.A. in Interaction Design
+                </h3>
+                <p className="text-[12px] m-[5px_0]">
+                  Portland State University, Interaction Design
+                </p>
+              </div>
+              <div className="w-[30%] text-right">
+                <p className="text-[12px] m-[5px_0]">Aug 2018 - May 2022</p>
+                <p className="text-[12px] m-[5px_0]">CGPA: 3.7/4.0</p>
+              </div>
+            </div>
+          </div>
+        )}
+      </section>
+
+    
       {/* Work Experience */}
       <section className="mb-[15px]">
         <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
@@ -321,38 +361,8 @@ const Resume15 = () => {
         </ul>
       </section>
 
-      {/* Skills */}
-      <section className="mb-[15px]">
-        <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
-          Skills
-        </h2>
-        <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] space-y-[3px]">
-          <li>
-            Technical:{" "}
-            {skills.technical && skills.technical.length > 0
-              ? skills.technical.join(", ")
-              : "Figma, Adobe XD, Sketch, Prototyping"}
-          </li>
-          <li>
-            Soft:{" "}
-            {skills.soft && skills.soft.length > 0
-              ? skills.soft.join(", ")
-              : "Creativity, User Empathy, Collaboration"}
-          </li>
-        </ul>
-      </section>
-
-      {/* Profile Summary */}
-      <section className="mb-[15px]">
-        <h2 className="text-[20px] font-bold text-[#264653] m-[15px_0_5px_0] border-b border-[#264653]">
-          Profile Summary
-        </h2>
-        <p className="text-[12px] m-[5px_0]">
-          {summary
-            ? summary
-            : "UX Designer with a knack for user-centered design in Figma. Enhanced app usability and team efficiency."}
-        </p>
-      </section>
+     
+     
 
       {/* Additional Information */}
       <section className="mb-[15px]">

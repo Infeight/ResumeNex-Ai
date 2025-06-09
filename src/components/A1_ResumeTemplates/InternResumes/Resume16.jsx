@@ -45,61 +45,56 @@ const Resume16 = () => {
         </p>
       </div>
 
-      {/* Education */}
+
+       {/* Profile Summary */}
       <section className="mb-[20px]">
         <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
-          EDUCATION
+          PROFILE SUMMARY
         </h2>
-        {education && education.length > 0 && education[0].collegeName ? (
-          education.map((edu, idx) => (
-            <div className="flex justify-between" key={idx}>
-              <div className="w-[65%]">
-                <h3 className="text-[18px] font-bold text-[#222] mb-[5px]">
-                  {edu.degree ? edu.degree : "B.A. in Marketing"}
-                </h3>
-                <p className="text-[16px] text-[#444]">
-                  {edu.collegeName ? edu.collegeName : "University of Illinois, Marketing"}
-                </p>
-                <p className="text-[16px] text-[#444]">
-                  {edu.stream ? `Focus: ${edu.stream}` : "Focus: Digital Marketing Strategies"}
-                </p>
-              </div>
-              <div className="w-[30%] text-right">
-                <p className="text-[16px] font-semibold text-[#444]">
-                  {edu.startDate && edu.endDate
-                    ? `${edu.startDate} - ${edu.endDate}`
-                    : "Aug 2018 - May 2022"}
-                </p>
-                <p className="text-[16px] text-[#444]">
-                  {edu.cgpa ? `CGPA: ${edu.cgpa}` : "CGPA: 3.9/4.0"}
-                </p>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="flex justify-between">
-            <div className="w-[65%]">
-              <h3 className="text-[18px] font-bold text-[#222] mb-[5px]">
-                B.A. in Marketing
-              </h3>
-              <p className="text-[16px] text-[#444]">
-                University of Illinois, Marketing
-              </p>
-              <p className="text-[16px] text-[#444]">
-                Focus: Digital Marketing Strategies
-              </p>
-            </div>
-            <div className="w-[30%] text-right">
-              <p className="text-[16px] font-semibold text-[#444]">
-                Aug 2018 - May 2022
-              </p>
-              <p className="text-[16px] text-[#444]">CGPA: 3.9/4.0</p>
-            </div>
+        <div className="flex justify-between">
+          <div className="w-[65%]">
+            <p className="text-[16px] text-[#444]">
+              {summary
+                ? summary
+                : "Marketing Specialist excelling in social media and analytics. Drove engagement and growth through data-driven strategies."}
+            </p>
           </div>
-        )}
+          <div className="w-[30%] text-right">
+            <p className="text-[16px] text-[#444]">
+              Char Count: {summary ? summary.length : 125}
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Projects */}
+
+      {/* Skills */}
+      <section className="mb-[20px]">
+        <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
+          SKILLS
+        </h2>
+        <div className="flex justify-between">
+          <div className="w-[65%]">
+            <ul className="list-disc pl-[25px]">
+              <li className="text-[16px] text-[#444]">
+                Technical:{" "}
+                {skills.technical && skills.technical.length > 0
+                  ? skills.technical.join(", ")
+                  : "Hootsuite, Canva, Google Analytics, SEO"}
+              </li>
+              <li className="text-[16px] text-[#444]">
+                Soft:{" "}
+                {skills.soft && skills.soft.length > 0
+                  ? skills.soft.join(", ")
+                  : "Communication, Creativity, Data Analysis"}
+              </li>
+            </ul>
+          </div>
+         
+        </div>
+      </section>
+
+     {/* Projects */}
       <section className="mb-[20px]">
         <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
           PROJECTS
@@ -188,6 +183,63 @@ const Resume16 = () => {
           </div>
         )}
       </section>
+
+
+      {/* Education */}
+      <section className="mb-[20px]">
+        <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
+          EDUCATION
+        </h2>
+        {education && education.length > 0 && education[0].collegeName ? (
+          education.map((edu, idx) => (
+            <div className="flex justify-between" key={idx}>
+              <div className="w-[65%]">
+                <h3 className="text-[18px] font-bold text-[#222] mb-[5px]">
+                  {edu.degree ? edu.degree : "B.A. in Marketing"}
+                </h3>
+                <p className="text-[16px] text-[#444]">
+                  {edu.collegeName ? edu.collegeName : "University of Illinois, Marketing"}
+                </p>
+                <p className="text-[16px] text-[#444]">
+                  {edu.stream ? `Focus: ${edu.stream}` : "Focus: Digital Marketing Strategies"}
+                </p>
+              </div>
+              <div className="w-[30%] text-right">
+                <p className="text-[16px] font-semibold text-[#444]">
+                  {edu.startDate && edu.endDate
+                    ? `${edu.startDate} - ${edu.endDate}`
+                    : "Aug 2018 - May 2022"}
+                </p>
+                <p className="text-[16px] text-[#444]">
+                  {edu.cgpa ? `CGPA: ${edu.cgpa}` : "CGPA: 3.9/4.0"}
+                </p>
+              </div>
+            </div>
+          ))
+        ) : (
+          <div className="flex justify-between">
+            <div className="w-[65%]">
+              <h3 className="text-[18px] font-bold text-[#222] mb-[5px]">
+                B.A. in Marketing
+              </h3>
+              <p className="text-[16px] text-[#444]">
+                University of Illinois, Marketing
+              </p>
+              <p className="text-[16px] text-[#444]">
+                Focus: Digital Marketing Strategies
+              </p>
+            </div>
+            <div className="w-[30%] text-right">
+              <p className="text-[16px] font-semibold text-[#444]">
+                Aug 2018 - May 2022
+              </p>
+              <p className="text-[16px] text-[#444]">CGPA: 3.9/4.0</p>
+            </div>
+          </div>
+        )}
+      </section>
+
+      
 
       {/* Work Experience */}
       <section className="mb-[20px]">
@@ -317,53 +369,7 @@ const Resume16 = () => {
         </div>
       </section>
 
-      {/* Skills */}
-      <section className="mb-[20px]">
-        <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
-          SKILLS
-        </h2>
-        <div className="flex justify-between">
-          <div className="w-[65%]">
-            <ul className="list-disc pl-[25px]">
-              <li className="text-[16px] text-[#444]">
-                Technical:{" "}
-                {skills.technical && skills.technical.length > 0
-                  ? skills.technical.join(", ")
-                  : "Hootsuite, Canva, Google Analytics, SEO"}
-              </li>
-              <li className="text-[16px] text-[#444]">
-                Soft:{" "}
-                {skills.soft && skills.soft.length > 0
-                  ? skills.soft.join(", ")
-                  : "Communication, Creativity, Data Analysis"}
-              </li>
-            </ul>
-          </div>
-         
-        </div>
-      </section>
-
-      {/* Profile Summary */}
-      <section className="mb-[20px]">
-        <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
-          PROFILE SUMMARY
-        </h2>
-        <div className="flex justify-between">
-          <div className="w-[65%]">
-            <p className="text-[16px] text-[#444]">
-              {summary
-                ? summary
-                : "Marketing Specialist excelling in social media and analytics. Drove engagement and growth through data-driven strategies."}
-            </p>
-          </div>
-          <div className="w-[30%] text-right">
-            <p className="text-[16px] text-[#444]">
-              Char Count: {summary ? summary.length : 125}
-            </p>
-          </div>
-        </div>
-      </section>
-
+      
       {/* Additional Information */}
       <section className="mb-[20px]">
         <h2 className="text-[20px] font-bold text-[#111] border-b-2 border-[#333] pb-[5px] mb-[15px]">
