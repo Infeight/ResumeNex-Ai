@@ -104,82 +104,8 @@ const Resume5 = () => {
         </div>
       </div>
 
-      {/* Professional Experience */}
-      <div className="mb-[15px]">
-        <h2 className="text-[20px] border-b-2 border-[#1e40af] pb-[3px] m-[20px_0_15px_0] text-[#1e40af]">
-          Professional Experience
-        </h2>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((work, idx) => (
-            <div className="mb-[12px]" key={idx}>
-              <div className="flex justify-between">
-                <div>
-                  <div className="font-bold text-[14px]">
-                    {work.jobTitle ? work.jobTitle : "Backend Developer Intern"}
-                  </div>
-                  <div className="italic text-[12px] text-[#4a5568]">
-                    {work.companyName ? work.companyName : "DataSync Inc."}
-                    {formData.city ? `, ${formData.city}` : ", Chicago, IL"}
-                  </div>
-                </div>
-                <div className="text-[12px] text-[#6b7280]">
-                  {work.startDate && work.endDate
-                    ? `${work.startDate} - ${work.endDate}`
-                    : "01/2024 - 06/2024"}
-                </div>
-              </div>
-              <ul className="m-[8px_0] pl-[20px] text-[12px]">
-                {work.responsibilities
-                  ? work.responsibilities
-                      .split("\n")
-                      .map((resp, i) => <li className="mb-[5px]" key={i}>{resp}</li>)
-                  : (
-                    <>
-                      <li className="mb-[5px]">
-                        Developed RESTful APIs using Node.js that reduced average response
-                        time by 20% through query optimization
-                      </li>
-                      <li className="mb-[5px]">
-                        Implemented AWS Lambda functions reducing operational costs by 15%
-                      </li>
-                      <li className="mb-[5px]">
-                        Optimized PostgreSQL queries improving database performance by 30%
-                      </li>
-                    </>
-                  )}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <div className="mb-[12px]">
-            <div className="flex justify-between">
-              <div>
-                <div className="font-bold text-[14px]">
-                  Backend Developer Intern
-                </div>
-                <div className="italic text-[12px] text-[#4a5568]">
-                  DataSync Inc., Chicago, IL
-                </div>
-              </div>
-              <div className="text-[12px] text-[#6b7280]">01/2024 - 06/2024</div>
-            </div>
-            <ul className="m-[8px_0] pl-[20px] text-[12px]">
-              <li className="mb-[5px]">
-                Developed RESTful APIs using Node.js that reduced average response
-                time by 20% through query optimization
-              </li>
-              <li className="mb-[5px]">
-                Implemented AWS Lambda functions reducing operational costs by 15%
-              </li>
-              <li className="mb-[5px]">
-                Optimized PostgreSQL queries improving database performance by 30%
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
 
-      {/* Projects */}
+        {/* Projects */}
       <div className="mb-[15px]">
         <h2 className="text-[20px] border-b-2 border-[#1e40af] pb-[3px] m-[20px_0_15px_0] text-[#1e40af]">
           Projects
@@ -359,6 +285,83 @@ const Resume5 = () => {
         )}
       </div>
 
+
+      {/* Professional Experience */}
+      <div className="mb-[15px]">
+        <h2 className="text-[20px] border-b-2 border-[#1e40af] pb-[3px] m-[20px_0_15px_0] text-[#1e40af]">
+          Professional Experience
+        </h2>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((work, idx) => (
+            <div className="mb-[12px]" key={idx}>
+              <div className="flex justify-between">
+                <div>
+                  <div className="font-bold text-[14px]">
+                    {work.jobTitle ? work.jobTitle : "Backend Developer Intern"}
+                  </div>
+                  <div className="italic text-[12px] text-[#4a5568]">
+                    {work.companyName ? work.companyName : "DataSync Inc."}
+                    {formData.city ? `, ${formData.city}` : ", Chicago, IL"}
+                  </div>
+                </div>
+                <div className="text-[12px] text-[#6b7280]">
+                  {work.startDate && work.endDate
+                    ? `${work.startDate} - ${work.endDate}`
+                    : "01/2024 - 06/2024"}
+                </div>
+              </div>
+              <ul className="m-[8px_0] pl-[20px] text-[12px]">
+                {work.responsibilities
+                  ? work.responsibilities
+                      .split("\n")
+                      .map((resp, i) => <li className="mb-[5px]" key={i}>{resp}</li>)
+                  : (
+                    <>
+                      <li className="mb-[5px]">
+                        Developed RESTful APIs using Node.js that reduced average response
+                        time by 20% through query optimization
+                      </li>
+                      <li className="mb-[5px]">
+                        Implemented AWS Lambda functions reducing operational costs by 15%
+                      </li>
+                      <li className="mb-[5px]">
+                        Optimized PostgreSQL queries improving database performance by 30%
+                      </li>
+                    </>
+                  )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <div className="mb-[12px]">
+            <div className="flex justify-between">
+              <div>
+                <div className="font-bold text-[14px]">
+                  Backend Developer Intern
+                </div>
+                <div className="italic text-[12px] text-[#4a5568]">
+                  DataSync Inc., Chicago, IL
+                </div>
+              </div>
+              <div className="text-[12px] text-[#6b7280]">01/2024 - 06/2024</div>
+            </div>
+            <ul className="m-[8px_0] pl-[20px] text-[12px]">
+              <li className="mb-[5px]">
+                Developed RESTful APIs using Node.js that reduced average response
+                time by 20% through query optimization
+              </li>
+              <li className="mb-[5px]">
+                Implemented AWS Lambda functions reducing operational costs by 15%
+              </li>
+              <li className="mb-[5px]">
+                Optimized PostgreSQL queries improving database performance by 30%
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+    
       {/* Certifications */}
       <div className="mb-[15px]">
         <h2 className="text-[20px] border-b-2 border-[#1e40af] pb-[3px] m-[20px_0_15px_0] text-[#1e40af]">

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useUser } from "../commonComponents/usercontext";
 
 const FinalPageOfLO = () => {
+  const{darkMode} = useUser();
   const [profileData] = useState({
     name: "Syed Talha Ahmed",
     headline:
@@ -80,8 +82,8 @@ const FinalPageOfLO = () => {
 
   // JSX for AI Suggestion Content (Left Panel)
   const AISuggestionContentJSX = (
-    <div className="w-full h-full p-5 flex flex-col gap-5 font-normal overflow-y-auto custom-scrollbar">
-      <p className="text-lg flex gap-1 items-center">
+    <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#ffffff]'} w-full h-full p-5 flex flex-col gap-5 font-normal overflow-y-auto custom-scrollbar`}>
+      <p className={` ${darkMode?'text-[white]':'text-[#1E1B39]'} text-lg flex gap-1 items-center`}>
         Suggested By
         <span className="text-[#336EE7] font-bold flex gap-0.5 items-center">
           AI
@@ -103,9 +105,9 @@ const FinalPageOfLO = () => {
       </p>
 
       {/* Profile Title */}
-      <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-        <p className="font-medium text-base">Profile Summary:</p>
-        <p className="text-sm">{profileData.headline}</p>
+      <div className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>Profile Summary:</p>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm`}>{profileData.headline}</p>
         <div className="w-full flex gap-2 justify-end text-sm font-medium">
           <div
             onClick={() => copyToClipboard(profileData.headline, "headline")}
@@ -121,9 +123,9 @@ const FinalPageOfLO = () => {
       </div>
 
       {/* About Section */}
-      <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-        <p className="font-medium text-base">About</p>
-        <p className="text-sm whitespace-pre-line">
+      <div className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>About</p>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm whitespace-pre-line`}>
           {profileData.about.join("\n\n")}
         </p>
         <div className="w-full flex gap-2 justify-end text-sm font-medium">
@@ -146,12 +148,12 @@ const FinalPageOfLO = () => {
       {profileData.experience.map((exp, index) => (
         <div
           key={index}
-          className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]"
+          className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}
         >
-          <p className="font-medium text-base">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>
             Experience Section ({exp.company}):
           </p>
-          <p className="text-sm">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm"`}>
             {exp.company} | {exp.duration}
             {exp.location ? ` | ${exp.location}` : ""}
           </p>
@@ -178,9 +180,9 @@ const FinalPageOfLO = () => {
       ))}
 
       {/* Education Section */}
-      <div className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]">
-        <p className="font-medium text-base">Education Section:</p>
-        <p className="text-sm">
+      <div className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>Education Section:</p>
+        <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm`}>
           {profileData.education.university} | {profileData.education.degree} |{" "}
           {profileData.education.duration}
         </p>
@@ -207,12 +209,12 @@ const FinalPageOfLO = () => {
       {profileData.certifications.map((cert, index) => (
         <div
           key={index}
-          className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]"
+          className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}
         >
-          <p className="font-medium text-base">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>
             Certification Section ({cert.title}):
           </p>
-          <p className="text-sm">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm`}>
             {cert.title} | {cert.provider} | {cert.details}
           </p>
           <div className="w-full flex gap-2 justify-end text-sm font-medium">
@@ -239,12 +241,12 @@ const FinalPageOfLO = () => {
       {profileData.projects.map((project, index) => (
         <div
           key={index}
-          className="w-full rounded-[20px] p-4 flex flex-col gap-3 bg-[#F5F5F5]"
+          className={`w-full rounded-[20px] p-4 flex flex-col gap-3 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}`}
         >
-          <p className="font-medium text-base">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-medium text-base`}>
             Project Section ({project.title}):
           </p>
-          <p className="text-sm">
+          <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-sm`}>
             {project.title} | {project.description}
           </p>
           <div className="w-full flex gap-2 justify-end text-sm font-medium">
@@ -271,10 +273,10 @@ const FinalPageOfLO = () => {
 
   // JSX for LinkedIn Profile Content (Right Panel / Mobile Modal)
   const LinkedInPreviewContentJSX = (
-    <div className="w-full h-full overflow-y-auto custom-scrollbar">
+    <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#ffffff]'} w-full h-full overflow-y-auto custom-scrollbar`}>
       {/* Header Section */}
       <div className="relative">
-        <div className="h-32 bg-[#dcdcdc] md:rounded-t-xl flex items-center justify-center"></div>
+        <div className={`h-32 ${darkMode?'bg-[#363B45]':'bg-[#dcdcdc]'}  md:rounded-t-xl flex items-center justify-center`}></div>
         <div className="absolute bottom-0 left-10 transform translate-y-1/2">
           <div className="w-36 h-36 rounded-full border-5 border-[#70b5f9] overflow-hidden">
             <img
@@ -288,15 +290,15 @@ const FinalPageOfLO = () => {
 
       {/* Profile Info */}
       <div className="pt-20 px-10 pb-8">
-        <h2 className="text-2xl font-bold font-['Manrope'] text-gray-900">
+        <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} text-2xl font-bold font-['Manrope'] `}>
           {profileData.name}
         </h2>
-        <p className="text-gray-600 text-sm leading-relaxed mt-2">
+        <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm leading-relaxed mt-2`}>
           {profileData.headline}
         </p>
-        <p className="text-gray-500 text-sm mt-2">{profileData.company}</p>
+        <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-2`}>{profileData.company}</p>
         <div className="mt-2 flex items-center gap-3">
-          <p className="text-gray-500 text-sm">{profileData.connections}</p>
+          <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm`}>{profileData.connections}</p>
           <div className="w-16 h-5 bg-gray-200 rounded hover:bg-gray-300 transition-colors"></div>
         </div>
         <div className="flex gap-3 mt-5">
@@ -321,7 +323,7 @@ const FinalPageOfLO = () => {
                 : ""
             }`}
           >
-            <p className="text-gray-700 text-sm leading-relaxed">{paragraph}</p>
+            <p className={`${darkMode?'text-[white]':' text-gray-700'} text-sm leading-relaxed`}>{paragraph}</p>
             {index === profileData.about.length - 1 && (
               <div className="w-20 h-5 bg-gray-200 rounded hover:bg-gray-300 transition-colors"></div>
             )}
@@ -333,19 +335,19 @@ const FinalPageOfLO = () => {
 
       {/* Experience Section */}
       <div className="px-10 py-8">
-        <h3 className="text-xl font-semibold font-['Manrope'] text-gray-900">
+        <h3 className={`text-xl font-semibold font-['Manrope'] ${darkMode?'text-[white]':' text-gray-900'}`}>
           Experience
         </h3>
         {profileData.experience.map((exp, index) => (
           <div key={index} className="flex items-start gap-4 mt-5">
             <div className="w-12 h-12 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"></div>
             <div className="flex-1">
-              <h4 className="font-semibold text-sm text-gray-900">
+              <h4 className={`font-semibold text-sm ${darkMode?'text-[white]':' text-gray-900'}`}>
                 {exp.company}
               </h4>
-              <p className="text-gray-600 text-sm mt-1">{exp.duration}</p>
+              <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-1`}>{exp.duration}</p>
               {exp.location && (
-                <p className="text-gray-500 text-sm mt-1">{exp.location}</p>
+                <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-1`}>{exp.location}</p>
               )}
             </div>
           </div>
@@ -356,19 +358,19 @@ const FinalPageOfLO = () => {
 
       {/* Education Section */}
       <div className="px-10 py-8">
-        <h3 className="text-xl font-semibold font-['Manrope'] text-gray-900">
+        <h3 className={`text-xl font-semibold font-['Manrope'] ${darkMode?'text-[white]':' text-gray-900'}`}>
           Education
         </h3>
         <div className="flex items-start gap-4 mt-5">
           <div className="w-12 h-12 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"></div>
           <div className="flex-1">
-            <h4 className="font-semibold text-sm text-gray-900">
+            <h4 className={`font-semibold text-sm ${darkMode?'text-[white]':' text-gray-600'}`}>
               {profileData.education.university}
             </h4>
-            <p className="text-gray-600 text-sm mt-1">
+            <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-1`}>
               {profileData.education.degree}
             </p>
-            <p className="text-gray-500 text-sm mt-1">
+            <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-1`}>
               {profileData.education.duration}
             </p>
           </div>
@@ -379,19 +381,19 @@ const FinalPageOfLO = () => {
 
       {/* Licenses & Certifications Section */}
       <div className="px-10 py-8">
-        <h3 className="text-xl font-semibold font-['Manrope'] text-gray-900">
+        <h3 className={`text-xl font-semibold font-['Manrope'] ${darkMode?'text-[white]':' text-gray-900'}`}>
           Licenses & Certifications
         </h3>
         {profileData.certifications.map((cert, index) => (
           <div key={index} className="flex items-start gap-4 mt-5">
             <div className="w-12 h-12 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"></div>
             <div className="flex-1">
-              <h4 className="font-semibold text-sm text-gray-900">
+              <h4 className={`font-semibold text-sm ${darkMode?'text-[white]':' text-gray-900'}`}>
                 {cert.title}
               </h4>
-              <p className="text-gray-600 text-sm mt-1">{cert.provider}</p>
+              <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm mt-1`}>{cert.provider}</p>
               <div className="mt-1 flex items-center gap-3">
-                <p className="text-gray-500 text-sm">{cert.details}</p>
+                <p className={`${darkMode?'text-[white]':' text-gray-600'} text-sm`}>{cert.details}</p>
                 <div className="w-16 h-5 bg-gray-200 rounded hover:bg-gray-300 transition-colors"></div>
               </div>
             </div>
@@ -403,15 +405,15 @@ const FinalPageOfLO = () => {
 
       {/* Projects Section */}
       <div className="px-10 py-8">
-        <h3 className="text-xl font-semibold font-['Manrope'] text-gray-900">
+        <h3 className={`text-xl font-semibold font-['Manrope'] ${darkMode?'text-[white]':' text-gray-600'}`}>
           Front End Projects
         </h3>
         {profileData.projects.map((project, index) => (
           <div key={index} className="mt-5">
-            <h4 className="font-semibold text-sm text-gray-900">
+            <h4 className={`font-semibold text-sm ${darkMode?'text-[white]':' text-gray-600'}`}>
               {project.title}
             </h4>
-            <p className="text-gray-700 text-sm leading-relaxed mt-2">
+            <p className={`${darkMode?'text-[white]':' text-gray-700'} text-sm leading-relaxed mt-2`}>
               {project.description}
             </p>
           </div>
@@ -421,7 +423,7 @@ const FinalPageOfLO = () => {
   );
 
   return (
-    <div className="font-['Inter'] min-h-screen bg-gray-50 flex flex-col md:flex-row md:gap-6 p-[10px]">
+    <div className={`font-['Inter'] min-h-screen ${darkMode?'bg-[#1A1D23]':'bg-[#ffffff]'} flex flex-col md:flex-row md:gap-6 p-[10px]`}>
       {/* --- Mobile Viewport --- */}
       <div className="md:hidden w-full h-[calc(100vh-20px)] flex flex-col">
         {!showPreviewModal ? (
@@ -455,12 +457,12 @@ const FinalPageOfLO = () => {
       </div>
 
       {/* --- Desktop Viewport --- */}
-      <div className="hidden md:block md:w-[600px] md:max-w-[600px] h-[calc(100vh-20px)] rounded-[20px] border border-[#DCDCDC] bg-white">
+      <div className={`hidden md:block md:w-[600px] md:max-w-[600px] h-[calc(100vh-20px)] rounded-[20px] border ${darkMode?'border-[#1A1D23]':'border-[#DCDCDC]'} ${darkMode?'bg-[#1A1D23]':'bg-[#ffffff]'}`}>
         {AISuggestionContentJSX}
       </div>
 
       {/* LinkedIn Preview Panel (Desktop - Right) */}
-      <div className="hidden md:block flex-1 h-[calc(100vh-20px)] bg-white shadow-lg rounded-xl">
+      <div className={`hidden md:block flex-1 h-[calc(100vh-20px)] ${darkMode?'bg-[#1A1D23]':'bg-[#ffffff]'} shadow-lg rounded-xl`}>
         {LinkedInPreviewContentJSX}
       </div>
     </div>

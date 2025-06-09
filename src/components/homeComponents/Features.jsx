@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../commonComponents/usercontext";
 
 const Features = () => {
+  const{darkMode} = useUser();
   return (
     <section className="w-full max-w-[1440px] mx-auto py-14 md:py-20 lg:py-[80px] flex flex-col gap-12 md:gap-16 lg:gap-20 items-center justify-center px-6">
-      <h2 className="font-lexend font-semibold text-3xl md:text-4xl lg:text-[36px] text-center leading-tight">
+      <h2 className={`${darkMode?'text-[#fff]':'text-[black]'} font-lexend font-semibold text-3xl md:text-4xl lg:text-[36px] text-center leading-tight`}>
         <span className="blueGradient">AI-Powered </span>
         Features for a <span className="purpleGradient">Winning</span> Resume
       </h2>
@@ -20,7 +22,7 @@ const Features = () => {
           >
             <Link to={feature.link || "#"}>
               <div
-                className={`w-full h-auto min-h-[220px] flex flex-col sm:flex-row rounded-2xl gap-5 p-6 md:p-8 border transition duration-300 transform hover:scale-105 hover:shadow-xl ${feature.bgColor} ${feature.borderColor} ${feature.shadow}`}
+                className={`w-full h-auto min-h-[220px] flex flex-col sm:flex-row rounded-2xl gap-5 p-6 md:p-8 border transition duration-300 transform hover:scale-105 hover:shadow-lg ${feature.bgColor} ${feature.borderColor} ${feature.shadow}`}
               >
                 <div className="w-full sm:w-[240px] flex flex-col justify-between gap-5">
                   <div>

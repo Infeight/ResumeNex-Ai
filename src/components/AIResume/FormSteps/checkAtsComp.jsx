@@ -1,6 +1,8 @@
 import React from 'react';
+import { useUser } from '../../commonComponents/usercontext';
 
 const Checkats = () => {
+  const {darkMode} = useUser();
   return (
     <div className="w-full max-w-xl mx-auto p-6 bg-white rounded-2xl shadow-md border border-gray-200">
       {/* Heading */}

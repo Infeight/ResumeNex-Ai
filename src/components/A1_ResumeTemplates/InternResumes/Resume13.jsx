@@ -101,62 +101,8 @@ const Resume13 = () => {
           </ul>
         </div>
 
-        {/* Experience */}
-        <div className="mb-[15px]">
-          <div className="text-[20px] font-bold text-[#0056b3] mb-[5px] border-b-2 border-[#ddd]">
-            Experience
-          </div>
-          {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-            workExperience.map((work, idx) => (
-              <div className="mt-[5px]" key={idx}>
-                <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-                  <span>
-                    {work.jobTitle ? work.jobTitle : "AI Research Intern"},{" "}
-                    {work.companyName ? work.companyName : "TechCorp"}
-                  </span>
-                  <span>
-                    {work.startDate && work.endDate
-                      ? `${work.startDate} – ${work.endDate}`
-                      : "June 2023 – Present"}
-                  </span>
-                </p>
-                <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-                  {work.responsibilities
-                    ? work.responsibilities.split("\n").map((resp, i) => (
-                        <li key={i}>{resp}</li>
-                      ))
-                    : (
-                      <>
-                        <li>
-                          Developed deep learning models for image recognition with 90%+
-                          accuracy
-                        </li>
-                        <li>
-                          Optimized data pipelines reducing processing time by 30%
-                        </li>
-                      </>
-                    )}
-                </ul>
-              </div>
-            ))
-          ) : (
-            <div className="mt-[5px]">
-              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-                <span>AI Research Intern, TechCorp</span>
-                <span>June 2023 – Present</span>
-              </p>
-              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-                <li>
-                  Developed deep learning models for image recognition with 90%+
-                  accuracy
-                </li>
-                <li>Optimized data pipelines reducing processing time by 30%</li>
-              </ul>
-            </div>
-          )}
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[15px]">
           <div className="text-[20px] font-bold text-[#0056b3] mb-[5px] border-b-2 border-[#ddd]">
             Projects
@@ -247,6 +193,63 @@ const Resume13 = () => {
           )}
         </div>
 
+
+        {/* Experience */}
+        <div className="mb-[15px]">
+          <div className="text-[20px] font-bold text-[#0056b3] mb-[5px] border-b-2 border-[#ddd]">
+            Experience
+          </div>
+          {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+            workExperience.map((work, idx) => (
+              <div className="mt-[5px]" key={idx}>
+                <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+                  <span>
+                    {work.jobTitle ? work.jobTitle : "AI Research Intern"},{" "}
+                    {work.companyName ? work.companyName : "TechCorp"}
+                  </span>
+                  <span>
+                    {work.startDate && work.endDate
+                      ? `${work.startDate} – ${work.endDate}`
+                      : "June 2023 – Present"}
+                  </span>
+                </p>
+                <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+                  {work.responsibilities
+                    ? work.responsibilities.split("\n").map((resp, i) => (
+                        <li key={i}>{resp}</li>
+                      ))
+                    : (
+                      <>
+                        <li>
+                          Developed deep learning models for image recognition with 90%+
+                          accuracy
+                        </li>
+                        <li>
+                          Optimized data pipelines reducing processing time by 30%
+                        </li>
+                      </>
+                    )}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <div className="mt-[5px]">
+              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+                <span>AI Research Intern, TechCorp</span>
+                <span>June 2023 – Present</span>
+              </p>
+              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+                <li>
+                  Developed deep learning models for image recognition with 90%+
+                  accuracy
+                </li>
+                <li>Optimized data pipelines reducing processing time by 30%</li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+       
         {/* Certifications */}
         <div className="mb-[15px]">
           <div className="text-[20px] font-bold text-[#0056b3] mb-[5px] border-b-2 border-[#ddd]">

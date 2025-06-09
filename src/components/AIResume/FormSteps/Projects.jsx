@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import { useResume } from "./resumecontext";
+import { useUser } from "../../commonComponents/usercontext";
+import { RiDeleteBin5Fill } from "react-icons/ri";
+
+
 
 const Projects = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
   const deleteicon = "/AIResumeAssets/delete.png";
+    
+  
   const generaticon = "/AIResumeAssets/generateicon.png";
 
   // const [projects, setProjects] = useState([
@@ -19,6 +25,7 @@ const Projects = () => {
   // ]);
 
   const{projects,setProjects} = useResume();
+   const {darkMode} =useUser();
    
   const addProject = () => {
     setProjects([
@@ -49,10 +56,10 @@ const Projects = () => {
   return (
     <div className="mb-8">
       <div className="mb-3">
-        <h2 className="text-[25px] leading-[40px] tracking-[0px] text-[#212529] font-manrope font-bold mb-4">
+        <h2 className={`text-[25px] leading-[40px] tracking-[0px]  ${darkMode?'text-[white]':'text-[#212529]'} font-manrope font-bold mb-4`}>
           Projects
         </h2>
-        <div className="w-14 h-5 bg-[#ECFCCA] -mt-8"></div>
+        <div className={`w-14 h-5 ${darkMode?'bg-[#9AE60033]':'bg-[#ECFCCA]'}  -mt-8`}></div>
       </div>
       
      <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
@@ -61,24 +68,25 @@ const Projects = () => {
 
         {projects.map((project, index) => (
           <div key={index} className="flex flex-col gap-[10px]">
-            <h2 className="flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#D8F999] bg-[#F7FEE7] rounded-[10px] text-[#212529] text-[16px] leading-[24px] font-['Inter'] font-medium">
+            <h2 className={`flex items-center justify-between gap-[20px] w-full max-w-[497px] h-auto px-[20px] py-[5px] mt-10 border border-[#D8F999] ${darkMode?'bg-[#9AE60033]':'bg-[#F7FEE7]'} rounded-[10px] ${darkMode?'text-[white]':'text-[#212529]'} text-[16px] leading-[24px] font-['Inter'] font-medium`}>
               <span>{index + 1}. Project</span>
-              <img
-                src={deleteicon}
-                alt="delete"
-                className="w-5 h-5 cursor-pointer"
-                onClick={() => removeProject(index)}
-              />
+              {darkMode?<RiDeleteBin5Fill style={{color:'white',fontSize:'1.7vw'}} />:
+                                        <img
+                                          src={deleteicon}
+                                          alt="delete"
+                                          className="w-5 h-5 cursor-pointer"
+                                          onClick={() => removeCertificate(index)}
+                                        />}
             </h2>
 
-            <div className="flex flex-col gap-4 border border-[#D8F999] px-4 py-4 bg-[#F7FEE7] rounded-xl">
+            <div className={`flex flex-col gap-4 border border-[#D8F999] px-4 py-4  ${darkMode?'bg-[#9AE60033]':'bg-[#F7FEE7]'} rounded-xl`}>
               <input
                 type="text"
                 name="name"
                 placeholder="Project Name"
                 value={project.name}
                 onChange={(e) => handleChange(index, e)}
-                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
               />
               <input
                 type="text"
@@ -86,7 +94,7 @@ const Projects = () => {
                 placeholder="Technologies Used"
                 value={project.technologies}
                 onChange={(e) => handleChange(index, e)}
-                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'}w-full h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
               />
               <input
                 type="url"
@@ -94,14 +102,14 @@ const Projects = () => {
                 placeholder="Project Link (Optional)"
                 value={project.link}
                 onChange={(e) => handleChange(index, e)}
-                className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
               />
               <textarea
                 name="description"
                 placeholder="Project Description"
                 value={project.description}
                 onChange={(e) => handleChange(index, e)}
-                className="w-full h-[100px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[100px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
               />
               <div className="flex flex-col sm:flex-row gap-4">
                 <input
@@ -109,14 +117,14 @@ const Projects = () => {
                   name="startDate"
                   value={project.startDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                  className={`${darkMode?'text-[white]':'text-gray-600'} w-full sm:w-[47%] h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[8px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
                 />
                 <input
                   type="date"
                   name="endDate"
                   value={project.endDate}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-full sm:w-1/2 h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                  className={`${darkMode?'text-[white]':'text-gray-600'} w-full sm:w-[47%] h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[8px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
                 />
               </div>
               <div className="flex flex-col relative w-full">
@@ -125,7 +133,7 @@ const Projects = () => {
                   placeholder="Summary (Bullet Points)"
                   value={project.summary}
                   onChange={(e) => handleChange(index, e)}
-                  className="w-full h-32 bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]"
+                  className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-32 ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#9AE600] placeholder:text-[#A59DAA]`}
                 />
                 <button
                   className="flex items-center font-inter text-white px-[10px] py-[7px] gap-[9px] absolute bottom-2 right-2 rounded-[35px] shadow-[0px_4px_5px_0px_#4C95FB40] text-sm"
@@ -144,7 +152,7 @@ const Projects = () => {
         <div className="flex justify-start">
           <button
             onClick={addProject}
-            className="flex items-center gap-[5px] px-[10px] py-[2px] bg-[#F8FFEC] border border-[#9AE600] rounded-full text-[#699C01] font-['Inter'] text-[15px] leading-[24px]"
+            className={`flex items-center gap-[5px] px-[10px] py-[2px] ${darkMode?'bg-[#9AE60033]':'bg-[#F8FFEC]'} border border-[#9AE600] rounded-full text-[#699C01] font-['Inter'] text-[15px] leading-[24px]`}
           >
             <span>Add More Project</span>
             <img src={add_circle} className="w-4 h-4" alt="add" />

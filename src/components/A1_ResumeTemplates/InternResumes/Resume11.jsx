@@ -104,76 +104,8 @@ const Resume11 = () => {
         </ul>
       </div>
 
-      {/* Experience */}
-      <div className="mb-[15px] p-[10px] bg-white">
-        <div className="text-[20px] font-bold text-[#0a66c2] mb-[5px] border-b border-[#ddd]">
-          EXPERIENCE
-        </div>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((work, idx) => (
-            <div className="mt-[10px]" key={idx}>
-              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-                <span>
-                  {work.jobTitle
-                    ? work.jobTitle
-                    : "Blockchain Developer Intern"}{" "}
-                  | {work.companyName ? work.companyName : "XYZ Tech"}
-                </span>
-                <span>
-                  {work.startDate && work.endDate
-                    ? `${work.startDate} – ${work.endDate}`
-                    : "May 2023 – Aug 2023"}
-                </span>
-              </p>
-              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-                {work.responsibilities
-                  ? work.responsibilities.split("\n").map((resp, i) => (
-                      <li key={i}>{resp}</li>
-                    ))
-                  : (
-                    <>
-                      <li>
-                        Developed and deployed 5+ Solidity smart contracts on Ethereum
-                        testnet with 100% test coverage
-                      </li>
-                      <li>
-                        Optimized gas costs by 25% through efficient contract design
-                        patterns
-                      </li>
-                      <li>
-                        Identified 3 critical security vulnerabilities during smart
-                        contract audits
-                      </li>
-                    </>
-                  )}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <div className="mt-[10px]">
-            <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
-              <span>Blockchain Developer Intern | XYZ Tech</span>
-              <span>May 2023 – Aug 2023</span>
-            </p>
-            <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
-              <li>
-                Developed and deployed 5+ Solidity smart contracts on Ethereum
-                testnet with 100% test coverage
-              </li>
-              <li>
-                Optimized gas costs by 25% through efficient contract design
-                patterns
-              </li>
-              <li>
-                Identified 3 critical security vulnerabilities during smart
-                contract audits
-              </li>
-            </ul>
-          </div>
-        )}
-      </div>
 
-      {/* Projects */}
+       {/* Projects */}
       <div className="mb-[15px] p-[10px] bg-white">
         <div className="text-[20px] font-bold text-[#0a66c2] mb-[5px] border-b border-[#ddd]">
           PROJECTS
@@ -289,6 +221,77 @@ const Resume11 = () => {
         )}
       </div>
 
+
+      {/* Experience */}
+      <div className="mb-[15px] p-[10px] bg-white">
+        <div className="text-[20px] font-bold text-[#0a66c2] mb-[5px] border-b border-[#ddd]">
+          EXPERIENCE
+        </div>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((work, idx) => (
+            <div className="mt-[10px]" key={idx}>
+              <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+                <span>
+                  {work.jobTitle
+                    ? work.jobTitle
+                    : "Blockchain Developer Intern"}{" "}
+                  | {work.companyName ? work.companyName : "XYZ Tech"}
+                </span>
+                <span>
+                  {work.startDate && work.endDate
+                    ? `${work.startDate} – ${work.endDate}`
+                    : "May 2023 – Aug 2023"}
+                </span>
+              </p>
+              <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+                {work.responsibilities
+                  ? work.responsibilities.split("\n").map((resp, i) => (
+                      <li key={i}>{resp}</li>
+                    ))
+                  : (
+                    <>
+                      <li>
+                        Developed and deployed 5+ Solidity smart contracts on Ethereum
+                        testnet with 100% test coverage
+                      </li>
+                      <li>
+                        Optimized gas costs by 25% through efficient contract design
+                        patterns
+                      </li>
+                      <li>
+                        Identified 3 critical security vulnerabilities during smart
+                        contract audits
+                      </li>
+                    </>
+                  )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <div className="mt-[10px]">
+            <p className="flex justify-between text-[14px] font-bold text-[#333] m-0">
+              <span>Blockchain Developer Intern | XYZ Tech</span>
+              <span>May 2023 – Aug 2023</span>
+            </p>
+            <ul className="pl-[20px] text-[12px] space-y-[3px] mt-[5px] list-disc">
+              <li>
+                Developed and deployed 5+ Solidity smart contracts on Ethereum
+                testnet with 100% test coverage
+              </li>
+              <li>
+                Optimized gas costs by 25% through efficient contract design
+                patterns
+              </li>
+              <li>
+                Identified 3 critical security vulnerabilities during smart
+                contract audits
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+
+     
       {/* Certifications */}
       <div className="mb-[15px] p-[10px] bg-white">
         <div className="text-[20px] font-bold text-[#0a66c2] mb-[5px] border-b border-[#ddd]">

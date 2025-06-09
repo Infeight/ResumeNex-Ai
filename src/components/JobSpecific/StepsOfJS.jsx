@@ -6,11 +6,12 @@ import Step3OfJS from "./Steps/Step3OfJS";
 import Step4OfJS from "./Steps/Step4OfJS";
 import Step5OfJS from "./Steps/Step5OfJS";
 import { useJobSpecific } from "./jobspecificcontext";
-
+import { useUser } from "../commonComponents/usercontext";
 const StepsOfJS = () => {
   const jobspecific = useJobSpecific()
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 5;
+  const {darkMode} = useUser();
 
   const steps = [
     { title: "step 1", content: <Step1OfJS /> },
@@ -22,13 +23,13 @@ const StepsOfJS = () => {
 
   return (
     <section className="w-fit mx-auto flex flex-col justify-center items-center gap-[50px] py-[50px] text-[#212529]">
-      <p className="font-lexend font-semibold text-[30px] flex gap-3">
+      <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-lexend font-semibold text-[30px] flex gap-3`}>
         Build
         <span className="text-[#774B35] font-bold"> Job Specific Resume </span>
         In Just simple 5 Steps
       </p>
 
-      <div className="flex flex-col gap-[35px] w-[981px] mx-auto p-[50px] bg-white rounded-[34px] border border-[#DCDCDC] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+      <div className={`flex flex-col gap-[35px] w-[981px] mx-auto p-[50px] ${darkMode?'bg-[#1A1D23]':'bg-white'} rounded-[34px] border ${darkMode?'border-[#1A1D23]':'border-white'} [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]`}>
         {/* Progress Bar */}
         <div className="flex items-center gap-[18px] w-[539px] mx-auto">
           {steps.map((_, idx, arr) => (
@@ -37,14 +38,14 @@ const StepsOfJS = () => {
                 className={`w-[34px] h-[34px] flex items-center justify-center rounded-full text-[16px] font-medium ${
                   currentStep >= idx + 1
                     ? "bg-[#4C95FB] text-white"
-                    : "bg-[#DCDCDC] text-[#A59DAA]"
+                    : `${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'} text-[#A59DAA]`
                 }`}
               >
                 {idx + 1}
               </div>
 
               {idx < arr.length - 1 && (
-                <div className="w-full relative flex-1 h-[6px] mx-2 bg-[#DCDCDC] rounded-4xl">
+                <div className={`w-full relative flex-1 h-[6px] mx-2 ${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'}  rounded-4xl`}>
                   {currentStep > idx + 1 && (
                     <div className="absolute inset-0 bg-[#4C95FB] rounded-4xl" />
                   )}

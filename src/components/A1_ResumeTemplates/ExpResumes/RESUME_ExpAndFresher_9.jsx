@@ -71,6 +71,13 @@ const RESUME_ExpAndFresher_9 = () => {
               >
                 {formData.otherLink || "johndoe.dev"}
               </a>
+
+{formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+
             </p>
           </div>
         </div>
@@ -137,67 +144,7 @@ const RESUME_ExpAndFresher_9 = () => {
           </div>
         </div>
 
-        {/* Work Experience */}
-        <div className="mb-5">
-          <h2 className="text-[20px] font-bold text-blue-700 border-b-2 border-gray-300 pb-1 mb-1">
-            Work Experience
-          </h2>
-          {hasArrayData(workExperience, "companyName")
-            ? workExperience.map((exp, idx) => (
-                <div className="flex mb-3" key={idx}>
-                  <div className="w-[65%]">
-                    <h3 className="text-[14px] font-bold">
-                      {exp.jobTitle || "AI Research Intern"}
-                    </h3>
-                    <p className="text-[12px] italic">
-                      {exp.companyName || "TechCorp, Stanford, CA"}
-                    </p>
-                    <ul className="list-disc pl-5 text-[12px]">
-                      {exp.responsibilities
-                        ? exp.responsibilities.split("\n").map((line, i) => (
-                            <li key={i}>{line}</li>
-                          ))
-                        : [
-                            <li key="1">
-                              Developed deep learning models for image recognition with
-                              90%+ accuracy.
-                            </li>,
-                            <li key="2">
-                              Optimized data pipelines reducing processing time by 30%.
-                            </li>,
-                          ]}
-                    </ul>
-                  </div>
-                  <div className="w-[30%] text-right text-[12px]">
-                    <p>
-                      {(exp.startDate || "Jun 2023")} - {(exp.endDate || "Present")}
-                    </p>
-                  </div>
-                </div>
-              ))
-            : (
-              <div className="flex mb-3">
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">AI Research Intern</h3>
-                  <p className="text-[12px] italic">TechCorp, Stanford, CA</p>
-                  <ul className="list-disc pl-5 text-[12px]">
-                    <li>
-                      Developed deep learning models for image recognition with 90%+
-                      accuracy.
-                    </li>
-                    <li>
-                      Optimized data pipelines reducing processing time by 30%.
-                    </li>
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px]">
-                  <p>Jun 2023 - Present</p>
-                </div>
-              </div>
-            )}
-        </div>
-
-        {/* Projects */}
+                {/* Projects */}
         <div className="mb-5">
           <h2 className="text-[20px] font-bold text-blue-700 border-b-2 border-gray-300 pb-1 mb-1">
             Projects
@@ -337,6 +284,68 @@ const RESUME_ExpAndFresher_9 = () => {
               </div>
             )}
         </div>
+
+        {/* Work Experience */}
+        <div className="mb-5">
+          <h2 className="text-[20px] font-bold text-blue-700 border-b-2 border-gray-300 pb-1 mb-1">
+            Work Experience
+          </h2>
+          {hasArrayData(workExperience, "companyName")
+            ? workExperience.map((exp, idx) => (
+                <div className="flex mb-3" key={idx}>
+                  <div className="w-[65%]">
+                    <h3 className="text-[14px] font-bold">
+                      {exp.jobTitle || "AI Research Intern"}
+                    </h3>
+                    <p className="text-[12px] italic">
+                      {exp.companyName || "TechCorp, Stanford, CA"}
+                    </p>
+                    <ul className="list-disc pl-5 text-[12px]">
+                      {exp.responsibilities
+                        ? exp.responsibilities.split("\n").map((line, i) => (
+                            <li key={i}>{line}</li>
+                          ))
+                        : [
+                            <li key="1">
+                              Developed deep learning models for image recognition with
+                              90%+ accuracy.
+                            </li>,
+                            <li key="2">
+                              Optimized data pipelines reducing processing time by 30%.
+                            </li>,
+                          ]}
+                    </ul>
+                  </div>
+                  <div className="w-[30%] text-right text-[12px]">
+                    <p>
+                      {(exp.startDate || "Jun 2023")} - {(exp.endDate || "Present")}
+                    </p>
+                  </div>
+                </div>
+              ))
+            : (
+              <div className="flex mb-3">
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">AI Research Intern</h3>
+                  <p className="text-[12px] italic">TechCorp, Stanford, CA</p>
+                  <ul className="list-disc pl-5 text-[12px]">
+                    <li>
+                      Developed deep learning models for image recognition with 90%+
+                      accuracy.
+                    </li>
+                    <li>
+                      Optimized data pipelines reducing processing time by 30%.
+                    </li>
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px]">
+                  <p>Jun 2023 - Present</p>
+                </div>
+              </div>
+            )}
+        </div>
+
+
 
         {/* Certifications */}
         <div className="mb-5">

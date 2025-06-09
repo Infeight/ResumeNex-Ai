@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useUser } from "../components/commonComponents/usercontext";
 
 const LinkedInOptemization = () => {
   const [enterManually, setEnterManually] = useState(false);
   const [fetchFromResume, setFetchFromResume] = useState(false);
   const [continueToSteps, setContinueToSteps] = useState(false);
   const [fileName, setFileName] = React.useState(null);
+  const {darkMode} = useUser(); 
 
   // handle mandulay sta option
   const handleEnterManually = () => {
@@ -57,8 +59,8 @@ const LinkedInOptemization = () => {
     document.getElementById("dropzone-file").value = "";
   };
   return (
-    <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-8 sm:gap-10 md:gap-[50px] py-10 sm:py-12 md:py-[50px] text-[#212529] bg-[#F7F7FB] px-4">
-      <p className="text-[#212529] font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto ">
+    <section className={`relative w-full mx-auto flex flex-col justify-center items-center gap-8 sm:gap-10 md:gap-[50px] py-10 sm:py-12 md:py-[50px] ${darkMode?'text-[white]':'text-[#1E1B39]'} ${darkMode?'bg-[#23272F]':'bg-white'} px-4`}>
+      <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto `}>
         Build a Job-Ready{" "}
         <span className="blueGradient  inline-flex items-center gap-1.5">
           Linkedin
@@ -73,7 +75,7 @@ const LinkedInOptemization = () => {
           className="w-[80px] sm:w-[100px] md:w-[130px] rotate-[-30deg] absolute left-[-50px] sm:left-[-50px] md:left-[-85px] top-[10px] sm:top-[15px] md:top-[20px]  sm:block"
         />
 
-        <div className="relative z-1 flex flex-col gap-6 md:gap-[35px] w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:w-[981px] mx-auto p-6 sm:p-8 md:p-[50px] md:pb-[70px] bg-[#E3F6FF] rounded-[24px] sm:rounded-[34px] border border-[#74D4FF] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+        <div className={`relative z-1 flex flex-col gap-6 md:gap-[35px] w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:w-[981px] mx-auto p-6 sm:p-8 md:p-[50px] md:pb-[70px] ${darkMode?'bg-[#1A1D23]':'bg-[#E3F6FF]'} rounded-[24px] sm:rounded-[34px] border ${darkMode?'border-[#1A1D23]':'border-[#74D4FF]'}  [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]`}>
           <div className="flex flex-col gap-6 md:gap-10 place-items-center ">
             <h2 className="font-manrope text-xl sm:text-2xl md:text-[25px] font-bold text-center">
               Select Options
@@ -81,10 +83,10 @@ const LinkedInOptemization = () => {
             <div className="flex flex-col lg:flex-row items-center justify-center gap-1 sm:gap-8 md:gap-[50px] text-[#212529] w-full">
               {/* Card 1: Enter data manually */}
               <div
-                className={`w-full max-w-md sm:w-[300px] h-[120px] md:h-[140px] lg:h-[170px]  relative flex items-center bg-white p-3 sm:p-4 cursor-pointer rounded-[16px] overflow-hidden transition-all duration-200 ease-in-out ${
+                className={`w-full max-w-md sm:w-[300px] h-[120px] md:h-[140px] lg:h-[170px]  relative flex items-center ${darkMode?'bg-[#1A1D23]':'bg-[white]'} p-3 sm:p-4 cursor-pointer rounded-[16px] overflow-hidden transition-all duration-200 ease-in-out ${
                   enterManually
                     ? "border-4 border-[#336EE7]"
-                    : "border border-[#dcdcdc]"
+                    :  `border ${darkMode?'border-[#363B45]':'border-[#dcdcdc]'} `
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -98,7 +100,7 @@ const LinkedInOptemization = () => {
                   alt="selection"
                   className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" // Radio icon on the left
                 />
-                <p className="flex-grow font-bold  sm:text-base md:text-lg font-manrope text-left">
+                <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} flex-grow font-bold  sm:text-base md:text-lg font-manrope text-left`}>
                   {" "}
                   Enter data <br className="hidden sm:inline" /> manually{" "}
                 </p>
@@ -120,11 +122,11 @@ const LinkedInOptemization = () => {
 
               {/* Card 2: Fetch data from resume */}
               <div
-                className={`w-full max-w-md sm:w-[300px] h-[120px] md:h-[140px] lg:h-[170px] relative flex items-center bg-white p-3 sm:p-4 cursor-pointer rounded-[16px] overflow-hidden transition-all duration-200 ease-in-out ${
+                className={`w-full max-w-md sm:w-[300px] h-[120px] md:h-[140px] lg:h-[170px] relative flex items-center ${darkMode?'bg-[#1A1D23]':'bg-[white]'} p-3 sm:p-4 cursor-pointer rounded-[16px] overflow-hidden transition-all duration-200 ease-in-out ${
                   // Adjusted height, base padding
                   fetchFromResume
                     ? "border-4 border-[#AB2FFF]"
-                    : "border border-[#dcdcdc]"
+                    :  `border ${darkMode?'border-[#363B45]':'border-[#dcdcdc]'} `
                 }`}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -138,7 +140,7 @@ const LinkedInOptemization = () => {
                   alt="selection"
                   className="w-5 h-5 sm:w-6 sm:h-6 mr-3 sm:mr-4 flex-shrink-0" // Radio icon on the left
                 />
-                <p className="flex-grow font-bold sm:text-base md:text-lg font-manrope text-left">
+                <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} flex-grow font-bold sm:text-base md:text-lg font-manrope text-left`}>
                   {" "}
                   {/* Adjusted text size, flex-grow to take space */}
                   Fetch data from <br className="hidden sm:inline" /> the resume{" "}
@@ -155,7 +157,7 @@ const LinkedInOptemization = () => {
             {fetchFromResume && (
               <label
                 htmlFor="dropzone-file"
-                className={`flex flex-col items-center justify-center w-full h-48 sm:h-52 border-4 border-[#AB2FFF] bg-white border-dashed rounded-[16px] cursor-pointer hover:bg-gray-100 p-4 ${
+                className={`flex flex-col items-center justify-center w-full h-48 sm:h-52 border-4 border-[#AB2FFF] ${darkMode?'bg-[#23272F]':'bg-white'} border-dashed rounded-[16px] cursor-pointer hover:bg-gray-100 p-4 ${
                   fileName ? "pt-5" : "pt-5 pb-6"
                 }`}
                 onDragOver={handleDragOver}

@@ -8,6 +8,7 @@ import {ResumeProvider} from './components/AIResume/FormSteps/resumecontext'
 import { CoverLetterProvider } from "./components/CoverLetterFolder/coverlettercontext";
 import { JobSpecificProvider } from "./components/JobSpecific/jobspecificcontext";
 import { LinkedInProvider } from "./components/LinkedInOptimization/linkedincontext";
+import { UserProvider } from "./components/commonComponents/usercontext";
 import SeeTemplates from "./Pages/SeeTemplates";
 // Lazy-loaded components for pages
 const Home = lazy(() => import("./Pages/Home"));
@@ -40,6 +41,7 @@ const Navbar = lazy(() =>
 const App = () => {
   return (
     <Router>
+      <UserProvider>
       <ResumeProvider>
         <CoverLetterProvider>
           <JobSpecificProvider>
@@ -122,6 +124,7 @@ const App = () => {
       </JobSpecificProvider>
       </CoverLetterProvider>
       </ResumeProvider>
+      </UserProvider>
     </Router>
   );
 };

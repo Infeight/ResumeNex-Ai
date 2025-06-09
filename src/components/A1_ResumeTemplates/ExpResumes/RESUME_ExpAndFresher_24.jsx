@@ -230,6 +230,20 @@ const RESUME_ExpAndFresher_24 = () => {
                 : "linkedin.com/in/leahcamille"}
             </a>
           </span>
+
+            <span>
+              <a
+                href={formData.github ? formData.github : "https://github.com/in/spencernova"}
+                className="text-[#0000EE] underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {formData.github
+                  ? formData.github.replace(/^https?:\/\//, "")
+                  : "github.com/in/spencernova"}
+              </a>
+            </span>
+
           <span>
             <i className="fas fa-globe mr-[5px]"></i>
             <a
@@ -243,6 +257,24 @@ const RESUME_ExpAndFresher_24 = () => {
                 : "portfolio.leahcamille.com"}
             </a>
           </span>
+
+           <span>
+                <a
+                  href={
+                    formData.figma
+                      ? formData.figma
+                      : "https://figma.com/@blairwashington"
+                  }
+                  className="text-black underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {formData.figma
+                    ? formData.figma.replace(/^https?:\/\//, "")
+                    : "figma.com/@blairwashington"}
+                </a>
+              </span>
+
         </div>
 
         {/* Professional Summary */}
@@ -296,97 +328,8 @@ const RESUME_ExpAndFresher_24 = () => {
           </div>
         </div>
 
-        {/* Work Experience */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
-            Work Experience
-          </h2>
-          {workExperienceToDisplay.map((exp, i) => (
-            <div className="mb-[10px]" key={i}>
-              <p className="text-[12px]">
-                <span className="font-bold">{exp.jobTitle}</span>
-                <br />
-                {exp.companyName}
-                <br />
-                <span className="font-bold">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </p>
-              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
-                {(Array.isArray(exp.responsibilities)
-                  ? exp.responsibilities
-                  : exp.responsibilities
-                  ? exp.responsibilities.split("\n")
-                  : []
-                ).map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
 
-        {/* Education */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
-            Education
-          </h2>
-          <div className="flex justify-between text-[12px]">
-            {educationToDisplay.map((edu, i) => (
-              <div className="w-[48%]" key={i}>
-                <p>
-                  <span className="font-bold">{edu.degree}</span>
-                  <br />
-                  {edu.collegeName}
-                  <br />
-                  Stream: {edu.stream}
-                  <br />
-                  <span className="font-bold">
-                    {edu.startDate} – {edu.endDate}
-                  </span>
-                </p>
-                <p>
-                  <span className="font-bold">CGPA</span>
-                  <br />
-                  {edu.cgpa}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Certifications */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
-            Certifications
-          </h2>
-          <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
-            {certificationsToDisplay.map((cert, i) => (
-              <li key={i}>
-                <span className="font-bold">{cert.name}</span>
-                <br />
-                {cert.organization && <>{cert.organization}, </>}
-                {cert.license && <>{cert.license}<br /></>}
-                Issued: {cert.issueDate}, Expires: {cert.expiryDate}
-                {cert.link && (
-                  <>
-                    <br />
-                    <a
-                      href={cert.link}
-                      className="text-[#0000EE] underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {cert.link.replace(/^https?:\/\//, "")}
-                    </a>
-                  </>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
             Projects
@@ -427,6 +370,101 @@ const RESUME_ExpAndFresher_24 = () => {
             </div>
           ))}
         </div>
+
+
+        {/* Education */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
+            Education
+          </h2>
+          <div className="flex justify-between text-[12px]">
+            {educationToDisplay.map((edu, i) => (
+              <div className="w-[48%]" key={i}>
+                <p>
+                  <span className="font-bold">{edu.degree}</span>
+                  <br />
+                  {edu.collegeName}
+                  <br />
+                  Stream: {edu.stream}
+                  <br />
+                  <span className="font-bold">
+                    {edu.startDate} – {edu.endDate}
+                  </span>
+                </p>
+                <p>
+                  <span className="font-bold">CGPA</span>
+                  <br />
+                  {edu.cgpa}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Work Experience */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
+            Work Experience
+          </h2>
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="mb-[10px]" key={i}>
+              <p className="text-[12px]">
+                <span className="font-bold">{exp.jobTitle}</span>
+                <br />
+                {exp.companyName}
+                <br />
+                <span className="font-bold">
+                  {exp.startDate} – {exp.endDate}
+                </span>
+              </p>
+              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        
+
+        {/* Certifications */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold text-center relative mb-[8px] before:content-[''] before:absolute before:top-1/2 before:left-0 before:w-[30%] before:h-[1px] before:bg-black after:content-[''] after:absolute after:top-1/2 after:right-0 after:w-[30%] after:h-[1px] after:bg-black">
+            Certifications
+          </h2>
+          <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
+            {certificationsToDisplay.map((cert, i) => (
+              <li key={i}>
+                <span className="font-bold">{cert.name}</span>
+                <br />
+                {cert.organization && <>{cert.organization}, </>}
+                {cert.license && <>{cert.license}<br /></>}
+                Issued: {cert.issueDate}, Expires: {cert.expiryDate}
+                {cert.link && (
+                  <>
+                    <br />
+                    <a
+                      href={cert.link}
+                      className="text-[#0000EE] underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {cert.link.replace(/^https?:\/\//, "")}
+                    </a>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+       
 
         {/* Additional Information */}
         <div className="mb-[15px]">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Document, Page, pdfjs } from "react-pdf";
+import { useUser } from "../components/commonComponents/usercontext";
 
 import { useEffect } from "react";
 // import * as pdfjsLib from "pdfjs-dist/build/pdf";
@@ -17,6 +18,7 @@ const ResumeOptimization = () => {
   const [pdfText, setPdfText] = useState("");
   const [parsedResume, setParsedResume] = useState({});
 const [sections, setSections] = useState('');
+const{darkMode} = useUser();
 
   // Define state for the job role input
   const [jobRole, setJobRole] = useState("");
@@ -95,8 +97,8 @@ const [sections, setSections] = useState('');
 };
 
   return (
-    <section className="relative w-full mx-auto flex flex-col justify-center items-center gap-[30px] lg:gap-[50px] py-[30px] lg:py-[50px] text-[#212529] bg-[#ffffff] px-4 sm:px-6">
-      <p className="text-[#212529] font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto">
+    <section className={`relative w-full mx-auto flex flex-col justify-center items-center gap-[30px] lg:gap-[50px] py-[30px] lg:py-[50px] ${darkMode?'text-[white]':'text-[#1E1B39]'} ${darkMode?'bg-[#23272F]':'bg-white'} px-4 sm:px-6`}>
+      <p className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-lexend font-semibold text-2xl sm:text-3xl md:text-[28px] lg:text-[30px] text-center md:text-left mx-auto`}>
         <span
           className="text-[#E3B200] font-black inline-flex items-center gap-1.5"
           style={{ textShadow: "0px 0px 100px #FFD230" }}
@@ -122,7 +124,7 @@ const [sections, setSections] = useState('');
       </p>
 
       <div className="relative w-full max-w-[981px]">
-        <div className="relative z-1 flex flex-col gap-[35px] w-full p-6 sm:p-8 md:p-[50px] bg-[#fff9e4] rounded-[20px] md:rounded-[34px] border border-[#FFD230] shadow-sm">
+        <div className={`relative z-1 flex flex-col gap-[35px] w-full p-6 sm:p-8 md:p-[50px] ${darkMode?'bg-[#23272F]':'bg-[#fff9e4]'}  rounded-[20px] md:rounded-[34px] border border-[#FFD230] shadow-sm`}>
           {/* UPLOAD LABEL */}
           <div className="space-y-[15px] ">
             <p className="font-inter font-medium text-[#212529] text-[16px] sm:text-[18px]">
@@ -130,10 +132,10 @@ const [sections, setSections] = useState('');
             </p>
             <label
               htmlFor="dropzone-file"
-              className={`flex flex-col items-center justify-center w-full h-52 border-[3px] border-dashed rounded-[16px] cursor-pointer transition-all  bg-white
+              className={`flex flex-col items-center justify-center w-full h-52 border-[3px] border-dashed rounded-[16px] cursor-pointer transition-all  ${darkMode?'bg-[#363B45]':'bg-white'}
     
     hover:border-[#FFD230] 
-    ${file ? "border-[#FFD230] " : "hover:scale-95 border-[#dcdcdc] "}
+    ${file ? "border-[#FFD230] " : `hover:scale-95 ${darkMode?'border-[black]':'border-[white]'} `}
   `}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
@@ -168,8 +170,8 @@ const [sections, setSections] = useState('');
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <p className="text-center text-gray-700 text-sm sm:text-base">
-                    <span className="block font-semibold text-blue-600 hover:underline cursor-pointer transition text-[16px]">
+                  <p className={`text-center  text-sm sm:text-base ${darkMode?'text-[white]':'text-[#1E1B39]'}`}>
+                    <span className={` block font-semibold text-blue-600 hover:underline cursor-pointer transition text-[16px]`}>
                       Click to upload
                     </span>
                     or drag and drop
@@ -194,8 +196,8 @@ const [sections, setSections] = useState('');
             </label>
             <input
               type="text"
-              className={`bg-white border-[3px] rounded-full px-6 sm:px-8 py-4 sm:py-5 focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[16px] sm:text-[18px] font-medium ${
-                jobRole ? "border-[#FFD230]" : "border-[#DCDCDC]"
+              className={`${darkMode?'bg-[#363B45]':'bg-white'} border-[3px] rounded-full px-6 sm:px-8 py-4 sm:py-5 focus:outline-none focus:ring-3 focus:ring-[#FFD230] placeholder-[#A59DAA] text-[16px] sm:text-[18px] font-medium ${
+                jobRole ? "border-[#FFD230]" : `${darkMode?'border-[#363B45]':'border-[#DCDCDC]'}`
               }`}
               placeholder="Enter Job Role here"
               value={jobRole}

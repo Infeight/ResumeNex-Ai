@@ -190,6 +190,20 @@ const RESUME_ExpAndFresher_22 = () => {
                   : "linkedin.com/in/spencernova"}
               </a>
             </span>
+
+          <span>
+              <a
+                href={formData.github ? formData.github : "https://github.com/in/spencernova"}
+                className="text-[#0000EE] underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {formData.github
+                  ? formData.github.replace(/^https?:\/\//, "")
+                  : "github.com/in/spencernova"}
+              </a>
+            </span>
+
             <span className="text-gray-600 mx-[2px]">|</span>
             <span>
               <a
@@ -202,6 +216,13 @@ const RESUME_ExpAndFresher_22 = () => {
                   ? formData.otherLink.replace(/^https?:\/\//, "")
                   : "portfolio.spencernova.com"}
               </a>
+            </span>
+            <span>
+              {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-white-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
             </span>
           </div>
         </div>
@@ -224,59 +245,25 @@ const RESUME_ExpAndFresher_22 = () => {
           </p>
         </div>
 
-        {/* Work Experience */}
+
+ {/* Skills */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
-            Work Experience
+            Skills
           </h2>
-          {workExperienceToDisplay.map((exp, i) => (
-            <div className="mb-[10px]" key={i}>
-              <div className="text-[12px] font-bold mb-[3px]">
-                {exp.jobTitle}
-              </div>
-              <div>
-                <span className="text-[12px] italic">{exp.companyName}</span>
-                <span className="text-[12px] italic float-right">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </div>
-              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
-                {(Array.isArray(exp.responsibilities)
-                  ? exp.responsibilities
-                  : exp.responsibilities
-                  ? exp.responsibilities.split("\n")
-                  : []
-                ).map((item, idx) => (
-                  <li key={idx}>{item}</li>
+          <div className="flex justify-between text-[12px]">
+            {skillColumns.map((col, i) => (
+              <div className="w-[22%]" key={i}>
+                {col.map((skill, idx) => (
+                  <p key={idx}>{skill}</p>
                 ))}
-              </ul>
-            </div>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Education */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
-            Education
-          </h2>
-          {educationToDisplay.map((edu, i) => (
-            <div className="flex justify-between items-center text-[12px]" key={i}>
-              <div className="font-bold">
-                {edu.degree}
-                <br />
-                {edu.collegeName}
-                <br />
-                Stream: {edu.stream}
-              </div>
-              <div className="italic">CGPA: {edu.cgpa}</div>
-              <div className="italic">
-                {edu.startDate} – {edu.endDate}
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
             Projects
@@ -318,6 +305,63 @@ const RESUME_ExpAndFresher_22 = () => {
           ))}
         </div>
 
+
+ {/* Education */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
+            Education
+          </h2>
+          {educationToDisplay.map((edu, i) => (
+            <div className="flex justify-between items-center text-[12px]" key={i}>
+              <div className="font-bold">
+                {edu.degree}
+                <br />
+                {edu.collegeName}
+                <br />
+                Stream: {edu.stream}
+              </div>
+              <div className="italic">CGPA: {edu.cgpa}</div>
+              <div className="italic">
+                {edu.startDate} – {edu.endDate}
+              </div>
+            </div>
+          ))}
+        </div>
+
+       
+
+
+        {/* Work Experience */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
+            Work Experience
+          </h2>
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="mb-[10px]" key={i}>
+              <div className="text-[12px] font-bold mb-[3px]">
+                {exp.jobTitle}
+              </div>
+              <div>
+                <span className="text-[12px] italic">{exp.companyName}</span>
+                <span className="text-[12px] italic float-right">
+                  {exp.startDate} – {exp.endDate}
+                </span>
+              </div>
+              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0] leading-[1.4]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+       
         {/* Certifications */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
@@ -349,22 +393,7 @@ const RESUME_ExpAndFresher_22 = () => {
           </ul>
         </div>
 
-        {/* Skills */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">
-            Skills
-          </h2>
-          <div className="flex justify-between text-[12px]">
-            {skillColumns.map((col, i) => (
-              <div className="w-[22%]" key={i}>
-                {col.map((skill, idx) => (
-                  <p key={idx}>{skill}</p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </div>
-
+       
         {/* Additional Sections */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase bg-[#e6f0fa] text-center py-[5px] border-b border-[#b3d4fc] mb-[8px]">

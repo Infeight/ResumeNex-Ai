@@ -1,4 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { BsTwitterX } from "react-icons/bs";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -17,9 +22,13 @@ const Footer = () => {
               frequent questions or concerns.
             </p>
             <div className="flex gap-3 justify-center">
-              <img src="/img/x.png" alt="X" className="w-5 h-5" />
+              {/* <img src="/img/x.png" alt="X" className="w-5 h-5" />
               <img src="/img/facebook.png" alt="Facebook" className="w-5 h-5" />
-              <img src="/img/insta.png" alt="Instagram" className="w-5 h-5" />
+              <img src="/img/insta.png" alt="Instagram" className="w-5 h-5" /> */}
+              <a href=""><BsTwitterX className="text-[3.5vw] md:text-[1.2vw] text-white" /></a>
+              <a href=""><FaFacebookSquare className="text-[3.5vw] md:text-[1.2vw] text-white"/></a>
+              <a href=""><FaInstagram className="text-[3.5vw] md:text-[1.2vw] text-white"/></a>
+              <a href=""><FaLinkedin className="text-[3.5vw] md:text-[1.2vw] text-white"/></a>
             </div>
           </div>
 
@@ -62,7 +71,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <section className="mt-10 w-full border-t-2 border-[#8A8A8A] pt-8">
           <p className="text-sm text-[#B9B3B3] text-center px-4">
-            © Copyright 2024, All Rights Reserved by ResumeNex.Ai
+            © Copyright 2024, All Rights Reserved by ResumeNex AI
           </p>
         </section>
       </section>

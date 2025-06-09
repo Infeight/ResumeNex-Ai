@@ -154,80 +154,8 @@ const RESUME_ExpAndFresher_29 = () => {
       </section>
       <hr className="border-t border-[#808080] mb-[10px]" />
 
-      {/* Work Experience */}
-      <section className="mb-[10px]">
-        <h2 className="text-[14pt] font-bold uppercase text-[#8A2BE2] text-center mb-[5px]">
-          Work Experience
-        </h2>
-        {workExperience && workExperience.length > 0 ? (
-          workExperience.map((work, idx) => (
-            <div key={idx} className="mb-[10px]">
-              <h3 className="text-[12pt] font-bold mb-[2px]">
-                {work.companyName ? work.companyName : "Jala Academy, Hyderabad"}
-              </h3>
-              <p className="text-[11pt]">
-                {work.startDate && work.endDate
-                  ? `${work.startDate} - ${work.endDate}`
-                  : idx === 0
-                  ? "Oct 2024 - Jan 2025"
-                  : "Nov 2024 - Present"}
-              </p>
-              <ul className="list-disc ml-[20px] mb-[10px]">
-                {work.responsibilities ? (
-                  work.responsibilities.split("\n").map((resp, i) => (
-                    <li key={i}>{resp}</li>
-                  ))
-                ) : idx === 0 ? (
-                  <>
-                    <li>
-                      Mentored 50+ students in frontend development and UI/UX design,
-                      achieving a 95% satisfaction rate.
-                    </li>
-                    <li>Developed 10+ projects showcasing responsive design best practices.</li>
-                    <li>Fixed 20+ frontend bugs, improving website performance by 30%.</li>
-                  </>
-                ) : (
-                  <>
-                    <li>
-                      Led development of 5+ responsive websites, ensuring 100% on-time delivery.
-                    </li>
-                    <li>Designed 15+ marketing posters, boosting client engagement by 25%.</li>
-                    <li>Collaborated with 5 developers to streamline workflows, enhancing project efficiency.</li>
-                  </>
-                )}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <>
-            {/* Fallback hardcoded work experience */}
-            <div className="mb-[10px]">
-              <h3 className="text-[12pt] font-bold mb-[2px]">Jala Academy, Hyderabad</h3>
-              <p className="text-[11pt]">Oct 2024 - Jan 2025</p>
-              <ul className="list-disc ml-[20px] mb-[10px]">
-                <li>
-                  Mentored 50+ students in frontend development and UI/UX design,
-                  achieving a 95% satisfaction rate.
-                </li>
-                <li>Developed 10+ projects showcasing responsive design best practices.</li>
-                <li>Fixed 20+ frontend bugs, improving website performance by 30%.</li>
-              </ul>
-            </div>
-            <div className="mb-[10px]">
-              <h3 className="text-[12pt] font-bold mb-[2px]">Esha Technology, Hyderabad</h3>
-              <p className="text-[11pt]">Nov 2024 - Present</p>
-              <ul className="list-disc ml-[20px] mb-[10px]">
-                <li>Led development of 5+ responsive websites, ensuring 100% on-time delivery.</li>
-                <li>Designed 15+ marketing posters, boosting client engagement by 25%.</li>
-                <li>Collaborated with 5 developers to streamline workflows, enhancing project efficiency.</li>
-              </ul>
-            </div>
-          </>
-        )}
-      </section>
-      <hr className="border-t border-[#808080] mb-[10px]" />
 
-      {/* Projects */}
+       {/* Projects */}
       <section className="mb-[10px]">
         <h2 className="text-[14pt] font-bold uppercase text-[#8A2BE2] text-center mb-[5px]">
           Projects
@@ -303,6 +231,81 @@ const RESUME_ExpAndFresher_29 = () => {
           </>
         )}
       </section>
+
+      {/* Work Experience */}
+      <section className="mb-[10px]">
+        <h2 className="text-[14pt] font-bold uppercase text-[#8A2BE2] text-center mb-[5px]">
+          Work Experience
+        </h2>
+        {workExperience && workExperience.length > 0 ? (
+          workExperience.map((work, idx) => (
+            <div key={idx} className="mb-[10px]">
+              <h3 className="text-[12pt] font-bold mb-[2px]">
+                {work.companyName ? work.companyName : "Jala Academy, Hyderabad"}
+              </h3>
+              <p className="text-[11pt]">
+                {work.startDate && work.endDate
+                  ? `${work.startDate} - ${work.endDate}`
+                  : idx === 0
+                  ? "Oct 2024 - Jan 2025"
+                  : "Nov 2024 - Present"}
+              </p>
+              <ul className="list-disc ml-[20px] mb-[10px]">
+                {work.responsibilities ? (
+                  work.responsibilities.split("\n").map((resp, i) => (
+                    <li key={i}>{resp}</li>
+                  ))
+                ) : idx === 0 ? (
+                  <>
+                    <li>
+                      Mentored 50+ students in frontend development and UI/UX design,
+                      achieving a 95% satisfaction rate.
+                    </li>
+                    <li>Developed 10+ projects showcasing responsive design best practices.</li>
+                    <li>Fixed 20+ frontend bugs, improving website performance by 30%.</li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      Led development of 5+ responsive websites, ensuring 100% on-time delivery.
+                    </li>
+                    <li>Designed 15+ marketing posters, boosting client engagement by 25%.</li>
+                    <li>Collaborated with 5 developers to streamline workflows, enhancing project efficiency.</li>
+                  </>
+                )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <>
+            {/* Fallback hardcoded work experience */}
+            <div className="mb-[10px]">
+              <h3 className="text-[12pt] font-bold mb-[2px]">Jala Academy, Hyderabad</h3>
+              <p className="text-[11pt]">Oct 2024 - Jan 2025</p>
+              <ul className="list-disc ml-[20px] mb-[10px]">
+                <li>
+                  Mentored 50+ students in frontend development and UI/UX design,
+                  achieving a 95% satisfaction rate.
+                </li>
+                <li>Developed 10+ projects showcasing responsive design best practices.</li>
+                <li>Fixed 20+ frontend bugs, improving website performance by 30%.</li>
+              </ul>
+            </div>
+            <div className="mb-[10px]">
+              <h3 className="text-[12pt] font-bold mb-[2px]">Esha Technology, Hyderabad</h3>
+              <p className="text-[11pt]">Nov 2024 - Present</p>
+              <ul className="list-disc ml-[20px] mb-[10px]">
+                <li>Led development of 5+ responsive websites, ensuring 100% on-time delivery.</li>
+                <li>Designed 15+ marketing posters, boosting client engagement by 25%.</li>
+                <li>Collaborated with 5 developers to streamline workflows, enhancing project efficiency.</li>
+              </ul>
+            </div>
+          </>
+        )}
+      </section>
+      <hr className="border-t border-[#808080] mb-[10px]" />
+
+     
       <hr className="border-t border-[#808080] mb-[10px]" />
 
       {/* Education and Certifications */}

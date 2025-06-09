@@ -1,8 +1,10 @@
 import React from "react";
+import { useUser } from "./usercontext";
 
 const ReviewCard = ({ name, comment, profileImg }) => {
+  const {darkMode} = useUser();
   return (
-    <figure className="max-w-screen-lg mx-auto border rounded-3xl py-12   px-8 mb-20 shadow-2xl shadow-slate-200">
+    <figure className={`max-w-screen-lg mx-auto border ${darkMode?'border-[#363B45]':'border-[white]'} rounded-3xl py-12   px-8 mb-20 shadow-2xl ${darkMode?'shadow-[#363B45]':'shadow-slate-200'} `}>
       <figcaption className="flex items-center space-x-3 rtl:space-x-reverse">
         <img
           className="w-20 h-20 object-cover rounded-3xl"
@@ -10,7 +12,7 @@ const ReviewCard = ({ name, comment, profileImg }) => {
           alt="profile picture"
         />
         <div className="flex flex-col gap-3 pl-4 ">
-          <cite className="font-medium text-gray-900 text-xl ">{name}</cite>
+          <cite className={`font-medium ${darkMode?'text-[white]':'text-gray-900'} text-xl "`}>{name}</cite>
           <div className="flex items-center text-orange-400 ">
             <svg
               className="w-5 h-5 me-1"
@@ -61,7 +63,7 @@ const ReviewCard = ({ name, comment, profileImg }) => {
         </div>
       </figcaption>
       <blockquote>
-        <p className="text-2xl font-semibold text-gray-900 mt-6  ">{comment}</p>
+        <p className={`text-2xl font-semibold ${darkMode?'text-[white]':'text-gray-900'} mt-6  `}>{comment}</p>
       </blockquote>
     </figure>
   );

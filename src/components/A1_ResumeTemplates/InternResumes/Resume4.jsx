@@ -99,62 +99,8 @@ const Resume4 = () => {
         </ul>
       </div>
 
-      {/* Work Experience */}
-      <div className="m-[8px_0] p-[8px] bg-[#f9fafb]">
-        <div className="text-[20px] font-bold text-[#1e40af] p-[3px_0] mb-[5px]">
-          Work Experience
-        </div>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((work, idx) => (
-            <div key={idx}>
-              <p className="experience-line flex justify-between text-[14px] m-[3px_0] text-left">
-                <strong>
-                  {work.jobTitle
-                    ? work.jobTitle
-                    : "Frontend Intern"}
-                  {work.companyName ? `, ${work.companyName}` : ", WebFlow Co."}
-                </strong>
-                <span>
-                  {work.startDate && work.endDate
-                    ? `${work.startDate} – ${work.endDate}`
-                    : "Jan 2024 – Jun 2024"}
-                </span>
-              </p>
-              <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
-                {work.responsibilities
-                  ? work.responsibilities
-                      .split("\n")
-                      .map((resp, i) => <li key={i}>{resp}</li>)
-                  : [
-                      <li key="1">
-                        Developed responsive UIs with React and CSS for a SaaS platform.
-                      </li>,
-                      <li key="2">
-                        Collaborated with designers in Figma, improving load times by 15%.
-                      </li>,
-                    ]}
-              </ul>
-            </div>
-          ))
-        ) : (
-          <>
-            <p className="experience-line flex justify-between text-[14px] m-[3px_0] text-left">
-              <strong>Frontend Intern, WebFlow Co.</strong>
-              <span>Jan 2024 – Jun 2024</span>
-            </p>
-            <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
-              <li>
-                Developed responsive UIs with React and CSS for a SaaS platform.
-              </li>
-              <li>
-                Collaborated with designers in Figma, improving load times by 15%.
-              </li>
-            </ul>
-          </>
-        )}
-      </div>
 
-      {/* Projects */}
+       {/* Projects */}
       <div className="m-[8px_0] p-[8px] bg-[#eff6ff]">
         <div className="text-[20px] font-bold text-[#1e40af] p-[3px_0] mb-[5px]">
           Projects
@@ -269,6 +215,63 @@ const Resume4 = () => {
           </>
         )}
       </div>
+
+      {/* Work Experience */}
+      <div className="m-[8px_0] p-[8px] bg-[#f9fafb]">
+        <div className="text-[20px] font-bold text-[#1e40af] p-[3px_0] mb-[5px]">
+          Work Experience
+        </div>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((work, idx) => (
+            <div key={idx}>
+              <p className="experience-line flex justify-between text-[14px] m-[3px_0] text-left">
+                <strong>
+                  {work.jobTitle
+                    ? work.jobTitle
+                    : "Frontend Intern"}
+                  {work.companyName ? `, ${work.companyName}` : ", WebFlow Co."}
+                </strong>
+                <span>
+                  {work.startDate && work.endDate
+                    ? `${work.startDate} – ${work.endDate}`
+                    : "Jan 2024 – Jun 2024"}
+                </span>
+              </p>
+              <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
+                {work.responsibilities
+                  ? work.responsibilities
+                      .split("\n")
+                      .map((resp, i) => <li key={i}>{resp}</li>)
+                  : [
+                      <li key="1">
+                        Developed responsive UIs with React and CSS for a SaaS platform.
+                      </li>,
+                      <li key="2">
+                        Collaborated with designers in Figma, improving load times by 15%.
+                      </li>,
+                    ]}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <>
+            <p className="experience-line flex justify-between text-[14px] m-[3px_0] text-left">
+              <strong>Frontend Intern, WebFlow Co.</strong>
+              <span>Jan 2024 – Jun 2024</span>
+            </p>
+            <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
+              <li>
+                Developed responsive UIs with React and CSS for a SaaS platform.
+              </li>
+              <li>
+                Collaborated with designers in Figma, improving load times by 15%.
+              </li>
+            </ul>
+          </>
+        )}
+      </div>
+
+     
 
       {/* Hobbies */}
       <div className="m-[8px_0] p-[8px] bg-[#eff6ff]">

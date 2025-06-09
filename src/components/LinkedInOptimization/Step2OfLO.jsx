@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
 import { useLinkedIn } from "./linkedincontext.jsx";
+import { useUser } from "../commonComponents/usercontext.jsx";
 
 const Step2OfLO = () => {
   // State for Education
   const {educationList, setEducationList} = useLinkedIn();
-
+  const{darkMode} = useUser();
   // State for Certifications
   const {certifications, setCertifications} = useLinkedIn();
 
@@ -69,12 +70,12 @@ const Step2OfLO = () => {
   return (
     <section className="flex flex-col gap-[36px] ">
       {/* Education Section */}
-      <div className="flex flex-col gap-[20px] bg-white  py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'}  py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Education Details
           </h2>
-          <div className="bg-[#E3F6FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#E3F6FF]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#74D4FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {educationList.map((edu, index) => (
@@ -82,7 +83,7 @@ const Step2OfLO = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                 {/* College Name */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     College Name
                   </label>
                   <input
@@ -91,14 +92,14 @@ const Step2OfLO = () => {
                     onChange={(e) =>
                       handleEducationChange(index, "college", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., Delhi University"
                   />
                 </div>
 
                 {/* Degree */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Degree
                   </label>
                   <input
@@ -107,14 +108,14 @@ const Step2OfLO = () => {
                     onChange={(e) =>
                       handleEducationChange(index, "degree", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., B.Tech"
                   />
                 </div>
 
                 {/* Stream */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Stream
                   </label>
                   <input
@@ -123,7 +124,7 @@ const Step2OfLO = () => {
                     onChange={(e) =>
                       handleEducationChange(index, "stream", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., Computer Science"
                   />
                 </div>
@@ -132,7 +133,7 @@ const Step2OfLO = () => {
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3  flex-col md:flex-row">
                     <div className="flex flex-col  w-full md:w-1/2">
-                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                      <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                         Start Date
                       </label>
                       <input
@@ -145,13 +146,13 @@ const Step2OfLO = () => {
                             e.target.value
                           )
                         }
-                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]"
+                        className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]`}
                         placeholder="Select a month"
                       />
                     </div>
                     {!edu.currentlyPursuing && (
                       <div className="flex flex-col w-full md:w-1/2">
-                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                           End Date
                         </label>
                         <input
@@ -164,7 +165,7 @@ const Step2OfLO = () => {
                               e.target.value
                             )
                           }
-                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]"
+                          className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#74D4FF] text-[#A59DAA]`}
                           placeholder="Select a month"
                         />
                       </div>
@@ -186,7 +187,7 @@ const Step2OfLO = () => {
                       }}
                       className="w-5 h-5 text-[#74D4FF] border-[#DCDCDC] rounded focus:ring-[#74D4FF]"
                     />
-                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                    <label className={`ml-2 ${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium text-[16px]`}>
                       Currently Pursuing
                     </label>
                   </div>
@@ -211,7 +212,7 @@ const Step2OfLO = () => {
             </div>
           ))}
           <button
-            className="border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F0F9FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd]"
+            className={`border flex items-center gap-1 font-inter text-[#00A6F4] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#00A6F433]':'bg-[#F0F9FF]'}  rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#d8eefd]`}
             onClick={addMoreEducation}
           >
             Add Another Education
@@ -221,12 +222,12 @@ const Step2OfLO = () => {
       </div>
 
       {/* Certifications Section */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Certifications (Optional)
           </h2>
-          <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#EBFACC]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#9AE600]  pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {certifications.map((cert, index) => (
@@ -234,7 +235,7 @@ const Step2OfLO = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                 {/* Certification Name */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Certification Name
                   </label>
                   <input
@@ -243,14 +244,14 @@ const Step2OfLO = () => {
                     onChange={(e) =>
                       handleCertificationChange(index, "name", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]`}
                     placeholder="e.g., React Developer"
                   />
                 </div>
 
                 {/* Provider */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Organisation
                   </label>
                   <input
@@ -263,7 +264,7 @@ const Step2OfLO = () => {
                         e.target.value
                       )
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]`}
                     placeholder="e.g., Udemy"
                   />
                 </div>
@@ -272,7 +273,7 @@ const Step2OfLO = () => {
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3 flex-col md:flex-row ">
                     <div className="flex flex-col w-full md:w-1/2">
-                      <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                      <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                         Issue Date
                       </label>
                       <input
@@ -285,13 +286,13 @@ const Step2OfLO = () => {
                             e.target.value
                           )
                         }
-                        className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
+                        className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]`}
                         placeholder="Select a month"
                       />
                     </div>
                     {!cert.noExpiry && (
                       <div className="flex flex-col w-full md:w-1/2">
-                        <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                        <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                           Expiry Date
                         </label>
                         <input
@@ -304,7 +305,7 @@ const Step2OfLO = () => {
                               e.target.value
                             )
                           }
-                          className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]"
+                          className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] text-[#A59DAA]`}
                           placeholder="Select a month"
                         />
                       </div>
@@ -324,9 +325,9 @@ const Step2OfLO = () => {
                           handleCertificationChange(index, "expireDate", "");
                         }
                       }}
-                      className="w-5 h-5 text-[#9AE600] border-[#DCDCDC] rounded focus:ring-[#9AE600]"
+                      className="w-5 h-5 text-[#9AE600] ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded focus:ring-[#9AE600]"
                     />
-                    <label className="ml-2 text-[#170F49] font-inter font-medium text-[16px]">
+                    <label className={`ml-2 ${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium text-[16px]`}>
                       No Expiry Date
                     </label>
                   </div>
@@ -334,7 +335,7 @@ const Step2OfLO = () => {
 
                 {/* Certification Link */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px`}>
                     Certification Link{" "}
                     <span className="text-[#A59DAA] text-[14px]">
                       (Optional)
@@ -346,7 +347,7 @@ const Step2OfLO = () => {
                     onChange={(e) =>
                       handleCertificationChange(index, "link", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#9AE600] placeholder-[#A59DAA]`}
                     placeholder="e.g., https://www.udemy.com/certificate/..."
                   />
                 </div>
@@ -355,7 +356,7 @@ const Step2OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {certifications.length > 1 && (
                 <button
-                  className="border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10"
+                  className={`border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#7eb90833]':'bg-[#F6FFED]'}   rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8] absolute right-0 -top-10`}
                   onClick={() => removeCertification(index)}
                 >
                   Remove Certification
@@ -370,7 +371,7 @@ const Step2OfLO = () => {
             </div>
           ))}
           <button
-            className="border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#F6FFED] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8]"
+            className={`border flex items-center gap-1 font-inter text-[#7eb908] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#7eb90833]':'bg-[#F6FFED]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8f5c8]`}
             onClick={addMoreCertification}
           >
             Add Another Certification

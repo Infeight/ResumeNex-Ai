@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon";
 import { useCoverLetter } from "./coverlettercontext";
+import { useUser } from "../commonComponents/usercontext";
 
 const Step3OfCL = () => {
   const {jobRole, setJobRole} = useCoverLetter();
@@ -13,6 +14,7 @@ const Step3OfCL = () => {
 
   const {hrInputVisible, setHrInputVisible} = useCoverLetter();
   const {hrName, setHrName} = useCoverLetter();
+  const{darkMode} = useUser();
 
   // Example suggested skills based on job role
   const suggestedSkills = ["SQL", "Flask", "Python"];
@@ -37,25 +39,25 @@ const Step3OfCL = () => {
   return (
     <section className="flex flex-col gap-[36px]">
       {/* Job Details */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px] ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[20px] sm:text-[22px] md:text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[20px] sm:text-[22px] md:text-[24px] relative z-1`}>
             Job Details Applying For
           </h2>
-          <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#FFF4CC]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#FDC700] pl-[20px] lg:pl-[30px] ml-[10px] md:ml-[20px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[25px] sm:gap-[30px] md:gap-[35px]">
             {/* Job Role */}
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Job Role
               </label>
               <input
                 type="text"
                 value={jobRole}
                 onChange={(e) => setJobRole(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Job Role"
                 style={{ touchAction: "manipulation" }}
               />
@@ -63,14 +65,14 @@ const Step3OfCL = () => {
 
             {/* Company Name */}
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Company Name
               </label>
               <input
                 type="text"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Company Name"
                 style={{ touchAction: "manipulation" }}
               />
@@ -80,14 +82,14 @@ const Step3OfCL = () => {
             <div className="flex flex-col gap-[25px] sm:gap-[30px] md:gap-[35px] col-span-1 md:col-span-2">
               {/* Company Address */}
               <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                   Company Address
                 </label>
                 <input
                   type="text"
                   value={companyAddress}
                   onChange={(e) => setCompanyAddress(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                  className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                   placeholder="Company Address"
                   style={{ touchAction: "manipulation" }}
                 />
@@ -95,7 +97,7 @@ const Step3OfCL = () => {
 
               {/* Why This Company */}
               <div className="flex flex-col">
-                <label className="text-[#170F49] font-inter font-medium mb-2 text-[18px]">
+                <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-2 text-[18px]`}>
                   Why this Company?{" "}
                   <span className="text-[#A59DAA] text-[14px] sm:text-[16px]">
                     (Short paragraph input)
@@ -104,7 +106,7 @@ const Step3OfCL = () => {
                 <textarea
                   value={whyThisCompany}
                   onChange={(e) => setWhyThisCompany(e.target.value)}
-                  className="bg-white border border-[#DCDCDC] rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full min-h-[100px]"
+                  className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full min-h-[100px] ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                   placeholder="Why do you want to join this company?"
                   style={{ touchAction: "manipulation" }}
                 />
@@ -113,14 +115,14 @@ const Step3OfCL = () => {
           </div>
           {hrInputVisible && (
             <div className="flex flex-col mt-4">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 HR Name
               </label>
               <input
                 type="text"
                 value={hrName}
                 onChange={(e) => setHrName(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Enter HR Name"
                 style={{ touchAction: "manipulation" }}
               />
@@ -128,7 +130,7 @@ const Step3OfCL = () => {
           )}
           <button
             onClick={handleAddHR}
-            className="border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[4px] w-fit bg-[#FEFCE8] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] mt-4"
+            className={`border flex items-center gap-1 font-inter text-[#D08700] font-medium text-[16px] px-[10px] py-[4px] w-fit ${darkMode?'bg-[#FDC70033]':'bg-[#FEFCE8]'}   rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#fdfada] mt-4`}
             style={{ touchAction: "manipulation" }}
             aria-label={hrInputVisible ? "Cancel HR name input" : "Add HR name"}
           >
@@ -139,18 +141,18 @@ const Step3OfCL = () => {
       </div>
 
       {/* Skills & Achievements */}
-      <div className="flex flex-col gap-[20px] bg-white py-5 px-2  lg:p-6 rounded-lg w-full">
+      <div className={`flex flex-col gap-[20px]  ${darkMode?'bg-[#1A1D23]':'bg-white'} py-5 px-2  lg:p-6 rounded-lg w-full`}>
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[20px] sm:text-[22px] md:text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[20px] sm:text-[22px] md:text-[24px] relative z-1`}>
             Skills & Achievements
           </h2>
-          <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={` ${darkMode?'bg-[#1A1D23]':'bg-[#F8F0FF]'}  h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
 
         <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px] md:ml-[20px]">
           <div className="grid grid-cols-1 gap-[25px] sm:gap-[30px] md:gap-[35px]">
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Skills{" "}
                 <span className="ml-1 text-[#A59DAA] text-[14px] sm:text-[16px]">
                   (Max 3 skills)
@@ -160,7 +162,7 @@ const Step3OfCL = () => {
                 type="text"
                 value={skills}
                 onChange={(e) => setSkills(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Skill 1, Skill 2, Skill 3"
                 style={{ touchAction: "manipulation" }}
               />
@@ -168,13 +170,13 @@ const Step3OfCL = () => {
 
             {/* Suggested Skills */}
             {jobRole.trim() && (
-              <div className="text-[#170F49] font-inter font-medium flex flex-wrap items-center w-fit gap-[15px] p-[15px] border border-dashed border-[#DCDCDC] rounded-xl">
+              <div className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium flex flex-wrap items-center w-fit gap-[15px] p-[15px] border border-dashed border-[#DCDCDC] rounded-xl`}>
                 Skill Based On Job Role:
                 {suggestedSkills.map((skill, index) => (
                   <button
                     key={index}
                     onClick={() => handleSuggestedSkillClick(skill)}
-                    className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[4px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]"
+                    className={`border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[4px] w-fit ${darkMode?'bg-[#AD2FFF33]':'bg-[#FAF5FF]'}   rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]`}
                     style={{ touchAction: "manipulation" }}
                     aria-label={`Add ${skill} to skills`}
                   >
@@ -186,7 +188,7 @@ const Step3OfCL = () => {
             )}
 
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Notable Achievements{" "}
                 <span className="ml-1 text-[#A59DAA] text-[14px] sm:text-[16px]">
                   (Optional)
@@ -196,14 +198,14 @@ const Step3OfCL = () => {
                 type="text"
                 value={achievements}
                 onChange={(e) => setAchievements(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+              className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Achievements"
                 style={{ touchAction: "manipulation" }}
               />
             </div>
 
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Certifications{" "}
                 <span className="ml-1 text-[#A59DAA] text-[14px] sm:text-[16px]">
                   (Optional)
@@ -213,7 +215,7 @@ const Step3OfCL = () => {
                 type="text"
                 value={certifications}
                 onChange={(e) => setCertifications(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA] text-[14px] sm:text-base w-full ${darkMode?'text-[white]':'text-[#1E1B39]'}`}
                 placeholder="Certifications"
                 style={{ touchAction: "manipulation" }}
               />

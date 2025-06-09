@@ -66,6 +66,13 @@ const RESUME_ExpAndFresher_6 = () => {
           >
             {formData.otherLink || "alexturner.dev"}
           </a>
+
+          {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-white-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+      
         </p>
       </div>
 
@@ -85,125 +92,39 @@ const RESUME_ExpAndFresher_6 = () => {
         </div>
       </div>
 
-      {/* Work Experience */}
-      <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
-        Work Experience
-      </h2>
-      <div className="mb-4">
-        {hasArrayData(workExperience, "companyName")
-          ? workExperience.map((exp, idx) => (
-              <div className="flex mb-3" key={idx}>
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">
-                    {exp.jobTitle || "Software Engineer"}
-                  </h3>
-                  <p className="text-[12px] italic">
-                    {exp.companyName || "CodeZap, Denver, CO"}
-                  </p>
-                  <ul className="list-disc pl-5 text-[12px]">
-                    {exp.responsibilities
-                      ? exp.responsibilities.split("\n").map((line, i) => (
-                          <li key={i}>{line}</li>
-                        ))
-                      : [
-                          <li key="1">
-                            Built RESTful APIs with Java Spring Boot, reducing server
-                            response time by 25%.
-                          </li>,
-                          <li key="2">
-                            Developed Angular-based front-end features for 50K+ users.
-                          </li>,
-                        ]}
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px] italic">
-                  <p>
-                    {(exp.startDate || "Aug 2019")} - {(exp.endDate || "Present")}
-                  </p>
-                </div>
-              </div>
-            ))
-          : (
-            <>
-              <div className="flex mb-3">
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">Software Engineer</h3>
-                  <p className="text-[12px] italic">CodeZap, Denver, CO</p>
-                  <ul className="list-disc pl-5 text-[12px]">
-                    <li>
-                      Built RESTful APIs with Java Spring Boot, reducing server
-                      response time by 25%.
-                    </li>
-                    <li>
-                      Developed Angular-based front-end features for 50K+ users.
-                    </li>
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px] italic">
-                  <p>Aug 2019 - Present</p>
-                </div>
-              </div>
-              <div className="flex">
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">Junior Developer</h3>
-                  <p className="text-[12px] italic">SoftPeak, Boulder, CO</p>
-                  <ul className="list-disc pl-5 text-[12px]">
-                    <li>
-                      Optimized database queries with MySQL, cutting load times 15%.
-                    </li>
-                    <li>Collaborated on agile teams to meet project deadlines.</li>
-                  </ul>
-                </div>
-                <div className="w-[30%] text-right text-[12px] italic">
-                  <p>Jun 2017 - Jul 2019</p>
-                </div>
-              </div>
-            </>
-          )}
-      </div>
 
-      {/* Education */}
+      {/* Skills */}
       <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
-        Education
+        Skills
       </h2>
       <div className="flex mb-4">
-        {hasArrayData(education, "collegeName")
-          ? education.map((edu, idx) => (
-              <React.Fragment key={idx}>
-                <div className="w-[65%]">
-                  <h3 className="text-[14px] font-bold">
-                    {edu.degree || "B.S. in Computer Science"}
-                  </h3>
-                  <p className="text-[12px] italic">
-                    {edu.collegeName || "University of Colorado, Boulder, CO"}
-                  </p>
-                  <p className="text-[12px]">CGPA: {edu.cgpa || "3.7/4.0"}</p>
-                </div>
-                <div className="w-[30%] text-right text-[12px] italic">
-                  <p>
-                    {(edu.startDate || "Aug 2013")} - {(edu.endDate || "May 2017")}
-                  </p>
-                </div>
-              </React.Fragment>
-            ))
-          : (
-            <>
-              <div className="w-[65%]">
-                <h3 className="text-[14px] font-bold">
-                  B.S. in Computer Science
-                </h3>
-                <p className="text-[12px] italic">
-                  University of Colorado, Boulder, CO
-                </p>
-                <p className="text-[12px]">CGPA: 3.7/4.0</p>
-              </div>
-              <div className="w-[30%] text-right text-[12px] italic">
-                <p>Aug 2013 - May 2017</p>
-              </div>
-            </>
-          )}
+        <div className="w-[65%] text-[12px]">
+          <p className="font-bold">Technical Skills:</p>
+          <ul className="list-disc pl-5">
+            {(skills.technical && skills.technical.length > 0
+              ? skills.technical
+              : ["Java", "Angular", "MySQL", "Spring Boot"]
+            ).map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+          <p className="font-bold mt-2">Soft Skills:</p>
+          <ul className="list-disc pl-5">
+            {(skills.soft && skills.soft.length > 0
+              ? skills.soft
+              : ["Teamwork", "Problem-Solving"]
+            ).map((item, idx) => (
+              <li key={idx}>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="w-[30%] text-right text-[12px]">
+          <p>Proficiency: {skills.related || "Advanced"}</p>
+        </div>
       </div>
 
+
+      
       {/* Projects */}
       <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
         Projects
@@ -283,36 +204,131 @@ const RESUME_ExpAndFresher_6 = () => {
           )}
       </div>
 
-      {/* Skills */}
+
+       {/* Education */}
       <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
-        Skills
+        Education
       </h2>
       <div className="flex mb-4">
-        <div className="w-[65%] text-[12px]">
-          <p className="font-bold">Technical Skills:</p>
-          <ul className="list-disc pl-5">
-            {(skills.technical && skills.technical.length > 0
-              ? skills.technical
-              : ["Java", "Angular", "MySQL", "Spring Boot"]
-            ).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-          <p className="font-bold mt-2">Soft Skills:</p>
-          <ul className="list-disc pl-5">
-            {(skills.soft && skills.soft.length > 0
-              ? skills.soft
-              : ["Teamwork", "Problem-Solving"]
-            ).map((item, idx) => (
-              <li key={idx}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="w-[30%] text-right text-[12px]">
-          <p>Proficiency: {skills.related || "Advanced"}</p>
-        </div>
+        {hasArrayData(education, "collegeName")
+          ? education.map((edu, idx) => (
+              <React.Fragment key={idx}>
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">
+                    {edu.degree || "B.S. in Computer Science"}
+                  </h3>
+                  <p className="text-[12px] italic">
+                    {edu.collegeName || "University of Colorado, Boulder, CO"}
+                  </p>
+                  <p className="text-[12px]">CGPA: {edu.cgpa || "3.7/4.0"}</p>
+                </div>
+                <div className="w-[30%] text-right text-[12px] italic">
+                  <p>
+                    {(edu.startDate || "Aug 2013")} - {(edu.endDate || "May 2017")}
+                  </p>
+                </div>
+              </React.Fragment>
+            ))
+          : (
+            <>
+              <div className="w-[65%]">
+                <h3 className="text-[14px] font-bold">
+                  B.S. in Computer Science
+                </h3>
+                <p className="text-[12px] italic">
+                  University of Colorado, Boulder, CO
+                </p>
+                <p className="text-[12px]">CGPA: 3.7/4.0</p>
+              </div>
+              <div className="w-[30%] text-right text-[12px] italic">
+                <p>Aug 2013 - May 2017</p>
+              </div>
+            </>
+          )}
       </div>
 
+
+      
+
+
+      {/* Work Experience */}
+      <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
+        Work Experience
+      </h2>
+      <div className="mb-4">
+        {hasArrayData(workExperience, "companyName")
+          ? workExperience.map((exp, idx) => (
+              <div className="flex mb-3" key={idx}>
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">
+                    {exp.jobTitle || "Software Engineer"}
+                  </h3>
+                  <p className="text-[12px] italic">
+                    {exp.companyName || "CodeZap, Denver, CO"}
+                  </p>
+                  <ul className="list-disc pl-5 text-[12px]">
+                    {exp.responsibilities
+                      ? exp.responsibilities.split("\n").map((line, i) => (
+                          <li key={i}>{line}</li>
+                        ))
+                      : [
+                          <li key="1">
+                            Built RESTful APIs with Java Spring Boot, reducing server
+                            response time by 25%.
+                          </li>,
+                          <li key="2">
+                            Developed Angular-based front-end features for 50K+ users.
+                          </li>,
+                        ]}
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px] italic">
+                  <p>
+                    {(exp.startDate || "Aug 2019")} - {(exp.endDate || "Present")}
+                  </p>
+                </div>
+              </div>
+            ))
+          : (
+            <>
+              <div className="flex mb-3">
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">Software Engineer</h3>
+                  <p className="text-[12px] italic">CodeZap, Denver, CO</p>
+                  <ul className="list-disc pl-5 text-[12px]">
+                    <li>
+                      Built RESTful APIs with Java Spring Boot, reducing server
+                      response time by 25%.
+                    </li>
+                    <li>
+                      Developed Angular-based front-end features for 50K+ users.
+                    </li>
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px] italic">
+                  <p>Aug 2019 - Present</p>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="w-[65%]">
+                  <h3 className="text-[14px] font-bold">Junior Developer</h3>
+                  <p className="text-[12px] italic">SoftPeak, Boulder, CO</p>
+                  <ul className="list-disc pl-5 text-[12px]">
+                    <li>
+                      Optimized database queries with MySQL, cutting load times 15%.
+                    </li>
+                    <li>Collaborated on agile teams to meet project deadlines.</li>
+                  </ul>
+                </div>
+                <div className="w-[30%] text-right text-[12px] italic">
+                  <p>Jun 2017 - Jul 2019</p>
+                </div>
+              </div>
+            </>
+          )}
+      </div>
+
+     
       {/* Certifications */}
       <h2 className="text-[20px] font-bold border-b-2 border-black pb-1 mb-2 mt-5">
         Certifications

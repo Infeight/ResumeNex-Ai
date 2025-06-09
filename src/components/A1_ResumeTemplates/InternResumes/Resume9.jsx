@@ -91,6 +91,122 @@ const Resume9 = () => {
         </div>
       </div>
 
+      {/* Projects */}
+            <div className="m-[8px_0] p-[8px] bg-[#eff6ff]">
+              <div className="text-[20px] font-bold text-[#1e40af] p-[3px_0] mb-[5px]">
+                Projects
+              </div>
+              {projects && projects.length > 0 && projects[0].name ? (
+                projects.map((project, idx) => (
+                  <div key={idx}>
+                    <p className="project-line flex justify-between text-[14px] m-[3px_0] text-left">
+                      <strong>
+                        {project.name
+                          ? project.name
+                          : idx === 0
+                          ? "Portfolio Site"
+                          : "Weather App"}
+                        {project.summary
+                          ? `, ${project.summary}`
+                          : idx === 0
+                          ? ", Personal Project"
+                          : ", Course Project"}
+                      </strong>
+                      <span>
+                        {project.startDate && project.endDate
+                          ? `${project.startDate} – ${project.endDate}`
+                          : idx === 0
+                          ? "Mar 2024 – May 2024"
+                          : "Oct 2023 – Dec 2023"}
+                      </span>
+                    </p>
+                    <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
+                      {project.description
+                        ? project.description
+                            .split("\n")
+                            .map((desc, i) => <li key={i}>{desc}</li>)
+                        : idx === 0
+                        ? [
+                            <li key="1">Built a React-based portfolio with custom CSS animations.</li>,
+                            <li key="2">Optimized for mobile using responsive design principles.</li>,
+                          ]
+                        : [
+                            <li key="1">Created a JavaScript app with API integration and dynamic UI.</li>,
+                            <li key="2">Styled with Tailwind CSS for a modern look.</li>,
+                          ]}
+                    </ul>
+                  </div>
+                ))
+              ) : (
+                <>
+                  <p className="project-line flex justify-between text-[14px] m-[3px_0] text-left">
+                    <strong>Portfolio Site, Personal Project</strong>
+                    <span>Mar 2024 – May 2024</span>
+                  </p>
+                  <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
+                    <li>Built a React-based portfolio with custom CSS animations.</li>
+                    <li>Optimized for mobile using responsive design principles.</li>
+                  </ul>
+                  <p className="project-line flex justify-between text-[14px] m-[3px_0] text-left">
+                    <strong>Weather App, Course Project</strong>
+                    <span>Oct 2023 – Dec 2023</span>
+                  </p>
+                  <ul className="text-[12px] m-[3px_0] pl-[15px] text-left">
+                    <li>Created a JavaScript app with API integration and dynamic UI.</li>
+                    <li>Styled with Tailwind CSS for a modern look.</li>
+                  </ul>
+                </>
+              )}
+            </div>
+
+
+            {/* Education */}
+      <div className="mb-[20px] p-[15px] bg-white rounded-[6px]">
+        <h2 className="text-[16px] font-bold text-[#0056b3] border-b border-[#0056b3] pb-[3px] mb-[10px] uppercase">
+          Education
+        </h2>
+        {education && education.length > 0 && education[0].collegeName ? (
+          education.map((edu, idx) => (
+            <div className="flex justify-between items-baseline" key={idx}>
+              <div>
+                <h3 className="text-[15px] font-bold">
+                  {edu.degree
+                    ? edu.degree
+                    : "B.S. Business Analytics"}
+                </h3>
+                <p className="text-[14px] text-[#0056b3]">
+                  {edu.collegeName
+                    ? edu.collegeName
+                    : "New York University"}
+                </p>
+              </div>
+              <span className="text-[14px] font-semibold">
+                {edu.endDate
+                  ? `Expected ${edu.endDate}`
+                  : "Expected May 2025"}
+              </span>
+            </div>
+          ))
+        ) : (
+          <>
+            <div className="flex justify-between items-baseline">
+              <div>
+                <h3 className="text-[15px] font-bold">B.S. Business Analytics</h3>
+                <p className="text-[14px] text-[#0056b3]">New York University</p>
+              </div>
+              <span className="text-[14px] font-semibold">Expected May 2025</span>
+            </div>
+            <p className="text-[14px]">GPA: 3.8/4.0 | Dean's List 3 Semesters</p>
+          </>
+        )}
+        {education && education.length > 0 && education[0].cgpa && (
+          <p className="text-[14px]">
+            GPA: {education[0].cgpa}
+            {education[0].honors ? ` | ${education[0].honors}` : ""}
+          </p>
+        )}
+      </div>
+
       {/* Experience */}
       <div className="mb-[20px] p-[15px] bg-white rounded-[6px]">
         <h2 className="text-[16px] font-bold text-[#0056b3] border-b border-[#0056b3] pb-[3px] mb-[10px] uppercase">
@@ -197,52 +313,8 @@ const Resume9 = () => {
         )}
       </div>
 
-      {/* Education */}
-      <div className="mb-[20px] p-[15px] bg-white rounded-[6px]">
-        <h2 className="text-[16px] font-bold text-[#0056b3] border-b border-[#0056b3] pb-[3px] mb-[10px] uppercase">
-          Education
-        </h2>
-        {education && education.length > 0 && education[0].collegeName ? (
-          education.map((edu, idx) => (
-            <div className="flex justify-between items-baseline" key={idx}>
-              <div>
-                <h3 className="text-[15px] font-bold">
-                  {edu.degree
-                    ? edu.degree
-                    : "B.S. Business Analytics"}
-                </h3>
-                <p className="text-[14px] text-[#0056b3]">
-                  {edu.collegeName
-                    ? edu.collegeName
-                    : "New York University"}
-                </p>
-              </div>
-              <span className="text-[14px] font-semibold">
-                {edu.endDate
-                  ? `Expected ${edu.endDate}`
-                  : "Expected May 2025"}
-              </span>
-            </div>
-          ))
-        ) : (
-          <>
-            <div className="flex justify-between items-baseline">
-              <div>
-                <h3 className="text-[15px] font-bold">B.S. Business Analytics</h3>
-                <p className="text-[14px] text-[#0056b3]">New York University</p>
-              </div>
-              <span className="text-[14px] font-semibold">Expected May 2025</span>
-            </div>
-            <p className="text-[14px]">GPA: 3.8/4.0 | Dean's List 3 Semesters</p>
-          </>
-        )}
-        {education && education.length > 0 && education[0].cgpa && (
-          <p className="text-[14px]">
-            GPA: {education[0].cgpa}
-            {education[0].honors ? ` | ${education[0].honors}` : ""}
-          </p>
-        )}
-      </div>
+      
+
 
       {/* Certifications */}
       <div className="mb-[20px] p-[15px] bg-white rounded-[6px]">

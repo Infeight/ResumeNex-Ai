@@ -244,58 +244,28 @@ const RESUME_ExpAndFresher_20 = () => {
           </p>
         </div>
 
-        {/* Work Experience */}
+
+         {/* Skills */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
-            Experience
+            Skills
           </h2>
-          {workExperienceToDisplay.map((exp, i) => (
-            <div className="mb-[10px]" key={i}>
-              <div className="text-[12px] font-bold uppercase mb-[3px]">
-                {exp.jobTitle}
-              </div>
-              <div>
-                <span className="text-[12px] italic">{exp.companyName}</span>
-                <span className="text-[12px] italic float-right">
-                  {exp.startDate} – {exp.endDate}
-                </span>
-              </div>
-              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0]">
-                {(Array.isArray(exp.responsibilities)
-                  ? exp.responsibilities
-                  : exp.responsibilities
-                  ? exp.responsibilities.split("\n")
-                  : []
-                ).map((item, idx) => (
-                  <li key={idx}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="text-[12px] m-[5px_0]">
+            <div className="font-bold">Technical Skills</div>
+            <p>
+              {skills.technical && skills.technical.length > 0
+                ? skills.technical.join(", ")
+                : "JavaScript, React.js, Node.js, MongoDB, HTML, CSS, Git, AWS, REST APIs"}
+            </p>
+            <div className="font-bold mt-[5px]">Soft Skills</div>
+            <p>
+              {skills.soft && skills.soft.length > 0
+                ? skills.soft.join(", ")
+                : "Project Management, Team Leadership, Communication, Problem-Solving"}
+            </p>
+          </div>
         </div>
 
-        {/* Education */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
-            Education
-          </h2>
-          {educationToDisplay.map((edu, i) => (
-            <div
-              className="flex justify-between items-center text-[12px]"
-              key={i}
-            >
-              <div className="font-bold flex-1">
-                {edu.degree}, {edu.collegeName}
-                <br />
-                Stream: {edu.stream}
-              </div>
-              <div className="italic mr-[15px]">CGPA: {edu.cgpa}</div>
-              <div className="italic">
-                {edu.startDate} – {edu.endDate}
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Projects */}
         <div className="mb-[15px]">
@@ -341,6 +311,65 @@ const RESUME_ExpAndFresher_20 = () => {
           ))}
         </div>
 
+
+        {/* Education */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
+            Education
+          </h2>
+          {educationToDisplay.map((edu, i) => (
+            <div
+              className="flex justify-between items-center text-[12px]"
+              key={i}
+            >
+              <div className="font-bold flex-1">
+                {edu.degree}, {edu.collegeName}
+                <br />
+                Stream: {edu.stream}
+              </div>
+              <div className="italic mr-[15px]">CGPA: {edu.cgpa}</div>
+              <div className="italic">
+                {edu.startDate} – {edu.endDate}
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+
+
+        {/* Work Experience */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
+            Experience
+          </h2>
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="mb-[10px]" key={i}>
+              <div className="text-[12px] font-bold uppercase mb-[3px]">
+                {exp.jobTitle}
+              </div>
+              <div>
+                <span className="text-[12px] italic">{exp.companyName}</span>
+                <span className="text-[12px] italic float-right">
+                  {exp.startDate} – {exp.endDate}
+                </span>
+              </div>
+              <ul className="list-disc pl-[20px] text-[12px] m-[5px_0]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        
+        
         {/* Certifications */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
@@ -366,27 +395,7 @@ const RESUME_ExpAndFresher_20 = () => {
           </ul>
         </div>
 
-        {/* Skills */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">
-            Skills
-          </h2>
-          <div className="text-[12px] m-[5px_0]">
-            <div className="font-bold">Technical Skills</div>
-            <p>
-              {skills.technical && skills.technical.length > 0
-                ? skills.technical.join(", ")
-                : "JavaScript, React.js, Node.js, MongoDB, HTML, CSS, Git, AWS, REST APIs"}
-            </p>
-            <div className="font-bold mt-[5px]">Soft Skills</div>
-            <p>
-              {skills.soft && skills.soft.length > 0
-                ? skills.soft.join(", ")
-                : "Project Management, Team Leadership, Communication, Problem-Solving"}
-            </p>
-          </div>
-        </div>
-
+       
         {/* Additional Sections */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold uppercase border-b border-gray-600 pb-[5px] mb-[8px]">

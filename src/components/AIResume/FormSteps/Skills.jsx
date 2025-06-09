@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useResume } from "./resumecontext";
+import { useUser } from "../../commonComponents/usercontext";
+
 
 const Skills = () => {
   const add_circle = "/AIResumeAssets/add_circle.png";
@@ -14,6 +16,8 @@ const Skills = () => {
   // });
 
    const {skills,setSkills} = useResume()
+       const {darkMode} =useUser();
+
 
   const [technicalInput, setTechnicalInput] = useState("");
   const [softInput, setSoftInput] = useState("");
@@ -100,10 +104,10 @@ const Skills = () => {
   return (
     <div className="mb-8">
       <div className="mb-3">
-        <h2 className="text-[25px] leading-[40px] tracking-[0px] text-[#212529] font-manrope font-bold mb-4">
+        <h2 className={`text-[25px] leading-[40px] tracking-[0px] ${darkMode?'text-[white]':'text-[#212529]'} font-manrope font-bold mb-4`}>
           Skills
         </h2>
-        <div className="w-10 h-5 bg-[#DFF2FE] -mt-8"></div>
+        <div className={`w-10 h-5 ${darkMode?'bg-[#74D4FF33]':'bg-[#DFF2FE]'} -mt-8`}></div>
       </div>
 
       <div className="flex flex-col w-full max-w-[527px] pb-[40px] gap-[20px] font-inter 
@@ -112,14 +116,14 @@ const Skills = () => {
 
         {/* Technical Skills */}
         <div className="mt-6">
-          <h4 className="text-lg font-semibold text-[#212529] mb-2">
+          <h4 className={`text-lg font-semibold ${darkMode?'text-[white]':'text-[#212529]'} mb-2`}>
             Technical Skills
           </h4>
-          <div className="flex flex-wrap items-center border border-[#D3D9DE] rounded-[8px] pt-[8px] pr-[15px] pb-[8px] pl-[15px] w-full min-h-[56px] bg-white focus-within:ring-1 focus:ring-[#74D4FF]">
+          <div className={`flex flex-wrap items-center border border-[#D3D9DE] rounded-[8px] pt-[8px] pr-[15px] pb-[8px] pl-[15px] w-full min-h-[56px] ${darkMode?'bg-[#74D4FF33]':'bg-[white]'} focus-within:ring-1 focus:ring-[#74D4FF]`}>
             {skills.technical.map((skill, index) => (
               <div
                 key={index}
-                className="flex items-center bg-[#E0F2FE] text-[#0C4A6E] px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                className={`flex items-center bg-[#E0F2FE] text-[#0C4A6E] px-3 py-1 rounded-full text-sm mr-2 mb-2`}
               >
                 <span>{skill}</span>
                 <img
@@ -138,10 +142,10 @@ const Skills = () => {
               value={technicalInput}
               onChange={(e) => setTechnicalInput(e.target.value)}
               onKeyDown={handleTechnicalInput}
-              className="flex-grow border-none outline-none bg-white min-w-[100px] placeholder:text-[#A59DAA]"
+              className={`flex-grow border-none outline-none bg-[transparent] min-w-[100px] placeholder:text-[#A59DAA]`}
             />
           </div>
-          <div className="mt-4 p-4 border-2 border-dashed border-[#74D4FF] rounded-xl bg-[#F0F9FF]">
+          <div className={`mt-4 p-4 border-2 border-dashed ${darkMode?'bg-[#74D4FF33]':'bg-[#F0F9FF]'} border-[#74D4FF] rounded-xl `}>
             <div className="flex flex-wrap gap-2 ">
               {suggestedTechnicalSkills.map((skill, index) => (
                 <button
@@ -160,10 +164,10 @@ const Skills = () => {
 
         {/* Soft Skills */}
         <div className="mt-6">
-          <h4 className="text-lg font-semibold text-[#212529] mb-2">
+          <h4 className={`text-lg font-semibold ${darkMode?'text-[white]':'text-[#212529]'} mb-2`}>
             Soft Skills
           </h4>
-          <div className="flex flex-wrap items-center border border-[#D3D9DE] rounded-[8px] pt-[8px] pr-[15px] pb-[8px] pl-[15px] w-full min-h-[56px] bg-white focus-within:ring-1 focus:ring-[#74D4FF]">
+          <div className={`flex flex-wrap items-center border border-[#D3D9DE] rounded-[8px] pt-[8px] pr-[15px] pb-[8px] pl-[15px] w-full min-h-[56px] ${darkMode?'bg-[#74D4FF33]':'bg-[white]'} focus-within:ring-1 focus:ring-[#74D4FF]`}>
             {skills.soft.map((skill, index) => (
               <div
                 key={index}
@@ -184,10 +188,10 @@ const Skills = () => {
               value={softInput}
               onChange={(e) => setSoftInput(e.target.value)}
               onKeyDown={handleSoftInput}
-              className="flex-grow border-none outline-none bg-white min-w-[100px] placeholder:text-[#A59DAA]"
+              className="flex-grow border-none outline-none bg-[transparent] min-w-[100px] placeholder:text-[#A59DAA]"
             />
           </div>
-          <div className="mt-4 p-4 border-2 border-dashed border-[#74D4FF] rounded-xl  bg-[#F0F9FF]">
+          <div className={`mt-4 p-4 border-2 border-dashed border-[#74D4FF] rounded-xl ${darkMode?'bg-[#74D4FF33]':'bg-[#F0F9FF]'}`}>
             <div className="flex flex-wrap gap-2 ">
               {suggestedSoftSkills.map((skill, index) => (
                 <button
@@ -205,8 +209,8 @@ const Skills = () => {
         </div>
 
         {/* Related Skills */}
-        <div className="mt-6 border px-4 py-4 border-[#74D4FF] bg-[#F0F9FF] rounded-xl">
-          <h3 className="text-lg text-[#212529] font-semibold mb-2">
+        <div className={`mt-6 border px-4 py-4 border-[#74D4FF] ${darkMode?'bg-[#74D4FF33]':'bg-[#F0F9FF]'} rounded-xl`}>
+          <h3 className={`text-lg ${darkMode?'text-[white]':'text-[#212529]'} font-semibold mb-2`}>
             Related Skills
           </h3>
           <input
@@ -215,7 +219,7 @@ const Skills = () => {
             placeholder="Related Skills Heading"
             value={skills.relatedHeading}
             onChange={handleRelatedHeadingChange}
-            className="w-full h-[56px] bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#74D4FF] placeholder:text-[#A59DAA] mb-4"
+            className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-[56px] ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#74D4FF] placeholder:text-[#A59DAA] mb-4`}
           />
           <div className="flex flex-col relative w-full">
             <textarea
@@ -224,7 +228,7 @@ const Skills = () => {
               onChange={(e) =>
                 setSkills({ ...skills, related: e.target.value })
               }
-              className="w-full h-32 bg-white border border-[#D3D9DE] rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#74D4FF] placeholder:text-[#A59DAA]"
+              className={`${darkMode?'text-[white]':'text-gray-600'} w-full h-32 ${darkMode?'bg-[#1A1D23]':'bg-[white]'} border ${darkMode?'border-[#1A1D23]':'border-[#D3D9DE]'} rounded-[8px] px-[15px] py-[16px] focus:outline-none focus:ring-1 focus:ring-[#74D4FF] placeholder:text-[#A59DAA]`}
               rows="4"
             />
             <button

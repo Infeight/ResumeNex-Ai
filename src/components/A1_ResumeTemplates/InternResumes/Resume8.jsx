@@ -98,6 +98,98 @@ const Resume8 = () => {
           </div>
         </div>
 
+
+         {/* Projects */}
+      <div className="mb-[15px] bg-white p-[12px] border border-[#e2e8f0]">
+        <h2 className="text-[16px] font-bold text-[#1e3a8a] mb-[8px] border-b border-[#93c5fd] pb-[3px]">
+          PROJECTS
+        </h2>
+        {projects && projects.length > 0 && projects[0].name ? (
+          projects.map((project, idx) => (
+            <div className="mb-[12px]" key={idx}>
+              <div className="flex justify-between mb-[5px]">
+                <h3 className="text-[15px] font-bold">
+                  {project.name ? project.name : idx === 0 ? "Solar Car Model" : "Heat Exchanger Design"}
+                </h3>
+                <span className="text-[14px] font-semibold">
+                  {project.startDate && project.endDate
+                    ? `${project.startDate} - ${project.endDate}`
+                    : idx === 0
+                    ? "Mar 2024 - May 2024"
+                    : "Oct 2023 - Dec 2023"}
+                </span>
+              </div>
+              <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
+                {project.description
+                  ? project.description.split("\n").map((desc, i) => (
+                      <li key={i}>{desc}</li>
+                    ))
+                  : idx === 0
+                  ? (
+                    <>
+                      <li>
+                        Designed aerodynamic chassis in AutoCAD with 15% drag reduction
+                      </li>
+                      <li>
+                        Prototyped using 3D printing and tested efficiency with MATLAB simulations
+                      </li>
+                    </>
+                  )
+                  : (
+                    <>
+                      <li>
+                        Modeled heat exchanger in SolidWorks with thermal analysis in ANSYS
+                      </li>
+                      <li>
+                        Achieved 15% improvement in heat transfer rate through design optimization
+                      </li>
+                    </>
+                  )}
+              </ul>
+            </div>
+          ))
+        ) : (
+          <>
+            <div className="mb-[12px]">
+              <div className="flex justify-between mb-[5px]">
+                <h3 className="text-[15px] font-bold">Solar Car Model</h3>
+                <span className="text-[14px] font-semibold">
+                  Mar 2024 - May 2024
+                </span>
+              </div>
+              <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
+                <li>
+                  Designed aerodynamic chassis in AutoCAD with 15% drag reduction
+                </li>
+                <li>
+                  Prototyped using 3D printing and tested efficiency with MATLAB
+                  simulations
+                </li>
+              </ul>
+            </div>
+            <div>
+              <div className="flex justify-between mb-[5px]">
+                <h3 className="text-[15px] font-bold">Heat Exchanger Design</h3>
+                <span className="text-[14px] font-semibold">
+                  Oct 2023 - Dec 2023
+                </span>
+              </div>
+              <ul className="list-disc pl-[20px] text-[14px] space-y-[5px]">
+                <li>
+                  Modeled heat exchanger in SolidWorks with thermal analysis in
+                  ANSYS
+                </li>
+                <li>
+                  Achieved 15% improvement in heat transfer rate through design
+                  optimization
+                </li>
+              </ul>
+            </div>
+          </>
+        )}
+      </div>
+
+
         {/* Experience */}
         <div className="mb-[20px]">
           <h2 className="text-[16px] font-bold text-[#004085] border-b-2 border-[#004085] pb-[3px] mb-[10px] uppercase">

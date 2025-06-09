@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import ReviewCard from "./ReviewCard";
+import { useUser } from "./usercontext";
 
 const Reviews = () => {
   const reviews = [
@@ -25,7 +26,7 @@ const Reviews = () => {
     {
       name: "John Davis",
       comment:
-        "The AI suggestions helped me improve my resume by recommending strong action words and relevant skills. I feel more confident applying for jobs now. A must-have for job seekers!",
+        "The AI suggestions helped me improve my resume by recommending strong action words and relevant sDkills. I feel more confident applying for jobs now. A must-have for job seekers!",
       profileImg:
         "https://plus.unsplash.com/premium_photo-1669688174637-92ff26cc0a9b?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D",
     },
@@ -52,9 +53,11 @@ const Reviews = () => {
     },
   ];
 
+  const{darkMode} = useUser();
+
   return (
     <>
-      <section className="max-w-[1440px] min-w-auto mx-auto border-1 border-[#D9D9D9]  bg-[#F8F8F8] justify-center items-center gap-[70px] px-[20px] py-[40px]">
+      <section className={`max-w-[1440px] min-w-auto mx-auto border-1 ${darkMode?'border-[#23272F]':'border-bg-[#D9D9D9]'} ${darkMode?'text-[white]':'text-[black]'} ${darkMode?'bg-[#23272F]':'bg-[white]'} ${darkMode?'text-[white]':'text-[black]'} justify-center items-center gap-[70px] px-[20px] py-[40px]`}>
         <p className="font-lexend font-semibold text-[30px] text-center mb-10">
           Job seekers <span className="blueGradient"> trust </span> and{" "}
           <span className="purpleGradient"> love </span> our resume builder.

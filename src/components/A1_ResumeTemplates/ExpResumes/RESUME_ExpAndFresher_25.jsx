@@ -268,64 +268,7 @@ const RESUME_ExpAndFresher_25 = () => {
           </ul>
         </div>
 
-        {/* Work Experience */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">
-            Work Experience
-          </h2>
-          {workExperienceToDisplay.map((exp, i) => (
-            <div className="flex justify-between mb-[10px]" key={i}>
-              <div className="flex-1">
-                <p className="text-[12px] font-bold">{exp.jobTitle}</p>
-                <p className="text-[12px]">{exp.companyName}</p>
-                <ul className="list-disc pl-[20px] text-[12px] m-[5px_0]">
-                  {(Array.isArray(exp.responsibilities)
-                    ? exp.responsibilities
-                    : exp.responsibilities
-                    ? exp.responsibilities.split("\n")
-                    : []
-                  ).map((item, idx) => (
-                    <li className="mb-[3px]" key={idx}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="w-[120px] text-right text-[12px] text-[#555]">
-                <p>
-                  {exp.startDate} - {exp.endDate}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Education */}
-        <div className="mb-[15px]">
-          <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">
-            Education
-          </h2>
-          {educationToDisplay.map((edu, i) => (
-            <div className="flex justify-between" key={i}>
-              <div className="flex-1">
-                <p className="text-[12px] font-bold">{edu.degree}</p>
-                <p className="text-[12px]">
-                  {edu.collegeName}
-                  <br />
-                  Stream: {edu.stream}
-                </p>
-              </div>
-              <div className="w-[120px] text-right text-[12px] text-[#555]">
-                <p>
-                  {edu.startDate} - {edu.endDate}
-                </p>
-                <p>CGPA: {edu.cgpa}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Projects */}
+          {/* Projects */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">
             Projects
@@ -371,6 +314,67 @@ const RESUME_ExpAndFresher_25 = () => {
           ))}
         </div>
 
+         {/* Education */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">
+            Education
+          </h2>
+          {educationToDisplay.map((edu, i) => (
+            <div className="flex justify-between" key={i}>
+              <div className="flex-1">
+                <p className="text-[12px] font-bold">{edu.degree}</p>
+                <p className="text-[12px]">
+                  {edu.collegeName}
+                  <br />
+                  Stream: {edu.stream}
+                </p>
+              </div>
+              <div className="w-[120px] text-right text-[12px] text-[#555]">
+                <p>
+                  {edu.startDate} - {edu.endDate}
+                </p>
+                <p>CGPA: {edu.cgpa}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+
+
+        {/* Work Experience */}
+        <div className="mb-[15px]">
+          <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">
+            Work Experience
+          </h2>
+          {workExperienceToDisplay.map((exp, i) => (
+            <div className="flex justify-between mb-[10px]" key={i}>
+              <div className="flex-1">
+                <p className="text-[12px] font-bold">{exp.jobTitle}</p>
+                <p className="text-[12px]">{exp.companyName}</p>
+                <ul className="list-disc pl-[20px] text-[12px] m-[5px_0]">
+                  {(Array.isArray(exp.responsibilities)
+                    ? exp.responsibilities
+                    : exp.responsibilities
+                    ? exp.responsibilities.split("\n")
+                    : []
+                  ).map((item, idx) => (
+                    <li className="mb-[3px]" key={idx}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="w-[120px] text-right text-[12px] text-[#555]">
+                <p>
+                  {exp.startDate} - {exp.endDate}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+       
+      
         {/* Certifications */}
         <div className="mb-[15px]">
           <h2 className="text-[20px] font-bold text-[#D32F2F] mb-[5px] relative after:content-[''] after:block after:w-[60px] after:h-[2px] after:bg-[#D32F2F] after:mt-[3px] after:rounded">

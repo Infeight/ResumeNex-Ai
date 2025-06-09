@@ -68,6 +68,12 @@ const RESUME_ExpAndFresher_11 = () => {
           >
             {formData.otherLink || "priya.dev"}
           </a>
+
+          {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
     
         </div>
       </div>
@@ -90,51 +96,29 @@ const RESUME_ExpAndFresher_11 = () => {
               </>}</p>
       </div>
 
-        {/* Education */}
-         <div className="mb-4">
-        <h2 className="text-xl font-semibold">Education</h2>
-        {education && education.length > 0 && (education[0].collegeName || education[0].degree) ? (
-          education.map((edu, idx) => (
-            <div key={idx} className="mb-2">
-              <strong>{edu.degree ? edu.degree : "Degree"}</strong>
-              {edu.stream && ` in ${edu.stream}`}
-              <div>{edu.collegeName ? edu.collegeName : "College Name"}</div>
-              <div>
-                {edu.location ? edu.location : "Location"} |{" "}
-                {edu.startDate ? edu.startDate : "Start"} - {edu.endDate ? edu.endDate : "End"}
-              </div>
-              <div>CGPA: {edu.cgpa ? edu.cgpa : "N/A"}</div>
-            </div>
-          ))
-        ) : (
-          <p>No education details provided.</p>
-        )}
+
+        {/* Skills */}
+        <div className="mb-4">
+        <h2 className="text-xl font-semibold">Skills</h2>
+        <div>
+          <strong>Technical:</strong>{" "}
+          {skills.technical && skills.technical.length > 0
+            ? skills.technical.join(", ")
+            : "List your technical skills"}
+        </div>
+        <div>
+          <strong>Soft:</strong>{" "}
+          {skills.soft && skills.soft.length > 0
+            ? skills.soft.join(", ")
+            : "List your soft skills"}
+        </div>
+        <div>
+          <strong>Related:</strong>{" "}
+          {skills.related ? skills.related : "Related skills"}
+        </div>
       </div>
 
-        {/* Internships */}
-       <div className="mb-4">
-        <h2 className="text-xl font-semibold">Work Experience</h2>
-        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
-          workExperience.map((exp, idx) => (
-            <div key={idx} className="mb-2">
-              <strong>{exp.jobTitle ? exp.jobTitle : "Job Title"}</strong>
-              <div>{exp.companyName ? exp.companyName : "Company Name"}</div>
-              <div>
-                {exp.startDate ? exp.startDate : "Start"} - {exp.endDate ? exp.endDate : "End"}
-              </div>
-              <div>
-                {exp.responsibilities
-                  ? exp.responsibilities
-                  : "Describe your responsibilities here."}
-              </div>
-            </div>
-          ))
-        ) : (
-          <p>No work experience provided.</p>
-        )}
-      </div>
-
-        {/* Projects */}
+       {/* Projects */}
   
          <div className="mb-4">
         <h2 className="text-xl font-semibold">Projects</h2>
@@ -203,27 +187,54 @@ const RESUME_ExpAndFresher_11 = () => {
         )}
       </div>
 
-        {/* Skills */}
-        <div className="mb-4">
-        <h2 className="text-xl font-semibold">Skills</h2>
-        <div>
-          <strong>Technical:</strong>{" "}
-          {skills.technical && skills.technical.length > 0
-            ? skills.technical.join(", ")
-            : "List your technical skills"}
-        </div>
-        <div>
-          <strong>Soft:</strong>{" "}
-          {skills.soft && skills.soft.length > 0
-            ? skills.soft.join(", ")
-            : "List your soft skills"}
-        </div>
-        <div>
-          <strong>Related:</strong>{" "}
-          {skills.related ? skills.related : "Related skills"}
-        </div>
+
+
+        {/* Education */}
+         <div className="mb-4">
+        <h2 className="text-xl font-semibold">Education</h2>
+        {education && education.length > 0 && (education[0].collegeName || education[0].degree) ? (
+          education.map((edu, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{edu.degree ? edu.degree : "Degree"}</strong>
+              {edu.stream && ` in ${edu.stream}`}
+              <div>{edu.collegeName ? edu.collegeName : "College Name"}</div>
+              <div>
+                {edu.location ? edu.location : "Location"} |{" "}
+                {edu.startDate ? edu.startDate : "Start"} - {edu.endDate ? edu.endDate : "End"}
+              </div>
+              <div>CGPA: {edu.cgpa ? edu.cgpa : "N/A"}</div>
+            </div>
+          ))
+        ) : (
+          <p>No education details provided.</p>
+        )}
       </div>
 
+        {/* Internships */}
+       <div className="mb-4">
+        <h2 className="text-xl font-semibold">Work Experience</h2>
+        {workExperience && workExperience.length > 0 && workExperience[0].companyName ? (
+          workExperience.map((exp, idx) => (
+            <div key={idx} className="mb-2">
+              <strong>{exp.jobTitle ? exp.jobTitle : "Job Title"}</strong>
+              <div>{exp.companyName ? exp.companyName : "Company Name"}</div>
+              <div>
+                {exp.startDate ? exp.startDate : "Start"} - {exp.endDate ? exp.endDate : "End"}
+              </div>
+              <div>
+                {exp.responsibilities
+                  ? exp.responsibilities
+                  : "Describe your responsibilities here."}
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No work experience provided.</p>
+        )}
+      </div>
+
+       
+      
         {/* Certifications */}
        <div className="mb-4">
         <h2 className="text-xl font-semibold">Certificates</h2>

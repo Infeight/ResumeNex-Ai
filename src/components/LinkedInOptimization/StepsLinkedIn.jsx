@@ -5,11 +5,13 @@ import Step2OfLO from "./Step2OfLO";
 import Step3OfLO from "./Step3OfLO";
 import Step4OfLO from "./Step4OfLO";
 import { useLinkedIn } from "./linkedincontext";
+import { useUser } from "../commonComponents/usercontext";
 
 const StepsCoverLetter = () => {
   const linkedindata = useLinkedIn()
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 4;
+  const{darkMode} = useUser();
 
   const steps = [
     { title: "step 1", content: <Step1OfLO /> },
@@ -19,10 +21,10 @@ const StepsCoverLetter = () => {
   ];
 
   return (
-    <section className="bg-[#F7F7FB] min-h-screen">
+    <section className={`${darkMode?'bg-[#23272F]':'bg-white'}  min-h-screen`}>
       {" "}
       {/* Added min-h-screen for better full page feel */}
-      <div className="w-full md:w-fit mx-auto flex flex-col justify-center items-center gap-[30px] md:gap-[50px] py-[30px] md:py-[50px] px-4 sm:px-6 text-[#212529]">
+      <div className={`w-full md:w-fit mx-auto flex flex-col justify-center items-center gap-[30px] md:gap-[50px] py-[30px] md:py-[50px] px-4 sm:px-6 ${darkMode?'text-[white]':'text-[#1E1B39]'}`}>
         <p className="font-lexend font-semibold text-[22px] sm:text-[26px] md:text-[30px] flex flex-wrap justify-center gap-2 md:gap-3 relative z-10 text-center md:text-left">
           Fill a few fields — let
           <span className="blueGradient">AI</span>
@@ -36,7 +38,7 @@ const StepsCoverLetter = () => {
             alt=""
             className="w-32 sm:w-40 md:w-52 absolute -rotate-12 -top-6 -left-6 sm:-top-8 sm:-left-10 md:-top-10 md:-left-20 z-0 rounded-2xl hidden md:block" // Hidden on small, shown on md+
           />
-          <div className="relative flex flex-col gap-[25px] md:gap-[35px] w-full max-w-[1000px] mx-auto p-[20px] sm:p-[30px] md:p-[50px] bg-white rounded-[24px] md:rounded-[34px] border border-[#DCDCDC] [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]">
+          <div className={`relative flex flex-col gap-[25px] md:gap-[35px] w-full max-w-[1000px] mx-auto p-[20px] sm:p-[30px] md:p-[50px] ${darkMode?'bg-[#1A1D23]':'bg-white'} rounded-[24px] md:rounded-[34px] border ${darkMode?'border-[#1A1D23]':'border-[#DCDCDC]'} [box-shadow:0px_5px_16px_rgba(8,15,52,0.06)]`}>
             {/* Progress Bar */}
             <div className="relative flex items-center gap-[10px] sm:gap-[18px] w-full mx-auto ">
               {steps.map((_, idx, arr) => (
@@ -45,14 +47,14 @@ const StepsCoverLetter = () => {
                     className={`w-[30px] h-[30px] sm:w-[34px] sm:h-[34px] flex items-center justify-center rounded-full text-[14px] sm:text-[16px] font-medium transition-all duration-300 ${
                       currentStep >= idx + 1
                         ? "bg-[#4C95FB] text-white"
-                        : "bg-[#DCDCDC] text-[#A59DAA]"
+                        : `${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'} text-[#A59DAA]`
                     }`}
                   >
                     {idx + 1}
                   </div>
 
                   {idx < arr.length - 1 && (
-                    <div className="w-full relative flex-1 h-[4px] sm:h-[6px] mx-1 sm:mx-2 bg-[#DCDCDC] rounded-4xl">
+                    <div className={`w-full relative flex-1 h-[4px] sm:h-[6px] mx-1 sm:mx-2 ${darkMode?'bg-[#464B55]':'bg-[#DCDCDC]'} rounded-4xl`}>
                       {currentStep > idx + 1 && (
                         <div className="absolute inset-0 bg-[#4C95FB] rounded-4xl transition-all duration-300" />
                       )}

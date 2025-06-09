@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useUser } from "../commonComponents/usercontext";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 const Templates = () => {
   const swiperRef = useRef(null); // Create a reference to the Swiper instance
-
+  const{darkMode} = useUser();
   // Handler for the left button (prev)
   const handlePrev = () => {
     if (swiperRef.current) {
@@ -27,13 +28,13 @@ const Templates = () => {
   };
   return (
     <>
-      <section className="relative max-w-[1440px] min-w-auto mx-auto bg-[#F0F9FF]  flex flex-col gap-[40px] justify-center items-center pt-[80px] px-[50px]">
+      <section className={`relative  min-w-auto mx-auto ${darkMode?'bg-[#1A1D23]':'bg-[#F0F9FF]'}   flex flex-col gap-[40px] justify-center items-center pt-[80px] px-[50px]`}>
         <div className="flex flex-col gap-[20px] items-center">
-          <p className="font-lexend font-semibold text-[30px]">
+          <p className={`${darkMode?'text-[#fff]':'text-[black]'} font-lexend font-semibold text-[30px]`}>
             <span className="purpleGradient"> HR - Approved </span>
             ATS Resume Format Features
           </p>
-          <p className="font-manrope text-[16px] text-[#151515] font-normal max-w-[500px] text-center">
+          <p className={`font-manrope text-[16px] ${darkMode?'text-[#fff]':'text-[black]'} font-normal max-w-[500px] text-center`}>
             These resume templates are proven to work. They have been tested and
             approved by real hiring managers.
           </p>
@@ -54,7 +55,7 @@ const Templates = () => {
             1024: { slidesPerView: 3 },
           }}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper bg-[#F0F9FF] border-b border-[#B8E6FE]"
+          className={`mySwiper ${darkMode?'bg-[#1A1D23]':'bg-[#F0F9FF]'} border-b  ${darkMode?'border-[#1A1D23]':'border-[#B8E6FE]'}`}
         >
           <SwiperSlide>
             <div className="w-[fit] max-w-[auto] mx-auto scale-75 ">

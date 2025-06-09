@@ -1,5 +1,6 @@
 import React, { useState, Suspense, lazy } from "react";
 import Loading from "../components/commonComponents/Loading";
+import { useUser } from "../components/commonComponents/usercontext";
 
 // Lazy-loaded components
 const ExpAndFresherResume = lazy(() =>
@@ -12,9 +13,12 @@ const InternResume = lazy(() => import("../components/AIResume/InternResume"));
 const Reviews = lazy(() => import("../components/commonComponents/Reviews"));
 const FAQ = lazy(() => import("../components/commonComponents/FAQ"));
 
+import { IoFilter } from "react-icons/io5";
+
 const ResumeTemplatedPage = () => {
   const [selectedExperience, setSelectedExperience] = useState("");
   const [submittedExperience, setSubmittedExperience] = useState("");
+  const {darkMode} = useUser();
 
   // Handle filter selection
   const handleFilterChange = (e) => {
@@ -35,7 +39,7 @@ const ResumeTemplatedPage = () => {
     <Suspense fallback={<Loading></Loading>}>
       <>
         <section className="max-w-[1340px] min-w-auto mx-auto flex flex-col justify-center items-center gap-[30px] py-[40px] px-4 sm:px-6">
-          <p className="font-lexend font-semibold text-[20px] sm:text-[30px] text-center">
+          <p className={`font-lexend font-semibold text-[20px] sm:text-[30px] text-center  ${darkMode?'text-[white]':'text-[#1E1B39]'} `}>
             Select ATS Friendly Resume that boosts your hiring process by 50x
           </p>
 
@@ -44,14 +48,14 @@ const ResumeTemplatedPage = () => {
             {/* Container for Filter button + Dropdown side by side always */}
             <div className="flex items-center gap-4 w-full sm:w-auto">
               {/* Filter Button */}
-              <button className="flex items-center justify-center gap-2 w-auto whitespace-nowrap">
-                <img src="/Icons/filter.svg" alt="Filter Icon" />
+              <button className={`flex items-center justify-center gap-2 w-auto whitespace-nowrap  ${darkMode?'text-[white]':'text-[#1E1B39]'} `}>
+                {darkMode?<IoFilter style={{color:'white', fontSize:'1.5vw'}} />:<img src="/Icons/filter.svg" alt="Filter Icon" />}
                 Filter
               </button>
 
               {/* Dropdown */}
               <select
-                className="pl-5 py-2.5 rounded-full text-gray-600 text-base focus:outline-none ring-2 ring-[#E2E8F0] focus:ring-blue-500 transition flex-grow appearance-none bg-white relative"
+                className={`pl-5 py-2.5 rounded-full ${darkMode?'text-[white]':'text-[#1E1B39]'} text-base focus:outline-none ring-2 ring-[#E2E8F0] focus:ring-blue-500 transition flex-grow appearance-none ${darkMode?'bg-[#1A1D23]':'bg-[white]'} relative`}
                 value={selectedExperience}
                 onChange={handleFilterChange}
                 style={{ backgroundImage: "none" }} // Remove arrow in inline style for better cross-browser support

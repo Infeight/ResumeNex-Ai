@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../commonComponents/usercontext";
 
 const ExpAndFresherResume = () => {
   const navigate = useNavigate();
+  const {darkMode}=useUser();
 
   const [isExpanded, setIsExpanded] = useState(false);
   const [templateUrl, setTemplateUrl] = useState("");
@@ -22,15 +24,18 @@ const ExpAndFresherResume = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_1.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_1",
     },
+
       {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+    },
+      
+     {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.png",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
     },
   
-    {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
-    },
+    
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_4.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_4",
@@ -47,11 +52,12 @@ const ExpAndFresherResume = () => {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_7.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_7",
     },
-  
-      {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_2.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_2",
+
+  {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_8.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_8",
     },
+    
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_9.avif",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_9",
@@ -73,7 +79,7 @@ const ExpAndFresherResume = () => {
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_13",
     },
     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.avif",
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_14.png",
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_14",
     },
     {
@@ -133,9 +139,9 @@ const ExpAndFresherResume = () => {
       url: "/resumes_templates/steps/RESUME_ExpAndFresher_28",
     },
    
-     {
-      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_3.avif",
-      url: "/resumes_templates/steps/RESUME_ExpAndFresher_3",
+    {
+      img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_29.avif",
+      url: "/resumes_templates/steps/RESUME_ExpAndFresher_29",
     },
     {
       img: "/ResumesTempImg/ExpAndFresher/HighImg/RESUME_ExpAndFresher_30.avif",
@@ -215,8 +221,8 @@ const ExpAndFresherResume = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-[30px] w-full bg-[#F8F0FF] border border-[#DAB2FF] rounded-[30px] px-[50px] py-[30px] ">
-      <p className="font-manrope font-extrabold text-[30px] text-center">
+    <div className={`flex flex-col items-center gap-[30px] w-full ${darkMode?'bg-[#AB2FFF33]':'bg-[#F8F0FF]'}   border ${darkMode?'border-[#AB2FFF]':'border-[#DAB2FF] '}  rounded-[30px] px-[50px] py-[30px] `}>
+      <p className={`font-manrope font-extrabold text-[30px] text-center ${darkMode?'text-[#fff]':'text-[black]'}`}>
         Experience & Freshers
       </p>
 
@@ -430,7 +436,7 @@ const ExpAndFresherResume = () => {
       <div className="flex justify-center mt-6">
         <p
           onClick={toggleContent}
-          className="flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition hover:bg-[#3367E7] hover:text-white"
+          className={`${darkMode?'bg-[black]':'bg-[#F8F0FF]'} ${darkMode?'text-[white]':'text-[black]'}  flex items-center gap-[8px] px-[12px] py-[2.4px] border-3 border-[#3367E7] w-fit rounded-3xl font-manrope font-semibold text-[13.68px] cursor-pointer transition  hover:bg-[#3367E7] hover:text-white`}
         >
           {isExpanded ? "See Less" : "See More"}
           <img

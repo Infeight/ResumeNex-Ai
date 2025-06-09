@@ -260,38 +260,6 @@ const RESUME_ExpAndFresher_26 = () => {
         </ul>
       </div>
 
-      {/* Work Experience */}
-      <div className="mb-[15px]">
-        <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
-          Work Experience
-        </h2>
-        {workExperienceToDisplay.map((exp, i) => (
-          <div className="flex justify-between mb-[10px]" key={i}>
-            <div className="flex-1">
-              <p className="font-bold my-[2px]">{exp.jobTitle}</p>
-              <p className="my-[2px]">{exp.companyName}</p>
-              <ul className="my-[5px] pl-[20px]">
-                {(Array.isArray(exp.responsibilities)
-                  ? exp.responsibilities
-                  : exp.responsibilities
-                  ? exp.responsibilities.split("\n")
-                  : []
-                ).map((item, idx) => (
-                  <li className="mb-[3px]" key={idx}>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="w-[120px] text-right text-[9pt] text-[#555]">
-              <p className="my-[2px]">
-                {exp.startDate} - {exp.endDate}
-              </p>
-            </div>
-          </div>
-        ))}
-      </div>
-
       {/* Projects */}
       <div className="mb-[15px]">
         <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
@@ -332,6 +300,61 @@ const RESUME_ExpAndFresher_26 = () => {
         ))}
       </div>
 
+       {/* Education */}
+      <div className="mb-[15px]">
+        <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
+          Education
+        </h2>
+        {educationToDisplay.map((edu, i) => (
+          <div className="flex justify-between" key={i}>
+            <div className="flex-1">
+              <p className="font-bold my-[2px]">{edu.degree}</p>
+              <p className="my-[2px]">{edu.collegeName}</p>
+            </div>
+            <div className="w-[120px] text-right text-[9pt] text-[#555]">
+              <p className="my-[2px]">
+                {edu.startDate} - {edu.endDate}
+              </p>
+              <p className="my-[2px]">CGPA: {edu.cgpa}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Work Experience */}
+      <div className="mb-[15px]">
+        <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
+          Work Experience
+        </h2>
+        {workExperienceToDisplay.map((exp, i) => (
+          <div className="flex justify-between mb-[10px]" key={i}>
+            <div className="flex-1">
+              <p className="font-bold my-[2px]">{exp.jobTitle}</p>
+              <p className="my-[2px]">{exp.companyName}</p>
+              <ul className="my-[5px] pl-[20px]">
+                {(Array.isArray(exp.responsibilities)
+                  ? exp.responsibilities
+                  : exp.responsibilities
+                  ? exp.responsibilities.split("\n")
+                  : []
+                ).map((item, idx) => (
+                  <li className="mb-[3px]" key={idx}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="w-[120px] text-right text-[9pt] text-[#555]">
+              <p className="my-[2px]">
+                {exp.startDate} - {exp.endDate}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      
+
       {/* Certificates */}
       <div className="mb-[15px]">
         <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
@@ -360,26 +383,7 @@ const RESUME_ExpAndFresher_26 = () => {
         ))}
       </div>
 
-      {/* Education */}
-      <div className="mb-[15px]">
-        <h2 className="text-[12pt] m-[15px_0_5px] text-[#37474F] bg-[#ECEFF1] p-[3px_10px]">
-          Education
-        </h2>
-        {educationToDisplay.map((edu, i) => (
-          <div className="flex justify-between" key={i}>
-            <div className="flex-1">
-              <p className="font-bold my-[2px]">{edu.degree}</p>
-              <p className="my-[2px]">{edu.collegeName}</p>
-            </div>
-            <div className="w-[120px] text-right text-[9pt] text-[#555]">
-              <p className="my-[2px]">
-                {edu.startDate} - {edu.endDate}
-              </p>
-              <p className="my-[2px]">CGPA: {edu.cgpa}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+     
 
       {/* Languages */}
       <div className="mb-[15px]">

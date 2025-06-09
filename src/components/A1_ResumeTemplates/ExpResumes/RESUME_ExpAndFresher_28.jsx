@@ -219,6 +219,15 @@ const RESUME_ExpAndFresher_28 = () => {
               ? formData.otherLink.replace(/^https?:\/\//, "")
               : "saicharan.dev"}
           </a>
+          |{" "}
+           <a
+            href={formData.figma ? formData.figma : "https://saicharan.dev"}
+            className="text-[#0000FF] no-underline hover:underline"
+          >
+            {formData.figma
+              ? formData.figma.replace(/^https?:\/\//, "")
+              : "saicharan.dev"}
+          </a>
         </p>
       </header>
 
@@ -235,61 +244,7 @@ const RESUME_ExpAndFresher_28 = () => {
         </p>
       </section>
 
-      {/* Education */}
-      <section className="mb-[15px]">
-        <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">
-          Education
-        </h2>
-        <hr className="border-t border-[#808080] mb-[10px]" />
-        {educationToDisplay.map((edu, i) => (
-          <div className="flex justify-between items-start mb-[5px]" key={i}>
-            <div className="flex-grow">
-              <h3 className="text-[12pt] font-bold mb-[2px]">{edu.degree}</h3>
-              <p>{edu.collegeName}</p>
-            </div>
-            <div className="text-right text-[11pt]">
-              {edu.cgpa && <p className="font-bold">CGPA: {edu.cgpa}</p>}
-              {edu.percentage && <p className="font-bold">Percentage: {edu.percentage}</p>}
-              <p>
-                {edu.startDate}
-                {edu.endDate && `-${edu.endDate}`}
-              </p>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* Experience */}
-      <section className="mb-[15px]">
-        <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">
-          Experience
-        </h2>
-        <hr className="border-t border-[#808080] mb-[10px]" />
-        {workExperienceToDisplay.map((exp, i) => (
-          <div className="mb-[5px]" key={i}>
-            <div className="flex justify-between items-start">
-              <h3 className="text-[12pt] font-bold mb-[2px]">
-                {exp.jobTitle}, {exp.companyName}
-              </h3>
-              <p className="text-[11pt] text-right">
-                {exp.startDate} - {exp.endDate}
-              </p>
-            </div>
-            <ul className="list-disc ml-[20px] mb-[10px]">
-              {(Array.isArray(exp.responsibilities)
-                ? exp.responsibilities
-                : exp.responsibilities
-                ? exp.responsibilities.split("\n")
-                : []
-              ).map((item, idx) => (
-                <li key={idx}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </section>
-
-      {/* Skills */}
+       {/* Skills */}
       <section className="mb-[15px]">
         <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">
           Skills
@@ -349,6 +304,62 @@ const RESUME_ExpAndFresher_28 = () => {
         ))}
       </section>
 
+
+      {/* Education */}
+      <section className="mb-[15px]">
+        <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">
+          Education
+        </h2>
+        <hr className="border-t border-[#808080] mb-[10px]" />
+        {educationToDisplay.map((edu, i) => (
+          <div className="flex justify-between items-start mb-[5px]" key={i}>
+            <div className="flex-grow">
+              <h3 className="text-[12pt] font-bold mb-[2px]">{edu.degree}</h3>
+              <p>{edu.collegeName}</p>
+            </div>
+            <div className="text-right text-[11pt]">
+              {edu.cgpa && <p className="font-bold">CGPA: {edu.cgpa}</p>}
+              {edu.percentage && <p className="font-bold">Percentage: {edu.percentage}</p>}
+              <p>
+                {edu.startDate}
+                {edu.endDate && `-${edu.endDate}`}
+              </p>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      {/* Experience */}
+      <section className="mb-[15px]">
+        <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">
+          Experience
+        </h2>
+        <hr className="border-t border-[#808080] mb-[10px]" />
+        {workExperienceToDisplay.map((exp, i) => (
+          <div className="mb-[5px]" key={i}>
+            <div className="flex justify-between items-start">
+              <h3 className="text-[12pt] font-bold mb-[2px]">
+                {exp.jobTitle}, {exp.companyName}
+              </h3>
+              <p className="text-[11pt] text-right">
+                {exp.startDate} - {exp.endDate}
+              </p>
+            </div>
+            <ul className="list-disc ml-[20px] mb-[10px]">
+              {(Array.isArray(exp.responsibilities)
+                ? exp.responsibilities
+                : exp.responsibilities
+                ? exp.responsibilities.split("\n")
+                : []
+              ).map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </section>
+
+     
       {/* Certifications */}
       <section className="mb-[15px]">
         <h2 className="text-[12pt] font-bold uppercase text-[#000000] mb-[0px]">

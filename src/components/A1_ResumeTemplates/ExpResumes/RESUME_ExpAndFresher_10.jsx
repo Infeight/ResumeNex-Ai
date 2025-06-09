@@ -67,6 +67,13 @@ const RESUME_ExpAndFresher_10 = () => {
           >
             {formData.otherLink || "adelaidereeves.dev"}
           </a>
+
+{formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+
         </p>
       </div>
 
@@ -91,150 +98,47 @@ const RESUME_ExpAndFresher_10 = () => {
         </div>
       </div>
 
-      {/* Work Experience */}
+
+        {/* Skills */}
       <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">
-        Work Experience
+        Skills
       </h2>
-      <div className="mb-4">
-        {hasArrayData(workExperience, "companyName")
-          ? workExperience.map((exp, idx) => (
-              <div className="mb-3" key={idx}>
-                <div className="flex justify-between text-[14px] font-bold">
-                  <span>{exp.jobTitle || "Software Developer"}</span>
-                  <span className="italic">
-                    {(exp.startDate || "Jan 2023")} - {(exp.endDate || "Present")}
-                  </span>
-                </div>
-                <div className="text-[14px] font-bold">
-                  {exp.companyName || "TechCorp, New York, NY"}
-                </div>
-                <ul className="list-disc pl-5 text-[12px] mt-1">
-                  {exp.responsibilities
-                    ? exp.responsibilities.split("\n").map((line, i) => (
-                        <li key={i}>{line}</li>
-                      ))
-                    : [
-                        <li key="1">
-                          <i>Developed</i> scalable web applications using Python and
-                          Django, enhancing user experience for <b>10,000+</b> monthly users.
-                        </li>,
-                        <li key="2">
-                          <i>Implemented</i> CI/CD pipelines with Jenkins, reducing
-                          deployment time by <b>30%</b>.
-                        </li>,
-                        <li key="3">
-                          <i>Designed</i> RESTful APIs, improving system interoperability by{" "}
-                          <b>20%</b>.
-                        </li>,
-                      ]}
-                </ul>
-              </div>
-            ))
-          : (
-            <>
-              <div className="mb-3">
-                <div className="flex justify-between text-[14px] font-bold">
-                  <span>Software Developer</span>
-                  <span className="italic">Jan 2023 - Present</span>
-                </div>
-                <div className="text-[14px] font-bold">TechCorp, New York, NY</div>
-                <ul className="list-disc pl-5 text-[12px] mt-1">
-                  <li>
-                    <i>Developed</i> scalable web applications using Python and
-                    Django, enhancing user experience for <b>10,000+</b> monthly users.
-                  </li>
-                  <li>
-                    <i>Implemented</i> CI/CD pipelines with Jenkins, reducing
-                    deployment time by <b>30%</b>.
-                  </li>
-                  <li>
-                    <i>Designed</i> RESTful APIs, improving system interoperability by{" "}
-                    <b>20%</b>.
-                  </li>
-                </ul>
-              </div>
-              <div className="mb-3">
-                <div className="flex justify-between text-[14px] font-bold">
-                  <span>Junior Developer</span>
-                  <span className="italic">Jun 2021 - Dec 2022</span>
-                </div>
-                <div className="text-[14px] font-bold">
-                  Innovate Solutions, New York, NY
-                </div>
-                <ul className="list-disc pl-5 text-[12px] mt-1">
-                  <li>
-                    <i>Developed</i> front-end components with React, increasing user
-                    engagement by <b>15%</b>.
-                  </li>
-                  <li>
-                    <i>Optimized</i> database queries, reducing load times by{" "}
-                    <b>25%</b>.
-                  </li>
-                  <li>
-                    <i>Collaborated</i> with cross-functional teams to deliver
-                    projects <b>10%</b> ahead of schedule.
-                  </li>
-                </ul>
-              </div>
-            </>
-          )}
+      <div className="mb-4 text-[12px]">
+        <div className="flex">
+          <div className="w-[65%]">
+            <p>
+              <span className="font-bold">Languages:</span>{" "}
+              {(additional.languages && additional.languages.length > 0)
+                ? additional.languages.map((lang, idx) =>
+                    lang.name
+                      ? `${lang.name}${lang.proficiency ? ` (${lang.proficiency})` : ""}`
+                      : null
+                  ).filter(Boolean).join(", ")
+                : "English (Fluent), Spanish (Intermediate)"
+              }
+            </p>
+            <p>
+              <span className="font-bold">Computer Skills:</span>{" "}
+              {(skills.technical && skills.technical.length > 0)
+                ? skills.technical.join(", ")
+                : "Python (Advanced), JavaScript (Intermediate), SQL (Intermediate)"
+              }
+            </p>
+            <p>
+              <span className="font-bold">Other:</span>{" "}
+              {(skills.soft && skills.soft.length > 0)
+                ? skills.soft.join(", ")
+                : "Project Management, Data Analysis, Agile Methodologies"
+              }
+            </p>
+          </div>
+          <div className="w-[30%] text-right text-[12px]">
+            <p>Proficiency: {skills.related || "Advanced"}</p>
+          </div>
+        </div>
       </div>
 
-      {/* Education */}
-      <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">
-        Education
-      </h2>
-      <div className="mb-4">
-        {hasArrayData(education, "collegeName")
-          ? education.map((edu, idx) => (
-              <div className="mb-2" key={idx}>
-                <div className="flex justify-between text-[14px]">
-                  <span className="font-bold">
-                    {edu.degree || "Master’s Degree in Computer Science"}
-                  </span>
-                  <span className="italic font-bold">
-                    {(edu.startDate || "Aug 2022")} - {(edu.endDate || "May 2024")}
-                  </span>
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <span>{edu.collegeName || "New York University, New York, NY"}</span>
-                  <span className="italic">
-                    CGPA: {edu.cgpa || "8.5/10"}
-                  </span>
-                </div>
-              </div>
-            ))
-          : (
-            <>
-              <div className="mb-2">
-                <div className="flex justify-between text-[14px]">
-                  <span className="font-bold">
-                    Master’s Degree in Computer Science
-                  </span>
-                  <span className="italic font-bold">Aug 2022 - May 2024</span>
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <span>New York University, New York, NY</span>
-                  <span className="italic">CGPA: 8.5/10</span>
-                </div>
-              </div>
-              <div>
-                <div className="flex justify-between text-[14px]">
-                  <span className="font-bold">
-                    Bachelor’s Degree in Computer Science
-                  </span>
-                  <span className="italic font-bold">Aug 2018 - May 2022</span>
-                </div>
-                <div className="flex justify-between text-[12px]">
-                  <span>New York University, New York, NY</span>
-                  <span className="italic">CGPA: 8.0/10</span>
-                </div>
-              </div>
-            </>
-          )}
-      </div>
-
-      {/* Projects */}
+       {/* Projects */}
       <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">
         Projects
       </h2>
@@ -325,44 +229,154 @@ const RESUME_ExpAndFresher_10 = () => {
           )}
       </div>
 
-      {/* Skills */}
+       {/* Education */}
       <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">
-        Skills
+        Education
       </h2>
-      <div className="mb-4 text-[12px]">
-        <div className="flex">
-          <div className="w-[65%]">
-            <p>
-              <span className="font-bold">Languages:</span>{" "}
-              {(additional.languages && additional.languages.length > 0)
-                ? additional.languages.map((lang, idx) =>
-                    lang.name
-                      ? `${lang.name}${lang.proficiency ? ` (${lang.proficiency})` : ""}`
-                      : null
-                  ).filter(Boolean).join(", ")
-                : "English (Fluent), Spanish (Intermediate)"
-              }
-            </p>
-            <p>
-              <span className="font-bold">Computer Skills:</span>{" "}
-              {(skills.technical && skills.technical.length > 0)
-                ? skills.technical.join(", ")
-                : "Python (Advanced), JavaScript (Intermediate), SQL (Intermediate)"
-              }
-            </p>
-            <p>
-              <span className="font-bold">Other:</span>{" "}
-              {(skills.soft && skills.soft.length > 0)
-                ? skills.soft.join(", ")
-                : "Project Management, Data Analysis, Agile Methodologies"
-              }
-            </p>
-          </div>
-          <div className="w-[30%] text-right text-[12px]">
-            <p>Proficiency: {skills.related || "Advanced"}</p>
-          </div>
-        </div>
+      <div className="mb-4">
+        {hasArrayData(education, "collegeName")
+          ? education.map((edu, idx) => (
+              <div className="mb-2" key={idx}>
+                <div className="flex justify-between text-[14px]">
+                  <span className="font-bold">
+                    {edu.degree || "Master’s Degree in Computer Science"}
+                  </span>
+                  <span className="italic font-bold">
+                    {(edu.startDate || "Aug 2022")} - {(edu.endDate || "May 2024")}
+                  </span>
+                </div>
+                <div className="flex justify-between text-[12px]">
+                  <span>{edu.collegeName || "New York University, New York, NY"}</span>
+                  <span className="italic">
+                    CGPA: {edu.cgpa || "8.5/10"}
+                  </span>
+                </div>
+              </div>
+            ))
+          : (
+            <>
+              <div className="mb-2">
+                <div className="flex justify-between text-[14px]">
+                  <span className="font-bold">
+                    Master’s Degree in Computer Science
+                  </span>
+                  <span className="italic font-bold">Aug 2022 - May 2024</span>
+                </div>
+                <div className="flex justify-between text-[12px]">
+                  <span>New York University, New York, NY</span>
+                  <span className="italic">CGPA: 8.5/10</span>
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-[14px]">
+                  <span className="font-bold">
+                    Bachelor’s Degree in Computer Science
+                  </span>
+                  <span className="italic font-bold">Aug 2018 - May 2022</span>
+                </div>
+                <div className="flex justify-between text-[12px]">
+                  <span>New York University, New York, NY</span>
+                  <span className="italic">CGPA: 8.0/10</span>
+                </div>
+              </div>
+            </>
+          )}
       </div>
+
+
+
+      {/* Work Experience */}
+      <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">
+        Work Experience
+      </h2>
+      <div className="mb-4">
+        {hasArrayData(workExperience, "companyName")
+          ? workExperience.map((exp, idx) => (
+              <div className="mb-3" key={idx}>
+                <div className="flex justify-between text-[14px] font-bold">
+                  <span>{exp.jobTitle || "Software Developer"}</span>
+                  <span className="italic">
+                    {(exp.startDate || "Jan 2023")} - {(exp.endDate || "Present")}
+                  </span>
+                </div>
+                <div className="text-[14px] font-bold">
+                  {exp.companyName || "TechCorp, New York, NY"}
+                </div>
+                <ul className="list-disc pl-5 text-[12px] mt-1">
+                  {exp.responsibilities
+                    ? exp.responsibilities.split("\n").map((line, i) => (
+                        <li key={i}>{line}</li>
+                      ))
+                    : [
+                        <li key="1">
+                          <i>Developed</i> scalable web applications using Python and
+                          Django, enhancing user experience for <b>10,000+</b> monthly users.
+                        </li>,
+                        <li key="2">
+                          <i>Implemented</i> CI/CD pipelines with Jenkins, reducing
+                          deployment time by <b>30%</b>.
+                        </li>,
+                        <li key="3">
+                          <i>Designed</i> RESTful APIs, improving system interoperability by{" "}
+                          <b>20%</b>.
+                        </li>,
+                      ]}
+                </ul>
+              </div>
+            ))
+          : (
+            <>
+              <div className="mb-3">
+                <div className="flex justify-between text-[14px] font-bold">
+                  <span>Software Developer</span>
+                  <span className="italic">Jan 2023 - Present</span>
+                </div>
+                <div className="text-[14px] font-bold">TechCorp, New York, NY</div>
+                <ul className="list-disc pl-5 text-[12px] mt-1">
+                  <li>
+                    <i>Developed</i> scalable web applications using Python and
+                    Django, enhancing user experience for <b>10,000+</b> monthly users.
+                  </li>
+                  <li>
+                    <i>Implemented</i> CI/CD pipelines with Jenkins, reducing
+                    deployment time by <b>30%</b>.
+                  </li>
+                  <li>
+                    <i>Designed</i> RESTful APIs, improving system interoperability by{" "}
+                    <b>20%</b>.
+                  </li>
+                </ul>
+              </div>
+              <div className="mb-3">
+                <div className="flex justify-between text-[14px] font-bold">
+                  <span>Junior Developer</span>
+                  <span className="italic">Jun 2021 - Dec 2022</span>
+                </div>
+                <div className="text-[14px] font-bold">
+                  Innovate Solutions, New York, NY
+                </div>
+                <ul className="list-disc pl-5 text-[12px] mt-1">
+                  <li>
+                    <i>Developed</i> front-end components with React, increasing user
+                    engagement by <b>15%</b>.
+                  </li>
+                  <li>
+                    <i>Optimized</i> database queries, reducing load times by{" "}
+                    <b>25%</b>.
+                  </li>
+                  <li>
+                    <i>Collaborated</i> with cross-functional teams to deliver
+                    projects <b>10%</b> ahead of schedule.
+                  </li>
+                </ul>
+              </div>
+            </>
+          )}
+      </div>
+
+     
+     
+    
 
       {/* Certifications */}
       <h2 className="text-[20px] font-bold uppercase border-b border-black pb-1 mb-2 mt-5 text-center">

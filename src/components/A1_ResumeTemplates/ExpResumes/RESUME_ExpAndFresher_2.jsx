@@ -62,15 +62,12 @@ const RESUME_ExpAndFresher_2 = () => {
       {formData.otherLink || "portfolio.saipatel.com"}
     </a>
     {" | "}
-    Figma:{" "}
-    <a
-      href={formData.figma || "https://figma.com/@saipatel"}
-      className="text-[#0000EE] underline"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {formData.figma || "figma.com/@saipatel"}
-    </a>
+  {formData.figma  && (
+        <p>
+     Figma:<a href={formData.figma || '#'} className="underline text-blue-700" target="_blank" rel="noopener noreferrer">{formData.figma || 'figma.com/yourusername'}</a>
+</p>
+      )}
+      
     <br />
     {formData.city || "123 Tech Road"}, {formData.state || "Mumbai"}, {formData.pincode || "400001"}
   </p>
@@ -91,48 +88,50 @@ const RESUME_ExpAndFresher_2 = () => {
         <hr className="border-t border-black my-[4px]" />
       </section>
 
-      {/* Education */}
-    <section>
-  <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">Education</h2>
-  {education && education.length > 0 && education[0].collegeName
-    ? education.map((edu, idx) => (
-        <div key={idx} className="text-[12px] m-0 flex justify-between">
-          <div>
-            <span className="font-bold">{edu.degree || "B.E. in Information Technology"}</span>
-            <br />
-            {edu.collegeName || "XYZ Institute of Technology"}, {edu.location || "Mumbai, MH"}
-            <br />
-            Stream: {edu.stream || "Web Development"}
-          </div>
-          <div className="text-right">
-            {edu.startDate || "June 2020"} - {edu.endDate || "May 2024"}
-            <br />
-            CGPA: {edu.cgpa || "9.0/10.0"}
-          </div>
+
+      
+      {/* Skills */}
+     <section>
+        <h2 style={{ fontSize: 18, fontWeight: 700, margin: "10px 0 5px 0" }}>
+          Skills
+        </h2>
+        <div style={{ fontSize: 13 }}>
+          <span style={{ fontWeight: 600 }}>Technical Skills:</span>
+          <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
+            {(skills.technical && skills.technical.length > 0
+              ? skills.technical
+              : ["React", "JavaScript", "HTML", "CSS"]
+            ).map((skill, idx) => (
+              <li key={idx}>{skill}</li>
+            ))}
+          </ul>
+          <span style={{ fontWeight: 600, display: "block", marginTop: 8 }}>
+            Soft Skills:
+          </span>
+          <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
+            {(skills.soft && skills.soft.length > 0
+              ? skills.soft
+              : ["Communication", "Teamwork", "Problem-solving"]
+            ).map((skill, idx) => (
+              <li key={idx}>{skill}</li>
+            ))}
+          </ul>
+          {skills.related && (
+            <>
+              <span style={{ fontWeight: 600, display: "block", marginTop: 8 }}>
+                Other Skills:
+              </span>
+              <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
+                <li>{skills.related}</li>
+              </ul>
+            </>
+          )}
         </div>
-      ))
-    : (
-      <div className="text-[12px] m-0 flex justify-between">
-        <div>
-          <span className="font-bold">B.E. in Information Technology</span>
-          <br />
-          XYZ Institute of Technology, Mumbai, MH
-          <br />
-          Stream: Web Development
-        </div>
-        <div className="text-right">
-          June 2020 - May 2024
-          <br />
-          CGPA: 9.0/10.0
-        </div>
-      </div>
-    )
-  }
-  <hr className="border-t border-black my-[4px]" />
-</section>
+        <hr style={{ borderTop: "1px solid #ccc", margin: "8px 0" }} />
+      </section>
 
 
-      {/* Projects */}
+       {/* Projects */}
       <section>
         <h2 style={{ fontSize: 18, fontWeight: 700, margin: "10px 0 5px 0" }}>
           Work Experience
@@ -198,6 +197,49 @@ const RESUME_ExpAndFresher_2 = () => {
       </section>
 
 
+
+      {/* Education */}
+    <section>
+  <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">Education</h2>
+  {education && education.length > 0 && education[0].collegeName
+    ? education.map((edu, idx) => (
+        <div key={idx} className="text-[12px] m-0 flex justify-between">
+          <div>
+            <span className="font-bold">{edu.degree || "B.E. in Information Technology"}</span>
+            <br />
+            {edu.collegeName || "XYZ Institute of Technology"}, {edu.location || "Mumbai, MH"}
+            <br />
+            Stream: {edu.stream || "Web Development"}
+          </div>
+          <div className="text-right">
+            {edu.startDate || "June 2020"} - {edu.endDate || "May 2024"}
+            <br />
+            CGPA: {edu.cgpa || "9.0/10.0"}
+          </div>
+        </div>
+      ))
+    : (
+      <div className="text-[12px] m-0 flex justify-between">
+        <div>
+          <span className="font-bold">B.E. in Information Technology</span>
+          <br />
+          XYZ Institute of Technology, Mumbai, MH
+          <br />
+          Stream: Web Development
+        </div>
+        <div className="text-right">
+          June 2020 - May 2024
+          <br />
+          CGPA: 9.0/10.0
+        </div>
+      </div>
+    )
+  }
+  <hr className="border-t border-black my-[4px]" />
+</section>
+
+
+     
       {/* Work Experience */}
       <section>
         <h2 className="text-[20px] font-bold uppercase m-[10px_0_5px_0]">
@@ -330,45 +372,6 @@ const RESUME_ExpAndFresher_2 = () => {
         <hr style={{ borderTop: "1px solid #ccc", margin: "8px 0" }} />
       </section>
 
-      {/* Skills */}
-     <section>
-        <h2 style={{ fontSize: 18, fontWeight: 700, margin: "10px 0 5px 0" }}>
-          Skills
-        </h2>
-        <div style={{ fontSize: 13 }}>
-          <span style={{ fontWeight: 600 }}>Technical Skills:</span>
-          <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
-            {(skills.technical && skills.technical.length > 0
-              ? skills.technical
-              : ["React", "JavaScript", "HTML", "CSS"]
-            ).map((skill, idx) => (
-              <li key={idx}>{skill}</li>
-            ))}
-          </ul>
-          <span style={{ fontWeight: 600, display: "block", marginTop: 8 }}>
-            Soft Skills:
-          </span>
-          <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
-            {(skills.soft && skills.soft.length > 0
-              ? skills.soft
-              : ["Communication", "Teamwork", "Problem-solving"]
-            ).map((skill, idx) => (
-              <li key={idx}>{skill}</li>
-            ))}
-          </ul>
-          {skills.related && (
-            <>
-              <span style={{ fontWeight: 600, display: "block", marginTop: 8 }}>
-                Other Skills:
-              </span>
-              <ul style={{ margin: "4px 0 0 16px", padding: 0 }}>
-                <li>{skills.related}</li>
-              </ul>
-            </>
-          )}
-        </div>
-        <hr style={{ borderTop: "1px solid #ccc", margin: "8px 0" }} />
-      </section>
 
       {/* Additional Sections */}
        <section>

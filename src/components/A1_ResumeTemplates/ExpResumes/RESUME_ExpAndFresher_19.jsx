@@ -96,106 +96,32 @@ const RESUME_ExpAndFresher_19 = () => {
           </p>
         </div>
 
-        {/* Experience */}
+        {/* Skills */}
         <div className="mb-[18px]">
           <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">
-            Experience
+            Skills
           </h2>
-          {work && work.length > 0 && (work[0].jobTitle || work[0].companyName)
-            ? work.map((item, idx) => (
-                <div className="mb-[10px]" key={idx}>
-                  <div className="flex justify-between font-bold text-[12px]">
-                    <span>
-                      {item.jobTitle ? item.jobTitle : "Job Title"},{" "}
-                      {item.companyName ? item.companyName : "Company Name"}
-                    </span>
-                    <span className="font-normal italic">
-                      {(item.startDate || item.endDate)
-                        ? `${item.startDate ? item.startDate : "Start"} – ${item.endDate ? item.endDate : "End"}`
-                        : ""}
-                    </span>
-                  </div>
-                  <ul className="my-[3px] pl-[18px]">
-                    {item.responsibilities
-                      ? item.responsibilities.split("\n").map((line, i) => <li key={i}>{line}</li>)
-                      : (
-                        <>
-                          <li>Developed RESTful APIs and web services in Node.js.</li>
-                          <li>Enhanced UI/UX of core product using React and SASS.</li>
-                          <li>Reduced server response times by 30% via code optimization.</li>
-                        </>
-                      )}
-                  </ul>
-                </div>
-              ))
-            : (
-              <>
-                <div className="mb-[10px]">
-                  <div className="flex justify-between font-bold text-[12px]">
-                    <span>Software Developer, Cloudify Labs</span>
-                    <span className="font-normal italic">Aug 2021 – Present</span>
-                  </div>
-                  <ul className="my-[3px] pl-[18px]">
-                    <li>Developed RESTful APIs and web services in Node.js.</li>
-                    <li>Enhanced UI/UX of core product using React and SASS.</li>
-                    <li>Reduced server response times by 30% via code optimization.</li>
-                  </ul>
-                </div>
-                <div className="mb-[10px]">
-                  <div className="flex justify-between font-bold text-[12px]">
-                    <span>Frontend Developer, BlueSky Apps</span>
-                    <span className="font-normal italic">Jun 2019 – Jul 2021</span>
-                  </div>
-                  <ul className="my-[3px] pl-[18px]">
-                    <li>Built responsive interfaces with React and Redux.</li>
-                    <li>Integrated third-party APIs for real-time data.</li>
-                    <li>Collaborated with QA to reduce bugs by 25%.</li>
-                  </ul>
-                </div>
-              </>
-            )}
+          <div className="flex flex-wrap">
+            <ul className="w-[48%] my-[3px] pl-[18px]">
+              {(skills.technical && skills.technical.length > 0
+                ? skills.technical
+                : ["JavaScript", "React", "Node.js", "REST APIs"]
+              ).map((skill, idx) => (
+                <li key={idx}>{skill}</li>
+              ))}
+            </ul>
+            <ul className="w-[48%] my-[3px] pl-[18px]">
+              {(skills.soft && skills.soft.length > 0
+                ? skills.soft
+                : ["Problem Solving", "Teamwork", "Communication"]
+              ).map((skill, idx) => (
+                <li key={idx}>{skill}</li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        {/* Education */}
-        <div className="mb-[18px]">
-          <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">
-            Education
-          </h2>
-          {edu && (edu.degree || edu.collegeName)
-            ? (
-              <div className="mb-[10px]">
-                <div className="flex justify-between font-bold text-[12px]">
-                  <span>
-                    {edu.degree ? edu.degree : "Degree"}
-                    {edu.stream ? `, ${edu.stream}` : ""}
-                  </span>
-                  <span className="font-normal italic">
-                    {(edu.startDate || edu.endDate)
-                      ? `${edu.startDate ? edu.startDate : "Start"} – ${edu.endDate ? edu.endDate : "End"}`
-                      : ""}
-                  </span>
-                </div>
-                <div className="flex justify-between text-[11px] text-[#555]">
-                  <span>{edu.collegeName ? edu.collegeName : "University Name"}</span>
-                  <span>CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}</span>
-                </div>
-              </div>
-            )
-            : (
-              <div className="mb-[10px]">
-                <div className="flex justify-between font-bold text-[12px]">
-                  <span>B.Tech, Computer Science</span>
-                  <span className="font-normal italic">2015 – 2019</span>
-                </div>
-                <div className="flex justify-between text-[11px] text-[#555]">
-                  <span>UC Berkeley</span>
-                  <span>CGPA: 3.7</span>
-                </div>
-              </div>
-            )}
-        </div>
-
-        {/* Projects */}
+         {/* Projects */}
         <div className="mb-[18px]">
           <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">
             Projects
@@ -279,31 +205,112 @@ const RESUME_ExpAndFresher_19 = () => {
             )}
         </div>
 
-        {/* Skills */}
+
+         {/* Education */}
         <div className="mb-[18px]">
           <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">
-            Skills
+            Education
           </h2>
-          <div className="flex flex-wrap">
-            <ul className="w-[48%] my-[3px] pl-[18px]">
-              {(skills.technical && skills.technical.length > 0
-                ? skills.technical
-                : ["JavaScript", "React", "Node.js", "REST APIs"]
-              ).map((skill, idx) => (
-                <li key={idx}>{skill}</li>
-              ))}
-            </ul>
-            <ul className="w-[48%] my-[3px] pl-[18px]">
-              {(skills.soft && skills.soft.length > 0
-                ? skills.soft
-                : ["Problem Solving", "Teamwork", "Communication"]
-              ).map((skill, idx) => (
-                <li key={idx}>{skill}</li>
-              ))}
-            </ul>
-          </div>
+          {edu && (edu.degree || edu.collegeName)
+            ? (
+              <div className="mb-[10px]">
+                <div className="flex justify-between font-bold text-[12px]">
+                  <span>
+                    {edu.degree ? edu.degree : "Degree"}
+                    {edu.stream ? `, ${edu.stream}` : ""}
+                  </span>
+                  <span className="font-normal italic">
+                    {(edu.startDate || edu.endDate)
+                      ? `${edu.startDate ? edu.startDate : "Start"} – ${edu.endDate ? edu.endDate : "End"}`
+                      : ""}
+                  </span>
+                </div>
+                <div className="flex justify-between text-[11px] text-[#555]">
+                  <span>{edu.collegeName ? edu.collegeName : "University Name"}</span>
+                  <span>CGPA: {edu.cgpa ? edu.cgpa : "CGPA"}</span>
+                </div>
+              </div>
+            )
+            : (
+              <div className="mb-[10px]">
+                <div className="flex justify-between font-bold text-[12px]">
+                  <span>B.Tech, Computer Science</span>
+                  <span className="font-normal italic">2015 – 2019</span>
+                </div>
+                <div className="flex justify-between text-[11px] text-[#555]">
+                  <span>UC Berkeley</span>
+                  <span>CGPA: 3.7</span>
+                </div>
+              </div>
+            )}
         </div>
 
+
+
+
+        {/* Experience */}
+        <div className="mb-[18px]">
+          <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">
+            Experience
+          </h2>
+          {work && work.length > 0 && (work[0].jobTitle || work[0].companyName)
+            ? work.map((item, idx) => (
+                <div className="mb-[10px]" key={idx}>
+                  <div className="flex justify-between font-bold text-[12px]">
+                    <span>
+                      {item.jobTitle ? item.jobTitle : "Job Title"},{" "}
+                      {item.companyName ? item.companyName : "Company Name"}
+                    </span>
+                    <span className="font-normal italic">
+                      {(item.startDate || item.endDate)
+                        ? `${item.startDate ? item.startDate : "Start"} – ${item.endDate ? item.endDate : "End"}`
+                        : ""}
+                    </span>
+                  </div>
+                  <ul className="my-[3px] pl-[18px]">
+                    {item.responsibilities
+                      ? item.responsibilities.split("\n").map((line, i) => <li key={i}>{line}</li>)
+                      : (
+                        <>
+                          <li>Developed RESTful APIs and web services in Node.js.</li>
+                          <li>Enhanced UI/UX of core product using React and SASS.</li>
+                          <li>Reduced server response times by 30% via code optimization.</li>
+                        </>
+                      )}
+                  </ul>
+                </div>
+              ))
+            : (
+              <>
+                <div className="mb-[10px]">
+                  <div className="flex justify-between font-bold text-[12px]">
+                    <span>Software Developer, Cloudify Labs</span>
+                    <span className="font-normal italic">Aug 2021 – Present</span>
+                  </div>
+                  <ul className="my-[3px] pl-[18px]">
+                    <li>Developed RESTful APIs and web services in Node.js.</li>
+                    <li>Enhanced UI/UX of core product using React and SASS.</li>
+                    <li>Reduced server response times by 30% via code optimization.</li>
+                  </ul>
+                </div>
+                <div className="mb-[10px]">
+                  <div className="flex justify-between font-bold text-[12px]">
+                    <span>Frontend Developer, BlueSky Apps</span>
+                    <span className="font-normal italic">Jun 2019 – Jul 2021</span>
+                  </div>
+                  <ul className="my-[3px] pl-[18px]">
+                    <li>Built responsive interfaces with React and Redux.</li>
+                    <li>Integrated third-party APIs for real-time data.</li>
+                    <li>Collaborated with QA to reduce bugs by 25%.</li>
+                  </ul>
+                </div>
+              </>
+            )}
+        </div>
+
+       
+       
+        
         {/* Certifications */}
         <div className="mb-[18px]">
           <h2 className="text-[13px] uppercase bg-[#e7f0fa] text-center py-[4px] mb-[8px]">

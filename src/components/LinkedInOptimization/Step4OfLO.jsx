@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AddIcon from "../commonComponents/AddIcon.jsx";
 import RemoveIcon from "../commonComponents/RemoveIcon.jsx";
 import { useLinkedIn } from "./linkedincontext.jsx";
+import { useUser } from "../commonComponents/usercontext.jsx";
 
 const Step4OfLO = () => {
   // State for Technical Skills
@@ -15,6 +16,7 @@ const Step4OfLO = () => {
 
   // State for LinkedIn Goal (single selection)
   const {selectedGoal, setSelectedGoal} = useLinkedIn();
+  const{darkMode} = useUser();
 
   // Handle Achievement input changes
   const handleAchievementChange = (index, field, value) => {
@@ -46,37 +48,37 @@ const Step4OfLO = () => {
       {/* Skills Section */}
       <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Skills
           </h2>
-          <div className="bg-[#FFF4CC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#FFF4CC]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#FDC700] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
             {/* Technical Skills */}
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Technical Skills
               </label>
               <input
                 type="text"
                 value={technicalSkills}
                 onChange={(e) => setTechnicalSkills(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                 placeholder="e.g., JavaScript, React, MongoDB"
               />
             </div>
 
             {/* Soft Skills */}
             <div className="flex flex-col">
-              <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+              <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                 Soft Skills
               </label>
               <input
                 type="text"
                 value={softSkills}
                 onChange={(e) => setSoftSkills(e.target.value)}
-                className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]"
+                className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FDC700] placeholder-[#A59DAA]`}
                 placeholder="e.g., Communication, Leadership"
               />
             </div>
@@ -87,10 +89,10 @@ const Step4OfLO = () => {
       {/* Achievements Section */}
       <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             Achievements / Awards
           </h2>
-          <div className="bg-[#F8F0FF] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#F8F0FF]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#DAB2FF] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           {achievements.map((achievement, index) => (
@@ -98,7 +100,7 @@ const Step4OfLO = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-[35px]">
                 {/* Achievement Name */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Achievement Name
                   </label>
                   <input
@@ -107,14 +109,14 @@ const Step4OfLO = () => {
                     onChange={(e) =>
                       handleAchievementChange(index, "name", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., Best Coder Award"
                   />
                 </div>
 
                 {/* Year */}
                 <div className="flex flex-col">
-                  <label className="text-[#170F49] font-inter font-medium mb-1 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-1 text-[18px]`}>
                     Year
                   </label>
                   <input
@@ -123,14 +125,14 @@ const Step4OfLO = () => {
                     onChange={(e) =>
                       handleAchievementChange(index, "year", e.target.value)
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-full px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="e.g., 2023"
                   />
                 </div>
 
                 {/* Description */}
                 <div className="flex flex-col col-span-1 md:col-span-2">
-                  <label className="text-[#170F49] font-inter font-medium mb-2 text-[18px]">
+                  <label className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-inter font-medium mb-2 text-[18px]`}>
                     Description
                   </label>
                   <textarea
@@ -143,7 +145,7 @@ const Step4OfLO = () => {
                         e.target.value
                       )
                     }
-                    className="bg-white border border-[#DCDCDC] rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]"
+                    className={`${darkMode?'bg-[#363B45]':'bg-white'} border ${darkMode?'border-[#363B45]':'border-[#DCDCDC]'} rounded-xl px-5 py-4 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#DAB2FF] placeholder-[#A59DAA]`}
                     placeholder="Describe the achievement or award"
                   />
                 </div>
@@ -152,7 +154,7 @@ const Step4OfLO = () => {
               {/* Remove Button (only if more than one entry) */}
               {achievements.length > 1 && (
                 <button
-                  className="mt-4 border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10"
+                  className={`mt-4 border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit  ${darkMode?'bg-[#AD46FF33]':'bg-[#FAF5FF]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8] absolute right-0 -top-10`}
                   onClick={() => removeAchievement(index)}
                 >
                   Remove Achievement
@@ -167,7 +169,7 @@ const Step4OfLO = () => {
             </div>
           ))}
           <button
-            className="border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit bg-[#FAF5FF] rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]"
+            className={`border flex items-center gap-1 font-inter text-[#AD46FF] font-medium text-[16px] px-[10px] py-[2px] w-fit ${darkMode?'bg-[#AD46FF33]':'bg-[#FAF5FF]'} rounded-full hover:scale-95 transition-all cursor-pointer hover:bg-[#e8d9f8]`}
             onClick={addAchievement}
           >
             Add Another Achievement
@@ -179,10 +181,10 @@ const Step4OfLO = () => {
       {/* LinkedIn Goals Section */}
       <div className="flex flex-col gap-[20px]  py-5 px-2  lg:p-6 rounded-lg w-full">
         <div className="relative w-fit">
-          <h2 className="text-[#170F49] font-manrope font-bold text-[24px] relative z-1">
+          <h2 className={`${darkMode?'text-[white]':'text-[#1E1B39]'} font-manrope font-bold text-[24px] relative z-1`}>
             LinkedIn Goals (Optional)
           </h2>
-          <div className="bg-[#EBFACC] h-2/4 w-3/4 absolute -bottom-0 -left-2"></div>
+          <div className={`${darkMode?'bg-[#1A1D23]':'bg-[#EBFACC]'} h-2/4 w-3/4 absolute -bottom-0 -left-2`}></div>
         </div>
         <div className="border-l-2 border-[#9AE600] pl-[20px] lg:pl-[30px] ml-[10px]  md:ml-[20px]">
           <div className="flex flex-wrap gap-[15px]">
@@ -196,7 +198,7 @@ const Step4OfLO = () => {
                 onClick={() => handleGoalChange(goal.key)}
                 className={`border flex items-center gap-1 font-inter font-medium text-start text-[18px] px-4 py-2 rounded-full transition-all cursor-pointer ${
                   selectedGoal === goal.key
-                    ? "bg-[#e5fabc] text-[#699C01]"
+                    ? `${darkMode?'bg-[#699C0133]':'bg-[#e5fabc]'} text-[#699C01]`
                     : "text-[#A59DAA] hover:bg-[#f5f5f5]"
                 }`}
               >

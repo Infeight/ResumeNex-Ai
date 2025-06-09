@@ -1,10 +1,13 @@
+import { useUser } from "./usercontext";
+
 const ProgressIndicator = ({ percentage }) => {
+  const{darkMode} = useUser();
   const radius = 96;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="flex items-center justify-center  bg-white ">
+    <div className={`flex items-center justify-center  ${darkMode?'bg-[#363B45]':'bg-[white]'} `}>
       <div className="relative w-[110px] h-[110px]">
         <svg
           className="transform -rotate-90 w-full h-full "
