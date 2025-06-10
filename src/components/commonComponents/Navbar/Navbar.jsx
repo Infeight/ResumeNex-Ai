@@ -176,7 +176,7 @@ const Navbar = () => {
            <button
       id="darkmodebtn"
       onClick={handleDarkmode}
-      className="w-10 h-10 flex justify-center items-center cursor-pointer transition-transform duration-500"
+      className={`w-10 h-10 rounded-4xl flex justify-center items-center cursor-pointer transition-transform duration-500 ${darkMode?'bg-[#363b45]':'bg-[#363b4529]'}`}
       style={{ transform: `rotate(${rotation}deg)` }}
     >
       {darkMode ? (
