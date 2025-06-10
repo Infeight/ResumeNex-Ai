@@ -71,9 +71,11 @@ const Sidebar = () => {
     flex flex-col
     gap-0 lg:gap-52
     ${darkMode ? 'bg-[#23272F]' : 'bg-[#F7F7FB]'}
-    h-screen sticky top-[70px] lg:top-[70px]
+    lg:h-screen               
+    sticky top-[70px] lg:top-[70px]
     p-0 lg:p-[23px]
-    font-inter text-[17px] font-semibold ${darkMode ? 'text-white' : 'text-[#1E1B39]'}
+    font-inter text-[17px] font-semibold
+    ${darkMode ? 'text-white' : 'text-[#1E1B39]'}
     select-none
     z-30
     left-0 lg:left-0
@@ -82,6 +84,7 @@ const Sidebar = () => {
     border-b-0 lg:border-b-0
   `}
 >
+
 
 
 <nav
