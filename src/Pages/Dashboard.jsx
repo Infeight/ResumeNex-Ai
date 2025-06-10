@@ -16,13 +16,13 @@ const AISugg = lazy(() => import("../components/userDashboard/AISugg"));
 
 const Dashboard = () => {
   return (
-    <div className="flex  mx-auto ">
+    <div className="flex flex-col lg:flex-row mx-auto">
       <Suspense fallback={"Loading..."}>
         <Sidebar />
       </Suspense>
 
       {/* Main Content */}
-      <div className="flex-1 pt-[20px] p-5 mt-20 lg:mt-0">
+      <div className="flex-1 pt-[20px] p-5 mt-5 lg:mt-0">
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<DashboardContent />} />
